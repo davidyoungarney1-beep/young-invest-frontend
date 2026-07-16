@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Young Invest</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body{
+            background:#f5f7fa;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            font-family:Arial,sans-serif;
+        }
+
+        .register-box{
+            width:380px;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 10px 25px rgba(0,0,0,.15);
+        }
+
+        .register-box h2{
+            text-align:center;
+            color:#0d1b2a;
+            margin-bottom:20px;
+        }
+
+        .register-box input{
+            width:100%;
+            padding:12px;
+            margin:10px 0;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            box-sizing:border-box;
+        }
+
+        .register-box button{
+            width:100%;
+            padding:12px;
+            border:none;
+            background:#00c853;
+            color:white;
+            border-radius:8px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .register-box button:hover{
+            background:#009624;
+        }
+
+        .register-box p{
+            text-align:center;
+            margin-top:15px;
+        }
+
+        .register-box a{
+            color:#00c853;
+            text-decoration:none;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="register-box">
+
+    <h2>Create Account</h2>
+
+    <form id="registerForm">
+
+        <input type="text" id="fullName" placeholder="Full Name" required>
+
+        <input type="email" id="email" placeholder="Email Address" required>
+
+        <input type="tel" id="phone" placeholder="Phone Number" required>
+
+        <input type="password" id="password" placeholder="Password" required>
+
+        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+
+        <button type="submit">Create Account</button>
+
+        <p>
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+    </form>
+
+</div>
+
+<script src="register.js"></script>
+
+</body>
+                            </html>
