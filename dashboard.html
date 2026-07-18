@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Young Invest</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>Young Invest</h2>
+
+<ul>
+
+<li class="active">
+<i class="fas fa-home"></i>
+Dashboard
+</li>
+
+<li>
+<i class="fas fa-wallet"></i>
+Deposit
+</li>
+
+<li>
+<i class="fas fa-chart-line"></i>
+Invest
+</li>
+
+<li>
+<i class="fas fa-money-bill-wave"></i>
+Withdraw
+</li>
+
+<li>
+<i class="fas fa-history"></i>
+History
+</li>
+
+<li>
+<i class="fas fa-user"></i>
+Profile
+</li>
+
+<li id="logout">
+<i class="fas fa-sign-out-alt"></i>
+Logout
+</li>
+
+</ul>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
+
+<div class="topbar">
+
+<h1>
+
+Welcome,
+
+<span id="userName">
+
+Investor
+
+</span>
+
+👋
+
+</h1>
+
+</div>
+
+<!-- Cards -->
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Wallet Balance</h3>
+
+<h2>₦0.00</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Invested</h3>
+
+<h2>₦0.00</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Earnings</h3>
+
+<h2>₦0.00</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Withdrawable</h3>
+
+<h2>₦0.00</h2>
+
+</div>
+
+</div>
+<!-- Investment Plans -->
+
+<h2 class="section-title">Investment Plans</h2>
+
+<div class="plan-container">
+
+<div class="plan-card">
+
+<h3>🌱 Starter Plan</h3>
+
+<p>Investment</p>
+
+<h2>₦5,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦1,200</h4>
+
+<button>Invest Now</button>
+
+</div>
+
+<div class="plan-card">
+
+<h3>🥈 Silver Plan</h3>
+
+<p>Investment</p>
+
+<h2>₦20,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦4,500</h4>
+
+<button>Invest Now</button>
+
+</div>
+
+<div class="plan-card">
+
+<h3>🥇 Gold Plan</h3>
+
+<p>Investment</p>
+
+<h2>₦50,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦12,000</h4>
+
+<button>Invest Now</button>
+
+</div>
+
+</div>
+
+<!-- Recent Transactions -->
+
+<h2 class="section-title">
+
+Recent Transactions
+
+</h2>
+
+<div class="transactions">
+
+<p>No recent transactions.</p>
+
+</div>
+
+<!-- Profile -->
+
+<h2 class="section-title">
+
+My Profile
+
+</h2>
+
+<div class="profile-box">
+
+<p><strong>Name:</strong> <span id="profileName"></span></p>
+
+<p><strong>Email:</strong> <span id="profileEmail"></span></p>
+
+<p><strong>Phone:</strong> <span id="profilePhone"></span></p>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="dashboard.js"></script>
+
+</body>
+
+  </html>
