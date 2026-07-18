@@ -337,54 +337,44 @@ const response = await fetch(
     }
 );
 
-const text = await response.text();
-alert(text);
-return;
+const data = await response.json();
 
-btn.disabled=false;
+btn.disabled = false;
+btn.innerHTML = "✅ I Have Made Payment";
 
-btn.innerHTML="✅ I Have Made Payment";
+if (response.ok) {
 
-if(response.ok){
+    if (typeof showSuccess === "function") {
 
-if(typeof showSuccess==="function"){
+        showSuccess(
+            "Deposit Submitted",
+            "Your deposit request has been sent successfully and is awaiting approval.",
+            function () {
+                window.location.href = "dashboard.html";
+            }
+        );
 
-showSuccess(
+    } else {
 
-"Deposit Submitted",
+        alert("Deposit submitted successfully.");
+        window.location.href = "dashboard.html";
 
-"Your deposit request has been sent successfully and is awaiting approval.",
+    }
 
-function(){
+} else {
 
-window.location.href="dashboard.html";
+    if (typeof showError === "function") {
 
-}
+        showError(
+            "Submission Failed",
+            data.message || "Unable to submit deposit."
+        );
 
-);
+    } else {
 
-}else{
+        alert(data.message);
 
-alert("Deposit submitted successfully.");
-
-window.location.href="dashboard.html";
-
-}
-
-}else{
-
-if(typeof showError==="function"){
-
-showError(
-"Submission Failed",
-data.message||"Unable to submit deposit."
-);
-
-}else{
-
-alert(data.message);
-
-}
+    }
 
 }
 
