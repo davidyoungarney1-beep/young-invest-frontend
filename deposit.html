@@ -326,7 +326,9 @@ const formData = new FormData();
 formData.append("userId", user._id || user.id);
 formData.append("amount", Number(amount));
 formData.append("receipt", receipt);
-
+console.log("User:", user);
+console.log("Amount:", amount);
+console.log("Receipt:", receipt);
 const response = await fetch(
     "https://young-invest-backend.onrender.com/api/deposit",
     {
