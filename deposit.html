@@ -301,26 +301,36 @@ btn.innerHTML="Submitting...";
 
 try{
 
-const response=await fetch(
-"https://young-invest-backend.onrender.com/api/deposit",
-{
+const receipt = document.getElementById("receipt").files[0];
 
-method:"POST",
+if (!receipt) {
 
-headers:{
-"Content-Type":"application/json"
-},
+    btn.disabled = false;
+    btn.innerHTML = "✅ I Have Made Payment";
 
-body:JSON.stringify({
+    if (typeof showError === "function") {
+        showError(
+            "Receipt Required",
+            "Please upload your payment receipt."
+        );
+    } else {
+        alert("Please upload your payment receipt.");
+    }
 
-userId:user.id,
-
-amount:Number(amount)
-
-})
-
+    return;
 }
 
+const formData = new FormData();
+formData.append("userId", user.id);
+formData.append("amount", Number(amount));
+formData.append("receipt", receipt);
+
+const response = await fetch(
+    "https://young-invest-backend.onrender.com/api/deposit",
+    {
+        method: "POST",
+        body: formData
+    }
 );
 
 const data=await response.json();
