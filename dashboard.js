@@ -36,7 +36,7 @@ document.getElementById("totalEarnings").textContent =
 "₦" + Number(user.totalEarnings).toLocaleString();
 
 document.getElementById("withdrawable").textContent =
-"₦" + Number(user.walletBalance).toLocaleString();
+"₦" + Number(user.withdrawableBalance || 0).toLocaleString();
 
 // ================= LOGOUT =================
 
