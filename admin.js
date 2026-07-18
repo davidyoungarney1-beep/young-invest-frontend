@@ -83,19 +83,33 @@ async function loadDeposits() {
 
             if (dep.status === "Pending") pending++;
             if (dep.status === "Approved") approved++;
+tbody.innerHTML += `
+<tr>
+    <td>${dep.user.fullName}</td>
+    <td>${dep.user.email}</td>
+    <td>₦${Number(dep.amount).toLocaleString()}</td>
 
-            tbody.innerHTML += `
-            <tr>
-                <td>${dep.user.fullName}</td>
-                <td>${dep.user.email}</td>
-                <td>₦${Number(dep.amount).toLocaleString()}</td>
-                <td>${dep.status}</td>
-                <td>
-                    <button class="approve" onclick="approveDeposit('${dep._id}')">Approve</button>
-                    <button class="reject" onclick="rejectDeposit('${dep._id}')">Reject</button>
-                </td>
-            </tr>
-            `;
+    <td>
+        ${
+            dep.receipt
+            ? `<a href="${dep.receipt}" target="_blank">👁 View</a>`
+            : "No Receipt"
+        }
+    </td>
+
+    <td>${dep.status}</td>
+
+    <td>
+        <button class="approve" onclick="approveDeposit('${dep._id}')">
+            Approve
+        </button>
+
+        <button class="reject" onclick="rejectDeposit('${dep._id}')">
+            Reject
+        </button>
+    </td>
+</tr>
+`;
 
         });
 
