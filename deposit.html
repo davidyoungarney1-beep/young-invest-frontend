@@ -337,7 +337,9 @@ const response = await fetch(
     }
 );
 
-const data=await response.json();
+const text = await response.text();
+alert(text);
+return;
 
 btn.disabled=false;
 
