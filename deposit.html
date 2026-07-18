@@ -392,19 +392,11 @@ btn.disabled=false;
 
 btn.innerHTML="✅ I Have Made Payment";
 
-if(typeof showError==="function"){
+console.error(error);
 
-showError(
-"Connection Error",
-"Unable to connect to the server."
-);
+alert(error.message);
 
-}else{
-
-alert("Unable to connect to the server.");
-
-}
-
+   }
 }
 
 }
