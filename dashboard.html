@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dashboard | Young Invest</title>
+
+<link rel="stylesheet" href="dashboard.css">
+
+<link rel="stylesheet" href="popup.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="dashboard">
+
+<!-- Sidebar -->
+
+<div class="sidebar">
+
+<h2>Young Invest</h2>
+
+<ul>
+
+<li class="active"
+onclick="window.location.href='dashboard.html'"
+style="cursor:pointer;">
+
+<i class="fas fa-home"></i>
+
+Dashboard
+
+</li>
+
+<li
+onclick="window.location.href='deposit.html'"
+style="cursor:pointer;">
+
+<i class="fas fa-wallet"></i>
+
+Deposit
+
+</li>
+
+<li
+onclick="alert('Investment page coming soon!')"
+style="cursor:pointer;">
+
+<i class="fas fa-chart-line"></i>
+
+Invest
+
+</li>
+
+<li
+onclick="alert('Withdrawal page coming soon!')"
+style="cursor:pointer;">
+
+<i class="fas fa-money-bill-wave"></i>
+
+Withdraw
+
+</li>
+
+<li
+onclick="alert('History page coming soon!')"
+style="cursor:pointer;">
+
+<i class="fas fa-history"></i>
+
+History
+
+</li>
+
+<li
+onclick="alert('Profile page coming soon!')"
+style="cursor:pointer;">
+
+<i class="fas fa-user"></i>
+
+Profile
+
+</li>
+
+<li
+id="logout"
+style="cursor:pointer;">
+
+<i class="fas fa-sign-out-alt"></i>
+
+Logout
+
+</li>
+
+</ul>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="main">
+
+<div class="topbar">
+
+<h1>
+
+Welcome,
+
+<span id="userName">
+
+Investor
+
+</span>
+
+👋
+
+</h1>
+
+</div>
+
+<!-- Wallet Cards -->
+
+<div class="cards">
+
+<div class="card">
+
+<h3>Wallet Balance</h3>
+
+<h2 id="walletBalance">
+
+₦0.00
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Invested</h3>
+
+<h2 id="totalInvestment">
+
+₦0.00
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Total Earnings</h3>
+
+<h2 id="totalEarnings">
+
+₦0.00
+
+</h2>
+
+</div>
+
+<div class="card">
+
+<h3>Withdrawable</h3>
+
+<h2 id="withdrawable">
+
+₦0.00
+
+</h2>
+
+</div>
+
+  </div>
+  <!-- Investment Plans -->
+
+<h2 class="section-title">
+
+Investment Plans
+
+</h2>
+
+<div class="plan-container">
+
+<div class="plan-card">
+
+<h3>🌱 Starter Plan</h3>
+
+<p>Investment Amount</p>
+
+<h2>₦5,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦1,200</h4>
+
+<button onclick="window.location.href='deposit.html'">
+
+Invest Now
+
+</button>
+
+</div>
+
+<div class="plan-card">
+
+<h3>🥈 Silver Plan</h3>
+
+<p>Investment Amount</p>
+
+<h2>₦20,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦4,500</h4>
+
+<button onclick="window.location.href='deposit.html'">
+
+Invest Now
+
+</button>
+
+</div>
+
+<div class="plan-card">
+
+<h3>🥇 Gold Plan</h3>
+
+<p>Investment Amount</p>
+
+<h2>₦50,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦12,000</h4>
+
+<button onclick="window.location.href='deposit.html'">
+
+Invest Now
+
+</button>
+
+</div>
+
+<div class="plan-card">
+
+<h3>💎 Diamond Plan</h3>
+
+<p>Investment Amount</p>
+
+<h2>₦100,000</h2>
+
+<p>Daily Return</p>
+
+<h4>₦25,000</h4>
+
+<button onclick="window.location.href='deposit.html'">
+
+Invest Now
+
+</button>
+
+</div>
+
+</div>
+
+<!-- Recent Transactions -->
+
+<h2 class="section-title">
+
+Recent Transactions
+
+</h2>
+
+<div class="transactions">
+
+<p>
+
+No recent transactions available.
+
+</p>
+
+</div>
+
+<!-- Profile -->
+
+<h2 class="section-title">
+
+My Profile
+
+</h2>
+
+<div class="profile-box">
+
+<p>
+
+<strong>Name:</strong>
+
+<span id="profileName"></span>
+
+</p>
+
+<p>
+
+<strong>Email:</strong>
+
+<span id="profileEmail"></span>
+
+</p>
+
+<p>
+
+<strong>Phone:</strong>
+
+<span id="profilePhone"></span>
+
+</p>
+
+</div>
+<script src="popup.js"></script>
+
+<script src="dashboard.js"></script>
+
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(user){
+
+document.getElementById("userName").textContent =
+user.fullName;
+
+document.getElementById("profileName").textContent =
+user.fullName;
+
+document.getElementById("profileEmail").textContent =
+user.email;
+
+document.getElementById("profilePhone").textContent =
+user.phone;
+
+}
+
+document.getElementById("logout").addEventListener("click",function(){
+
+if(typeof showConfirm==="function"){
+
+showConfirm(
+
+"Logout",
+
+"Are you sure you want to logout?",
+
+function(){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+);
+
+}else{
+
+if(confirm("Are you sure you want to logout?")){
+
+localStorage.removeItem("user");
+
+window.location.href="login.html";
+
+}
+
+}
+
+});
+
+</script>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
