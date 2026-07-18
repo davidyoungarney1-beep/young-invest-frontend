@@ -1,0 +1,300 @@
+/* ==============================
+   GOOGLE FONT
+============================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.dashboard{
+display:flex;
+min-height:100vh;
+}
+
+/* ==============================
+SIDEBAR
+============================== */
+
+.sidebar{
+
+width:260px;
+
+background:#081826;
+
+color:white;
+
+padding:30px;
+
+position:fixed;
+
+height:100vh;
+
+}
+
+.sidebar h2{
+
+text-align:center;
+
+margin-bottom:40px;
+
+color:#00c853;
+
+}
+
+.sidebar ul{
+
+list-style:none;
+
+}
+
+.sidebar ul li{
+
+padding:18px;
+
+margin:12px 0;
+
+border-radius:10px;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.sidebar ul li i{
+
+margin-right:12px;
+
+}
+
+.sidebar ul li:hover{
+
+background:#00c853;
+
+}
+
+.active{
+
+background:#00c853;
+
+}
+
+/* ==============================
+MAIN
+============================== */
+
+.main{
+
+margin-left:260px;
+
+padding:40px;
+
+width:100%;
+
+}
+
+.topbar{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:40px;
+
+}
+
+.topbar h1{
+
+font-size:32px;
+
+color:#081826;
+
+}
+
+/* ==============================
+CARDS
+============================== */
+
+.cards{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+gap:25px;
+
+margin-bottom:40px;
+
+}
+
+.card{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+transition:.3s;
+
+}
+
+.card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.card h3{
+
+color:#777;
+
+margin-bottom:15px;
+
+}
+
+.card h2{
+
+color:#00c853;
+
+font-size:30px;
+
+}
+/* ==============================
+SECTION TITLE
+============================== */
+
+.section-title{
+margin:40px 0 20px;
+font-size:28px;
+color:#081826;
+}
+
+/* ==============================
+INVESTMENT PLANS
+============================== */
+
+.plan-container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+margin-bottom:40px;
+}
+
+.plan-card{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+text-align:center;
+}
+
+.plan-card:hover{
+transform:translateY(-8px);
+}
+
+.plan-card h3{
+color:#081826;
+margin-bottom:15px;
+}
+
+.plan-card h2{
+font-size:38px;
+color:#00c853;
+margin:15px 0;
+}
+
+.plan-card h4{
+font-size:24px;
+color:#00c853;
+margin-bottom:20px;
+}
+
+.plan-card button{
+background:#00c853;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:30px;
+cursor:pointer;
+font-size:16px;
+transition:.3s;
+}
+
+.plan-card button:hover{
+background:#00963d;
+}
+
+/* ==============================
+TRANSACTIONS
+============================== */
+
+.transactions{
+background:white;
+padding:25px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+margin-bottom:40px;
+}
+
+/* ==============================
+PROFILE
+============================== */
+
+.profile-box{
+background:white;
+padding:30px;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.profile-box p{
+margin:15px 0;
+font-size:17px;
+}
+
+/* ==============================
+MOBILE RESPONSIVE
+============================== */
+
+@media(max-width:900px){
+
+.dashboard{
+flex-direction:column;
+}
+
+.sidebar{
+position:relative;
+width:100%;
+height:auto;
+}
+
+.main{
+margin-left:0;
+padding:20px;
+}
+
+.topbar h1{
+font-size:24px;
+}
+
+.cards,
+.plan-container{
+grid-template-columns:1fr;
+}
+
+}
