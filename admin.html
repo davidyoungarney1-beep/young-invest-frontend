@@ -1,98 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Young Invest Admin</title>
-
-<link rel="stylesheet" href="admin.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Young Invest Admin Dashboard</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="admin.css">
+    <!-- Google Fonts & Phosphor Icons for a clean, real-world visual layout -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="dashboard-container">
+        
+        <!-- ==========================================================================
+           1. SIDEBAR NAVIGATION
+           ========================================================================== -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="ph-bold ph-trend-up"></i>
+                <h2>Young Invest</h2>
+            </div>
+            
+            <nav class="sidebar-menu">
+                <ul>
+                    <li class="active">
+                        <a href="#"><i class="ph ph-squares-four"></i> Overview</a>
+                    </li>
+                    <li>
+                        <a href="#pendingSection"><i class="ph ph-clock-counter-clockwise"></i> Pending Deposits</a>
+                    </li>
+                    <li>
+                        <a href="#usersSection"><i class="ph ph-users"></i> User Directory</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="ph ph-gear"></i> Settings</a>
+                    </li>
+                </ul>
+            </nav>
 
-<header>
-<h1>Young Invest Admin Panel</h1>
-</header>
+            <div class="sidebar-footer">
+                <a href="#" class="logout-btn"><i class="ph ph-sign-out"></i> Log Out</a>
+            </div>
+        </aside>
 
-<section class="cards">
+        <!-- ==========================================================================
+           2. MAIN CONTENT AREA
+           ========================================================================== -->
+        <main class="main-content">
+            
+            <!-- Dynamic Real Dashboard Header -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1>Admin Control Panel</h1>
+                    <p>Welcome back, Administrator</p>
+                </div>
+                <div class="admin-profile">
+                    <div class="profile-info">
+                        <strong>Admin User</strong>
+                        <span>Super Admin</span>
+                    </div>
+                    <div class="avatar">A</div>
+                </div>
+            </header>
 
-<div class="card">
-<h3>Total Users</h3>
-<h2 id="totalUsers">0</h2>
-</div>
+            <!-- ==========================================================================
+               3. STATISTICS / OVERVIEW CARDS
+               ========================================================================== -->
+            <section class="metrics-grid">
+                
+                <div class="metric-card">
+                    <div class="metric-icon users-icon">
+                        <i class="ph ph-users"></i>
+                    </div>
+                    <div class="metric-data">
+                        <h3>Total Active Users</h3>
+                        <h2 id="totalUsers">0</h2>
+                    </div>
+                </div>
 
-<div class="card">
-<h3>Pending Deposits</h3>
-<h2 id="pendingCount">0</h2>
-</div>
+                <div class="metric-card">
+                    <div class="metric-icon pending-icon">
+                        <i class="ph ph-clock"></i>
+                    </div>
+                    <div class="metric-data">
+                        <h3>Pending Deposits</h3>
+                        <h2 id="pendingCount">0</h2>
+                    </div>
+                </div>
 
-<div class="card">
-<h3>Approved Deposits</h3>
-<h2 id="approvedCount">0</h2>
-</div>
+                <div class="metric-card">
+                    <div class="metric-icon approved-icon">
+                        <i class="ph ph-check-circle"></i>
+                    </div>
+                    <div class="metric-data">
+                        <h3>Approved Deposits</h3>
+                        <h2 id="approvedCount">0</h2>
+                    </div>
+                </div>
 
-</section>
+            </section>
 
-<h2>Pending Deposits</h2>
+            <!-- ==========================================================================
+               4. DATA TABLES / PANELS
+               ========================================================================== -->
+            
+            <!-- Panel 1: Pending Processes -->
+            <section id="pendingSection" class="table-panel">
+                <div class="panel-header">
+                    <h2>Pending Verification Queue</h2>
+                    <span class="panel-tag warning">Awaiting Action</span>
+                </div>
+                <div class="table-responsive">
+                    <table id="depositTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Amount</th>
+                                <th>Receipt</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic row population via admin.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-<table id="depositTable">
+            <!-- Panel 2: Users Management -->
+            <section id="usersSection" class="table-panel">
+                <div class="panel-header">
+                    <h2>Registered User Ledger</h2>
+                </div>
+                <div class="table-responsive">
+                    <table id="userTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Wallet Bal.</th>
+                                <th>Active Investment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Dynamic row population via admin.js -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-<thead>
+        </main>
+    </div>
 
-<tr>
-
-<th>Name</th>
-
-<th>Email</th>
-
-<th>Amount</th>
-
-<th>Receipt</th>
-
-<th>Status</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody></tbody>
-
-</table>
-
-<h2>Users</h2>
-
-<table id="userTable">
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Email</th>
-
-<th>Wallet</th>
-
-<th>Investment</th>
-
-</tr>
-
-</thead>
-
-<tbody></tbody>
-
-</table>
-
-</div>
-
-<script src="admin.js"></script>
-
+    <!-- Script Injection -->
+    <script src="admin.js"></script>
 </body>
   </html>
