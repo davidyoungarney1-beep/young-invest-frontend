@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Login | Young Invest</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="popup.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+body{background:#f5f7fb;display:flex;justify-content:center;align-items:center;min-height:100vh;font-family:Poppins,sans-serif}
+.login-box{width:380px;background:#fff;padding:35px;border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+h2{text-align:center;color:#081826;margin-bottom:25px}
+input{width:100%;padding:14px;margin:12px 0;border:1px solid #ccc;border-radius:10px;box-sizing:border-box}
+button{width:100%;padding:14px;border:none;border-radius:10px;background:#00c853;color:#fff;font-size:17px;cursor:pointer}
+button:hover{background:#00963d}
+p{text-align:center;margin-top:20px}
+a{color:#00c853;text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="login-box">
+<h2>Welcome Back</h2>
+<form id="loginForm">
+<input type="email" id="email" placeholder="Email Address" required>
+<input type="password" id="password" placeholder="Password" required>
+<button id="loginBtn" type="submit">Login</button>
+<p>Don't have an account? <a href="register.html">Create Account</a></p>
+</form>
+</div>
+<script src="popup.js"></script>
+<script>
+document.getElementById("loginForm").addEventListener("submit",async function(e){
+e.preventDefault();
+const btn=document.getElementById("loginBtn");
+btn.disabled=true;btn.textContent="Logging in...";
+try{
+const res=await fetch("https://young-invest-backend.onrender.com/api/auth/login",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({email:email.value.trim(),password:password.value})});
+const data=await res.json();
+btn.disabled=false;btn.textContent="Login";
+if(res.ok){
+localStorage.setItem("user",JSON.stringify(data.user));
+showSuccess("Login Successful","Welcome back!",()=>location.href="dashboard.html");
+}else{
+showError("Login Failed",data.message||"Invalid email or password.");
+}
+}catch(e){
+btn.disabled=false;btn.textContent="Login";
+showError("Connection Error","Unable to connect to the server.");
+}
+});
+</script>
+</body></html>
