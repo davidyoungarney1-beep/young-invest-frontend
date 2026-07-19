@@ -7,11 +7,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard | Young Invest</title>
+<title>Young Invest | Admin Dashboard</title>
 
 <link rel="stylesheet" href="admin.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -22,7 +22,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="admin-dashboard">
 
-<!-- SIDEBAR -->
+<!-- ======================
+SIDEBAR
+====================== -->
 
 <div class="sidebar">
 
@@ -36,7 +38,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="admin-profile">
 
-<i class="fas fa-user-circle"></i>
+<i class="fas fa-user-shield"></i>
 
 <h3>Administrator</h3>
 
@@ -86,6 +88,22 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 </li>
 
+<li>
+
+<i class="fas fa-clock-rotate-left"></i>
+
+<span>Transactions</span>
+
+</li>
+
+<li>
+
+<i class="fas fa-gear"></i>
+
+<span>Settings</span>
+
+</li>
+
 <li id="logout">
 
 <i class="fas fa-right-from-bracket"></i>
@@ -98,25 +116,47 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 </div>
 
-<!-- MAIN -->
+<!-- ======================
+MAIN CONTENT
+====================== -->
 
 <div class="main">
-
-<!-- TOP BAR -->
 
 <div class="topbar">
 
 <div>
 
-<h1>Admin Dashboard 👋</h1>
+<h1>Welcome Admin 👋</h1>
 
-<p>Manage users, deposits and investments.</p>
+<p>Monitor and manage your investment platform.</p>
+
+</div>
+
+<div class="top-icons">
+
+<div class="notification">
+
+<i class="fas fa-bell"></i>
+
+<span>0</span>
+
+</div>
+
+<div class="notification">
+
+<i class="fas fa-envelope"></i>
+
+<span>0</span>
 
 </div>
 
 </div>
 
-<!-- DASHBOARD STATS -->
+</div>
+
+<!-- ======================
+STATISTICS
+====================== -->
 
 <div class="stats-grid">
 
@@ -126,7 +166,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <h2 id="totalUsers">0</h2>
 
-<p>Registered Users</p>
+<p>Registered Members</p>
 
 </div>
 
@@ -136,7 +176,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <h2 id="pendingCount">0</h2>
 
-<p>Waiting Approval</p>
+<p>Awaiting Approval</p>
 
 </div>
 
@@ -152,17 +192,18 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="stat-card purple">
 
-<h4>System Status</h4>
+<h4>Server Status</h4>
 
 <h2>Online</h2>
 
 <p>Backend Connected</p>
 
-</div> 
 </div>
-<!-- =========================
-USER MANAGEMENT
-========================= -->
+
+    </div>
+<!-- ======================
+REGISTERED USERS
+====================== -->
 
 <h2 class="section-title">Registered Users</h2>
 
@@ -188,7 +229,7 @@ USER MANAGEMENT
 
 <tbody>
 
-<!-- admin.js loads users here -->
+<!-- Users will be loaded by admin.js -->
 
 </tbody>
 
@@ -196,9 +237,9 @@ USER MANAGEMENT
 
 </div>
 
-<!-- =========================
+<!-- ======================
 PENDING DEPOSITS
-========================= -->
+====================== -->
 
 <h2 class="section-title">Pending Deposits</h2>
 
@@ -228,7 +269,7 @@ PENDING DEPOSITS
 
 <tbody>
 
-<!-- admin.js loads deposits here -->
+<!-- Deposits will be loaded by admin.js -->
 
 </tbody>
 
@@ -236,9 +277,11 @@ PENDING DEPOSITS
 
 </div>
 
-<!-- =========================
+<!-- ======================
 QUICK INFORMATION
-========================= -->
+====================== -->
+
+<h2 class="section-title">Quick Information</h2>
 
 <div class="activity-box">
 
@@ -248,11 +291,9 @@ QUICK INFORMATION
 
 <div>
 
-<h4>Registered Members</h4>
+<h4>User Management</h4>
 
-<p>
-All registered users will appear automatically inside the Users table above.
-</p>
+<p>All registered users will appear automatically in the table above.</p>
 
 </div>
 
@@ -264,11 +305,9 @@ All registered users will appear automatically inside the Users table above.
 
 <div>
 
-<h4>Pending Deposits</h4>
+<h4>Deposit Management</h4>
 
-<p>
-Every deposit submitted by users will appear automatically with the uploaded receipt.
-</p>
+<p>Every deposit submitted by users will appear here with the uploaded receipt.</p>
 
 </div>
 
@@ -282,186 +321,16 @@ Every deposit submitted by users will appear automatically with the uploaded rec
 
 <h4>Approval System</h4>
 
-<p>
-Click <strong>Approve</strong> or <strong>Reject</strong> to process each deposit request.
-</p>
+<p>Approve or reject deposits directly from this dashboard.</p>
 
 </div>
 
 </div>
 
-</div>
-<!-- =========================
-SYSTEM STATUS
-========================= -->
-
-<h2 class="section-title">System Overview</h2>
-
-<div class="stats-grid">
-
-<div class="stat-card blue">
-<h4>Backend</h4>
-<h2>Online</h2>
-<p>Render API Connected</p>
-</div>
-
-<div class="stat-card green">
-<h4>Database</h4>
-<h2>Connected</h2>
-<p>MongoDB Atlas</p>
-</div>
-
-<div class="stat-card gold">
-<h4>Security</h4>
-<h2>Protected</h2>
-<p>Admin Authentication Enabled</p>
-</div>
-
-<div class="stat-card purple">
-<h4>Platform</h4>
-<h2>Young Invest</h2>
-<p>Investment Management</p>
-</div>
-
-</div>
-
-<!-- =========================
-FOOTER
-========================= -->
-
-<footer>
-
-<p>
-
-© 2026 Young Invest Admin Panel
-
-</p>
-
-</footer>
-
-</div>
-
-</div>
-
-<!-- =========================
-LOAD JAVASCRIPT
-========================= -->
-
-<script src="admin.js"></script>
-
-</body>
-
-    </html>
-<!-- =========================
-ADMIN NOTES
-========================= -->
-
-<h2 class="section-title">Administrator Notes</h2>
-
-<div class="table-box">
-
-<div class="activity">
-
-<i class="fas fa-circle-info"></i>
-
-<div>
-
-<h4>Deposit Approval</h4>
-
-<p>
-Approve deposits only after confirming the uploaded payment receipt.
-</p>
-
-</div>
-
-</div>
-
-<div class="activity">
-
-<i class="fas fa-wallet"></i>
-
-<div>
-
-<h4>Wallet Update</h4>
-
-<p>
-Approved deposits will automatically update the user's wallet balance through the backend.
-</p>
-
-</div>
-
-</div>
-
-<div class="activity">
-
-<i class="fas fa-shield-halved"></i>
-
-<div>
-
-<h4>Security</h4>
-
-<p>
-Only administrator accounts can access this page.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- =========================
-PLATFORM SUMMARY
-========================= -->
-
-<h2 class="section-title">Platform Summary</h2>
-
-<div class="stats-grid">
-
-<div class="stat-card blue">
-
-<h4>Users</h4>
-
-<h2 id="summaryUsers">Live</h2>
-
-<p>Connected to database</p>
-
-</div>
-
-<div class="stat-card green">
-
-<h4>Deposits</h4>
-
-<h2>Live</h2>
-
-<p>Managed by backend</p>
-
-</div>
-
-<div class="stat-card gold">
-
-<h4>Wallet</h4>
-
-<h2>Automatic</h2>
-
-<p>Updates after approval</p>
-
-</div>
-
-<div class="stat-card purple">
-
-<h4>Status</h4>
-
-<h2>Secure</h2>
-
-<p>System Protected</p>
-
-</div>
-
-</div>    
-<!-- =========================
+    </div>    
+<!-- ======================
 WITHDRAWAL REQUESTS
-========================= -->
+====================== -->
 
 <h2 class="section-title">Withdrawal Requests</h2>
 
@@ -493,8 +362,8 @@ WITHDRAWAL REQUESTS
 
 <tr>
 
-<td colspan="6" style="text-align:center;padding:30px;">
-No withdrawal requests yet.
+<td colspan="6" style="text-align:center;padding:25px;">
+No withdrawal requests available.
 </td>
 
 </tr>
@@ -505,89 +374,9 @@ No withdrawal requests yet.
 
 </div>
 
-<!-- =========================
-RECENT ACTIVITY
-========================= -->
-
-<h2 class="section-title">Recent Activity</h2>
-
-<div class="activity-box">
-
-<div class="activity">
-
-<i class="fas fa-user-plus"></i>
-
-<div>
-
-<h4>New Registrations</h4>
-
-<p>
-New users will appear here after registration.
-</p>
-
-</div>
-
-</div>
-
-<div class="activity">
-
-<i class="fas fa-wallet"></i>
-
-<div>
-
-<h4>Latest Deposits</h4>
-
-<p>
-Approved and pending deposits will be monitored here.
-</p>
-
-</div>
-
-</div>
-
-<div class="activity">
-
-<i class="fas fa-chart-line"></i>
-
-<div>
-
-<h4>Investments</h4>
-
-<p>
-Active investment plans will be tracked here.
-</p>
-
-</div>
-
-</div>
-
-</div>
-<!-- =========================
-SEARCH & FILTER
-========================= -->
-
-<h2 class="section-title">Search & Filter</h2>
-
-<div class="search-section">
-
-<input
-type="text"
-id="searchUser"
-placeholder="Search by name or email...">
-
-<button id="searchBtn">
-
-<i class="fas fa-search"></i>
-
-Search
-
-</button>
-
-</div>
-
-<!-- =========================
+<!-- ======================
 RECENT TRANSACTIONS
-========================= -->
+====================== -->
 
 <h2 class="section-title">Recent Transactions</h2>
 
@@ -617,10 +406,8 @@ RECENT TRANSACTIONS
 
 <tr>
 
-<td colspan="5" style="text-align:center;padding:30px;">
-
-No transactions available.
-
+<td colspan="5" style="text-align:center;padding:25px;">
+No transactions yet.
 </td>
 
 </tr>
@@ -631,11 +418,63 @@ No transactions available.
 
 </div>
 
-<!-- =========================
-SYSTEM INFORMATION
-========================= -->
+<!-- ======================
+RECENT ACTIVITY
+====================== -->
 
-<h2 class="section-title">System Information</h2>
+<h2 class="section-title">Recent Activity</h2>
+
+<div class="activity-box">
+
+<div class="activity">
+
+<i class="fas fa-user-plus"></i>
+
+<div>
+
+<h4>New Registrations</h4>
+
+<p>New users will appear here automatically.</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-wallet"></i>
+
+<div>
+
+<h4>Pending Deposits</h4>
+
+<p>Submitted deposits will appear here for review.</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-chart-line"></i>
+
+<div>
+
+<h4>Investment Updates</h4>
+
+<p>Active investments will be monitored here.</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================
+SYSTEM STATUS
+====================== -->
+
+<h2 class="section-title">System Status</h2>
 
 <div class="stats-grid">
 
@@ -645,17 +484,17 @@ SYSTEM INFORMATION
 
 <h2>Running</h2>
 
-<p>Connected Successfully</p>
+<p>Render Connected</p>
 
 </div>
 
 <div class="stat-card green">
 
-<h4>MongoDB</h4>
+<h4>Database</h4>
 
-<h2>Online</h2>
+<h2>Connected</h2>
 
-<p>Database Connected</p>
+<p>MongoDB Atlas</p>
 
 </div>
 
@@ -665,7 +504,7 @@ SYSTEM INFORMATION
 
 <h2>Enabled</h2>
 
-<p>Receipt Images Supported</p>
+<p>Receipt Images Active</p>
 
 </div>
 
@@ -673,17 +512,147 @@ SYSTEM INFORMATION
 
 <h4>Security</h4>
 
+<h2>Protected</h2>
+
+<p>Admin Authentication Enabled</p>
+
+</div>
+
+    </div>    
+ <!-- ======================
+SEARCH & FILTER
+====================== -->
+
+<h2 class="section-title">Search Users</h2>
+
+<div class="search-box">
+
+<input
+type="text"
+id="searchUser"
+placeholder="Search by name or email...">
+
+<button id="searchBtn">
+
+<i class="fas fa-search"></i>
+
+Search
+
+</button>
+
+</div>
+
+<!-- ======================
+ADMIN NOTES
+====================== -->
+
+<h2 class="section-title">Administrator Notes</h2>
+
+<div class="activity-box">
+
+<div class="activity">
+
+<i class="fas fa-circle-info"></i>
+
+<div>
+
+<h4>Deposit Approval</h4>
+
+<p>
+Always verify uploaded payment receipts before approving deposits.
+</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-wallet"></i>
+
+<div>
+
+<h4>Wallet Updates</h4>
+
+<p>
+Approving a deposit automatically updates the user's wallet balance.
+</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-lock"></i>
+
+<div>
+
+<h4>Security</h4>
+
+<p>
+Only authorized administrators should access this dashboard.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- ======================
+PLATFORM SUMMARY
+====================== -->
+
+<h2 class="section-title">Platform Summary</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card blue">
+
+<h4>Users</h4>
+
+<h2>Live</h2>
+
+<p>Connected to MongoDB</p>
+
+</div>
+
+<div class="stat-card green">
+
+<h4>Deposits</h4>
+
+<h2>Live</h2>
+
+<p>Managed by Backend</p>
+
+</div>
+
+<div class="stat-card gold">
+
+<h4>Investments</h4>
+
 <h2>Active</h2>
 
-<p>Protected Access</p>
+<p>Automatic Tracking</p>
+
+</div>
+
+<div class="stat-card purple">
+
+<h4>System</h4>
+
+<h2>Secure</h2>
+
+<p>SSL Protected</p>
 
 </div>
 
 </div>
 
-<!-- =========================
-ADMIN FOOTER
-========================= -->
+<!-- ======================
+FOOTER
+====================== -->
 
 <footer>
 
@@ -697,7 +666,7 @@ ADMIN FOOTER
 
 <p>
 
-Powered by Young Invest Technology
+Designed for Young Invest Investment Platform
 
 </p>
 
@@ -711,8 +680,4 @@ Powered by Young Invest Technology
 
 </body>
 
-    </html>
-    
-
-
-
+    </html>   
