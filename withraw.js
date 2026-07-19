@@ -13,7 +13,7 @@ async function loadBalance() {
     try {
 
         const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/dashboard/${user._id}`
+            `https://young-invest-backend.onrender.com/api/dashboard/${user._id || user.id}`
         );
 
         const data = await response.json();
@@ -59,7 +59,7 @@ async function submitWithdrawal() {
                 },
                 body: JSON.stringify({
 
-                    userId: user._id,
+                    userId:user._id || user.id
                     bankName,
                     accountName,
                     accountNumber,
