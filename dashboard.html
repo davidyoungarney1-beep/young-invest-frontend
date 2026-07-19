@@ -731,7 +731,47 @@ console.log(err);
 }
 
 loadDashboard();
+// ================= START INVESTMENT =================
 
+async function startInvestment(plan) {
+
+    if (!confirm(`Start the ${plan} investment plan?`)) return;
+
+    try {
+
+        const response = await fetch(
+            "https://young-invest-backend.onrender.com/api/investment/start",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    userId: user._id,
+                    plan: plan
+                })
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        if (response.ok) {
+
+            loadDashboard();
+
+        }
+
+    } catch (error) {
+
+        console.log(error);
+
+        alert("Something went wrong.");
+
+    }
+
+}
 </script>
 
 </div>
