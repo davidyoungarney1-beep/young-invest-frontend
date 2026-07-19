@@ -59,7 +59,7 @@ async function submitWithdrawal() {
                 },
                 body: JSON.stringify({
 
-                    userId: user._id || user.id
+                    userId: user._id || user.id,
                     bankName,
                     accountName,
                     accountNumber,
