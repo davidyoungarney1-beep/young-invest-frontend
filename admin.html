@@ -5,15 +5,13 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard | Crest Wealth Investment</title>
+<title>Admin Dashboard | Young Invest</title>
 
 <link rel="stylesheet" href="admin.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
@@ -30,19 +28,19 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="logo">
 
-<i class="fas fa-building-columns"></i>
+<i class="fas fa-shield-alt"></i>
 
-<h2>Crest Wealth</h2>
+<h2>Young Invest</h2>
 
 </div>
 
 <div class="admin-profile">
 
-<i class="fas fa-user-shield"></i>
+<i class="fas fa-user-circle"></i>
 
 <h3>Administrator</h3>
 
-<p>Super Admin</p>
+<p>System Administrator</p>
 
 </div>
 
@@ -66,14 +64,6 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <li>
 
-<i class="fas fa-money-bill-wave"></i>
-
-<span>Withdrawals</span>
-
-</li>
-
-<li>
-
 <i class="fas fa-users"></i>
 
 <span>Users</span>
@@ -90,17 +80,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <li>
 
-<i class="fas fa-history"></i>
+<i class="fas fa-money-bill-wave"></i>
 
-<span>Transactions</span>
-
-</li>
-
-<li>
-
-<i class="fas fa-gear"></i>
-
-<span>Settings</span>
+<span>Withdrawals</span>
 
 </li>
 
@@ -120,49 +102,21 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="main">
 
-<!-- TOPBAR -->
+<!-- TOP BAR -->
 
 <div class="topbar">
 
 <div>
 
-<h1>
+<h1>Admin Dashboard 👋</h1>
 
-Admin Dashboard 👋
-
-</h1>
-
-<p>
-
-Monitor users, deposits, investments and withdrawals.
-
-</p>
-
-</div>
-
-<div class="top-icons">
-
-<div class="notification">
-
-<i class="fas fa-bell"></i>
-
-<span>4</span>
-
-</div>
-
-<div class="notification">
-
-<i class="fas fa-envelope"></i>
-
-<span>2</span>
+<p>Manage users, deposits and investments.</p>
 
 </div>
 
 </div>
 
-</div>
-
-<!-- STATISTICS -->
+<!-- DASHBOARD STATS -->
 
 <div class="stats-grid">
 
@@ -170,371 +124,87 @@ Monitor users, deposits, investments and withdrawals.
 
 <h4>Total Users</h4>
 
-<h2 id="totalUsers">
+<h2 id="totalUsers">0</h2>
 
-0
-
-</h2>
-
-<p>Registered Accounts</p>
+<p>Registered Users</p>
 
 </div>
 
 <div class="stat-card green">
 
-<h4>Total Deposits</h4>
+<h4>Pending Deposits</h4>
 
-<h2 id="totalDeposits">
+<h2 id="pendingCount">0</h2>
 
-₦0
-
-</h2>
-
-<p>Approved Deposits</p>
+<p>Waiting Approval</p>
 
 </div>
 
 <div class="stat-card gold">
 
-<h4>Total Investments</h4>
+<h4>Approved Deposits</h4>
 
-<h2 id="totalInvestments">
+<h2 id="approvedCount">0</h2>
 
-₦0
-
-</h2>
-
-<p>Running Investments</p>
+<p>Completed Deposits</p>
 
 </div>
-
-<div class="stat-card red">
-
-<h4>Pending Withdrawals</h4>
-
-<h2 id="pendingWithdrawals">
-
-0
-
-</h2>
-
-<p>Awaiting Approval</p>
-
-</div>
-
-</div>
-
-<!-- QUICK ACTIONS -->
-
-<h2 class="section-title">
-
-Quick Actions
-
-</h2>
-
-<div class="quick-actions">
-
-<button>
-
-<i class="fas fa-wallet"></i>
-
-Approve Deposits
-
-</button>
-
-<button>
-
-<i class="fas fa-money-bill-wave"></i>
-
-Approve Withdrawals
-
-</button>
-
-<button>
-
-<i class="fas fa-users"></i>
-
-Manage Users
-
-</button>
-
-<button>
-
-<i class="fas fa-chart-line"></i>
-
-Analytics
-
-</button>
-
-    </div>
-    <!-- SEARCH USERS -->
-
-<h2 class="section-title">
-
-User Management
-
-</h2>
-
-<div class="search-box">
-
-<input type="text"
-
-placeholder="Search by Name, Email or Phone...">
-
-<button>
-
-<i class="fas fa-search"></i>
-
-Search
-
-</button>
-
-</div>
-
-<!-- USERS TABLE -->
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Name</th>
-
-<th>Email</th>
-
-<th>Phone</th>
-
-<th>Status</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>John David</td>
-
-<td>john@gmail.com</td>
-
-<td>08012345678</td>
-
-<td>
-
-<span class="verified">
-
-Verified
-
-</span>
-
-</td>
-
-<td>
-
-<button class="view">
-
-View</button>
-
-<button class="delete">
-
-Delete</button>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Grace Peter</td>
-
-<td>grace@gmail.com</td>
-
-<td>08087654321</td>
-
-<td>
-
-<span class="pending">
-
-Pending
-
-</span>
-
-</td>
-
-<td>
-
-<button class="view">
-
-View</button>
-
-<button class="delete">
-
-Delete</button>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<!-- PENDING DEPOSITS -->
-
-<h2 class="section-title">
-
-Pending Deposits
-
-</h2>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>User</th>
-
-<th>Amount</th>
-
-<th>Bank</th>
-
-<th>Date</th>
-
-<th>Action</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>Michael James</td>
-
-<td>₦20,000</td>
-
-<td>Opay</td>
-
-<td>20/07/2026</td>
-
-<td>
-
-<button class="approve">
-
-Approve</button>
-
-<button class="reject">
-
-Reject</button>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Sarah Mike</td>
-
-<td>₦50,000</td>
-
-<td>Moniepoint</td>
-
-<td>20/07/2026</td>
-
-<td>
-
-<button class="approve">
-
-Approve</button>
-
-<button class="reject">
-
-Reject</button>
-
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<!-- LIVE DASHBOARD -->
-
-<h2 class="section-title">
-
-Live Statistics
-
-</h2>
-
-<div class="stats-grid">
 
 <div class="stat-card purple">
 
-<h4>Online Users</h4>
+<h4>System Status</h4>
 
-<h2>18</h2>
+<h2>Online</h2>
 
-<p>Currently Active</p>
+<p>Backend Connected</p>
 
+</div> 
 </div>
+<!-- =========================
+USER MANAGEMENT
+========================= -->
 
-<div class="stat-card orange">
-
-<h4>Today's Deposits</h4>
-
-<h2>₦250,000</h2>
-
-<p>Received Today</p>
-
-</div>
-
-<div class="stat-card green">
-
-<h4>Total Revenue</h4>
-
-<h2>₦4,850,000</h2>
-
-<p>Company Earnings</p>
-
-</div>
-
-<div class="stat-card blue">
-
-<h4>Running Investments</h4>
-
-<h2>56</h2>
-
-<p>Active Plans</p>
-
-</div>
-
-    </div>
-    <!-- WITHDRAWAL REQUESTS -->
-
-<h2 class="section-title">
-
-Withdrawal Requests
-
-</h2>
+<h2 class="section-title">Registered Users</h2>
 
 <div class="table-box">
 
-<table>
+<table id="userTable">
+
+<thead>
+
+<tr>
+
+<th>Full Name</th>
+
+<th>Email</th>
+
+<th>Wallet Balance</th>
+
+<th>Total Investment</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<!-- admin.js loads users here -->
+
+</tbody>
+
+</table>
+
+</div>
+
+<!-- =========================
+PENDING DEPOSITS
+========================= -->
+
+<h2 class="section-title">Pending Deposits</h2>
+
+<div class="table-box">
+
+<table id="depositTable">
 
 <thead>
 
@@ -542,11 +212,11 @@ Withdrawal Requests
 
 <th>User</th>
 
+<th>Email</th>
+
 <th>Amount</th>
 
-<th>Bank</th>
-
-<th>Account No.</th>
+<th>Receipt</th>
 
 <th>Status</th>
 
@@ -558,47 +228,7 @@ Withdrawal Requests
 
 <tbody>
 
-<tr>
-
-<td>John David</td>
-
-<td>₦45,000</td>
-
-<td>Opay</td>
-
-<td>8123456789</td>
-
-<td><span class="pending">Pending</span></td>
-
-<td>
-
-<button class="approve">Approve</button>
-
-<button class="reject">Reject</button>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td>Grace Peter</td>
-
-<td>₦80,000</td>
-
-<td>Moniepoint</td>
-
-<td>9034567812</td>
-
-<td><span class="approved">Approved</span></td>
-
-<td>
-
-<button class="view">View</button>
-
-</td>
-
-</tr>
+<!-- admin.js loads deposits here -->
 
 </tbody>
 
@@ -606,105 +236,23 @@ Withdrawal Requests
 
 </div>
 
-<!-- RECENT TRANSACTIONS -->
-
-<h2 class="section-title">
-
-Recent Transactions
-
-</h2>
-
-<div class="table-box">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Date</th>
-
-<th>User</th>
-
-<th>Type</th>
-
-<th>Amount</th>
-
-<th>Status</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>20 Jul 2026</td>
-
-<td>John David</td>
-
-<td>Deposit</td>
-
-<td>₦20,000</td>
-
-<td><span class="approved">Completed</span></td>
-
-</tr>
-
-<tr>
-
-<td>20 Jul 2026</td>
-
-<td>Grace Peter</td>
-
-<td>Withdrawal</td>
-
-<td>₦50,000</td>
-
-<td><span class="pending">Pending</span></td>
-
-</tr>
-
-<tr>
-
-<td>19 Jul 2026</td>
-
-<td>Michael James</td>
-
-<td>Investment</td>
-
-<td>₦100,000</td>
-
-<td><span class="approved">Active</span></td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<!-- RECENT ACTIVITY -->
-
-<h2 class="section-title">
-
-Recent Activity
-
-</h2>
+<!-- =========================
+QUICK INFORMATION
+========================= -->
 
 <div class="activity-box">
 
 <div class="activity">
 
-<i class="fas fa-user-plus"></i>
+<i class="fas fa-users"></i>
 
 <div>
 
-<h4>New User Registered</h4>
+<h4>Registered Members</h4>
 
-<p>John David created an account.</p>
+<p>
+All registered users will appear automatically inside the Users table above.
+</p>
 
 </div>
 
@@ -716,23 +264,11 @@ Recent Activity
 
 <div>
 
-<h4>Deposit Submitted</h4>
+<h4>Pending Deposits</h4>
 
-<p>A ₦20,000 deposit is awaiting approval.</p>
-
-</div>
-
-</div>
-
-<div class="activity">
-
-<i class="fas fa-money-check-dollar"></i>
-
-<div>
-
-<h4>Withdrawal Request</h4>
-
-<p>A user requested ₦45,000 withdrawal.</p>
+<p>
+Every deposit submitted by users will appear automatically with the uploaded receipt.
+</p>
 
 </div>
 
@@ -740,78 +276,64 @@ Recent Activity
 
 <div class="activity">
 
-<i class="fas fa-chart-line"></i>
+<i class="fas fa-circle-check"></i>
 
 <div>
 
-<h4>Investment Activated</h4>
+<h4>Approval System</h4>
 
-<p>Gold Plan has been activated successfully.</p>
+<p>
+Click <strong>Approve</strong> or <strong>Reject</strong> to process each deposit request.
+</p>
+
+</div>
 
 </div>
 
 </div>
+<!-- =========================
+SYSTEM STATUS
+========================= -->
 
-</div>
-
-<!-- SYSTEM STATUS -->
-
-<h2 class="section-title">
-
-System Status
-
-</h2>
+<h2 class="section-title">System Overview</h2>
 
 <div class="stats-grid">
 
-<div class="stat-card green">
-
-<h4>Server</h4>
-
+<div class="stat-card blue">
+<h4>Backend</h4>
 <h2>Online</h2>
-
-<p>Running Normally</p>
-
+<p>Render API Connected</p>
 </div>
 
-<div class="stat-card blue">
-
+<div class="stat-card green">
 <h4>Database</h4>
-
 <h2>Connected</h2>
-
-<p>MongoDB Active</p>
-
+<p>MongoDB Atlas</p>
 </div>
 
 <div class="stat-card gold">
-
-<h4>API</h4>
-
-<h2>Healthy</h2>
-
-<p>No Errors</p>
-
+<h4>Security</h4>
+<h2>Protected</h2>
+<p>Admin Authentication Enabled</p>
 </div>
 
 <div class="stat-card purple">
-
-<h4>Security</h4>
-
-<h2>Protected</h2>
-
-<p>SSL Enabled</p>
+<h4>Platform</h4>
+<h2>Young Invest</h2>
+<p>Investment Management</p>
+</div>
 
 </div>
 
-    </div>
-    <!-- FOOTER -->
+<!-- =========================
+FOOTER
+========================= -->
 
 <footer>
 
 <p>
 
-© 2026 Crest Wealth Investment Admin Panel. All Rights Reserved.
+© 2026 Young Invest Admin Panel
 
 </p>
 
@@ -821,39 +343,119 @@ System Status
 
 </div>
 
-<script>
+<!-- =========================
+LOAD JAVASCRIPT
+========================= -->
 
-// =========================
-// ADMIN LOGOUT
-// =========================
-
-document.getElementById("logout").onclick=function(){
-
-if(confirm("Are you sure you want to logout?")){
-
-localStorage.removeItem("admin");
-
-window.location.href="admin-login.html";
-
-}
-
-};
-
-// =========================
-// SAMPLE DASHBOARD DATA
-// (Replace later with API calls)
-// =========================
-
-document.getElementById("totalUsers").innerHTML="152";
-
-document.getElementById("totalDeposits").innerHTML="₦2,450,000";
-
-document.getElementById("totalInvestments").innerHTML="₦5,800,000";
-
-document.getElementById("pendingWithdrawals").innerHTML="12";
-
-</script>
+<script src="admin.js"></script>
 
 </body>
 
-</html>
+    </html>
+<!-- =========================
+ADMIN NOTES
+========================= -->
+
+<h2 class="section-title">Administrator Notes</h2>
+
+<div class="table-box">
+
+<div class="activity">
+
+<i class="fas fa-circle-info"></i>
+
+<div>
+
+<h4>Deposit Approval</h4>
+
+<p>
+Approve deposits only after confirming the uploaded payment receipt.
+</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-wallet"></i>
+
+<div>
+
+<h4>Wallet Update</h4>
+
+<p>
+Approved deposits will automatically update the user's wallet balance through the backend.
+</p>
+
+</div>
+
+</div>
+
+<div class="activity">
+
+<i class="fas fa-shield-halved"></i>
+
+<div>
+
+<h4>Security</h4>
+
+<p>
+Only administrator accounts can access this page.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- =========================
+PLATFORM SUMMARY
+========================= -->
+
+<h2 class="section-title">Platform Summary</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card blue">
+
+<h4>Users</h4>
+
+<h2 id="summaryUsers">Live</h2>
+
+<p>Connected to database</p>
+
+</div>
+
+<div class="stat-card green">
+
+<h4>Deposits</h4>
+
+<h2>Live</h2>
+
+<p>Managed by backend</p>
+
+</div>
+
+<div class="stat-card gold">
+
+<h4>Wallet</h4>
+
+<h2>Automatic</h2>
+
+<p>Updates after approval</p>
+
+</div>
+
+<div class="stat-card purple">
+
+<h4>Status</h4>
+
+<h2>Secure</h2>
+
+<p>System Protected</p>
+
+</div>
+
+</div>
