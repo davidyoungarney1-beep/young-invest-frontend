@@ -286,12 +286,10 @@ History
 </button>
 
   </div>
-  <!-- INVESTMENT OVERVIEW -->
+<!-- INVESTMENT OVERVIEW -->
 
 <h2 class="section-title">
-
 Investment Overview
-
 </h2>
 
 <div class="overview-grid">
@@ -300,14 +298,12 @@ Investment Overview
 
 <h3>Active Investment</h3>
 
-<h1>₦0.00</h1>
+<h1 id="activeInvestment">₦0.00</h1>
 
 <p>No active investment yet.</p>
 
 <div class="progress">
-
 <div class="progress-bar" style="width:0%;"></div>
-
 </div>
 
 <span>0% Completed</span>
@@ -318,7 +314,7 @@ Investment Overview
 
 <h3>Expected Profit</h3>
 
-<h1>₦0.00</h1>
+<h1 id="expectedProfit">₦0.00</h1>
 
 <p>Profit will appear after approval.</p>
 
@@ -328,7 +324,7 @@ Investment Overview
 
 <h3>Investment Status</h3>
 
-<h1 style="color:#f59e0b;">Inactive</h1>
+<h1 id="investmentStatus" style="color:#f59e0b;">Inactive</h1>
 
 <p>Deposit and activate your first plan.</p>
 
@@ -339,9 +335,7 @@ Investment Overview
 <!-- INVESTMENT PLANS -->
 
 <h2 class="section-title">
-
 Investment Plans
-
 </h2>
 
 <div class="plans-grid">
@@ -352,16 +346,14 @@ Investment Plans
 
 <h2>₦5,000</h2>
 
-<h4>₦1,200 Daily</h4>
+<h4>₦700 Daily</h4>
 
 <p>Duration: <b>7 Days</b></p>
 
-<p>Total Return: <b>₦8,400</b></p>
+<p>Total Return: <b>₦9,900</b></p>
 
-<button onclick="window.location.href='deposit.html'">
-
+<button onclick="startInvestment('Starter')">
 Invest Now
-
 </button>
 
 </div>
@@ -372,16 +364,14 @@ Invest Now
 
 <h2>₦20,000</h2>
 
-<h4>₦4,500 Daily</h4>
+<h4>₦2,000 Daily</h4>
 
 <p>Duration: <b>14 Days</b></p>
 
-<p>Total Return: <b>₦63,000</b></p>
+<p>Total Return: <b>₦48,000</b></p>
 
-<button onclick="window.location.href='deposit.html'">
-
+<button onclick="startInvestment('Popular')">
 Invest Now
-
 </button>
 
 </div>
@@ -392,16 +382,14 @@ Invest Now
 
 <h2>₦50,000</h2>
 
-<h4>₦12,000 Daily</h4>
+<h4>₦4,000 Daily</h4>
 
-<p>Duration: <b>20 Days</b></p>
+<p>Duration: <b>15 Days</b></p>
 
-<p>Total Return: <b>₦240,000</b></p>
+<p>Total Return: <b>₦110,000</b></p>
 
-<button onclick="window.location.href='deposit.html'">
-
+<button onclick="startInvestment('Premium')">
 Invest Now
-
 </button>
 
 </div>
@@ -412,16 +400,14 @@ Invest Now
 
 <h2>₦100,000</h2>
 
-<h4>₦25,000 Daily</h4>
+<h4>₦5,500 Daily</h4>
 
-<p>Duration: <b>30 Days</b></p>
+<p>Duration: <b>20 Days</b></p>
 
-<p>Total Return: <b>₦750,000</b></p>
+<p>Total Return: <b>₦210,000</b></p>
 
-<button onclick="window.location.href='deposit.html'">
-
+<button onclick="startInvestment('Diamond')">
 Invest Now
-
 </button>
 
 </div>
