@@ -1,37 +1,61 @@
-function showPopup(icon, iconClass, title, message, callback = null) {
+function showPopup(type,title,message,callback=null){
 
-    const oldPopup = document.getElementById("popupOverlay");
-    if (oldPopup) oldPopup.remove();
+const old=document.getElementById("popupOverlay");
 
-    const overlay = document.createElement("div");
-    overlay.className = "popup-overlay show";
-    overlay.id = "popupOverlay";
+if(old) old.remove();
 
-    overlay.innerHTML = `
-        <div class="popup">
-            <div class="popup-icon ${iconClass}">${icon}</div>
-            <h2>${title}</h2>
-            <p>${message}</p>
-            <button id="popupBtn">OK</button>
-        </div>
-    `;
+const icon=type==="success"?"✓":"!";
 
-    document.body.appendChild(overlay);
+const overlay=document.createElement("div");
 
-    document.getElementById("popupBtn").onclick = function () {
-        overlay.remove();
+overlay.className="popup-overlay show";
 
-        if (callback) {
-            callback();
-        }
-    };
+overlay.id="popupOverlay";
+
+overlay.innerHTML=`
+
+<div class="popup">
+
+<div class="popup-icon ${type}">
+
+${icon}
+
+</div>
+
+<h2>${title}</h2>
+
+<p>${message}</p>
+
+<button id="popupBtn">
+
+Continue
+
+</button>
+
+</div>
+
+`;
+
+document.body.appendChild(overlay);
+
+document.getElementById("popupBtn").onclick=()=>{
+
+overlay.remove();
+
+if(callback) callback();
+
+};
 
 }
 
-function showSuccess(title, message, callback = null) {
-    showPopup("✅", "success", title, message, callback);
+function showSuccess(title,message,callback=null){
+
+showPopup("success",title,message,callback);
+
 }
 
-function showError(title, message) {
-    showPopup("❌", "error", title, message);
+function showError(title,message){
+
+showPopup("error",title,message);
+
 }
