@@ -1,103 +1,248 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register | Young Invest</title>
 
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
 
-    <style>
-        body{
-            background:#f5f7fa;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:100vh;
-            font-family:Arial,sans-serif;
-        }
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        .register-box{
-            width:380px;
-            background:white;
-            padding:30px;
-            border-radius:15px;
-            box-shadow:0 10px 25px rgba(0,0,0,.15);
-        }
+<title>Create Account | Crest Wealth Investment</title>
 
-        .register-box h2{
-            text-align:center;
-            color:#0d1b2a;
-            margin-bottom:20px;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-        .register-box input{
-            width:100%;
-            padding:12px;
-            margin:10px 0;
-            border:1px solid #ccc;
-            border-radius:8px;
-            font-size:16px;
-            box-sizing:border-box;
-        }
+<style>
 
-        .register-box button{
-            width:100%;
-            padding:12px;
-            border:none;
-            background:#00c853;
-            color:white;
-            border-radius:8px;
-            font-size:16px;
-            cursor:pointer;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
 
-        .register-box button:hover{
-            background:#009624;
-        }
+body{
 
-        .register-box p{
-            text-align:center;
-            margin-top:15px;
-        }
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
 
-        .register-box a{
-            color:#00c853;
-            text-decoration:none;
-        }
-    </style>
+min-height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:30px;
+
+}
+
+.register-box{
+
+width:100%;
+
+max-width:430px;
+
+background:#fff;
+
+border-radius:18px;
+
+padding:35px;
+
+box-shadow:0 20px 50px rgba(0,0,0,.35);
+
+}
+
+.logo{
+
+text-align:center;
+
+font-size:50px;
+
+margin-bottom:10px;
+
+}
+
+.register-box h2{
+
+text-align:center;
+
+color:#1d4ed8;
+
+margin-bottom:8px;
+
+}
+
+.register-box p{
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:20px;
+
+}
+
+.register-box input{
+
+width:100%;
+
+padding:14px;
+
+margin:10px 0;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+font-size:15px;
+
+outline:none;
+
+transition:.3s;
+
+}
+
+.register-box input:focus{
+
+border-color:#2563eb;
+
+box-shadow:0 0 8px rgba(37,99,235,.25);
+
+}
+
+.register-box button{
+
+width:100%;
+
+padding:15px;
+
+margin-top:15px;
+
+border:none;
+
+border-radius:10px;
+
+background:#2563eb;
+
+color:white;
+
+font-size:16px;
+
+font-weight:600;
+
+cursor:pointer;
+
+transition:.3s;
+
+}
+
+.register-box button:hover{
+
+background:#1d4ed8;
+
+}
+
+.login{
+
+margin-top:20px;
+
+text-align:center;
+
+}
+
+.login a{
+
+color:#2563eb;
+
+font-weight:600;
+
+text-decoration:none;
+
+}
+
+.login a:hover{
+
+text-decoration:underline;
+
+}
+
+</style>
 
 </head>
+
 <body>
 
 <div class="register-box">
 
-    <h2>Create Account</h2>
+<div class="logo">
+🏦
+</div>
 
-    <form id="registerForm">
+<h2>Create Account</h2>
 
-        <input type="text" id="fullName" placeholder="Full Name" required>
+<p>Join Crest Wealth Investment today.</p>
 
-        <input type="email" id="email" placeholder="Email Address" required>
+<form id="registerForm">
 
-        <input type="tel" id="phone" placeholder="Phone Number" required>
+<input
+type="text"
+id="fullName"
+placeholder="Full Name"
+required>
 
-        <input type="password" id="password" placeholder="Password" required>
+<input
+type="email"
+id="email"
+placeholder="Email Address"
+required>
 
-        <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+<input
+type="tel"
+id="phone"
+placeholder="Phone Number"
+required>
 
-        <button type="submit">Create Account</button>
+<input
+type="text"
+id="referralCode"
+placeholder="Referral Code (Optional)">
 
-        <p>
-            Already have an account?
-            <a href="login.html">Login</a>
-        </p>
+<input
+type="password"
+id="password"
+placeholder="Password"
+required>
 
-    </form>
+<input
+type="password"
+id="confirmPassword"
+placeholder="Confirm Password"
+required>
+<button type="submit">
+
+Create Account
+
+</button>
+
+<div class="login">
+
+Already have an account?
+
+<a href="login.html">
+
+Login
+
+</a>
+
+</div>
+
+</form>
 
 </div>
 
 <script src="register.js"></script>
 
 </body>
-                            </html>
+
+</html>
