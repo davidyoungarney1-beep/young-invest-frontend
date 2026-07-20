@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Transaction History | Crest Wealth Investment</title>
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+background:#f5f7fb;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+h2{
+text-align:center;
+margin-bottom:20px;
+}
+
+.transaction{
+background:#fff;
+padding:15px;
+border-radius:10px;
+margin-bottom:15px;
+box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.top{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:8px;
+}
+
+.type{
+font-weight:bold;
+font-size:16px;
+}
+
+.amount{
+font-size:18px;
+font-weight:bold;
+color:#10b981;
+}
+
+.status{
+display:inline-block;
+padding:5px 10px;
+border-radius:20px;
+font-size:12px;
+color:#fff;
+}
+
+.Pending{
+background:#f59e0b;
+}
+
+.Approved{
+background:#10b981;
+}
+
+.Rejected{
+background:#ef4444;
+}
+
+.Active{
+background:#3b82f6;
+}
+
+.Completed{
+background:#6b7280;
+}
+
+.Credited{
+background:#10b981;
+}
+
+.date{
+font-size:13px;
+color:#666;
+margin-top:8px;
+}
+
+.back{
+display:block;
+text-align:center;
+margin-top:20px;
+text-decoration:none;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Transaction History</h2>
+
+<div id="transactions"></div>
+
+<a href="dashboard.html" class="back">
+← Back to Dashboard
+</a>
+
+</div>
+
+<script src="transaction.js"></script>
+
+</body>
+</html>
