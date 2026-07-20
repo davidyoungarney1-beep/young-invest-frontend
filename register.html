@@ -13,7 +13,28 @@ content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+.loader{
+    width:18px;
+    height:18px;
+    border:3px solid rgba(255,255,255,.3);
+    border-top:3px solid #fff;
+    border-radius:50%;
+    display:inline-block;
+    animation:spin .8s linear infinite;
+    vertical-align:middle;
+    margin-right:8px;
+}
 
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+button:disabled{
+    opacity:.8;
+    cursor:not-allowed;
+    }
 *{
 margin:0;
 padding:0;
