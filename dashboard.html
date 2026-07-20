@@ -474,44 +474,8 @@ Recent Transactions
 
 </thead>
 
-<tbody>
-
-<tr>
-
-<td>--/--/----</td>
-
-<td>Deposit</td>
-
-<td>₦0.00</td>
-
-<td><span class="pending">Pending</span></td>
-
-</tr>
-
-<tr>
-
-<td>--/--/----</td>
-
-<td>Investment</td>
-
-<td>₦0.00</td>
-
-<td><span class="approved">Approved</span></td>
-
-</tr>
-
-<tr>
-
-<td>--/--/----</td>
-
-<td>Withdrawal</td>
-
-<td>₦0.00</td>
-
-<td><span class="rejected">Rejected</span></td>
-
-</tr>
-
+<tbody
+id="recentTransactions">
 </tbody>
 
 </table>
@@ -773,6 +737,56 @@ async function startInvestment(plan) {
     }
 
 }
+  // ================= RECENT TRANSACTIONS =================
+
+async function loadRecentTransactions() {
+
+    try {
+
+        const response = await fetch(
+            `https://young-invest-backend.onrender.com/api/transaction/${user._id}`
+        );
+
+        const transactions = await response.json();
+
+        const tbody = document.getElementById("recentTransactions");
+
+        tbody.innerHTML = "";
+
+        if (transactions.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="4">No transactions yet.</td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
+        transactions.slice(0, 5).forEach(item => {
+
+            tbody.innerHTML += `
+                <tr>
+                    <td>${new Date(item.date).toLocaleDateString()}</td>
+                    <td>${item.type}</td>
+                    <td>₦${Number(item.amount).toLocaleString()}</td>
+                    <td>${item.status}</td>
+                </tr>
+            `;
+
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
+
+loadRecentTransactions();    
 </script>
 
 </div>
