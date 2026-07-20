@@ -15,15 +15,21 @@ window.addEventListener("DOMContentLoaded", () => {
         const confirmPassword = document.getElementById("confirmPassword").value;
 
         if (password !== confirmPassword) {
-            alert("Passwords do not match!");
+
+            showError(
+                "Password Mismatch",
+                "The passwords you entered do not match."
+            );
+
             return;
+
         }
 
-        // Show Loading Spinner
         registerBtn.disabled = true;
+
         registerBtn.innerHTML = `
-            <span class="loader"></span>
-            Creating Account...
+        <span class="loader"></span>
+        Creating Account...
         `;
 
         try {
@@ -47,39 +53,50 @@ window.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-            if (response.ok) {
+            registerBtn.disabled = false;
+            registerBtn.innerHTML = "Create Account";
 
-                alert("Registration Successful!");
+            if (response.ok) {
 
                 form.reset();
 
-                window.location.href = "login.html";
+                showSuccess(
+                    "Registration Successful",
+                    "Your investment account has been created successfully.",
+                    () => {
+                        window.location.href = "login.html";
+                    }
+                );
 
             } else {
 
-                alert(data.message || "Registration failed.");
-
-                registerBtn.disabled = false;
-                registerBtn.innerHTML = "Create Account";
+                showError(
+                    "Registration Failed",
+                    data.message || "Unable to create your account."
+                );
 
             }
 
         } catch (error) {
 
-            console.error(error);
-
-            alert("Unable to connect to the server.");
+            console.log(error);
 
             registerBtn.disabled = false;
             registerBtn.innerHTML = "Create Account";
+
+            showError(
+                "Connection Error",
+                "Unable to connect to the server."
+            );
 
         }
 
     });
 
-    // ================= AUTO REFERRAL =================
+    // Auto Referral
 
     const params = new URLSearchParams(window.location.search);
+
     const ref = params.get("ref");
 
     if (ref) {
