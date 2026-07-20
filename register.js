@@ -1,6 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
     const form = document.getElementById("registerForm");
+    const registerBtn = document.getElementById("registerBtn");
 
     form.addEventListener("submit", async (e) => {
 
@@ -17,6 +18,13 @@ window.addEventListener("DOMContentLoaded", () => {
             alert("Passwords do not match!");
             return;
         }
+
+        // Show Loading Spinner
+        registerBtn.disabled = true;
+        registerBtn.innerHTML = `
+            <span class="loader"></span>
+            Creating Account...
+        `;
 
         try {
 
@@ -40,28 +48,48 @@ window.addEventListener("DOMContentLoaded", () => {
             const data = await response.json();
 
             if (response.ok) {
+
                 alert("Registration Successful!");
+
                 form.reset();
+
                 window.location.href = "login.html";
+
             } else {
+
                 alert(data.message || "Registration failed.");
+
+                registerBtn.disabled = false;
+                registerBtn.innerHTML = "Create Account";
+
             }
 
         } catch (error) {
+
             console.error(error);
+
             alert("Unable to connect to the server.");
+
+            registerBtn.disabled = false;
+            registerBtn.innerHTML = "Create Account";
+
         }
 
     });
 
-    // Auto referral
+    // ================= AUTO REFERRAL =================
+
     const params = new URLSearchParams(window.location.search);
     const ref = params.get("ref");
 
     if (ref) {
+
         const referralInput = document.getElementById("referralCode");
+
         referralInput.value = ref.toUpperCase();
+
         referralInput.readOnly = true;
+
     }
 
 });
