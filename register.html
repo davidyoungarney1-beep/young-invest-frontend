@@ -260,25 +260,7 @@ Login
 </form>
 
 </div>
-<script>
 
-// ================= AUTO REFERRAL =================
-
-const urlParams = new URLSearchParams(window.location.search);
-
-const ref = urlParams.get("ref");
-
-if (ref) {
-
-    const referralInput = document.getElementById("referralCode");
-
-    referralInput.value = ref.toUpperCase();
-
-    referralInput.readOnly = true;
-
-}
-
-</script>
 
 <script src="./register.js"></script>
 
