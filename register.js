@@ -1,7 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
 
-    alert("register.js loaded");
-
     const form = document.getElementById("registerForm");
 
     form.addEventListener("submit", async (e) => {
