@@ -1,97 +1,69 @@
-alert("register.js loaded");
-const form = document.getElementById("registerForm");
+window.addEventListener("DOMContentLoaded", () => {
 
-form.addEventListener("submit", async (e) => {
+    alert("register.js loaded");
 
-    e.preventDefault();
+    const form = document.getElementById("registerForm");
 
-    const fullName = document.getElementById("fullName").value.trim();
+    form.addEventListener("submit", async (e) => {
 
-    const email = document.getElementById("email").value.trim();
+        e.preventDefault();
 
-    const phone = document.getElementById("phone").value.trim();
+        const fullName = document.getElementById("fullName").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const referralCode = document.getElementById("referralCode").value.trim();
+        const password = document.getElementById("password").value;
+        const confirmPassword = document.getElementById("confirmPassword").value;
 
-    const referralCode = document.getElementById("referralCode").value.trim();
-
-    const password = document.getElementById("password").value;
-
-    const confirmPassword = document.getElementById("confirmPassword").value;
-
-    if (password !== confirmPassword) {
-
-        alert("Passwords do not match!");
-
-        return;
-
-    }
-
-    try {
-
-        const response = await fetch(
-            "https://young-invest-backend.onrender.com/api/auth/register",
-            {
-
-                method: "POST",
-
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-
-                    fullName,
-
-                    email,
-
-                    phone,
-
-                    password,
-
-                    referralCode
-
-                })
-
-            }
-        );
-
-        const data = await response.json();
-
-        if (response.ok) {
-
-            alert("Registration Successful!");
-
-            form.reset();
-
-            window.location.href = "login.html";
-
-        } else {
-
-            alert(data.message || "Registration failed.");
-
+        if (password !== confirmPassword) {
+            alert("Passwords do not match!");
+            return;
         }
 
-    } catch (error) {
+        try {
 
-        console.error("Registration Error:", error);
+            const response = await fetch(
+                "https://young-invest-backend.onrender.com/api/auth/register",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        fullName,
+                        email,
+                        phone,
+                        password,
+                        referralCode
+                    })
+                }
+            );
 
-        alert("Unable to connect to the server.");
+            const data = await response.json();
 
+            if (response.ok) {
+                alert("Registration Successful!");
+                form.reset();
+                window.location.href = "login.html";
+            } else {
+                alert(data.message || "Registration failed.");
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Unable to connect to the server.");
+        }
+
+    });
+
+    // Auto referral
+    const params = new URLSearchParams(window.location.search);
+    const ref = params.get("ref");
+
+    if (ref) {
+        const referralInput = document.getElementById("referralCode");
+        referralInput.value = ref.toUpperCase();
+        referralInput.readOnly = true;
     }
 
 });
-
-// ================= AUTO FILL REFERRAL CODE =================
-
-const params = new URLSearchParams(window.location.search);
-
-const ref = params.get("ref");
-
-if (ref) {
-
-    const referralInput = document.getElementById("referralCode");
-
-    referralInput.value = ref.toUpperCase();
-
-    referralInput.readOnly = true;
-
-}
