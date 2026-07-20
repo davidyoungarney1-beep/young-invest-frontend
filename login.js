@@ -1,45 +1,85 @@
-const form = document.getElementById("loginForm");
+window.addEventListener("DOMContentLoaded",()=>{
 
-form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+const form=document.getElementById("loginForm");
 
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value;
+const loginBtn=document.getElementById("loginBtn");
 
-    try {
-        const response = await fetch("https://young-invest-backend.onrender.com/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email,
-                password
-            })
-        });
+form.addEventListener("submit",async(e)=>{
 
-        const data = await response.json();
+e.preventDefault();
 
-        if (response.ok) {
+const email=document.getElementById("email").value.trim();
 
-            alert("Login Successful!");
+const password=document.getElementById("password").value;
 
-            localStorage.setItem("user", JSON.stringify(data.user));
+loginBtn.disabled=true;
 
-            window.location.href = "dashboard.html";
+loginBtn.innerHTML=`
+<span class="loader"></span>
+Logging In...
+`;
 
-        } else {
+try{
 
-            alert(data.message);
+const response=await fetch(
+"https://young-invest-backend.onrender.com/api/auth/login",
+{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+email,
+password
+})
+}
+);
 
-        }
+const data=await response.json();
 
-    } catch (error) {
+loginBtn.disabled=false;
 
-        console.error(error);
+loginBtn.innerHTML="Login";
 
-        alert("Unable to connect to the server.");
+if(response.ok){
 
-    }
+localStorage.setItem(
+"user",
+JSON.stringify(data.user)
+);
+
+showSuccess(
+"Login Successful",
+"Welcome back to Crest Wealth Investment.",
+()=>{
+window.location.href="dashboard.html";
+}
+);
+
+}else{
+
+showError(
+"Login Failed",
+data.message||"Invalid email or password."
+);
+
+}
+
+}catch(error){
+
+console.log(error);
+
+loginBtn.disabled=false;
+
+loginBtn.innerHTML="Login";
+
+showError(
+"Connection Error",
+"Unable to connect to the server."
+);
+
+}
+
+});
 
 });
