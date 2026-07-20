@@ -87,6 +87,10 @@ const ref = params.get("ref");
 
 if (ref) {
 
-    document.getElementById("referralCode").value = ref;
+    const referralInput = document.getElementById("referralCode");
 
-            }
+    referralInput.value = ref.toUpperCase();
+
+    referralInput.readOnly = true;
+
+}
