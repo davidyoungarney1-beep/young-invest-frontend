@@ -37,14 +37,21 @@ async function loadUsers() {
 
         users.forEach(u => {
 
-            tbody.innerHTML += `
-            <tr>
-                <td>${u.fullName}</td>
-                <td>${u.email}</td>
-                <td>₦${Number(u.walletBalance).toLocaleString()}</td>
-                <td>₦${Number(u.totalInvestment).toLocaleString()}</td>
-            </tr>
-            `;
+          tbody.innerHTML += `
+<tr>
+    <td>${u.fullName}</td>
+    <td>${u.email}</td>
+    <td>₦${Number(u.walletBalance).toLocaleString()}</td>
+    <td>₦${Number(u.totalInvestment).toLocaleString()}</td>
+
+    <td>
+        <button class="reset"
+        onclick="resetPassword('${u._id}')">
+            🔑 Reset Password
+        </button>
+    </td>
+</tr>
+`;  
 
         });
 
