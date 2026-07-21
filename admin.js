@@ -340,6 +340,60 @@ async function rejectWithdrawal(id) {
     }
 
     }
+// ================= RESET PASSWORD =================
+
+async function resetPassword(id) {
+
+    const newPassword = prompt("Enter the new password:");
+
+    if (!newPassword) return;
+
+    if (newPassword.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    try {
+
+        const response = await fetch(
+
+            `https://young-invest-backend.onrender.com/api/admin/reset-password/${id}`,
+
+            {
+
+                method: "PUT",
+
+                headers: {
+
+                    "Content-Type": "application/json",
+
+                    adminemail: user.email
+
+                },
+
+                body: JSON.stringify({
+
+                    newPassword
+
+                })
+
+            }
+
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
+
+    }
+
+}
 // ================= START =================
 
 loadUsers();
