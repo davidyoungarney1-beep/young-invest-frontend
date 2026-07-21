@@ -1,0 +1,364 @@
+/*====================================
+      CREST WEALTH DEPOSIT PAGE
+=====================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+min-height:100vh;
+padding-bottom:90px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+/*========================
+TOP BAR
+========================*/
+
+.topbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+padding:18px 20px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+}
+
+.topbar a{
+color:#2563eb;
+font-size:22px;
+text-decoration:none;
+}
+
+.topbar h2{
+font-size:22px;
+color:#1e3a8a;
+}
+
+/*========================
+HERO
+========================*/
+
+.hero{
+background:rgba(255,255,255,.12);
+backdrop-filter:blur(12px);
+padding:30px 20px;
+border-radius:20px;
+text-align:center;
+color:#fff;
+margin-bottom:20px;
+border:1px solid rgba(255,255,255,.2);
+}
+
+.hero h1{
+font-size:30px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:15px;
+opacity:.95;
+line-height:1.6;
+}
+
+/*========================
+CARD
+========================*/
+
+.card{
+background:#fff;
+padding:22px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#1e3a8a;
+}
+
+.card input{
+width:100%;
+padding:15px;
+border:1px solid #dbe3f1;
+border-radius:12px;
+font-size:16px;
+outline:none;
+transition:.3s;
+}
+
+.card input:focus{
+border-color:#2563eb;
+box-shadow:0 0 10px rgba(37,99,235,.2);
+}
+
+/*========================
+BANK CARD
+========================*/
+
+.bank-card{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+color:#fff;
+padding:25px;
+border-radius:20px;
+margin-bottom:20px;
+box-shadow:0 15px 30px rgba(0,0,0,.2);
+}
+
+.bank-header{
+display:flex;
+align-items:center;
+gap:10px;
+margin-bottom:20px;
+}
+
+.bank-header i{
+font-size:26px;
+}
+
+.bank-row{
+display:flex;
+justify-content:space-between;
+padding:12px 0;
+border-bottom:1px solid rgba(255,255,255,.2);
+}
+
+.bank-row:last-child{
+border-bottom:none;
+}
+
+.bank-row span{
+opacity:.8;
+}
+
+.bank-row strong{
+font-size:16px;
+}
+
+.copy-btn{
+width:100%;
+margin-top:20px;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#fff;
+color:#2563eb;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.copy-btn:hover{
+transform:translateY(-2px);
+                             }
+/*========================
+DEPOSIT BUTTON
+========================*/
+
+.deposit-btn{
+width:100%;
+margin-top:20px;
+padding:16px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#16a34a,#22c55e);
+color:#fff;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.deposit-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(34,197,94,.35);
+}
+
+.deposit-btn:disabled{
+opacity:.75;
+cursor:not-allowed;
+}
+
+/*========================
+INFO CARD
+========================*/
+
+.info-card{
+background:#fff;
+padding:22px;
+border-radius:18px;
+margin-bottom:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.info-card h3{
+color:#1e3a8a;
+margin-bottom:15px;
+}
+
+.info-card ul{
+list-style:none;
+}
+
+.info-card li{
+padding:12px 0;
+border-bottom:1px solid #e5e7eb;
+line-height:1.6;
+}
+
+.info-card li:last-child{
+border-bottom:none;
+}
+
+/*========================
+FOOTER
+========================*/
+
+footer{
+text-align:center;
+color:#fff;
+font-size:14px;
+margin:20px 0 90px;
+}
+
+/*========================
+BOTTOM NAVIGATION
+========================*/
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+height:70px;
+background:#fff;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow:0 -5px 20px rgba(0,0,0,.15);
+z-index:1000;
+}
+
+.bottom-nav a{
+flex:1;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-decoration:none;
+color:#64748b;
+font-size:12px;
+font-weight:600;
+transition:.3s;
+}
+
+.bottom-nav a i{
+font-size:20px;
+margin-bottom:4px;
+}
+
+.bottom-nav a.active{
+color:#2563eb;
+}
+
+.bottom-nav a.active i{
+text-shadow:0 0 12px rgba(37,99,235,.8);
+}
+
+.bottom-nav a::after{
+content:"";
+width:0;
+height:3px;
+background:#2563eb;
+border-radius:20px;
+margin-top:5px;
+transition:.3s;
+}
+
+.bottom-nav a.active::after{
+width:30px;
+}
+
+/*========================
+MOBILE
+========================*/
+
+@media(max-width:768px){
+
+.container{
+padding:15px;
+}
+
+.topbar h2{
+font-size:18px;
+}
+
+.hero{
+padding:25px 18px;
+}
+
+.hero h1{
+font-size:24px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.bank-card,
+.card,
+.info-card{
+padding:18px;
+}
+
+.bank-row{
+font-size:14px;
+}
+
+.copy-btn,
+.deposit-btn{
+font-size:15px;
+padding:14px;
+}
+
+}
+
+/*========================
+ANIMATIONS
+========================*/
+
+.hero,
+.card,
+.bank-card,
+.info-card{
+animation:fadeUp .5s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+                            }
