@@ -123,7 +123,83 @@ tbody.innerHTML += `
     }
 
 }
+// ================= LOAD WITHDRAWALS =================
 
+async function loadWithdrawals() {
+
+    try {
+
+        const response = await fetch(
+
+            "https://young-invest-backend.onrender.com/api/admin/withdrawals",
+
+            {
+
+                headers: {
+
+                    adminemail: user.email
+
+                }
+
+            }
+
+        );
+
+        const withdrawals = await response.json();
+
+        const tbody = document.querySelector("#withdrawTable tbody");
+
+        tbody.innerHTML = "";
+
+        withdrawals.forEach(item => {
+
+            tbody.innerHTML += `
+
+<tr>
+
+<td>${item.user.fullName}</td>
+
+<td>${item.bankName}</td>
+
+<td>${item.accountName}</td>
+
+<td>${item.accountNumber}</td>
+
+<td>₦${Number(item.amount).toLocaleString()}</td>
+
+<td>${item.status}</td>
+
+<td>
+
+<button class="approve"
+onclick="approveWithdrawal('${item._id}')">
+
+Approve
+
+</button>
+
+<button class="reject"
+onclick="rejectWithdrawal('${item._id}')">
+
+Reject
+
+</button>
+
+</td>
+
+</tr>
+
+`;
+
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+    }
+
+}
 // ================= APPROVE DEPOSIT =================
 
 async function approveDeposit(id) {
