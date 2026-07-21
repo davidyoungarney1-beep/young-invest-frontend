@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Profile | Crest Wealth Investment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="popup.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#07162c,#0A2540,#0f4c81);
+min-height:100vh;
+padding:30px 15px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+background:#fff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 15px 35px rgba(0,0,0,.25);
+}
+
+.profile-top{
+text-align:center;
+margin-bottom:30px;
+}
+
+.avatar{
+width:110px;
+height:110px;
+border-radius:50%;
+background:#0A2540;
+color:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:42px;
+font-weight:700;
+margin:auto;
+margin-bottom:15px;
+}
+
+.profile-top h2{
+color:#07162c;
+margin-bottom:5px;
+}
+
+.profile-top p{
+color:#777;
+}
+
+.info-box{
+margin-top:20px;
+}
+
+.info-row{
+display:flex;
+justify-content:space-between;
+padding:14px 0;
+border-bottom:1px solid #eee;
+}
+
+.info-title{
+font-weight:600;
+color:#07162c;
+}
+
+.info-value{
+color:#555;
+text-align:right;
+}
+
+.back-btn{
+display:block;
+width:100%;
+margin-top:30px;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00c853;
+color:#fff;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#00a844;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-top">
+
+<div class="avatar" id="avatar">
+U
+</div>
+
+<h2 id="fullName">
+Loading...
+</h2>
+
+<p id="email">
+Loading...
+</p>
+
+</div>
+
+<div class="info-box">
+
+<div class="info-row">
+<span class="info-title">📱 Phone</span>
+<span class="info-value" id="phone">-</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">🎁 Referral Code</span>
+<span class="info-value" id="referralCode">-</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">💰 Wallet Balance</span>
+<span class="info-value" id="wallet">₦0</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">📈 Total Investment</span>
+<span class="info-value" id="investment">₦0</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">💵 Withdrawable Balance</span>
+<span class="info-value" id="withdrawable">₦0</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">🎉 Referral Earnings</span>
+<span class="info-value" id="referralEarnings">₦0</span>
+</div>
+
+<div class="info-row">
+<span class="info-title">👤 Role</span>
+<span class="info-value" id="role">User</span>
+</div>
+
+</div>
+
+<button
+class="back-btn"
+onclick="window.location.href='dashboard.html'">
+
+⬅ Back to Dashboard
+
+</button>
+
+</div>
+
+<script src="popup.js"></script>
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+
+    alert("Please login first.");
+
+    window.location.href="login.html";
+
+}
+
+// Avatar
+
+document.getElementById("avatar").textContent =
+user.fullName.charAt(0).toUpperCase();
+
+// Basic Information
+
+document.getElementById("fullName").textContent =
+user.fullName;
+
+document.getElementById("email").textContent =
+user.email;
+
+document.getElementById("phone").textContent =
+user.phone;
+
+document.getElementById("referralCode").textContent =
+user.referralCode || "Not Available";
+
+// Balances
+
+document.getElementById("wallet").textContent =
+"₦" + Number(user.walletBalance).toLocaleString();
+
+document.getElementById("investment").textContent =
+"₦" + Number(user.totalInvestment).toLocaleString();
+
+document.getElementById("withdrawable").textContent =
+"₦" + Number(user.withdrawableBalance).toLocaleString();
+
+document.getElementById("referralEarnings").textContent =
+"₦" + Number(user.referralEarnings).toLocaleString();
+
+// Role
+
+document.getElementById("role").textContent =
+user.role.charAt(0).toUpperCase() + user.role.slice(1);
+
+</script>
+
+</body>
+
+  </html>
