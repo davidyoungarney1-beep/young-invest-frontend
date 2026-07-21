@@ -211,7 +211,45 @@ Reject
 
 async function approveDeposit(id) {
 
-    if (!confirm("Approve this deposit?")) return;
+    showConfirm(
+    "Approve Deposit",
+    "Are you sure you want to approve this deposit?",
+    async () => {
+
+        try {
+
+            const response = await fetch(
+                `https://young-invest-backend.onrender.com/api/admin/approve/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        adminemail: user.email
+                    }
+                }
+            );
+
+            const data = await response.json();
+
+            showSuccess(
+                "Approved!",
+                data.message,
+                () => {
+                    loadUsers();
+                    loadDeposits();
+                }
+            );
+
+        } catch (error) {
+
+            showError(
+                "Error",
+                "Something went wrong."
+            );
+
+        }
+
+    }
+);
 
     try {
 
@@ -227,7 +265,10 @@ async function approveDeposit(id) {
 
         const data = await response.json();
 
-        alert(data.message);
+        showSuccess(
+    "Success",
+    data.message
+);
 
         loadUsers();
         loadDeposits();
@@ -235,7 +276,10 @@ async function approveDeposit(id) {
     } catch (error) {
 
         console.error(error);
-        alert("Something went wrong.");
+        showError(
+    "Error",
+    "Something went wrong."
+);
 
     }
 
@@ -344,8 +388,44 @@ async function rejectWithdrawal(id) {
 
 async function resetPassword(id) {
 
-    const newPassword = prompt("Enter the new password:");
+    showPasswordPrompt(
+    "Reset User Password",
+    async (newPassword) => {
 
+        try {
+
+            const response = await fetch(
+                `https://young-invest-backend.onrender.com/api/admin/reset-password/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        adminemail: user.email
+                    },
+                    body: JSON.stringify({
+                        newPassword
+                    })
+                }
+            );
+
+            const data = await response.json();
+
+            showSuccess(
+                "Password Reset",
+                data.message
+            );
+
+        } catch (error) {
+
+            showError(
+                "Reset Failed",
+                "Unable to reset password."
+            );
+
+        }
+
+    }
+);
     if (!newPassword) return;
 
     if (newPassword.length < 6) {
