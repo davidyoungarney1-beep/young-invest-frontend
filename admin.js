@@ -266,7 +266,73 @@ async function rejectDeposit(id) {
     }
 
 }
+// ================= APPROVE WITHDRAWAL =================
 
+async function approveWithdrawal(id) {
+
+    if (!confirm("Approve this withdrawal?")) return;
+
+    try {
+
+        const response = await fetch(
+            `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    adminemail: user.email
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        loadWithdrawals();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
+
+    }
+
+}
+
+// ================= REJECT WITHDRAWAL =================
+
+async function rejectWithdrawal(id) {
+
+    if (!confirm("Reject this withdrawal?")) return;
+
+    try {
+
+        const response = await fetch(
+            `https://young-invest-backend.onrender.com/api/admin/withdraw/reject/${id}`,
+            {
+                method: "PUT",
+                headers: {
+                    adminemail: user.email
+                }
+            }
+        );
+
+        const data = await response.json();
+
+        alert(data.message);
+
+        loadWithdrawals();
+
+    } catch (error) {
+
+        console.error(error);
+
+        alert("Something went wrong.");
+
+    }
+
+    }
 // ================= START =================
 
 loadUsers();
