@@ -1,0 +1,354 @@
+/*==================================
+   CREST WEALTH INVITE PAGE
+==================================*/
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef5ff;
+color:#1e293b;
+padding-bottom:90px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+padding:20px;
+}
+
+/*=========================
+TOPBAR
+=========================*/
+
+.topbar{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+color:#fff;
+padding:18px 20px;
+border-radius:20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:20px;
+box-shadow:0 15px 35px rgba(37,99,235,.25);
+}
+
+.topbar a{
+color:#fff;
+font-size:22px;
+text-decoration:none;
+}
+
+.topbar h2{
+font-size:22px;
+}
+
+/*=========================
+HERO
+=========================*/
+
+.hero{
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+color:#fff;
+padding:30px 20px;
+border-radius:20px;
+text-align:center;
+margin-bottom:20px;
+box-shadow:0 15px 35px rgba(37,99,235,.25);
+}
+
+.hero h1{
+font-size:28px;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:15px;
+opacity:.95;
+}
+
+/*=========================
+CARDS
+=========================*/
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+margin-bottom:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.card h3{
+margin-bottom:15px;
+color:#1e3a8a;
+}
+
+/*=========================
+COPY BOX
+=========================*/
+
+.copy-box{
+display:flex;
+gap:10px;
+}
+
+.copy-box input{
+flex:1;
+padding:14px;
+border:1px solid #dbeafe;
+border-radius:10px;
+font-size:14px;
+outline:none;
+}
+
+.copy-box button{
+width:55px;
+border:none;
+border-radius:10px;
+background:#2563eb;
+color:#fff;
+cursor:pointer;
+font-size:18px;
+transition:.3s;
+}
+
+.copy-box button:hover{
+background:#1d4ed8;
+}
+
+/*=========================
+WHATSAPP BUTTON
+=========================*/
+
+.share{
+margin-bottom:20px;
+}
+
+.share button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:15px;
+background:#25D366;
+color:#fff;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+transition:.3s;
+}
+
+.share button:hover{
+transform:translateY(-3px);
+  }
+/*==================================
+   INVITE PAGE - PART 2
+==================================*/
+
+/*=========================
+STATS
+=========================*/
+
+.stats{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat-card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.stat-card h4{
+font-size:14px;
+color:#64748b;
+margin-bottom:10px;
+}
+
+.stat-card h2{
+font-size:26px;
+color:#2563eb;
+}
+
+/*=========================
+REWARD TABLE
+=========================*/
+
+.reward-table{
+width:100%;
+border-collapse:collapse;
+}
+
+.reward-table th{
+background:#edf4ff;
+color:#1e3a8a;
+padding:14px;
+text-align:left;
+font-size:14px;
+}
+
+.reward-table td{
+padding:14px;
+border-bottom:1px solid #e5e7eb;
+font-size:14px;
+}
+
+.reward-table tr:last-child td{
+border-bottom:none;
+}
+
+/*=========================
+STEPS
+=========================*/
+
+.steps p{
+padding:12px 0;
+font-size:15px;
+border-bottom:1px solid #eef2ff;
+}
+
+.steps p:last-child{
+border-bottom:none;
+}
+
+/*=========================
+FOOTER
+=========================*/
+
+footer{
+text-align:center;
+padding:25px 0 90px;
+color:#64748b;
+font-size:14px;
+}
+
+/*=========================
+BOTTOM NAVIGATION
+=========================*/
+
+.bottom-nav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+height:70px;
+background:#fff;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow:0 -5px 25px rgba(0,0,0,.12);
+z-index:1000;
+}
+
+.bottom-nav a{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+color:#64748b;
+font-size:12px;
+font-weight:600;
+transition:.3s;
+height:100%;
+}
+
+.bottom-nav a i{
+font-size:20px;
+margin-bottom:4px;
+}
+
+.bottom-nav a.active{
+color:#2563eb;
+}
+
+.bottom-nav a.active i{
+text-shadow:0 0 12px rgba(37,99,235,.8);
+}
+
+.bottom-nav a::after{
+content:"";
+width:0;
+height:3px;
+background:#2563eb;
+border-radius:20px;
+margin-top:5px;
+transition:.3s;
+}
+
+.bottom-nav a.active::after{
+width:28px;
+}
+
+/*=========================
+MOBILE
+=========================*/
+
+@media(max-width:768px){
+
+.container{
+padding:15px;
+}
+
+.hero h1{
+font-size:23px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.stats{
+grid-template-columns:1fr;
+}
+
+.reward-table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+.copy-box{
+flex-direction:column;
+}
+
+.copy-box button{
+width:100%;
+height:50px;
+}
+
+}
+
+/*=========================
+ANIMATION
+=========================*/
+
+.card,
+.stat-card,
+.hero{
+animation:fadeUp .5s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+  }
