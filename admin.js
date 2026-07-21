@@ -271,3 +271,4 @@ async function rejectDeposit(id) {
 
 loadUsers();
 loadDeposits();
+loadWithdrawals();
