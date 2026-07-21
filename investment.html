@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+
+Investment Plans | Crest Wealth
+
+</title>
+
+<link rel="stylesheet"
+href="investment.css">
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<a href="dashboard.html">
+
+<i class="fas fa-arrow-left"></i>
+
+</a>
+
+<h2>
+
+Investment Plans
+
+</h2>
+
+<div></div>
+
+</div>
+
+<!-- HERO -->
+
+<div class="hero">
+
+<h1>
+
+Grow Your Wealth
+
+</h1>
+
+<p>
+
+Choose an investment plan that matches your financial goals.
+
+</p>
+
+</div>
+
+<!-- PLANS -->
+
+<div class="plans">
+
+<!-- STARTER -->
+
+<div class="plan-card">
+
+<span class="badge">
+
+Starter
+
+</span>
+
+<h2>
+
+₦5,000
+
+</h2>
+
+<h3>
+
+₦700 Daily
+
+</h3>
+
+<p>
+
+Duration:
+<b>
+
+7 Days
+
+</b>
+
+</p>
+
+<p>
+
+Total Return:
+<b>
+
+₦9,900
+
+</b>
+
+</p>
+
+<button
+onclick="startInvestment('Starter')">
+
+Invest Now
+
+</button>
+
+</div>
+
+<!-- POPULAR -->
+
+<div class="plan-card popular">
+
+<span class="badge">
+
+Popular
+
+</span>
+
+<h2>
+
+₦20,000
+
+</h2>
+
+<h3>
+
+₦2,000 Daily
+
+</h3>
+
+<p>
+
+Duration:
+<b>
+
+14 Days
+
+</b>
+
+</p>
+
+<p>
+
+Total Return:
+<b>
+
+₦48,000
+
+</b>
+
+</p>
+
+<button
+onclick="startInvestment('Popular')">
+
+Invest Now
+
+</button>
+
+  </div>
+  <!-- PREMIUM -->
+
+<div class="plan-card">
+
+<span class="badge">
+
+Premium
+
+</span>
+
+<h2>
+
+₦50,000
+
+</h2>
+
+<h3>
+
+₦4,000 Daily
+
+</h3>
+
+<p>
+
+Duration:
+<b>15 Days</b>
+
+</p>
+
+<p>
+
+Total Return:
+<b>₦110,000</b>
+
+</p>
+
+<button onclick="startInvestment('Premium')">
+
+Invest Now
+
+</button>
+
+</div>
+
+<!-- DIAMOND -->
+
+<div class="plan-card diamond">
+
+<span class="badge">
+
+Diamond
+
+</span>
+
+<h2>
+
+₦100,000
+
+</h2>
+
+<h3>
+
+₦5,500 Daily
+
+</h3>
+
+<p>
+
+Duration:
+<b>20 Days</b>
+
+</p>
+
+<p>
+
+Total Return:
+<b>₦210,000</b>
+
+</p>
+
+<button onclick="startInvestment('Diamond')">
+
+Invest Now
+
+</button>
+
+</div>
+
+</div>
+
+<!-- INFORMATION -->
+
+<div class="info-card">
+
+<h2>
+
+Investment Information
+
+</h2>
+
+<ul>
+
+<li>✅ Investments are activated after your deposit is approved.</li>
+
+<li>✅ Daily earnings are credited automatically.</li>
+
+<li>✅ You can withdraw available profits after approval.</li>
+
+<li>✅ Contact support if you have any questions.</li>
+
+</ul>
+
+</div>
+
+<!-- BOTTOM NAVIGATION -->
+
+<nav class="bottom-nav">
+
+<a href="dashboard.html">
+
+<i class="fas fa-house"></i>
+
+<span>Home</span>
+
+</a>
+
+<a href="investment.html" class="active">
+
+<i class="fas fa-chart-line"></i>
+
+<span>Invest</span>
+
+</a>
+
+<a href="deposit.html">
+
+<i class="fas fa-wallet"></i>
+
+<span>Deposit</span>
+
+</a>
+
+<a href="invite.html">
+
+<i class="fas fa-user-plus"></i>
+
+<span>Invite</span>
+
+</a>
+
+</nav>
+
+<script>
+
+// =========================
+// LOAD USER
+// =========================
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+
+window.location.href="login.html";
+
+}
+
+// =========================
+// START INVESTMENT
+// =========================
+
+async function startInvestment(plan){
+
+const confirmInvest = confirm(
+
+`Do you want to start the ${plan} investment plan?`
+
+);
+
+if(!confirmInvest) return;
+
+try{
+
+const response = await fetch(
+
+"https://young-invest-backend.onrender.com/api/investment/start",
+
+{
+
+method:"POST",
+
+headers:{
+
+"Content-Type":"application/json"
+
+},
+
+body:JSON.stringify({
+
+userId:user._id,
+
+plan:plan
+
+})
+
+}
+
+);
+
+const data = await response.json();
+
+alert(data.message);
+
+if(response.ok){
+
+window.location.href="dashboard.html";
+
+}
+
+}catch(error){
+
+console.log(error);
+
+alert("Something went wrong.");
+
+}
+
+}
+
+</script>
+
+</body>
+
+  </html>
