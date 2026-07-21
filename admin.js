@@ -3,13 +3,27 @@
 const user = JSON.parse(localStorage.getItem("user"));
 
 if (!user) {
-    alert("Please login first.");
-    window.location.href = "login.html";
+
+    showError(
+        "Login Required",
+        "Please login first.",
+        () => {
+            window.location.href = "login.html";
+        }
+    );
+
 }
 
 if (user.role !== "admin") {
-    alert("Access Denied!");
-    window.location.href = "dashboard.html";
+
+    showError(
+        "Access Denied",
+        "Only administrators can access this page.",
+        () => {
+            window.location.href = "dashboard.html";
+        }
+    );
+
 }
 
 // ================= LOAD USERS =================
@@ -37,27 +51,36 @@ async function loadUsers() {
 
         users.forEach(u => {
 
-          tbody.innerHTML += `
-<tr>
-    <td>${u.fullName}</td>
-    <td>${u.email}</td>
-    <td>₦${Number(u.walletBalance).toLocaleString()}</td>
-    <td>₦${Number(u.totalInvestment).toLocaleString()}</td>
+            tbody.innerHTML += `
+            <tr>
+                <td>${u.fullName}</td>
+                <td>${u.email}</td>
+                <td>₦${Number(u.walletBalance).toLocaleString()}</td>
+                <td>₦${Number(u.totalInvestment).toLocaleString()}</td>
 
-    <td>
-        <button class="reset"
-        onclick="resetPassword('${u._id}')">
-            🔑 Reset Password
-        </button>
-    </td>
-</tr>
-`;  
+                <td>
+                    <button
+                    class="reset"
+                    onclick="resetPassword('${u._id}')">
+
+                    🔑 Reset Password
+
+                    </button>
+                </td>
+
+            </tr>
+            `;
 
         });
 
     } catch (error) {
 
         console.error(error);
+
+        showError(
+            "Error",
+            "Unable to load users."
+        );
 
     }
 
@@ -86,50 +109,76 @@ async function loadDeposits() {
 
         let pending = 0;
         let approved = 0;
-  deposits.forEach(dep => {
+
+        deposits.forEach(dep => {
 
             if (dep.status === "Pending") pending++;
+
             if (dep.status === "Approved") approved++;
-tbody.innerHTML += `
-<tr>
-    <td>${dep.user.fullName}</td>
-    <td>${dep.user.email}</td>
-    <td>₦${Number(dep.amount).toLocaleString()}</td>
 
-    <td>
-        ${
-            dep.receipt
-            ? `<a href="${dep.receipt}" target="_blank">👁 View</a>`
-            : "No Receipt"
-        }
-    </td>
+            tbody.innerHTML += `
+            <tr>
 
-    <td>${dep.status}</td>
+                <td>${dep.user.fullName}</td>
 
-    <td>
-        <button class="approve" onclick="approveDeposit('${dep._id}')">
-            Approve
-        </button>
+                <td>${dep.user.email}</td>
 
-        <button class="reject" onclick="rejectDeposit('${dep._id}')">
-            Reject
-        </button>
-    </td>
-</tr>
-`;
+                <td>₦${Number(dep.amount).toLocaleString()}</td>
+
+                <td>
+
+                ${
+                    dep.receipt
+                    ? `<a href="${dep.receipt}" target="_blank">👁 View</a>`
+                    : "No Receipt"
+                }
+
+                </td>
+
+                <td>${dep.status}</td>
+
+                <td>
+
+                    <button
+                    class="approve"
+                    onclick="approveDeposit('${dep._id}')">
+
+                    Approve
+
+                    </button>
+
+                    <button
+                    class="reject"
+                    onclick="rejectDeposit('${dep._id}')">
+
+                    Reject
+
+                    </button>
+
+                </td>
+
+            </tr>
+            `;
 
         });
 
         document.getElementById("pendingCount").textContent = pending;
+
         document.getElementById("approvedCount").textContent = approved;
 
     } catch (error) {
 
         console.error(error);
 
+        showError(
+            "Error",
+            "Unable to load deposits."
+        );
+
     }
 
 }
+
 // ================= LOAD WITHDRAWALS =================
 
 async function loadWithdrawals() {
@@ -137,19 +186,12 @@ async function loadWithdrawals() {
     try {
 
         const response = await fetch(
-
             "https://young-invest-backend.onrender.com/api/admin/withdrawals",
-
             {
-
                 headers: {
-
                     adminemail: user.email
-
                 }
-
             }
-
         );
 
         const withdrawals = await response.json();
@@ -162,47 +204,54 @@ async function loadWithdrawals() {
 
             tbody.innerHTML += `
 
-<tr>
+            <tr>
 
-<td>${item.user.fullName}</td>
+                <td>${item.user.fullName}</td>
 
-<td>${item.bankName}</td>
+                <td>${item.bankName}</td>
 
-<td>${item.accountName}</td>
+                <td>${item.accountName}</td>
 
-<td>${item.accountNumber}</td>
+                <td>${item.accountNumber}</td>
 
-<td>₦${Number(item.amount).toLocaleString()}</td>
+                <td>₦${Number(item.amount).toLocaleString()}</td>
 
-<td>${item.status}</td>
+                <td>${item.status}</td>
 
-<td>
+                <td>
 
-<button class="approve"
-onclick="approveWithdrawal('${item._id}')">
+                    <button
+                    class="approve"
+                    onclick="approveWithdrawal('${item._id}')">
 
-Approve
+                    Approve
 
-</button>
+                    </button>
 
-<button class="reject"
-onclick="rejectWithdrawal('${item._id}')">
+                    <button
+                    class="reject"
+                    onclick="rejectWithdrawal('${item._id}')">
 
-Reject
+                    Reject
 
-</button>
+                    </button>
 
-</td>
+                </td>
 
-</tr>
+            </tr>
 
-`;
+            `;
 
         });
 
     } catch (error) {
 
-        console.log(error);
+        console.error(error);
+
+        showError(
+            "Error",
+            "Unable to load withdrawals."
+        );
 
     }
 
@@ -212,76 +261,46 @@ Reject
 async function approveDeposit(id) {
 
     showConfirm(
-    "Approve Deposit",
-    "Are you sure you want to approve this deposit?",
-    async () => {
+        "Approve Deposit",
+        "Are you sure you want to approve this deposit?",
+        async () => {
 
-        try {
+            try {
 
-            const response = await fetch(
-                `https://young-invest-backend.onrender.com/api/admin/approve/${id}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        adminemail: user.email
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/approve/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            adminemail: user.email
+                        }
                     }
-                }
-            );
+                );
 
-            const data = await response.json();
+                const data = await response.json();
 
-            showSuccess(
-                "Approved!",
-                data.message,
-                () => {
-                    loadUsers();
-                    loadDeposits();
-                }
-            );
+                showSuccess(
+                    "Approved!",
+                    data.message,
+                    () => {
+                        loadUsers();
+                        loadDeposits();
+                    }
+                );
 
-        } catch (error) {
+            } catch (error) {
 
-            showError(
-                "Error",
-                "Something went wrong."
-            );
+                console.error(error);
+
+                showError(
+                    "Error",
+                    "Something went wrong."
+                );
+
+            }
 
         }
-
-    }
-);
-
-    try {
-
-        const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/admin/approve/${id}`,
-            {
-                method: "PUT",
-                headers: {
-                    adminemail: user.email
-                }
-            }
-        );
-
-        const data = await response.json();
-
-        showSuccess(
-    "Success",
-    data.message
-);
-
-        loadUsers();
-        loadDeposits();
-
-    } catch (error) {
-
-        console.error(error);
-        showError(
-    "Error",
-    "Something went wrong."
-);
-
-    }
+    );
 
 }
 
@@ -289,65 +308,93 @@ async function approveDeposit(id) {
 
 async function rejectDeposit(id) {
 
-    if (!confirm("Reject this deposit?")) return;
+    showConfirm(
+        "Reject Deposit",
+        "Are you sure you want to reject this deposit?",
+        async () => {
 
-    try {
+            try {
 
-        const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/admin/reject/${id}`,
-            {
-                method: "PUT",
-                headers: {
-                    adminemail: user.email
-                }
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/reject/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            adminemail: user.email
+                        }
+                    }
+                );
+
+                const data = await response.json();
+
+                showSuccess(
+                    "Rejected",
+                    data.message,
+                    () => {
+                        loadDeposits();
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                showError(
+                    "Error",
+                    "Something went wrong."
+                );
+
             }
-        );
 
-        const data = await response.json();
-
-        alert(data.message);
-
-        loadDeposits();
-
-    } catch (error) {
-
-        console.error(error);
-        alert("Something went wrong.");
-
-    }
+        }
+    );
 
 }
+
 // ================= APPROVE WITHDRAWAL =================
 
 async function approveWithdrawal(id) {
 
-    if (!confirm("Approve this withdrawal?")) return;
+    showConfirm(
+        "Approve Withdrawal",
+        "Approve this withdrawal request?",
+        async () => {
 
-    try {
+            try {
 
-        const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
-            {
-                method: "PUT",
-                headers: {
-                    adminemail: user.email
-                }
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            adminemail: user.email
+                        }
+                    }
+                );
+
+                const data = await response.json();
+
+                showSuccess(
+                    "Approved!",
+                    data.message,
+                    () => {
+                        loadWithdrawals();
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                showError(
+                    "Error",
+                    "Something went wrong."
+                );
+
             }
-        );
 
-        const data = await response.json();
-
-        alert(data.message);
-
-        loadWithdrawals();
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Something went wrong.");
-
-    }
+        }
+    );
 
 }
 
@@ -355,127 +402,114 @@ async function approveWithdrawal(id) {
 
 async function rejectWithdrawal(id) {
 
-    if (!confirm("Reject this withdrawal?")) return;
+    showConfirm(
+        "Reject Withdrawal",
+        "Reject this withdrawal request?",
+        async () => {
 
-    try {
+            try {
 
-        const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/admin/withdraw/reject/${id}`,
-            {
-                method: "PUT",
-                headers: {
-                    adminemail: user.email
-                }
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/withdraw/reject/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            adminemail: user.email
+                        }
+                    }
+                );
+
+                const data = await response.json();
+
+                showSuccess(
+                    "Rejected",
+                    data.message,
+                    () => {
+                        loadWithdrawals();
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(error);
+
+                showError(
+                    "Error",
+                    "Something went wrong."
+                );
+
             }
-        );
 
-        const data = await response.json();
+        }
+    );
 
-        alert(data.message);
-
-        loadWithdrawals();
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Something went wrong.");
-
-    }
-
-    }
+}
 // ================= RESET PASSWORD =================
 
 async function resetPassword(id) {
 
     showPasswordPrompt(
-    "Reset User Password",
-    async (newPassword) => {
+        "Reset User Password",
+        async (newPassword) => {
 
-        try {
+            try {
 
-            const response = await fetch(
-                `https://young-invest-backend.onrender.com/api/admin/reset-password/${id}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        "Content-Type": "application/json",
-                        adminemail: user.email
-                    },
-                    body: JSON.stringify({
-                        newPassword
-                    })
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/reset-password/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            adminemail: user.email
+                        },
+                        body: JSON.stringify({
+                            newPassword
+                        })
+                    }
+                );
+
+                const data = await response.json();
+
+                if (response.ok) {
+
+                    showSuccess(
+                        "Password Reset",
+                        data.message
+                    );
+
+                } else {
+
+                    showError(
+                        "Reset Failed",
+                        data.message
+                    );
+
                 }
-            );
 
-            const data = await response.json();
+            } catch (error) {
 
-            showSuccess(
-                "Password Reset",
-                data.message
-            );
+                console.error(error);
 
-        } catch (error) {
-
-            showError(
-                "Reset Failed",
-                "Unable to reset password."
-            );
-
-        }
-
-    }
-);
-    if (!newPassword) return;
-
-    if (newPassword.length < 6) {
-        alert("Password must be at least 6 characters.");
-        return;
-    }
-
-    try {
-
-        const response = await fetch(
-
-            `https://young-invest-backend.onrender.com/api/admin/reset-password/${id}`,
-
-            {
-
-                method: "PUT",
-
-                headers: {
-
-                    "Content-Type": "application/json",
-
-                    adminemail: user.email
-
-                },
-
-                body: JSON.stringify({
-
-                    newPassword
-
-                })
+                showError(
+                    "Error",
+                    "Unable to reset password."
+                );
 
             }
 
-        );
-
-        const data = await response.json();
-
-        alert(data.message);
-
-    } catch (error) {
-
-        console.error(error);
-
-        alert("Something went wrong.");
-
-    }
+        }
+    );
 
 }
+
 // ================= START =================
 
-loadUsers();
-loadDeposits();
-loadWithdrawals();
+window.addEventListener("DOMContentLoaded", () => {
+
+    loadUsers();
+
+    loadDeposits();
+
+    loadWithdrawals();
+
+});
