@@ -837,13 +837,13 @@ overlay.onclick=closeSidebar;
 
 // Close sidebar after clicking menu
 
-document.querySelectorAll(".sidebar li").forEach(item=>{
+document.querySelectorAll(".sidebar li").forEach(item => {
 
-item.onclick=function(){
+    item.addEventListener("click", function () {
 
-closeSidebar();
+        closeSidebar();
 
-};
+    });
 
 });
 
