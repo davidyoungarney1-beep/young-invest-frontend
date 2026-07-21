@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Active Investment | Crest Wealth Investment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f4f7fb;
+padding:20px;
+}
+
+.container{
+max-width:700px;
+margin:auto;
+}
+
+.title{
+text-align:center;
+margin-bottom:20px;
+color:#081826;
+}
+
+.card{
+background:#fff;
+border-radius:15px;
+padding:20px;
+margin-bottom:20px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:10px 0;
+border-bottom:1px solid #eee;
+}
+
+.row:last-child{
+border-bottom:none;
+}
+
+.label{
+font-weight:600;
+color:#081826;
+}
+
+.value{
+color:#555;
+}
+
+.back-btn{
+width:100%;
+padding:15px;
+border:none;
+border-radius:12px;
+background:#00c853;
+color:#fff;
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+margin-top:20px;
+}
+
+.back-btn:hover{
+background:#009624;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2 class="title">
+📈 Active Investment Plan
+</h2>
+
+<div id="investmentContainer">
+
+</div>
+
+<button
+class="back-btn"
+onclick="window.location.href='dashboard.html'">
+
+⬅ Back to Dashboard
+
+</button>
+
+</div>
+<script>
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if (!user) {
+    window.location.href = "login.html";
+}
+
+async function loadInvestments() {
+
+    try {
+
+        const response = await fetch(
+            `https://young-invest-backend.onrender.com/api/investment/${user._id}`
+        );
+
+        const investments = await response.json();
+
+        const container = document.getElementById("investmentContainer");
+
+        container.innerHTML = "";
+
+        if (!investments.length) {
+
+            container.innerHTML = `
+            <div class="card">
+                <h3 style="text-align:center;color:#666;">
+                    No Active Investment Yet
+                </h3>
+                <p style="text-align:center;margin-top:10px;">
+                    Start an investment plan to see it here.
+                </p>
+            </div>
+            `;
+
+            return;
+
+        }
+
+        investments.forEach(item => {
+
+            let status = "Running";
+
+            if (new Date(item.endDate) < new Date()) {
+                status = "Completed";
+            }
+
+            container.innerHTML += `
+
+<div class="card">
+
+<div class="row">
+<span class="label">Plan</span>
+<span class="value">${item.planName}</span>
+</div>
+
+<div class="row">
+<span class="label">Amount</span>
+<span class="value">₦${Number(item.amount).toLocaleString()}</span>
+</div>
+
+<div class="row">
+<span class="label">Daily Profit</span>
+<span class="value">₦${Number(item.dailyProfit).toLocaleString()}</span>
+</div>
+
+<div class="row">
+<span class="label">Days Paid</span>
+<span class="value">${item.daysPaid} / ${item.duration}</span>
+</div>
+
+<div class="row">
+<span class="label">Total Return</span>
+<span class="value">₦${Number(item.totalReturn).toLocaleString()}</span>
+</div>
+
+<div class="row">
+<span class="label">Start Date</span>
+<span class="value">${new Date(item.startDate).toLocaleDateString()}</span>
+</div>
+
+<div class="row">
+<span class="label">End Date</span>
+<span class="value">${new Date(item.endDate).toLocaleDateString()}</span>
+</div>
+
+<div class="row">
+<span class="label">Status</span>
+<span class="value" style="color:${status === 'Running' ? 'green' : 'blue'};">
+${status}
+</span>
+</div>
+
+</div>
+
+`;
+
+        });
+
+    } catch (error) {
+
+        console.log(error);
+
+        document.getElementById("investmentContainer").innerHTML = `
+        <div class="card">
+            <h3 style="text-align:center;color:red;">
+                Failed to load investments.
+            </h3>
+        </div>
+        `;
+
+    }
+
+}
+
+loadInvestments();
+
+</script>
+
+</body>
+</html>
