@@ -13,6 +13,7 @@ if (!user) {
     );
 
     throw new Error("No user logged in");
+    return;
 
 }
 
