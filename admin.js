@@ -12,6 +12,8 @@ if (!user) {
         }
     );
 
+    throw new Error("No user logged in");
+
 }
 
 if (user.role !== "admin") {
@@ -23,6 +25,8 @@ if (user.role !== "admin") {
             window.location.href = "dashboard.html";
         }
     );
+
+    throw new Error("Access denied");
 
 }
 
