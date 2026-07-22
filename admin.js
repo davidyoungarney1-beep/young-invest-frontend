@@ -356,13 +356,14 @@ async function rejectDeposit(id) {
 }
 
 // ================= APPROVE WITHDRAWAL =================
-
 async function approveWithdrawal(id) {
 
     showConfirm(
         "Approve Withdrawal",
         "Approve this withdrawal request?",
         async () => {
+
+            alert("YES button clicked");
 
             try {
 
@@ -376,24 +377,17 @@ async function approveWithdrawal(id) {
                     }
                 );
 
+                alert("Response: " + response.status);
+
                 const data = await response.json();
 
-                showSuccess(
-                    "Approved!",
-                    data.message,
-                    () => {
-                        loadWithdrawals();
-                    }
-                );
+                alert(data.message);
+
+                loadWithdrawals();
 
             } catch (error) {
 
-                console.error(error);
-
-                showError(
-                    "Error",
-                    "Something went wrong."
-                );
+                alert(error.message);
 
             }
 
