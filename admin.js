@@ -358,45 +358,45 @@ async function rejectDeposit(id) {
 
 // ================= APPROVE WITHDRAWAL =================
 async function approveWithdrawal(id) {
+showConfirm(
+    "Approve Withdrawal",
+    "Approve this withdrawal request?",
+    async () => {
 
-    showConfirm(
-        "Approve Withdrawal",
-        "Approve this withdrawal request?",
-        async () => {
+        try {
 
-            alert("YES button clicked");
-
-            try {
-
-                const response = await fetch(
-                    `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
-                    {
-                        method: "PUT",
-                        headers: {
-                            adminemail: user.email
-                        }
+            const response = await fetch(
+                `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        adminemail: user.email
                     }
-                );
+                }
+            );
 
-                alert("Response: " + response.status);
+            const data = await response.json();
 
-                const data = await response.json();
+            showSuccess(
+                "Approved!",
+                data.message,
+                () => {
+                    loadWithdrawals();
+                }
+            );
 
-                alert(data.message);
+        } catch (error) {
 
-                loadWithdrawals();
-
-            } catch (error) {
-
-                alert(error.message);
-
-            }
+            showError(
+                "Error",
+                error.message
+            );
 
         }
-    );
 
+    }
+);
 }
-
 // ================= REJECT WITHDRAWAL =================
 
 async function rejectWithdrawal(id) {
