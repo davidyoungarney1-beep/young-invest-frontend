@@ -39,15 +39,25 @@ document.getElementById("withdrawable").textContent =
 "₦" + Number(user.withdrawableBalance || 0).toLocaleString();
 
 // ================= LOGOUT =================
+document.getElementById("logout").onclick = function () {
 
-document.getElementById("logout").addEventListener("click", function () {
+    showConfirm(
+        "Logout",
+        "Are you sure you want to logout?",
+        () => {
 
-    if (confirm("Are you sure you want to logout?")) {
+            localStorage.removeItem("user");
 
-        localStorage.removeItem("user");
+            showSuccess(
+                "Logged Out",
+                "You have been logged out successfully.",
+                () => {
+                    window.location.href = "login.html";
+                }
+            );
 
-        window.location.href = "login.html";
+        }
+    );
 
-    }
+};
 
-});
