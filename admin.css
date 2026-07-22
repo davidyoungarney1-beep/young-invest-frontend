@@ -755,3 +755,22 @@ display:none;
 .popup{
     position: relative !important;
 }
+.popup-icon.success{
+    background:#dcfce7;
+    color:#16a34a;
+}
+
+.popup-icon.error{
+    background:#fee2e2;
+    color:#dc2626;
+}
+
+.confirm-btn{
+    background:#2563eb !important;
+    color:#fff !important;
+}
+
+.cancel-btn{
+    background:#e5e7eb !important;
+    color:#111827 !important;
+}
