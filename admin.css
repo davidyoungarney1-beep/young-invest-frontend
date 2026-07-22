@@ -740,3 +740,18 @@ margin-bottom:20px;
 .hidden{
 display:none;
   }
+.popup-overlay{
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    z-index: 999999 !important;
+}
+
+.popup{
+    position: relative !important;
+}
