@@ -211,3 +211,10 @@ animation:spin .8s linear infinite;
 transform:rotate(360deg);
 }
 }
+*{
+pointer-events:auto !important;
+}
+
+.popup-overlay{
+pointer-events:none !important;
+}
