@@ -511,3 +511,8 @@ window.addEventListener("DOMContentLoaded", () => {
     loadWithdrawals();
 
 });
+window.approveDeposit = approveDeposit;
+window.rejectDeposit = rejectDeposit;
+window.approveWithdrawal = approveWithdrawal;
+window.rejectWithdrawal = rejectWithdrawal;
+window.resetPassword = resetPassword;
