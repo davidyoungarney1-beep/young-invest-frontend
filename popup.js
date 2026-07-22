@@ -1,5 +1,5 @@
 // ================= SUCCESS / ERROR POPUP =================
-alert("Popup.js loaded");
+
 function showPopup(type, title, message, callback = null) {
 
     const old = document.getElementById("popupOverlay");
