@@ -4,9 +4,15 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 if (!user) {
 
-    alert("Please login first.");
+    showError(
+        "Login Required",
+        "Please login first.",
+        () => {
+            window.location.href = "login.html";
+        }
+    );
 
-    window.location.href = "login.html";
+    throw new Error("No user logged in");
 
 }
 
