@@ -1,3 +1,4 @@
+console.log("Admin JS Loaded");
 alert("admin.js started");
 // ================= ADMIN CHECK =================
 
