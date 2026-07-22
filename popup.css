@@ -83,25 +83,17 @@ font-weight:bold;
 
 }
 
-.success{
-
-background:#e8f5e9;
-
-color:#16a34a;
-
-border:2px solid #16a34a;
-
+.popup-icon.success{
+background:#16a34a;
+color:#fff;
+border:none;
 }
 
-.error{
-
-background:#fdecec;
-
-color:#dc2626;
-
-border:2px solid #dc2626;
-
-}
+.popup-icon.error{
+background:#dc2626;
+color:#fff;
+border:none;
+  }
 
 .popup h2{
 
