@@ -2,7 +2,27 @@
    CREST WEALTH INVESTMENT DASHBOARD
    PART 1
 =================================== */
+.contact-admin{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 18px;
+background:#16a34a;
+color:#fff;
+text-decoration:none;
+border-radius:30px;
+font-weight:600;
+transition:.3s;
+}
 
+.contact-admin:hover{
+background:#15803d;
+transform:translateY(-2px);
+}
+
+.contact-admin i{
+font-size:18px;
+}
 *{
 margin:0;
 padding:0;
