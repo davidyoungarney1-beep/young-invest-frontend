@@ -1,3 +1,4 @@
+alert("admin.js started");
 // ================= ADMIN CHECK =================
 
 const user = JSON.parse(localStorage.getItem("user"));
