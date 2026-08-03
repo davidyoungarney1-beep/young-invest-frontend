@@ -564,9 +564,9 @@ background:#f59e0b;
 background:#10b981;
 }
 .diamond-badge{
-background:linear-gradient(135deg,#fbbf24,#f59e0b);
+background:linear-gradient(135deg,#7c3aed,#5b21b6);
 color:#fff;
-   }
+}
 .popular{
 border:3px solid #10b981;
 transform:scale(1.05);
