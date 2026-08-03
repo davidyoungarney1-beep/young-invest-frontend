@@ -6,6 +6,7 @@ if (!user) {
     window.location.href = "login.html";
 }
 
+
 // ================= LOAD TRANSACTIONS =================
 
 async function loadTransactions() {
@@ -22,6 +23,7 @@ async function loadTransactions() {
 
         container.innerHTML = "";
 
+
         if (transactions.length === 0) {
 
             container.innerHTML = `
@@ -34,7 +36,9 @@ async function loadTransactions() {
             `;
 
             return;
+
         }
+
 
         transactions.forEach(item => {
 
@@ -44,25 +48,39 @@ async function loadTransactions() {
 
                 <div class="top">
 
-                    <span class="type">${item.type}</span>
+                    <span class="type">
+                        ${item.type}
+                    </span>
 
-                    <span class="amount">₦${Number(item.amount).toLocaleString()}</span>
+                    <span class="amount">
+                        ₦${Number(item.amount).toLocaleString()}
+                    </span>
 
                 </div>
+
 
                 <span class="status ${item.status}">
                     ${item.status}
                 </span>
 
+
                 <div class="date">
-                    ${new Date(item.date).toLocaleString()}
+
+                    ${new Date(item.date).toLocaleString("en-NG", {
+                        timeZone: "Africa/Lagos",
+                        dateStyle: "medium",
+                        timeStyle: "short"
+                    })}
+
                 </div>
+
 
             </div>
 
             `;
 
         });
+
 
     } catch (error) {
 
@@ -73,5 +91,6 @@ async function loadTransactions() {
     }
 
 }
+
 
 loadTransactions();
