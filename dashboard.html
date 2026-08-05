@@ -17,7 +17,36 @@
 </head>
 
 <body>
+<!-- Upgrade Popup -->
+<div id="upgradePopup" class="popup-overlay">
+  <div class="popup-box">
+    <h2>📢 Important Notice</h2>
 
+    <p>
+      Dear Valued Investors,
+    </p>
+
+    <p>
+      We are currently carrying out a system upgrade to improve our platform and enhance your overall experience.
+    </p>
+
+    <p>
+      <strong>
+        Investors who made an investment before the 5th of this month will be able to submit withdrawal requests starting on the 7th of this month.
+      </strong>
+    </p>
+
+    <p>
+      <strong>This notice does not apply to investors who invested on or after the 5th.</strong>
+    </p>
+
+    <p>
+      We sincerely apologize for any inconvenience and appreciate your patience and understanding.
+    </p>
+
+    <button onclick="closePopup()">I Understand</button>
+  </div>
+</div>
 <div class="dashboard">
 
 <!-- MOBILE MENU -->
@@ -869,7 +898,17 @@ navLinks.forEach(link => {
     });
 
 });
+// =========================
+// UPGRADE POPUP
+// =========================
 
+function closePopup() {
+    document.getElementById("upgradePopup").style.display = "none";
+}
+
+window.onload = function () {
+    document.getElementById("upgradePopup").style.display = "flex";
+};
 </script>
 
 </div>
