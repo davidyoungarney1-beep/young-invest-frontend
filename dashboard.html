@@ -903,10 +903,11 @@ navLinks.forEach(link => {
 // =========================
 
 function closePopup() {
-    document.getElementById("upgradePopup").style.display = "none";
+    document.getElementById("upgradePopup").classList.remove("show");
 }
+
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("upgradePopup").style.display = "flex";
+    document.getElementById("upgradePopup").classList.add("show");
 });
 
 </script>
