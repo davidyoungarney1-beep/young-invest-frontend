@@ -8,7 +8,6 @@
 <title>Crest Wealth Investment | Dashboard</title>
 
 <link rel="stylesheet" href="dashboard.css">
-<link rel="stylesheet" href="popup.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -17,28 +16,7 @@
 </head>
 
 <body>
-<!-- New Investment Plans Popup -->
-<div id="upgradePopup" class="popup-overlay">
-    <div class="popup-box">
 
-        <h2>🚀 New Investment Plans Are Live!</h2>
-
-        <p>
-            Our new investment plans are now available! Choose any plan below and start earning daily profits.
-        </p>
-
-        <p>🟢 <b>Starter</b> — ₦6,500 | ₦900/day | 13 Days | Return: ₦11,700</p>
-
-        <p>🔵 <b>Popular</b> — ₦20,000 | ₦2,500/day | 20 Days | Return: ₦50,000</p>
-
-        <p>🟣 <b>Premium</b> — ₦50,000 | ₦6,000/day | 20 Days | Return: ₦120,000</p>
-
-        <p>💎 <b>Diamond</b> — ₦100,000 | ₦10,000/day | 25 Days | Return: ₦250,000</p>
-
-        <button onclick="closePopup()">Close</button>
-
-    </div>
-</div>
 <!-- MOBILE MENU -->
 
 <button class="menu-btn" id="menuBtn">
@@ -246,6 +224,7 @@ Manage your investments safely.
 </div>
 
 </div>
+
 <!-- QUICK ACTIONS -->
 
 <h2 class="section-title">
@@ -448,8 +427,9 @@ Verified
 
 </div>
 
-    </div>
-    <!-- SUPPORT -->
+</div>
+
+<!-- SUPPORT -->
 
 <div class="support-box">
 
@@ -533,7 +513,6 @@ Telegram Support
 
 </nav>
 
-<script src="popup.js"></script>
 
 <script>
 
@@ -557,15 +536,26 @@ if (!user) {
 
 }
 
+
 // =========================
 // DISPLAY USER DETAILS
 // =========================
 
-document.getElementById("userName").textContent = user.fullName;
-document.getElementById("welcomeName").textContent = user.fullName;
-document.getElementById("profileName").textContent = user.fullName;
-document.getElementById("profileEmail").textContent = user.email;
-document.getElementById("profilePhone").textContent = user.phone;
+document.getElementById("userName").textContent =
+    user.fullName;
+
+document.getElementById("welcomeName").textContent =
+    user.fullName;
+
+document.getElementById("profileName").textContent =
+    user.fullName;
+
+document.getElementById("profileEmail").textContent =
+    user.email;
+
+document.getElementById("profilePhone").textContent =
+    user.phone;
+
 
 // =========================
 // CUSTOM LOGOUT
@@ -595,10 +585,12 @@ document.getElementById("logout").onclick = function () {
 
 };
 
+
 // =========================
 // LOAD DASHBOARD
 // =========================
-    async function loadDashboard() {
+
+async function loadDashboard() {
 
     try {
 
@@ -634,6 +626,7 @@ document.getElementById("logout").onclick = function () {
 }
 
 loadDashboard();
+
 
 // =========================
 // START INVESTMENT
@@ -699,6 +692,7 @@ async function startInvestment(plan) {
 
 }
 
+
 // =========================
 // RECENT TRANSACTIONS
 // =========================
@@ -713,7 +707,8 @@ async function loadRecentTransactions() {
 
         const transactions = await response.json();
 
-        const tbody = document.getElementById("recentTransactions");
+        const tbody =
+            document.getElementById("recentTransactions");
 
         tbody.innerHTML = "";
 
@@ -731,7 +726,7 @@ async function loadRecentTransactions() {
 
         }
 
-        transactions.slice(0,5).forEach(item => {
+        transactions.slice(0, 5).forEach(item => {
 
             tbody.innerHTML += `
             <tr>
@@ -758,7 +753,9 @@ async function loadRecentTransactions() {
 }
 
 loadRecentTransactions();
-   // =========================
+
+
+// =========================
 // REFERRAL / INVITE
 // =========================
 
@@ -771,9 +768,11 @@ if (document.getElementById("referralLink")) {
 
 }
 
+
 function copyReferralLink() {
 
-    const input = document.getElementById("referralLink");
+    const input =
+        document.getElementById("referralLink");
 
     input.select();
 
@@ -787,6 +786,7 @@ function copyReferralLink() {
     );
 
 }
+
 
 // =========================
 // LOAD REFERRAL STATS
@@ -812,7 +812,10 @@ async function loadReferralStats() {
         if (document.getElementById("referralEarnings")) {
 
             document.getElementById("referralEarnings").textContent =
-                "₦" + Number(data.referralEarnings || 0).toLocaleString();
+                "₦" +
+                Number(
+                    data.referralEarnings || 0
+                ).toLocaleString();
 
         }
 
@@ -826,30 +829,44 @@ async function loadReferralStats() {
 
 loadReferralStats();
 
+
 // =========================
 // MOBILE SIDEBAR
 // =========================
 
-const menuBtn = document.getElementById("menuBtn");
-const sidebar = document.getElementById("sidebar");
-const overlay = document.getElementById("overlay");
-const moreBtn = document.getElementById("moreBtn");
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const sidebar =
+    document.getElementById("sidebar");
+
+const overlay =
+    document.getElementById("overlay");
+
+const moreBtn =
+    document.getElementById("moreBtn");
+
 
 function openSidebar() {
 
     sidebar.classList.add("show");
+
     overlay.classList.add("show");
 
 }
 
+
 function closeSidebar() {
 
     sidebar.classList.remove("show");
+
     overlay.classList.remove("show");
 
 }
 
+
 menuBtn.onclick = openSidebar;
+
 
 moreBtn.onclick = function (e) {
 
@@ -859,7 +876,9 @@ moreBtn.onclick = function (e) {
 
 };
 
+
 overlay.onclick = closeSidebar;
+
 
 document.querySelectorAll(".sidebar li").forEach(item => {
 
@@ -871,33 +890,27 @@ document.querySelectorAll(".sidebar li").forEach(item => {
 
 });
 
+
 // =========================
 // BOTTOM NAVIGATION
 // =========================
 
-const navLinks = document.querySelectorAll(".bottom-nav a");
+const navLinks =
+    document.querySelectorAll(".bottom-nav a");
+
 
 navLinks.forEach(link => {
 
     link.addEventListener("click", function () {
 
-        navLinks.forEach(nav => nav.classList.remove("active"));
+        navLinks.forEach(nav =>
+            nav.classList.remove("active")
+        );
 
         this.classList.add("active");
 
     });
 
-});
-// =========================
-// UPGRADE POPUP
-// =========================
-
-function closePopup() {
-    document.getElementById("upgradePopup").classList.remove("show");
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("upgradePopup").classList.add("show");
 });
 
 </script>
@@ -908,4 +921,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 
-</html> 
+    </html>
