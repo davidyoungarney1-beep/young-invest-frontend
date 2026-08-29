@@ -39,6 +39,7 @@
 
 </div>
 
+
 <!-- HERO -->
 
 <div class="hero">
@@ -52,6 +53,7 @@ Transfer to the account below, upload your payment receipt and wait for approval
 </p>
 
 </div>
+
 
 <!-- AMOUNT -->
 
@@ -70,6 +72,7 @@ placeholder="Minimum ₦1,000">
 
 </div>
 
+
 <!-- BANK DETAILS -->
 
 <div class="bank-card">
@@ -86,17 +89,42 @@ Bank Transfer Details
 
 </div>
 
+
+<!-- GENERATE BUTTON -->
+
+<div id="generateSection">
+
+<button
+type="button"
+class="copy-btn"
+id="generateAccountBtn"
+onclick="generateAccount()">
+
+<i class="fas fa-credit-card"></i>
+
+Generate Account Number
+
+</button>
+
+</div>
+
+
+<!-- ACCOUNT DETAILS -->
+
+<div id="accountDetails" style="display:none;">
+
 <div class="bank-row">
 
 <span>Bank</span>
 
 <strong>
 
-CARBON MFB
+SMARTCASH LTD
 
 </strong>
 
 </div>
+
 
 <div class="bank-row">
 
@@ -104,11 +132,12 @@ CARBON MFB
 
 <strong>
 
-DAVID YOUNG
+Ngozi Nwa
 
 </strong>
 
 </div>
+
 
 <div class="bank-row">
 
@@ -116,13 +145,15 @@ DAVID YOUNG
 
 <strong id="accountNumber">
 
-9503282618
+0548752432
 
 </strong>
 
 </div>
 
+
 <button
+type="button"
 class="copy-btn"
 onclick="copyAccount()">
 
@@ -133,6 +164,9 @@ Copy Account Number
 </button>
 
 </div>
+
+</div>
+
 
 <!-- RECEIPT -->
 
@@ -149,6 +183,7 @@ type="file"
 id="receipt"
 accept="image/*">
 
+
 <button
 id="depositBtn"
 class="deposit-btn"
@@ -161,6 +196,7 @@ I Have Made Payment
 </button>
 
 </div>
+
 
 <!-- INFORMATION -->
 
@@ -187,6 +223,8 @@ Deposit Instructions
 </ul>
 
 </div>
+
+
 <!-- FOOTER -->
 
 <footer>
@@ -198,6 +236,7 @@ Deposit Instructions
 </p>
 
 </footer>
+
 
 <!-- BOTTOM NAVIGATION -->
 
@@ -211,6 +250,7 @@ Deposit Instructions
 
 </a>
 
+
 <a href="investment.html">
 
 <i class="fas fa-chart-line"></i>
@@ -219,6 +259,7 @@ Deposit Instructions
 
 </a>
 
+
 <a href="deposit.html" class="active">
 
 <i class="fas fa-wallet"></i>
@@ -226,6 +267,7 @@ Deposit Instructions
 <span>Deposit</span>
 
 </a>
+
 
 <a href="invite.html">
 
@@ -239,13 +281,43 @@ Deposit Instructions
 
 </div>
 
+
 <script src="popup.js"></script>
+
 
 <script>
 
+/* ===================================
+   GENERATE ACCOUNT NUMBER
+=================================== */
+
+function generateAccount(){
+
+const accountDetails =
+document.getElementById("accountDetails");
+
+const generateSection =
+document.getElementById("generateSection");
+
+accountDetails.style.display = "block";
+
+generateSection.style.display = "none";
+
+}
+
+
+/* ===================================
+   COPY ACCOUNT NUMBER
+=================================== */
+
 function copyAccount(){
 
-navigator.clipboard.writeText("9503282618");
+const accountNumber =
+document.getElementById("accountNumber")
+.textContent
+.trim();
+
+navigator.clipboard.writeText(accountNumber);
 
 if(typeof showSuccess==="function"){
 
@@ -264,6 +336,12 @@ alert("Account number copied.");
 }
 
 }
+
+
+/* ===================================
+   SUBMIT DEPOSIT
+   BACKEND CODE UNCHANGED
+=================================== */
 
 async function submitDeposit(){
 
@@ -291,7 +369,9 @@ return;
 
 }
 
+
 const amount=document.getElementById("amount").value;
+
 
 if(amount===""||Number(amount)<1000){
 
@@ -315,7 +395,9 @@ return;
 
 }
 
+
 const receipt=document.getElementById("receipt").files[0];
+
 
 if(!receipt){
 
@@ -339,11 +421,13 @@ return;
 
 }
 
+
 const btn=document.getElementById("depositBtn");
 
 btn.disabled=true;
 
 btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Submitting...';
+
 
 try{
 
@@ -354,6 +438,7 @@ formData.append("userId",user._id||user.id);
 formData.append("amount",Number(amount));
 
 formData.append("receipt",receipt);
+
 
 const response=await fetch(
 
@@ -369,11 +454,14 @@ body:formData
 
 );
 
+
 const data=await response.json();
+
 
 btn.disabled=false;
 
 btn.innerHTML='<i class="fas fa-paper-plane"></i> I Have Made Payment';
+
 
 if(response.ok){
 
@@ -421,11 +509,13 @@ alert(data.message);
 
 }
 
+
 }catch(error){
 
 btn.disabled=false;
 
 btn.innerHTML='<i class="fas fa-paper-plane"></i> I Have Made Payment';
+
 
 if(typeof showError==="function"){
 
