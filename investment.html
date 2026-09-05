@@ -8,11 +8,7 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>
-
-Investment Plans | Crest Wealth
-
-</title>
+<title>Investment Plans | Crest Wealth</title>
 
 <link rel="stylesheet"
 href="investment.css">
@@ -35,84 +31,98 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <div class="topbar">
 
 <a href="dashboard.html">
-
 <i class="fas fa-arrow-left"></i>
-
 </a>
 
-<h2>
-
-Investment Plans
-
-</h2>
+<h2>Investment Plans</h2>
 
 <div></div>
 
 </div>
 
+
 <!-- HERO -->
 
 <div class="hero">
 
-<h1>
-
-Grow Your Wealth
-
-</h1>
+<h1>Grow Your Wealth</h1>
 
 <p>
-
 Choose an investment plan that matches your financial goals.
-
 </p>
 
 </div>
 
+
 <!-- PLANS -->
 
 <div class="plans">
+
+
+<!-- MINI STARTER -->
+
+<div class="plan-card">
+
+<span class="badge">
+Mini Starter
+</span>
+
+<h2>₦3,500</h2>
+
+<h3>₦900 Daily</h3>
+
+<p>
+Duration:
+<b>7 Days</b>
+</p>
+
+<p>
+Total Return:
+<b>₦6,300</b>
+</p>
+
+<button onclick="startInvestment('Mini Starter')">
+Invest Now
+</button>
+
+</div>
+
 
 <!-- STARTER -->
 
 <div class="plan-card">
 
 <span class="badge">
-
 Starter
-
 </span>
 
 <h2>₦6,500</h2>
 
-<h3>₦900 Daily</h3>
+<h3>₦1,100 Daily</h3>
 
 <p>
 Duration:
-<b>13 Days</b>
+<b>10 Days</b>
 </p>
 
 <p>
 Total Return:
-<b>₦11,700</b>
+<b>₦11,000</b>
 </p>
 
-<button
-onclick="startInvestment('Starter')">
-
+<button onclick="startInvestment('Starter')">
 Invest Now
-
 </button>
 
 </div>
+
 
 <!-- POPULAR -->
 
 <div class="plan-card popular">
 
 <span class="badge">
-
 Popular
-
 </span>
 
 <h2>₦20,000</h2>
@@ -129,22 +139,19 @@ Total Return:
 <b>₦50,000</b>
 </p>
 
-<button
-onclick="startInvestment('Popular')">
-
+<button onclick="startInvestment('Popular')">
 Invest Now
-
 </button>
 
-  </div>
-  <!-- PREMIUM -->
+</div>
+
+
+<!-- PREMIUM -->
 
 <div class="plan-card">
 
 <span class="badge">
-
 Premium
-
 </span>
 
 <h2>₦50,000</h2>
@@ -162,21 +169,18 @@ Total Return:
 </p>
 
 <button onclick="startInvestment('Premium')">
-
 Invest Now
-
 </button>
 
 </div>
+
 
 <!-- DIAMOND -->
 
 <div class="plan-card diamond">
 
 <span class="badge">
-
 Diamond
-
 </span>
 
 <h2>₦100,000</h2>
@@ -192,35 +196,49 @@ Duration:
 Total Return:
 <b>₦250,000</b>
 </p>
+
 <button onclick="startInvestment('Diamond')">
-
 Invest Now
-
 </button>
 
 </div>
 
 </div>
 
+
 <!-- INFORMATION -->
 
 <div class="info-card">
 
 <h2>Investment Information</h2>
+
 <ul>
 
-<li>✅ Ensure you have sufficient wallet balance to start an investment.</li>
+<li>
+✅ Ensure you have sufficient wallet balance to start an investment.
+</li>
 
-<li>✅ Select your preferred investment plan and tap <b>Invest Now</b>.</li>
+<li>
+✅ Select your preferred investment plan and tap
+<b>Invest Now</b>.
+</li>
 
-<li>✅ Daily profits are credited automatically every 24 hours.</li>
+<li>
+✅ Daily profits are credited automatically every 24 hours.
+</li>
 
-<li>✅ Earnings are credited according to your selected investment plan.</li>
+<li>
+✅ Earnings are credited according to your selected investment plan.
+</li>
 
-<li>✅ Contact support if you have any questions.</li>
+<li>
+✅ Contact support if you have any questions.
+</li>
 
 </ul>
+
 </div>
+
 
 <!-- BOTTOM NAVIGATION -->
 
@@ -260,25 +278,28 @@ Invest Now
 
 </nav>
 
+
 <script>
 
 // =========================
 // LOAD USER
 // =========================
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user =
+JSON.parse(localStorage.getItem("user"));
 
-if(!user){
+if (!user) {
 
-window.location.href="login.html";
+window.location.href = "login.html";
 
 }
+
 
 // =========================
 // START INVESTMENT
 // =========================
 
-async function startInvestment(plan){
+async function startInvestment(plan) {
 
 const confirmInvest = confirm(
 
@@ -286,9 +307,9 @@ const confirmInvest = confirm(
 
 );
 
-if(!confirmInvest) return;
+if (!confirmInvest) return;
 
-try{
+try {
 
 const response = await fetch(
 
@@ -296,19 +317,19 @@ const response = await fetch(
 
 {
 
-method:"POST",
+method: "POST",
 
-headers:{
+headers: {
 
-"Content-Type":"application/json"
+"Content-Type": "application/json"
 
 },
 
-body:JSON.stringify({
+body: JSON.stringify({
 
-userId:user._id,
+userId: user._id,
 
-plan:plan
+plan: plan
 
 })
 
@@ -320,13 +341,13 @@ const data = await response.json();
 
 alert(data.message);
 
-if(response.ok){
+if (response.ok) {
 
-window.location.href="dashboard.html";
+window.location.href = "dashboard.html";
 
 }
 
-}catch(error){
+} catch (error) {
 
 console.log(error);
 
@@ -337,6 +358,8 @@ alert("Something went wrong.");
 }
 
 </script>
+
+</div>
 
 </body>
 
