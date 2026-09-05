@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Deposit Funds | Crest Wealth Investment</title>
@@ -12,16 +9,12 @@
 <link rel="stylesheet" href="deposit.css">
 <link rel="stylesheet" href="popup.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
-
-/* ==============================
-   RESET
-============================== */
 
 *{
     margin:0;
@@ -31,464 +24,377 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 body{
     font-family:'Poppins',sans-serif;
-    background:#f4f7fb;
-    color:#172033;
+    background:#f4f8fc;
+    color:#1f2937;
     min-height:100vh;
 }
 
 .container{
-    max-width:650px;
+    width:100%;
+    max-width:600px;
     margin:auto;
     padding-bottom:100px;
 }
 
-/* ==============================
-   TOPBAR
-============================== */
-
 .topbar{
-    height:70px;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:0 20px;
-    border-bottom:1px solid #e8edf3;
     position:sticky;
     top:0;
-    z-index:20;
+    z-index:100;
+    background:#fff;
+    padding:16px 18px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    border-bottom:1px solid #e5e7eb;
 }
 
-.topbar a{
+.back-btn{
     width:40px;
     height:40px;
     border-radius:12px;
-    background:#f1f5f9;
+    border:none;
+    background:#eef5ff;
+    color:#0d6efd;
     display:flex;
     align-items:center;
     justify-content:center;
-    text-decoration:none;
-    color:#172033;
+    font-size:18px;
+    cursor:pointer;
 }
 
 .topbar h2{
     font-size:18px;
-    font-weight:600;
-}
-
-/* ==============================
-   PROGRESS
-============================== */
-
-.progress-wrapper{
-    padding:20px;
-    background:white;
+    color:#111827;
 }
 
 .progress{
     display:flex;
     align-items:center;
-    justify-content:center;
+    padding:25px 25px 15px;
+    background:#fff;
 }
 
-.circle{
-    width:36px;
-    height:36px;
+.progress-step{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    min-width:65px;
+}
+
+.step-circle{
+    width:35px;
+    height:35px;
     border-radius:50%;
-    background:#e5eaf0;
-    color:#667085;
+    background:#e5e7eb;
+    color:#6b7280;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:13px;
-    font-weight:600;
-    transition:.3s;
+    font-weight:700;
 }
 
-.circle.active{
+.step-circle.active{
     background:#0d6efd;
-    color:white;
+    color:#fff;
 }
 
-.line{
-    width:90px;
-    height:3px;
-    background:#e5eaf0;
-    transition:.3s;
-}
-
-.line.active{
-    background:#0d6efd;
-}
-
-.step-label{
+.progress-step span{
     font-size:11px;
     margin-top:6px;
-    text-align:center;
-    color:#667085;
+    color:#6b7280;
 }
 
-/* ==============================
-   HERO
-============================== */
+.progress-step .active-label{
+    color:#0d6efd;
+    font-weight:600;
+}
+
+.progress-line{
+    flex:1;
+    height:3px;
+    background:#e5e7eb;
+    margin:0 5px 20px;
+}
+
+.progress-line.active{
+    background:#0d6efd;
+}
 
 .hero{
-    padding:28px 20px;
+    background:#fff;
+    padding:25px 20px;
+    text-align:center;
 }
 
 .hero-icon{
-    width:58px;
-    height:58px;
-    border-radius:18px;
-    background:#e8f1ff;
+    width:70px;
+    height:70px;
+    margin:0 auto 15px;
+    border-radius:20px;
+    background:#eaf3ff;
     color:#0d6efd;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:25px;
-    margin-bottom:15px;
+    font-size:30px;
 }
 
 .hero h1{
-    font-size:26px;
-    margin-bottom:8px;
+    font-size:25px;
+    color:#0d6efd !important;
+    margin-bottom:7px;
 }
 
 .hero p{
-    color:#667085;
+    color:#6b7280;
     font-size:14px;
-    line-height:1.7;
 }
 
-/* ==============================
-   CARDS
-============================== */
-
-.card,
-.bank-card,
-.security-card{
-    background:white;
-    margin:0 20px 18px;
+.card{
+    background:#fff;
+    margin:15px;
     padding:22px;
-    border-radius:20px;
-    box-shadow:0 5px 25px rgba(15,23,42,.05);
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
 }
 
-.card h3,
-.bank-card h3{
-    font-size:16px;
-    margin-bottom:15px;
-}
-
-/* ==============================
-   EMAIL INPUT
-============================== */
-
-.input-group{
-    position:relative;
-}
-
-.input-group i{
-    position:absolute;
-    left:15px;
-    top:50%;
-    transform:translateY(-50%);
-    color:#98a2b3;
-}
-
-.input-group input{
-    width:100%;
-    height:54px;
-    border:1px solid #dfe5ec;
-    border-radius:14px;
-    padding:0 15px 0 45px;
-    outline:none;
-    font-family:inherit;
-    font-size:14px;
-    transition:.2s;
-}
-
-.input-group input:focus{
-    border-color:#0d6efd;
-    box-shadow:0 0 0 3px rgba(13,110,253,.08);
-}
-
-/* ==============================
-   BUTTON
-============================== */
-
-.primary-btn{
-    width:100%;
-    height:54px;
-    border:none;
-    border-radius:14px;
-    background:#0d6efd;
-    color:white;
-    font-family:inherit;
-    font-weight:600;
-    cursor:pointer;
-    margin-top:15px;
-    transition:.2s;
-}
-
-.primary-btn:hover{
-    transform:translateY(-1px);
-}
-
-/* ==============================
-   BANK DETAILS
-============================== */
-
-.bank-card{
-    border:1px solid #dbe7f8;
-}
-
-.bank-header{
-    display:flex;
-    align-items:center;
-    gap:12px;
+.card h3{
+    color:#0d6efd !important;
+    font-size:17px;
     margin-bottom:18px;
 }
 
-.bank-header i{
-    width:44px;
-    height:44px;
-    border-radius:12px;
-    background:#eaf2ff;
-    color:#0d6efd;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.input-group{
+    margin-bottom:18px;
 }
 
-.bank-header h3{
-    margin:0;
-}
-
-.bank-row{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 0;
-    border-bottom:1px solid #edf0f4;
-    gap:15px;
-}
-
-.bank-row:last-of-type{
-    border-bottom:none;
-}
-
-.bank-row span{
-    color:#667085;
-    font-size:13px;
-}
-
-.bank-row strong{
-    font-size:14px;
-    text-align:right;
-}
-
-/* ==============================
-   ACCOUNT NUMBER
-============================== */
-
-.account-number-box{
-    margin-top:16px;
-    padding:15px;
-    background:#f6f9fd;
-    border:1px dashed #b9c9df;
-    border-radius:14px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-}
-
-.account-number-box div{
-    display:flex;
-    flex-direction:column;
-}
-
-.account-number-box small{
-    color:#667085;
-    font-size:11px;
-}
-
-.account-number-box strong{
-    font-size:20px;
-    letter-spacing:1px;
-}
-
-.copy-small{
-    border:none;
-    background:#0d6efd;
-    color:white;
-    width:44px;
-    height:44px;
-    border-radius:12px;
-    cursor:pointer;
-}
-
-/* ==============================
-   AMOUNT
-============================== */
-
-.amount-label{
+.input-group label{
     display:block;
     font-size:13px;
-    font-weight:500;
-    margin-bottom:8px;
-}
-
-.amount-input{
-    width:100%;
-    height:56px;
-    border:1px solid #dfe5ec;
-    border-radius:14px;
-    padding:0 15px;
-    font-size:18px;
-    font-family:inherit;
-    outline:none;
-}
-
-.amount-input:focus{
-    border-color:#0d6efd;
-}
-
-/* ==============================
-   UPLOAD
-============================== */
-
-.upload-box{
-    display:block;
-    border:2px dashed #d8e0ea;
-    border-radius:16px;
-    padding:25px 15px;
-    text-align:center;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.upload-box:hover{
-    border-color:#0d6efd;
-    background:#f8fbff;
-}
-
-.upload-box i{
-    font-size:30px;
-    color:#0d6efd;
-    margin-bottom:10px;
-}
-
-.upload-box p{
-    font-size:13px;
-    color:#667085;
-}
-
-.upload-box strong{
-    display:block;
-    font-size:14px;
-    margin-bottom:4px;
-}
-
-#receipt{
-    display:none;
-}
-
-.file-name{
-    margin-top:12px;
-    font-size:12px;
-    color:#0d6efd;
-    word-break:break-word;
-}
-
-/* ==============================
-   DEPOSIT BUTTON
-============================== */
-
-.deposit-btn{
-    width:100%;
-    height:55px;
-    margin-top:18px;
-    border:none;
-    border-radius:14px;
-    background:#0d6efd;
-    color:white;
-    font-family:inherit;
     font-weight:600;
+    margin-bottom:8px;
+    color:#374151;
+}
+
+.input-box{
+    position:relative;
+}
+
+.input-box i{
+    position:absolute;
+    left:14px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#0d6efd;
+}
+
+.input-box input{
+    width:100%;
+    padding:14px 15px 14px 43px;
+    border:1px solid #dbe2ea;
+    border-radius:12px;
+    outline:none;
+    font-family:inherit;
     font-size:14px;
+    background:#fff;
+}
+
+.input-box input:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 0 3px rgba(13,110,253,.1);
+}
+
+.primary-btn{
+    width:100%;
+    border:none;
+    border-radius:13px;
+    background:#0d6efd;
+    color:#fff;
+    padding:15px;
+    font-family:inherit;
+    font-size:14px;
+    font-weight:700;
     cursor:pointer;
 }
 
-.deposit-btn:disabled{
-    opacity:.6;
+.primary-btn:hover{
+    background:#0b5ed7;
 }
 
-/* ==============================
-   SECURITY
-============================== */
+.primary-btn:disabled{
+    opacity:.7;
+    cursor:not-allowed;
+}
 
 .security-card{
+    margin:15px;
+    padding:18px;
+    border-radius:16px;
+    background:#eef7ff;
     display:flex;
     gap:13px;
     align-items:flex-start;
 }
 
 .security-card i{
-    color:#16a34a;
+    color:#0d6efd;
     font-size:20px;
 }
 
-.security-card strong{
-    display:block;
-    font-size:13px;
+.security-card h4{
+    font-size:14px;
     margin-bottom:4px;
+    color:#0d6efd;
 }
 
 .security-card p{
+    font-size:12px;
     color:#667085;
-    font-size:11px;
     line-height:1.6;
 }
 
-/* ==============================
-   INFO
-============================== */
+.bank-card{
+    background:#fff;
+    margin:15px;
+    padding:22px;
+    border-radius:18px;
+    box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.bank-header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.bank-header i{
+    font-size:30px;
+    color:#0d6efd;
+    margin-bottom:8px;
+}
+
+.bank-header h3{
+    font-size:19px;
+    color:#0d6efd !important;
+}
+
+.bank-header p{
+    color:#6b7280;
+    font-size:12px;
+}
+
+.bank-row{
+    padding:14px 0;
+    border-bottom:1px solid #edf0f3;
+}
+
+.bank-row:last-child{
+    border-bottom:none;
+}
+
+.bank-row span{
+    display:block;
+    font-size:12px;
+    color:#6b7280;
+    margin-bottom:4px;
+}
+
+.bank-row strong{
+    color:#0d6efd !important;
+    font-size:15px;
+}
+
+.account-number-box{
+    margin-top:5px;
+    padding:15px;
+    border-radius:12px;
+    background:#f0f6ff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+}
+
+.account-number-box strong{
+    color:#0d6efd !important;
+    font-size:18px;
+    letter-spacing:1px;
+}
+
+.copy-btn{
+    border:none;
+    background:#0d6efd;
+    color:#fff;
+    padding:9px 12px;
+    border-radius:9px;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:12px;
+    font-weight:600;
+}
+
+.upload-box{
+    border:2px dashed #cbd5e1;
+    border-radius:13px;
+    padding:20px;
+    text-align:center;
+    cursor:pointer;
+    background:#fafcff;
+}
+
+.upload-box i{
+    font-size:30px;
+    color:#0d6efd;
+    margin-bottom:8px;
+}
+
+.upload-box p{
+    font-size:13px;
+    color:#6b7280;
+}
+
+.upload-box input{
+    width:100%;
+    margin-top:10px;
+    font-size:12px;
+}
+
+#fileName{
+    margin-top:8px;
+    font-size:12px;
+    color:#0d6efd;
+    word-break:break-word;
+}
 
 .info-card{
-    margin:0 20px 20px;
+    margin:15px;
     padding:20px;
-    border-radius:18px;
-    background:#eef6ff;
-    border:1px solid #d8eaff;
+    background:#fff;
+    border-radius:16px;
+    box-shadow:0 5px 20px rgba(0,0,0,.04);
 }
 
 .info-card h3{
-    font-size:15px;
+    color:#0d6efd !important;
+    font-size:16px;
     margin-bottom:12px;
 }
 
 .info-card ul{
-    list-style:none;
+    padding-left:20px;
 }
 
 .info-card li{
+    color:#667085;
     font-size:12px;
-    margin:9px 0;
-    color:#475467;
+    line-height:1.8;
 }
 
-/* ==============================
-   STEP 2 HIDDEN
-============================== */
-
-#depositStep{
-    display:none;
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#9ca3af;
+    font-size:11px;
 }
-
-/* ==============================
-   BOTTOM NAV
-============================== */
 
 .bottom-nav{
     position:fixed;
@@ -496,131 +402,133 @@ body{
     left:50%;
     transform:translateX(-50%);
     width:100%;
-    max-width:650px;
-    height:70px;
-    background:white;
-    border-top:1px solid #e6eaf0;
+    max-width:600px;
+    background:#fff;
+    border-top:1px solid #e5e7eb;
     display:flex;
     justify-content:space-around;
-    align-items:center;
-    z-index:30;
+    padding:10px 5px;
+    z-index:100;
 }
 
-.bottom-nav a{
+.nav-item{
     text-decoration:none;
-    color:#98a2b3;
+    color:#8a94a6;
+    font-size:10px;
     display:flex;
     flex-direction:column;
     align-items:center;
-    gap:5px;
-    font-size:11px;
+    gap:4px;
 }
 
-.bottom-nav a i{
+.nav-item i{
     font-size:18px;
 }
 
-.bottom-nav a.active{
+.nav-item.active{
     color:#0d6efd;
 }
 
-/* ==============================
-   RESPONSIVE
-============================== */
+#depositStep{
+    display:none;
+}
 
-@media(max-width:480px){
+@media(max-width:400px){
 
     .hero h1{
-        font-size:23px;
+        font-size:22px;
     }
 
-    .line{
-        width:60px;
+    .card,
+    .bank-card,
+    .info-card{
+        margin:12px;
     }
 
-    .bank-row strong{
-        font-size:13px;
+    .account-number-box strong{
+        font-size:15px;
     }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 <div class="container">
 
-<!-- TOPBAR -->
-
 <div class="topbar">
 
-<a href="dashboard.html">
+<button class="back-btn"
+onclick="window.location.href='dashboard.html'">
+
 <i class="fas fa-arrow-left"></i>
-</a>
+
+</button>
 
 <h2>Deposit Funds</h2>
 
-<div style="width:40px;"></div>
-
 </div>
 
-
-<!-- PROGRESS -->
-
-<div class="progress-wrapper">
 
 <div class="progress">
 
-<div>
+<div class="progress-step">
 
-<div class="circle active" id="stepCircle1">
+<div class="step-circle active"
+id="stepCircle1">
+
 1
+
 </div>
 
-<div class="step-label">
+<span class="active-label">
 Email
-</div>
+</span>
 
 </div>
 
-<div class="line" id="progressLine"></div>
 
-<div>
+<div class="progress-line"
+id="progressLine">
+</div>
 
-<div class="circle" id="stepCircle2">
+
+<div class="progress-step">
+
+<div class="step-circle"
+id="stepCircle2">
+
 2
+
 </div>
 
-<div class="step-label">
+<span>
 Deposit
-</div>
+</span>
 
 </div>
 
 </div>
 
-</div>
-
-
-<!-- ==============================
-     STEP 1
-============================== -->
 
 <section id="verifyStep">
 
 <div class="hero">
 
 <div class="hero-icon">
+
 <i class="fas fa-envelope"></i>
+
 </div>
 
-<h1>Enter Your Email</h1>
+<h1>
+Enter Your Email
+</h1>
 
 <p>
-Enter your email address below to continue with your deposit.
+Enter your email to continue to the deposit page.
 </p>
 
 </div>
@@ -628,9 +536,13 @@ Enter your email address below to continue with your deposit.
 
 <div class="card">
 
-<h3>Email Address</h3>
-
 <div class="input-group">
+
+<label>
+Email Address
+</label>
+
+<div class="input-box">
 
 <i class="fas fa-envelope"></i>
 
@@ -643,9 +555,10 @@ autocomplete="email"
 
 </div>
 
+</div>
+
 
 <button
-type="button"
 class="primary-btn"
 onclick="continueToDeposit()">
 
@@ -664,10 +577,13 @@ Continue
 
 <div>
 
-<strong>Secure Deposit</strong>
+<h4>
+Secure Deposit
+</h4>
 
 <p>
-Your email is used to associate this deposit request with the contact information you provide.
+Your information is handled securely.
+Enter a valid email address to continue.
 </p>
 
 </div>
@@ -677,76 +593,88 @@ Your email is used to associate this deposit request with the contact informatio
 </section>
 
 
-<!-- ==============================
-     STEP 2
-============================== -->
-
 <section id="depositStep">
 
 <div class="hero">
 
 <div class="hero-icon">
-<i class="fas fa-wallet"></i>
+
+<i class="fas fa-building-columns"></i>
+
 </div>
 
-<h1>Make Your Deposit</h1>
+<h1>
+Make Your Deposit
+</h1>
 
 <p>
-Transfer your chosen amount to the account below, then upload your payment receipt.
+Transfer your deposit to the account below.
 </p>
 
 </div>
 
 
-<!-- BANK DETAILS -->
-
 <div class="bank-card">
 
 <div class="bank-header">
 
-<i class="fas fa-building-columns"></i>
+<i class="fas fa-university"></i>
 
-<h3>Bank Transfer Details</h3>
+<h3>
+Bank Transfer Details
+</h3>
 
-</div>
-
-
-<div class="bank-row">
-
-<span>Bank</span>
-
-<strong>CARBON MFB</strong>
+<p>
+Use the details below to make your payment.
+</p>
 
 </div>
 
 
 <div class="bank-row">
 
-<span>Account Name</span>
+<span>
+Bank Name
+</span>
 
-<strong>DAVID YOUNG</strong>
+<strong>
+CARBON MFB
+</strong>
 
 </div>
 
+
+<div class="bank-row">
+
+<span>
+Account Name
+</span>
+
+<strong>
+DAVID YOUNG
+</strong>
+
+</div>
+
+
+<div class="bank-row">
+
+<span>
+Account Number
+</span>
 
 <div class="account-number-box">
-
-<div>
-
-<small>Account Number</small>
 
 <strong id="accountNumber">
 9503282618
 </strong>
 
-</div>
-
 <button
-type="button"
-class="copy-small"
+class="copy-btn"
 onclick="copyAccount()">
 
 <i class="fas fa-copy"></i>
+Copy
 
 </button>
 
@@ -754,47 +682,49 @@ onclick="copyAccount()">
 
 </div>
 
+   </div>
+   <div class="card">
 
-<!-- AMOUNT -->
+<h3>
+Payment Information
+</h3>
 
-<div class="card">
 
-<h3>Deposit Amount</h3>
+<div class="input-group">
 
-<label class="amount-label">
-Amount you transferred
+<label>
+Amount
 </label>
+
+<div class="input-box">
+
+<i class="fas fa-naira-sign"></i>
 
 <input
 type="number"
 id="amount"
-class="amount-input"
-placeholder="₦1,000 minimum"
+placeholder="Enter amount"
 min="1000"
 >
 
 </div>
 
+</div>
 
-<!-- RECEIPT -->
 
-<div class="card">
+<div class="input-group">
 
-<h3>Payment Receipt</h3>
+<label>
+Payment Receipt
+</label>
 
-<label
-for="receipt"
-class="upload-box">
+<div class="upload-box">
 
 <i class="fas fa-cloud-arrow-up"></i>
 
-<strong>Upload Receipt</strong>
-
 <p>
-Tap here to select your payment screenshot
+Upload your payment receipt
 </p>
-
-</label>
 
 <input
 type="file"
@@ -803,16 +733,16 @@ accept="image/*"
 onchange="showFileName()"
 >
 
-<div
-id="fileName"
-class="file-name">
+<div id="fileName"></div>
+
+</div>
+
 </div>
 
 
 <button
-type="button"
+class="primary-btn"
 id="depositBtn"
-class="deposit-btn"
 onclick="submitDeposit()">
 
 <i class="fas fa-paper-plane"></i>
@@ -824,26 +754,37 @@ I Have Made Payment
 </div>
 
 
-<!-- INFO -->
-
 <div class="info-card">
 
 <h3>
+
 <i class="fas fa-circle-info"></i>
+
 Deposit Instructions
+
 </h3>
 
 <ul>
 
-<li>✅ Minimum deposit is ₦1,000.</li>
+<li>
+Transfer the exact amount you entered.
+</li>
 
-<li>✅ Transfer only to the account displayed above.</li>
+<li>
+Make the payment to the account details shown above.
+</li>
 
-<li>✅ Upload a clear payment receipt.</li>
+<li>
+Upload a clear screenshot or photo of your payment receipt.
+</li>
 
-<li>✅ Your deposit will be reviewed by the admin.</li>
+<li>
+Your deposit will be reviewed before it is credited.
+</li>
 
-<li>✅ Your wallet will be updated after approval.</li>
+<li>
+Do not submit the same payment multiple times.
+</li>
 
 </ul>
 
@@ -856,10 +797,14 @@ Deposit Instructions
 
 <div>
 
-<strong>Important</strong>
+<h4>
+Payment Security
+</h4>
 
 <p>
-Always confirm the account details before making your transfer. Never share your account password or OTP with anyone.
+Always confirm the account details before making your
+transfer. Keep your payment receipt until your deposit
+has been approved.
 </p>
 
 </div>
@@ -869,62 +814,59 @@ Always confirm the account details before making your transfer. Never share your
 </section>
 
 
-<!-- FOOTER -->
+<div class="footer">
 
-<footer style="
-text-align:center;
-padding:25px 20px;
-color:#98a2b3;
-font-size:11px;
-">
+© 2026 Crest Wealth Investment
 
-<p>
-© 2026 Crest Wealth Investment. All Rights Reserved.
-</p>
+</div>
 
-</footer>
+</div>
 
 
-<!-- BOTTOM NAV -->
+<div class="bottom-nav">
 
-<nav class="bottom-nav">
-
-<a href="dashboard.html">
+<a href="dashboard.html" class="nav-item">
 
 <i class="fas fa-house"></i>
 
-<span>Home</span>
+<span>
+Home
+</span>
 
 </a>
 
 
-<a href="investment.html">
+<a href="investment.html" class="nav-item">
 
 <i class="fas fa-chart-line"></i>
 
-<span>Invest</span>
+<span>
+Invest
+</span>
 
 </a>
 
 
-<a href="deposit.html" class="active">
+<a href="deposit.html" class="nav-item active">
 
 <i class="fas fa-wallet"></i>
 
-<span>Deposit</span>
+<span>
+Deposit
+</span>
 
 </a>
 
 
-<a href="invite.html">
+<a href="invite.html" class="nav-item">
 
-<i class="fas fa-user-plus"></i>
+<i class="fas fa-users"></i>
 
-<span>Invite</span>
+<span>
+Invite
+</span>
 
 </a>
-
-</nav>
 
 </div>
 
@@ -934,18 +876,13 @@ font-size:11px;
 
 <script>
 
-/* ==========================================
-   USER
-========================================== */
-
 const user =
 JSON.parse(localStorage.getItem("user"));
 
 
-/* ==========================================
-   CONTINUE
-   ANY EMAIL IS ALLOWED
-========================================== */
+/* ==============================
+   CONTINUE TO DEPOSIT
+============================== */
 
 function continueToDeposit(){
 
@@ -958,7 +895,7 @@ emailInput.value.trim();
 
 if(!user){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Login Required",
@@ -967,7 +904,9 @@ showError(
 
 }else{
 
-alert("Please login first.");
+alert(
+"Please login to your account first."
+);
 
 }
 
@@ -976,11 +915,9 @@ return;
 }
 
 
-/* EMAIL VALIDATION */
-
 if(!email){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Email Required",
@@ -989,22 +926,24 @@ showError(
 
 }else{
 
-alert("Please enter your email address.");
+alert(
+"Please enter your email address."
+);
 
 }
 
 return;
+
 }
 
-
-/* CHECK BASIC EMAIL FORMAT */
 
 const emailPattern =
 /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+
 if(!emailPattern.test(email)){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Invalid Email",
@@ -1013,7 +952,9 @@ showError(
 
 }else{
 
-alert("Please enter a valid email address.");
+alert(
+"Please enter a valid email address."
+);
 
 }
 
@@ -1022,41 +963,42 @@ return;
 }
 
 
-/* MOVE TO STEP 2 */
-
 document
 .getElementById("stepCircle2")
-.classList.add("active");
+.classList
+.add("active");
+
 
 document
 .getElementById("progressLine")
-.classList.add("active");
+.classList
+.add("active");
 
 
 document
 .getElementById("verifyStep")
-.style.display="none";
+.style
+.display = "none";
 
 
 document
 .getElementById("depositStep")
-.style.display="block";
+.style
+.display = "block";
 
 
 window.scrollTo({
-
 top:0,
-
 behavior:"smooth"
-
 });
 
 }
 
 
-/* ==========================================
-   COPY ACCOUNT
-========================================== */
+
+/* ==============================
+   COPY ACCOUNT NUMBER
+============================== */
 
 function copyAccount(){
 
@@ -1067,11 +1009,14 @@ document
 .trim();
 
 
+if(navigator.clipboard){
+
 navigator.clipboard
 .writeText(accountNumber)
+
 .then(()=>{
 
-if(typeof showSuccess==="function"){
+if(typeof showSuccess === "function"){
 
 showSuccess(
 "Copied!",
@@ -1080,31 +1025,69 @@ showSuccess(
 
 }else{
 
-alert("Account number copied.");
+alert(
+"Account number copied successfully."
+);
 
 }
 
 })
+
 .catch(()=>{
 
-alert("Unable to copy account number.");
+alert(
+"Unable to copy account number. Please copy it manually."
+);
 
 });
+
+}else{
+
+const textarea =
+document.createElement("textarea");
+
+textarea.value =
+accountNumber;
+
+document.body.appendChild(textarea);
+
+textarea.select();
+
+try{
+
+document.execCommand("copy");
+
+alert(
+"Account number copied successfully."
+);
+
+}catch(error){
+
+alert(
+"Unable to copy account number. Please copy it manually."
+);
+
+}
+
+document.body.removeChild(textarea);
+
+}
 
 }
 
 
-/* ==========================================
-   FILE NAME
-========================================== */
+
+/* ==============================
+   SHOW FILE NAME
+============================== */
 
 function showFileName(){
 
-const file =
-document
-.getElementById("receipt")
-.files[0];
+const fileInput =
+document.getElementById("receipt");
 
+const file =
+fileInput.files[0];
 
 const fileName =
 document.getElementById("fileName");
@@ -1113,37 +1096,39 @@ document.getElementById("fileName");
 if(file){
 
 fileName.innerHTML =
-'<i class="fas fa-check-circle"></i> '
-+
+'<i class="fas fa-check-circle"></i> ' +
 file.name;
 
 }else{
 
-fileName.innerHTML="";
+fileName.innerHTML = "";
 
 }
 
 }
 
 
-/* ==========================================
+
+/* ==============================
    SUBMIT DEPOSIT
-========================================== */
+============================== */
 
 async function submitDeposit(){
 
 if(!user){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Login Required",
-"Please login before making a deposit."
+"Please login to your account before making a deposit."
 );
 
 }else{
 
-alert("Please login first.");
+alert(
+"Please login to your account first."
+);
 
 }
 
@@ -1153,23 +1138,26 @@ return;
 
 
 const amount =
-document
-.getElementById("amount")
-.value;
+document.getElementById("amount").value;
 
 
-if(amount==="" || Number(amount)<1000){
+if(
+amount === "" ||
+Number(amount) < 1000
+){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Invalid Amount",
-"Minimum deposit is ₦1,000."
+"Please enter a deposit amount of at least ₦1,000."
 );
 
 }else{
 
-alert("Minimum deposit is ₦1,000.");
+alert(
+"Please enter at least ₦1,000."
+);
 
 }
 
@@ -1186,7 +1174,7 @@ document
 
 if(!receipt){
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
 "Receipt Required",
@@ -1195,7 +1183,9 @@ showError(
 
 }else{
 
-alert("Please upload your payment receipt.");
+alert(
+"Please upload your payment receipt."
+);
 
 }
 
@@ -1208,7 +1198,7 @@ const btn =
 document.getElementById("depositBtn");
 
 
-btn.disabled=true;
+btn.disabled = true;
 
 btn.innerHTML =
 '<i class="fas fa-spinner fa-spin"></i> Submitting...';
@@ -1240,25 +1230,29 @@ receipt
 
 const response =
 await fetch(
-
 "https://young-invest-backend.onrender.com/api/deposit",
-
 {
-
 method:"POST",
-
 body:formData
-
 }
-
 );
 
 
-const data =
+let data = {};
+
+try{
+
+data =
 await response.json();
 
+}catch(error){
 
-btn.disabled=false;
+data = {};
+
+}
+
+
+btn.disabled = false;
 
 btn.innerHTML =
 '<i class="fas fa-paper-plane"></i> I Have Made Payment';
@@ -1266,20 +1260,17 @@ btn.innerHTML =
 
 if(response.ok){
 
-if(typeof showSuccess==="function"){
+if(typeof showSuccess === "function"){
 
 showSuccess(
-
 "Deposit Submitted",
-
 "Your deposit request has been sent successfully and is awaiting approval.",
-
 function(){
 
-window.location.href="dashboard.html";
+window.location.href =
+"dashboard.html";
 
 }
-
 );
 
 }else{
@@ -1288,22 +1279,19 @@ alert(
 "Deposit submitted successfully."
 );
 
-window.location.href=
+window.location.href =
 "dashboard.html";
 
 }
 
 }else{
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
-
 "Submission Failed",
-
 data.message ||
 "Unable to submit deposit."
-
 );
 
 }else{
@@ -1320,64 +1308,38 @@ data.message ||
 
 }catch(error){
 
-btn.disabled=false;
+console.error(
+"Deposit Error:",
+error
+);
+
+
+btn.disabled = false;
 
 btn.innerHTML =
 '<i class="fas fa-paper-plane"></i> I Have Made Payment';
 
 
-if(typeof showError==="function"){
+if(typeof showError === "function"){
 
 showError(
-
 "Connection Error",
-
-"Unable to connect to the server."
-
+"Unable to connect to the server. Please try again."
 );
 
 }else{
 
 alert(
-"Unable to connect to the server."
+"Unable to connect to the server. Please try again."
 );
 
 }
 
-console.error(error);
-
 }
 
 }
-/* ==============================
-   BLUE TEXT FIX
-============================== */
 
-.hero h1{
-    color:#0d6efd !important;
-}
-
-.account-number-box strong{
-    color:#0d6efd !important;
-}
-
-.bank-row strong{
-    color:#0d6efd !important;
-}
-
-.bank-header h3{
-    color:#0d6efd !important;
-}
-
-.card h3{
-    color:#0d6efd !important;
-}
-
-.info-card h3{
-    color:#0d6efd !important;
-   }
 </script>
 
 </body>
-
-   </html>
+</html>
