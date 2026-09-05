@@ -1,805 +1,859 @@
-/* ===================================
-   CREST WEALTH INVESTMENT DASHBOARD
-   PART 1
-=================================== */
-.contact-admin{
-display:flex;
-align-items:center;
-gap:8px;
-padding:10px 18px;
-background:#16a34a;
-color:#fff;
-text-decoration:none;
-border-radius:30px;
-font-weight:600;
-transition:.3s;
+/* =========================================================
+   CREST WEALTH INVESTMENT
+   PROFESSIONAL DASHBOARD UI
+========================================================= */
+
+:root{
+    --primary:#0d6efd;
+    --primary-dark:#0b5ed7;
+    --navy:#0b1220;
+    --navy-2:#111a2b;
+    --text:#172033;
+    --muted:#64748b;
+    --light:#f5f7fa;
+    --white:#ffffff;
+    --border:#e5eaf0;
+
+    --green:#16a34a;
+    --blue:#2563eb;
+    --gold:#d99a00;
+    --purple:#7c3aed;
+
+    --shadow:0 8px 25px rgba(15,23,42,.06);
+    --shadow-lg:0 15px 40px rgba(15,23,42,.09);
+
+    --radius:10px;
 }
 
-.contact-admin:hover{
-background:#15803d;
-transform:translateY(-2px);
-}
+/* =========================================================
+   RESET
+========================================================= */
 
-.contact-admin i{
-font-size:18px;
-}
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#eef5ff;
-color:#1e293b;
-overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:var(--light);
+    color:var(--text);
+    overflow-x:hidden;
+}
+
+button,
+a{
+    font-family:inherit;
 }
 
 a{
-text-decoration:none;
-color:inherit;
+    text-decoration:none;
+    color:inherit;
 }
 
-.dashboard{
-display:flex;
-min-height:100vh;
+button{
+    border:0;
+    cursor:pointer;
 }
 
-/* ======================
-MOBILE MENU
-====================== */
+/* =========================================================
+   MOBILE MENU BUTTON
+========================================================= */
 
 .menu-btn{
-position:fixed;
-top:18px;
-left:18px;
-width:45px;
-height:45px;
-border:none;
-border-radius:12px;
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-color:#fff;
-font-size:20px;
-cursor:pointer;
-display:none;
-z-index:1200;
-box-shadow:0 8px 25px rgba(37,99,235,.35);
+    display:none;
+    position:fixed;
+    top:18px;
+    left:18px;
+    width:44px;
+    height:44px;
+    border-radius:8px;
+    background:var(--navy);
+    color:#fff;
+    z-index:1200;
+    font-size:18px;
+    box-shadow:0 8px 20px rgba(0,0,0,.18);
 }
 
-/* ======================
-OVERLAY
-====================== */
+/* =========================================================
+   OVERLAY
+========================================================= */
 
 .overlay{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.45);
-visibility:hidden;
-opacity:0;
-transition:.3s;
-z-index:998;
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(2,8,23,.55);
+    backdrop-filter:blur(2px);
+    z-index:999;
 }
 
 .overlay.show{
-visibility:visible;
-opacity:1;
+    display:block;
 }
 
-/* ======================
-SIDEBAR
-====================== */
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
 .sidebar{
-width:280px;
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-color:#fff;
-padding:25px 20px;
-position:fixed;
-left:0;
-top:0;
-bottom:0;
-display:flex;
-flex-direction:column;
-overflow:hidden;
-transition:.35s;
-z-index:999;
+    position:fixed;
+    left:0;
+    top:0;
+    width:255px;
+    height:100vh;
+    background:var(--navy);
+    color:#fff;
+    z-index:1100;
+    display:flex;
+    flex-direction:column;
+    border-right:1px solid rgba(255,255,255,.06);
 }
 
-.sidebar .logo{
-text-align:center;
-margin-bottom:25px;
+/* =========================================================
+   LOGO
+========================================================= */
+
+.logo{
+    height:82px;
+    padding:0 24px;
+    display:flex;
+    align-items:center;
+    gap:11px;
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
-.sidebar .logo img{
-width:70px;
-height:70px;
-border-radius:50%;
-background:#fff;
-padding:5px;
-object-fit:cover;
-box-shadow:0 5px 20px rgba(255,255,255,.2);
+.logo img{
+    width:38px;
+    height:38px;
+    object-fit:contain;
+    border-radius:7px;
 }
 
-.sidebar .logo h2{
-margin-top:12px;
-font-size:22px;
-font-weight:700;
+.logo h2{
+    font-size:19px;
+    font-weight:700;
+    letter-spacing:-.3px;
+    white-space:nowrap;
 }
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
 
 .profile-card{
-text-align:center;
-padding:20px;
-background:rgba(255,255,255,.12);
-border-radius:18px;
-margin-bottom:30px;
-backdrop-filter:blur(8px);
+    margin:20px 15px;
+    padding:20px 12px;
+    text-align:center;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.07);
+    border-radius:10px;
 }
 
-.avatar{
-font-size:55px;
-margin-bottom:10px;
+.profile-card .avatar{
+    width:54px;
+    height:54px;
+    margin:0 auto 10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(13,110,253,.14);
+    color:#69a5ff;
+    font-size:31px;
 }
 
 .profile-card h3{
-font-size:18px;
-margin-bottom:5px;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:3px;
 }
 
 .profile-card p{
-font-size:13px;
-opacity:.9;
+    font-size:11px;
+    color:#94a3b8;
 }
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
 
 .sidebar ul{
-list-style:none;
-flex:1;
-overflow-y:auto;
+    list-style:none;
+    padding:0 12px;
 }
 
-.sidebar ul li{
-display:flex;
-align-items:center;
-gap:15px;
-padding:15px;
-margin-bottom:8px;
-border-radius:12px;
-cursor:pointer;
-transition:.3s;
-font-size:15px;
+.sidebar li{
+    height:48px;
+    margin-bottom:5px;
+    padding:0 14px;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    border-radius:7px;
+    color:#aeb9ca;
+    font-size:13px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.2s ease;
 }
 
-.sidebar ul li:hover,
-.sidebar ul li.active{
-background:rgba(255,255,255,.18);
+.sidebar li i{
+    width:20px;
+    text-align:center;
+    font-size:15px;
 }
 
-.sidebar ul li i{
-width:22px;
-text-align:center;
+.sidebar li:hover{
+    background:rgba(255,255,255,.06);
+    color:#fff;
 }
 
-/* ======================
-MAIN
-====================== */
+.sidebar li.active{
+    background:var(--primary);
+    color:#fff;
+    box-shadow:0 5px 15px rgba(13,110,253,.22);
+}
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
 .main{
-flex:1;
-margin-left:280px;
-padding:25px;
+    margin-left:255px;
+    min-height:100vh;
+    padding:0 34px 100px;
 }
 
-/* ======================
-TOPBAR
-====================== */
+/* =========================================================
+   TOPBAR
+========================================================= */
 
 .topbar{
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-padding:22px;
-border-radius:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-color:#fff;
-box-shadow:0 15px 35px rgba(37,99,235,.25);
-margin-bottom:25px;
+    min-height:110px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    border-bottom:1px solid var(--border);
 }
 
 .topbar h1{
-font-size:26px;
-font-weight:700;
+    font-size:24px;
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:-.5px;
+}
+
+.topbar h1 span{
+    color:var(--primary);
 }
 
 .topbar p{
-margin-top:6px;
-font-size:14px;
-opacity:.9;
+    margin-top:4px;
+    color:var(--muted);
+    font-size:13px;
 }
 
 .top-right{
-display:flex;
-align-items:center;
-gap:15px;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
 
-.notify{
-position:relative;
-width:45px;
-height:45px;
-background:rgba(255,255,255,.15);
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-cursor:pointer;
+.contact-admin{
+    height:40px;
+    padding:0 15px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    border:1px solid var(--border);
+    border-radius:7px;
+    background:#fff;
+    color:var(--primary);
+    font-size:12px;
+    font-weight:600;
+    transition:.2s ease;
 }
 
-.notify span{
-position:absolute;
-top:-5px;
-right:-5px;
-background:#ef4444;
-color:#fff;
-width:20px;
-height:20px;
-border-radius:50%;
-font-size:11px;
-display:flex;
-justify-content:center;
-align-items:center;
+.contact-admin:hover{
+    border-color:var(--primary);
+    background:#f8fbff;
 }
 
 .user-photo{
-font-size:42px;
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:#eaf2ff;
+    color:var(--primary);
+    font-size:24px;
 }
 
-/* ======================
-SECTION TITLE
-====================== */
-
-.section-title{
-margin:25px 0 15px;
-font-size:20px;
-font-weight:700;
-color:#0f172a;
-}
-
-/* ======================
-BALANCE CARDS
-====================== */
+/* =========================================================
+   WALLET CARDS
+========================================================= */
 
 .wallet-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-margin-bottom:20px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+    margin-top:28px;
 }
 
 .wallet-card{
-background:#fff;
-padding:18px;
-border-radius:18px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
+    position:relative;
+    padding:22px;
+    min-height:125px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+    transition:.2s ease;
 }
 
 .wallet-card:hover{
-transform:translateY(-4px);
+    transform:translateY(-2px);
+    box-shadow:var(--shadow-lg);
+}
+
+.wallet-card::after{
+    content:"";
+    position:absolute;
+    width:65px;
+    height:65px;
+    right:-25px;
+    bottom:-25px;
+    border-radius:50%;
+    background:currentColor;
+    opacity:.055;
 }
 
 .wallet-card h5{
-font-size:13px;
-color:#64748b;
-margin-bottom:8px;
+    font-size:12px;
+    color:var(--muted);
+    font-weight:500;
+    margin-bottom:10px;
 }
 
 .wallet-card h3{
-font-size:22px;
-font-weight:700;
+    font-size:22px;
+    font-weight:700;
+    letter-spacing:-.4px;
 }
 
 .wallet-card.green{
-border-left:5px solid #10b981;
+    color:var(--green);
 }
 
 .wallet-card.blue{
-border-left:5px solid #2563eb;
+    color:var(--blue);
 }
 
 .wallet-card.gold{
-border-left:5px solid #f59e0b;
+    color:var(--gold);
 }
 
 .wallet-card.purple{
-border-left:5px solid #7c3aed;
-   }
-/* ===================================
-   CREST WEALTH INVESTMENT DASHBOARD
-   PART 2
-===================================*/
+    color:var(--purple);
+}
 
-/* ======================
-QUICK ACTIONS
-====================== */
+/* =========================================================
+   SECTION TITLES
+========================================================= */
+
+.section-title{
+    margin:34px 0 15px;
+    font-size:17px;
+    font-weight:700;
+    color:var(--text);
+    letter-spacing:-.2px;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
 
 .action-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-margin-bottom:25px;
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
 }
 
 .action-grid button{
-background:#fff;
-border:none;
-border-radius:16px;
-padding:16px 10px;
-cursor:pointer;
-font-size:14px;
-font-weight:600;
-color:#1e293b;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-transition:.3s;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-gap:10px;
-min-height:95px;
+    min-height:88px;
+    padding:14px 8px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    color:var(--text);
+    font-size:12px;
+    font-weight:600;
+    box-shadow:var(--shadow);
+    transition:.2s ease;
+}
+
+.action-grid button i{
+    font-size:20px;
+    color:var(--primary);
 }
 
 .action-grid button:hover{
-background:#2563eb;
-color:#fff;
-transform:translateY(-5px);
+    border-color:#b8d2f8;
+    transform:translateY(-2px);
+    color:var(--primary);
 }
 
-.action-grid button i{
-font-size:24px;
-}
-
-/* ======================
-TRANSACTION TABLE
-====================== */
+/* =========================================================
+   TRANSACTION TABLE
+========================================================= */
 
 .table-box{
-background:#fff;
-border-radius:18px;
-padding:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-overflow-x:auto;
-margin-bottom:25px;
+    width:100%;
+    overflow-x:auto;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
 }
 
 table{
-width:100%;
-border-collapse:collapse;
+    width:100%;
+    border-collapse:collapse;
+    min-width:600px;
 }
 
-table th{
-background:#edf4ff;
-color:#1e3a8a;
-padding:15px;
-font-size:14px;
-text-align:left;
+thead{
+    background:#f8fafc;
 }
 
-table td{
-padding:15px;
-border-bottom:1px solid #edf2f7;
-font-size:14px;
+th{
+    padding:15px 18px;
+    text-align:left;
+    color:#64748b;
+    font-size:11px;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:.4px;
+    border-bottom:1px solid var(--border);
 }
 
-table tr:last-child td{
-border-bottom:none;
+td{
+    padding:16px 18px;
+    font-size:12px;
+    color:#475569;
+    border-bottom:1px solid #eef1f5;
 }
 
-/* ======================
-ANNOUNCEMENTS
-====================== */
+tbody tr:last-child td{
+    border-bottom:0;
+}
+
+tbody tr:hover{
+    background:#fafcff;
+}
+
+/* =========================================================
+   ANNOUNCEMENTS
+========================================================= */
 
 .announcement{
-display:grid;
-gap:15px;
-margin-bottom:25px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
 }
 
 .notice{
-display:flex;
-align-items:flex-start;
-gap:15px;
-background:#fff;
-padding:18px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    display:flex;
+    gap:14px;
+    padding:19px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-left:3px solid var(--primary);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
 }
 
-.notice i{
-font-size:28px;
-color:#2563eb;
-margin-top:4px;
+.notice > i{
+    width:38px;
+    height:38px;
+    flex-shrink:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:8px;
+    background:#edf5ff;
+    color:var(--primary);
+    font-size:16px;
 }
 
 .notice h3{
-font-size:17px;
-margin-bottom:6px;
-color:#0f172a;
+    font-size:13px;
+    font-weight:650;
+    margin-bottom:5px;
 }
 
 .notice p{
-font-size:14px;
-color:#64748b;
-line-height:1.6;
+    font-size:11px;
+    color:var(--muted);
+    line-height:1.7;
 }
 
-/* ======================
-PROFILE
-====================== */
+/* =========================================================
+   PROFILE
+========================================================= */
 
 .profile-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-margin-bottom:25px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
 }
 
 .profile-info{
-background:#fff;
-padding:18px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    padding:19px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
 }
 
 .profile-info p{
-font-size:13px;
-color:#64748b;
-margin-bottom:8px;
+    margin-bottom:7px;
+    font-size:11px;
+    color:var(--muted);
 }
 
 .profile-info h3{
-font-size:18px;
-color:#0f172a;
-word-break:break-word;
+    font-size:13px;
+    font-weight:600;
+    color:var(--text);
+    word-break:break-word;
 }
 
-/* ======================
-SUPPORT
-====================== */
+/* =========================================================
+   SUPPORT
+========================================================= */
 
 .support-box{
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-padding:25px;
-border-radius:20px;
-text-align:center;
-color:#fff;
-margin:30px 0;
-box-shadow:0 15px 35px rgba(37,99,235,.3);
+    margin-top:30px;
+    padding:30px;
+    text-align:center;
+    background:var(--navy);
+    border-radius:var(--radius);
+    color:#fff;
 }
 
 .support-box h2{
-margin-bottom:10px;
+    font-size:19px;
+    margin-bottom:5px;
 }
 
 .support-box p{
-margin-bottom:20px;
-opacity:.95;
+    color:#aab5c6;
+    font-size:12px;
+    margin-bottom:18px;
 }
 
 .support-box a{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:12px 22px;
-background:#25D366;
-color:#fff;
-border-radius:30px;
-font-weight:600;
-transition:.3s;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 18px;
+    border-radius:7px;
+    background:var(--primary);
+    color:#fff;
+    font-size:12px;
+    font-weight:600;
+    transition:.2s ease;
 }
 
 .support-box a:hover{
-transform:scale(1.05);
+    background:var(--primary-dark);
 }
 
-/* ======================
-FOOTER
-====================== */
+/* =========================================================
+   FOOTER
+========================================================= */
 
 footer{
-text-align:center;
-padding:25px 0 90px;
-font-size:14px;
-color:#64748b;
+    padding:30px 0 10px;
+    text-align:center;
 }
-/* ===================================
-   CREST WEALTH INVESTMENT DASHBOARD
-   PART 3
-===================================*/
 
-/* ======================
-BOTTOM NAVIGATION
-====================== */
+footer p{
+    color:#94a3b8;
+    font-size:11px;
+}
+
+/* =========================================================
+   BOTTOM NAV
+========================================================= */
 
 .bottom-nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-height:70px;
-background:#fff;
-display:flex;
-justify-content:space-around;
-align-items:center;
-box-shadow:0 -5px 25px rgba(0,0,0,.12);
-z-index:1000;
+    display:none;
 }
 
-.bottom-nav a{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-color:#64748b;
-font-size:12px;
-font-weight:600;
-transition:.3s;
-height:100%;
+/* =========================================================
+   RESPONSIVE — 1200px
+========================================================= */
+
+@media(max-width:1200px){
+
+    .main{
+        padding-left:25px;
+        padding-right:25px;
+    }
+
+    .wallet-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .action-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .profile-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
 }
 
-.bottom-nav a i{
-font-size:20px;
-margin-bottom:4px;
-}
-
-.bottom-nav a.active{
-color:#2563eb;
-}
-
-.bottom-nav a.active i{
-text-shadow:0 0 12px rgba(37,99,235,.8);
-}
-
-.bottom-nav a::after{
-content:"";
-width:0;
-height:3px;
-background:#2563eb;
-border-radius:20px;
-margin-top:5px;
-transition:.3s;
-}
-
-.bottom-nav a.active::after{
-width:28px;
-}
-
-/* ======================
-SCROLLBAR
-====================== */
-
-::-webkit-scrollbar{
-width:6px;
-}
-
-::-webkit-scrollbar-thumb{
-background:#2563eb;
-border-radius:20px;
-}
-
-/* ======================
-MOBILE
-====================== */
+/* =========================================================
+   RESPONSIVE — 900px
+========================================================= */
 
 @media(max-width:900px){
 
-.menu-btn{
-display:flex;
-align-items:center;
-justify-content:center;
-}
+    .sidebar{
+        transform:translateX(-100%);
+        transition:.25s ease;
+        box-shadow:10px 0 30px rgba(0,0,0,.18);
+    }
 
-.sidebar{
-left:-290px;
-}
+    .sidebar.show{
+        transform:translateX(0);
+    }
 
-.sidebar.show{
-left:0;
-}
+    .menu-btn{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
 
-.main{
-margin-left:0;
-padding:80px 15px 90px;
-}
+    .main{
+        margin-left:0;
+        padding:0 20px 90px;
+    }
 
-.topbar{
-flex-direction:column;
-align-items:flex-start;
-gap:15px;
-padding:20px;
-}
+    .topbar{
+        padding-top:25px;
+        padding-left:60px;
+        min-height:95px;
+    }
 
-.topbar h1{
-font-size:22px;
-}
+    .topbar h1{
+        font-size:20px;
+    }
 
-.top-right{
-width:100%;
-justify-content:flex-end;
-}
+    .contact-admin span{
+        display:none;
+    }
 
-.wallet-grid{
-grid-template-columns:repeat(2,1fr);
-gap:12px;
-}
+    .contact-admin{
+        width:40px;
+        padding:0;
+        justify-content:center;
+    }
 
-.wallet-card{
-padding:15px;
-}
+    .bottom-nav{
+        position:fixed;
+        display:flex;
+        left:0;
+        right:0;
+        bottom:0;
+        height:67px;
+        background:#fff;
+        border-top:1px solid var(--border);
+        z-index:1000;
+        justify-content:space-around;
+        box-shadow:0 -5px 20px rgba(15,23,42,.08);
+    }
 
-.wallet-card h5{
-font-size:12px;
-}
+    .bottom-nav a{
+        flex:1;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:4px;
+        color:#94a3b8;
+        font-size:10px;
+        font-weight:500;
+    }
 
-.wallet-card h3{
-font-size:18px;
-}
+    .bottom-nav a i{
+        font-size:17px;
+    }
 
-.action-grid{
-grid-template-columns:repeat(3,1fr);
-gap:10px;
-}
-
-.action-grid button{
-min-height:85px;
-padding:14px 8px;
-font-size:12px;
-}
-
-.action-grid button i{
-font-size:22px;
-}
-
-.profile-grid{
-grid-template-columns:1fr;
-}
-
-.notice{
-flex-direction:row;
-}
-
-.table-box{
-padding:12px;
-}
-
-table{
-font-size:13px;
-}
-
-table th,
-table td{
-padding:10px;
-}
-
-.support-box{
-padding:20px;
-}
-
-footer{
-padding-bottom:90px;
-}
+    .bottom-nav a.active{
+        color:var(--primary);
+    }
 
 }
 
-/* ======================
-SMALL PHONES
-====================== */
+/* =========================================================
+   RESPONSIVE — 650px
+========================================================= */
 
-@media(max-width:500px){
+@media(max-width:650px){
 
-.wallet-grid{
-grid-template-columns:1fr 1fr;
-}
+    .main{
+        padding-left:14px;
+        padding-right:14px;
+    }
 
-.wallet-card h3{
-font-size:16px;
-}
+    .topbar{
+        align-items:flex-start;
+        padding-top:24px;
+        padding-left:58px;
+        min-height:100px;
+    }
 
-.action-grid{
-grid-template-columns:repeat(2,1fr);
-}
+    .topbar h1{
+        font-size:17px;
+        line-height:1.4;
+    }
 
-.action-grid button{
-min-height:80px;
-}
+    .topbar p{
+        font-size:11px;
+    }
 
-.section-title{
-font-size:18px;
-}
+    .user-photo{
+        display:none;
+    }
 
-.topbar h1{
-font-size:20px;
-}
+    .wallet-grid{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+        margin-top:20px;
+    }
 
-.topbar p{
-font-size:13px;
-}
+    .wallet-card{
+        min-height:105px;
+        padding:16px;
+    }
 
-.notify{
-width:40px;
-height:40px;
-}
+    .wallet-card h5{
+        font-size:10px;
+        margin-bottom:7px;
+    }
 
-.user-photo{
-font-size:36px;
-}
+    .wallet-card h3{
+        font-size:17px;
+    }
 
-.bottom-nav a span{
-font-size:11px;
-}
+    .section-title{
+        margin-top:27px;
+        font-size:15px;
+    }
 
-.bottom-nav a i{
-font-size:18px;
-}
+    .action-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:8px;
+    }
 
-}
+    .action-grid button{
+        min-height:78px;
+        font-size:10px;
+    }
 
-/* ======================
-DESKTOP
-====================== */
+    .action-grid button i{
+        font-size:17px;
+    }
 
-@media(min-width:901px){
+    .announcement{
+        grid-template-columns:1fr;
+    }
 
-.bottom-nav{
-display:none;
-}
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
 
-.overlay{
-display:none;
-}
+    .notice{
+        padding:15px;
+    }
 
-.menu-btn{
-display:none;
-}
-
-.sidebar{
-left:0 !important;
-}
-
-}
-
-/* ======================
-ANIMATIONS
-====================== */
-
-.wallet-card,
-.profile-info,
-.notice,
-.table-box,
-.support-box,
-.action-grid button{
-animation:fadeUp .5s ease;
-}
-
-@keyframes fadeUp{
-
-from{
-
-opacity:0;
-
-transform:translateY(20px);
+    .support-box{
+        padding:24px 15px;
+    }
 
 }
 
-to{
+/* =========================================================
+   RESPONSIVE — 420px
+========================================================= */
 
-opacity:1;
+@media(max-width:420px){
 
-transform:translateY(0);
+    .wallet-grid{
+        grid-template-columns:1fr;
+    }
+
+    .wallet-card{
+        min-height:95px;
+    }
+
+    .action-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .topbar{
+        padding-left:55px;
+    }
+
+    .topbar h1{
+        font-size:16px;
+    }
+
+    .contact-admin{
+        width:36px;
+        height:36px;
+    }
 
 }
 
-   }
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+::-webkit-scrollbar{
+    width:7px;
+    height:7px;
+}
+
+::-webkit-scrollbar-track{
+    background:#f1f5f9;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#cbd5e1;
+    border-radius:5px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+    background:#94a3b8;
+       }
