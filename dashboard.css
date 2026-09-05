@@ -27,11 +27,6 @@
     --shadow-lg:0 12px 30px rgba(15,23,42,.14);
 }
 
-
-/* =========================================================
-   RESET
-========================================================= */
-
 *{
     margin:0;
     padding:0;
@@ -64,11 +59,8 @@ body{
         );
 
     color:var(--text);
-
     overflow-x:hidden;
-
     min-height:100vh;
-
     background-attachment:fixed;
 }
 
@@ -87,33 +79,23 @@ a{
 
 
 /* =========================================================
-   MOBILE MENU BUTTON
+   MOBILE MENU
 ========================================================= */
 
 .menu-btn{
     display:none;
-
     position:fixed;
-
     top:15px;
     left:15px;
-
     width:43px;
     height:43px;
-
     border:none;
     border-radius:9px;
-
     background:var(--navy);
-
     color:#fff;
-
     font-size:18px;
-
     z-index:1200;
-
     box-shadow:0 6px 20px rgba(0,0,0,.25);
-
     transition:.2s ease;
 }
 
@@ -121,22 +103,12 @@ a{
     background:var(--primary);
 }
 
-
-/* =========================================================
-   OVERLAY
-========================================================= */
-
 .overlay{
     display:none;
-
     position:fixed;
-
     inset:0;
-
     background:rgba(0,0,0,.55);
-
     backdrop-filter:blur(2px);
-
     z-index:1000;
 }
 
@@ -151,13 +123,10 @@ a{
 
 .sidebar{
     position:fixed;
-
     top:0;
     left:0;
-
     width:250px;
     height:100vh;
-
     background:
         linear-gradient(
             180deg,
@@ -167,222 +136,136 @@ a{
         );
 
     color:#fff;
-
     z-index:1100;
-
     overflow-y:auto;
-
-    box-shadow:
-        8px 0 30px rgba(0,0,0,.22);
-
+    box-shadow:8px 0 30px rgba(0,0,0,.22);
     border-right:1px solid rgba(255,255,255,.08);
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
 .logo{
     height:80px;
-
     display:flex;
-
     align-items:center;
-
     gap:10px;
-
     padding:0 22px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.08);
+    border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .logo img{
     width:39px;
     height:39px;
-
     object-fit:contain;
-
     border-radius:7px;
 }
 
 .logo h2{
     color:#fff;
-
     font-size:19px;
-
     font-weight:700;
-
     letter-spacing:.2px;
 }
 
-
-/* =========================================================
-   PROFILE CARD
-========================================================= */
-
 .profile-card{
     margin:18px 15px;
-
     padding:18px 10px;
-
     text-align:center;
-
-    background:
-        rgba(255,255,255,.06);
-
-    border:
-        1px solid rgba(255,255,255,.08);
-
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
     border-radius:11px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
 }
 
 .profile-card .avatar{
     width:52px;
     height:52px;
-
     margin:0 auto 9px;
-
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     color:#79adff;
-
     font-size:32px;
 }
 
 .profile-card h3{
     font-size:14px;
-
     font-weight:600;
-
     color:#fff;
 }
 
 .profile-card p{
     margin-top:3px;
-
     color:#94a3b8;
-
     font-size:10px;
 }
 
-
-/* =========================================================
-   SIDEBAR NAVIGATION
-========================================================= */
-
 .sidebar ul{
     list-style:none;
-
     padding:5px 12px;
 }
 
 .sidebar li{
     height:47px;
-
     display:flex;
-
     align-items:center;
-
     gap:13px;
-
     padding:0 14px;
-
     margin-bottom:5px;
-
     color:#aeb9ca;
-
     border-radius:8px;
-
     font-size:13px;
-
     font-weight:500;
-
     cursor:pointer;
-
     transition:.2s ease;
 }
 
 .sidebar li i{
     width:20px;
-
     text-align:center;
-
     font-size:15px;
 }
 
 .sidebar li:hover{
-    background:
-        rgba(255,255,255,.07);
-
+    background:rgba(255,255,255,.07);
     color:#fff;
 }
 
 .sidebar li.active{
-    background:
-        linear-gradient(
-            135deg,
-            #0d6efd,
-            #1685ff
-        );
-
+    background:linear-gradient(135deg,#0d6efd,#1685ff);
     color:#fff;
-
-    box-shadow:
-        0 6px 18px rgba(13,110,253,.28);
+    box-shadow:0 6px 18px rgba(13,110,253,.28);
 }
 
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN AREA
 ========================================================= */
 
 .main{
     margin-left:250px;
-
     min-height:100vh;
-
     padding:0 30px 90px;
 }
 
 
 /* =========================================================
-   TOPBAR
+   TOP BAR
 ========================================================= */
 
 .topbar{
     min-height:105px;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:20px;
-
-    border-bottom:
-        1px solid rgba(255,255,255,.20);
+    border-bottom:1px solid rgba(255,255,255,.20);
 }
 
 .topbar h1{
     color:#fff;
-
-    font-size:24px;
-
+    font-size:25px;
     font-weight:700;
-
     letter-spacing:-.4px;
-
-    text-shadow:
-        0 2px 10px rgba(0,0,0,.18);
+    text-shadow:0 2px 10px rgba(0,0,0,.18);
 }
 
 .topbar h1 span{
@@ -391,128 +274,95 @@ a{
 
 .topbar p{
     margin-top:4px;
-
-    color:rgba(255,255,255,.75);
-
-    font-size:12px;
+    color:rgba(255,255,255,.78);
+    font-size:13px;
 }
 
 .top-right{
     display:flex;
-
     align-items:center;
-
     gap:12px;
 }
 
 
 /* =========================================================
-   TELEGRAM CUSTOMER CARE
+   CUSTOMER CARE
 ========================================================= */
 
 .contact-admin{
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
+    gap:4px;
 
-    gap:3px;
-
-    min-width:75px;
-
+    min-width:82px;
     padding:4px;
 
     background:transparent;
-
     border:none;
 
     color:#fff;
-
-    font-size:9px;
-
+    font-size:10px;
     font-weight:600;
-
     text-align:center;
 
     transition:.2s ease;
 }
 
 .contact-admin i{
-    width:30px;
-    height:30px;
+    width:32px;
+    height:32px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:50%;
 
-    background:
-        rgba(255,255,255,.16);
-
-    border:
-        1px solid rgba(255,255,255,.22);
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.22);
 
     color:#fff;
-
-    font-size:17px;
+    font-size:18px;
 
     transition:.2s ease;
 
-    box-shadow:
-        0 4px 12px rgba(0,0,0,.12);
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+}
+
+.contact-admin span{
+    display:block;
+    white-space:nowrap;
 }
 
 .contact-admin:hover{
     background:transparent;
-
     border:none;
-
     color:#fff;
 }
 
 .contact-admin:hover i{
-    background:
-        rgba(255,255,255,.25);
-
-    transform:
-        translateY(-2px);
-
-    box-shadow:
-        0 6px 16px rgba(0,0,0,.2);
+    background:rgba(255,255,255,.25);
+    transform:translateY(-2px);
+    box-shadow:0 6px 16px rgba(0,0,0,.2);
 }
 
-
-/* =========================================================
-   USER PHOTO
-========================================================= */
-
 .user-photo{
-    width:40px;
-    height:40px;
+    width:42px;
+    height:42px;
 
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
     border-radius:50%;
 
-    background:
-        rgba(255,255,255,.16);
-
-    border:
-        1px solid rgba(255,255,255,.20);
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.20);
 
     color:#fff;
-
-    font-size:24px;
+    font-size:25px;
 }
 
 
@@ -522,34 +372,24 @@ a{
 
 .wallet-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:15px;
-
     margin-top:25px;
 }
 
 .wallet-card{
     position:relative;
-
     min-width:0;
-
-    min-height:125px;
+    min-height:130px;
 
     padding:21px;
 
-    background:
-        rgba(255,255,255,.97);
+    background:rgba(255,255,255,.97);
 
-    border:
-        1px solid rgba(255,255,255,.75);
-
+    border:1px solid rgba(255,255,255,.75);
     border-radius:12px;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.12);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 
     overflow:hidden;
 
@@ -557,11 +397,8 @@ a{
 }
 
 .wallet-card:hover{
-    transform:
-        translateY(-3px);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.18);
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
 }
 
 .wallet-card::after{
@@ -584,20 +421,16 @@ a{
 
 .wallet-card h5{
     color:var(--muted);
-
-    font-size:11px;
-
+    font-size:12px;
     font-weight:500;
-
     margin-bottom:9px;
 }
 
 .wallet-card h3{
-    font-size:22px;
-
+    font-size:26px;
     font-weight:700;
-
     letter-spacing:-.3px;
+    line-height:1.25;
 }
 
 .wallet-card.green{
@@ -626,12 +459,10 @@ a{
 
     color:#fff;
 
-    font-size:17px;
-
+    font-size:18px;
     font-weight:700;
 
-    text-shadow:
-        0 2px 8px rgba(0,0,0,.15);
+    text-shadow:0 2px 8px rgba(0,0,0,.15);
 }
 
 
@@ -641,10 +472,7 @@ a{
 
 .action-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:12px;
 }
 
@@ -652,80 +480,62 @@ a{
     min-height:82px;
 
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
     justify-content:center;
 
     gap:7px;
 
-    background:
-        rgba(255,255,255,.97);
+    background:rgba(255,255,255,.97);
 
     color:var(--text);
 
-    border:
-        1px solid rgba(255,255,255,.8);
-
+    border:1px solid rgba(255,255,255,.8);
     border-radius:10px;
 
-    font-size:11px;
-
+    font-size:12px;
     font-weight:600;
 
-    box-shadow:
-        0 8px 24px rgba(0,0,0,.10);
+    box-shadow:0 8px 24px rgba(0,0,0,.10);
 
     transition:.2s ease;
 }
 
 .action-grid button i{
     color:var(--primary);
-
-    font-size:19px;
+    font-size:20px;
 }
 
 .action-grid button:hover{
     border-color:#b9d3f8;
-
     color:var(--primary);
 
-    transform:
-        translateY(-3px);
+    transform:translateY(-3px);
 
-    box-shadow:
-        0 12px 28px rgba(0,0,0,.16);
+    box-shadow:0 12px 28px rgba(0,0,0,.16);
 }
 
 
 /* =========================================================
-   RECENT TRANSACTIONS
+   TRANSACTIONS TABLE
 ========================================================= */
 
 .table-box{
     width:100%;
 
-    background:
-        rgba(255,255,255,.98);
+    background:rgba(255,255,255,.98);
 
-    border:
-        1px solid rgba(255,255,255,.8);
-
+    border:1px solid rgba(255,255,255,.8);
     border-radius:11px;
 
-    box-shadow:
-        0 10px 30px rgba(0,0,0,.12);
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
 
     overflow:hidden;
 }
 
 table{
     width:100%;
-
     border-collapse:collapse;
-
     table-layout:fixed;
 }
 
@@ -740,16 +550,13 @@ th{
 
     color:#64748b;
 
-    font-size:10px;
-
+    font-size:11px;
     font-weight:600;
 
     text-transform:uppercase;
-
     letter-spacing:.3px;
 
-    border-bottom:
-        1px solid var(--border);
+    border-bottom:1px solid var(--border);
 }
 
 td{
@@ -757,13 +564,11 @@ td{
 
     color:#475569;
 
-    font-size:11px;
+    font-size:12px;
 
-    border-bottom:
-        1px solid #eef1f5;
+    border-bottom:1px solid #eef1f5;
 
     word-break:break-word;
-
     overflow-wrap:anywhere;
 }
 
@@ -774,11 +579,6 @@ tbody tr:last-child td{
 tbody tr:hover{
     background:#fafcff;
 }
-
-
-/* =========================================================
-   TRANSACTION COLUMN WIDTH
-========================================================= */
 
 th:nth-child(1),
 td:nth-child(1){
@@ -807,33 +607,24 @@ td:nth-child(4){
 
 .announcement{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
 .notice{
     display:flex;
-
     gap:13px;
 
     padding:18px;
 
-    background:
-        rgba(255,255,255,.97);
+    background:rgba(255,255,255,.97);
 
-    border:
-        1px solid rgba(255,255,255,.8);
-
-    border-left:
-        3px solid var(--primary);
+    border:1px solid rgba(255,255,255,.8);
+    border-left:3px solid var(--primary);
 
     border-radius:10px;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.10);
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
 .notice > i{
@@ -843,14 +634,12 @@ td:nth-child(4){
     flex-shrink:0;
 
     display:flex;
-
     align-items:center;
     justify-content:center;
 
     border-radius:7px;
 
     background:#edf4ff;
-
     color:var(--primary);
 
     font-size:15px;
@@ -859,8 +648,7 @@ td:nth-child(4){
 .notice h3{
     color:var(--text);
 
-    font-size:13px;
-
+    font-size:14px;
     font-weight:600;
 
     margin-bottom:5px;
@@ -869,7 +657,7 @@ td:nth-child(4){
 .notice p{
     color:var(--muted);
 
-    font-size:10px;
+    font-size:11px;
 
     line-height:1.7;
 }
@@ -881,32 +669,25 @@ td:nth-child(4){
 
 .profile-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
 .profile-info{
     padding:18px;
 
-    background:
-        rgba(255,255,255,.97);
+    background:rgba(255,255,255,.97);
 
-    border:
-        1px solid rgba(255,255,255,.8);
-
+    border:1px solid rgba(255,255,255,.8);
     border-radius:10px;
 
-    box-shadow:
-        0 8px 25px rgba(0,0,0,.10);
+    box-shadow:0 8px 25px rgba(0,0,0,.10);
 }
 
 .profile-info p{
     color:var(--muted);
 
-    font-size:10px;
+    font-size:11px;
 
     margin-bottom:6px;
 }
@@ -914,8 +695,7 @@ td:nth-child(4){
 .profile-info h3{
     color:var(--text);
 
-    font-size:13px;
-
+    font-size:14px;
     font-weight:600;
 
     word-break:break-word;
@@ -923,7 +703,7 @@ td:nth-child(4){
 
 
 /* =========================================================
-   SUPPORT BOX
+   SUPPORT
 ========================================================= */
 
 .support-box{
@@ -941,27 +721,23 @@ td:nth-child(4){
             #0d6efd
         );
 
-    border:
-        1px solid rgba(255,255,255,.12);
-
+    border:1px solid rgba(255,255,255,.12);
     border-radius:12px;
 
     color:#fff;
 
-    box-shadow:
-        0 12px 30px rgba(0,0,0,.18);
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
 }
 
 .support-box h2{
-    font-size:19px;
-
+    font-size:20px;
     margin-bottom:5px;
 }
 
 .support-box p{
     color:#c8d8ed;
 
-    font-size:11px;
+    font-size:12px;
 
     margin-bottom:17px;
 }
@@ -981,8 +757,7 @@ td:nth-child(4){
 
     border-radius:7px;
 
-    font-size:11px;
-
+    font-size:12px;
     font-weight:600;
 
     transition:.2s ease;
@@ -991,8 +766,7 @@ td:nth-child(4){
 .support-box a:hover{
     background:#edf5ff;
 
-    transform:
-        translateY(-2px);
+    transform:translateY(-2px);
 }
 
 
@@ -1009,12 +783,12 @@ footer{
 footer p{
     color:rgba(255,255,255,.65);
 
-    font-size:10px;
+    font-size:11px;
 }
 
 
 /* =========================================================
-   BOTTOM NAVIGATION
+   BOTTOM NAV
 ========================================================= */
 
 .bottom-nav{
@@ -1023,36 +797,31 @@ footer p{
 
 
 /* =========================================================
-   TABLET
+   TABLET / MOBILE
 ========================================================= */
 
 @media(max-width:900px){
 
     .sidebar{
-        transform:
-            translateX(-100%);
-
+        transform:translateX(-100%);
         transition:.25s ease;
     }
 
     .sidebar.show{
-        transform:
-            translateX(0);
+        transform:translateX(0);
     }
 
     .menu-btn{
         display:flex;
 
         align-items:center;
-
         justify-content:center;
     }
 
     .main{
         margin-left:0;
 
-        padding:
-            0 20px 90px;
+        padding:0 20px 90px;
     }
 
     .topbar{
@@ -1062,27 +831,26 @@ footer p{
     }
 
     .topbar h1{
-        font-size:20px;
+        font-size:21px;
+    }
+
+    .topbar p{
+        font-size:11px;
     }
 
     .user-photo{
         display:none;
     }
 
-
-    /* Keep customer care text visible */
-
     .contact-admin{
-        min-width:70px;
+        min-width:75px;
 
         width:auto;
-
         height:auto;
 
         padding:4px;
 
         background:transparent;
-
         border:none;
 
         flex-direction:column;
@@ -1095,9 +863,6 @@ footer p{
     .contact-admin span{
         display:block;
     }
-
-
-    /* Bottom navigation */
 
     .bottom-nav{
         position:fixed;
@@ -1112,11 +877,9 @@ footer p{
 
         background:#fff;
 
-        border-top:
-            1px solid var(--border);
+        border-top:1px solid var(--border);
 
-        box-shadow:
-            0 -5px 20px rgba(15,23,42,.10);
+        box-shadow:0 -5px 20px rgba(15,23,42,.10);
 
         z-index:1000;
     }
@@ -1129,26 +892,23 @@ footer p{
         flex-direction:column;
 
         align-items:center;
-
         justify-content:center;
 
         gap:4px;
 
         color:#94a3b8;
 
-        font-size:9px;
-
+        font-size:10px;
         font-weight:500;
     }
 
     .bottom-nav a i{
-        font-size:17px;
+        font-size:18px;
     }
 
     .bottom-nav a.active{
         color:var(--primary);
     }
-
 }
 
 
@@ -1160,9 +920,7 @@ footer p{
 
     .main{
         padding-left:13px;
-
         padding-right:13px;
-
         padding-bottom:85px;
     }
 
@@ -1173,7 +931,7 @@ footer p{
     }
 
     .topbar h1{
-        font-size:17px;
+        font-size:18px;
 
         line-height:1.4;
     }
@@ -1186,30 +944,21 @@ footer p{
         display:none;
     }
 
-
-    /* Customer care */
-
     .contact-admin{
-        min-width:68px;
+        min-width:72px;
 
         font-size:8px;
     }
 
     .contact-admin i{
-        width:28px;
-        height:28px;
+        width:30px;
+        height:30px;
 
-        font-size:16px;
+        font-size:17px;
     }
 
-
-    /* =====================================================
-       WALLET 2 × 2
-    ===================================================== */
-
     .wallet-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
 
         gap:10px;
 
@@ -1217,46 +966,35 @@ footer p{
     }
 
     .wallet-card{
-        min-height:105px;
+        min-height:110px;
 
-        padding:15px 12px;
+        padding:16px 13px;
     }
 
     .wallet-card h5{
-        font-size:9px;
+        font-size:10px;
 
         margin-bottom:7px;
     }
 
     .wallet-card h3{
-        font-size:16px;
+        font-size:19px;
     }
-
-
-    /* =====================================================
-       SECTION TITLE
-    ===================================================== */
 
     .section-title{
         margin:25px 0 12px;
 
-        font-size:14px;
+        font-size:15px;
     }
 
-
-    /* =====================================================
-       QUICK ACTIONS
-    ===================================================== */
-
     .action-grid{
-        grid-template-columns:
-            repeat(3,1fr);
+        grid-template-columns:repeat(3,1fr);
 
         gap:8px;
     }
 
     .action-grid button{
-        min-height:75px;
+        min-height:76px;
 
         padding:8px 4px;
 
@@ -1264,12 +1002,12 @@ footer p{
     }
 
     .action-grid button i{
-        font-size:17px;
+        font-size:18px;
     }
 
 
     /* =====================================================
-       TRANSACTIONS — NO HORIZONTAL SCROLL
+       MOBILE TRANSACTIONS
     ===================================================== */
 
     .table-box{
@@ -1287,7 +1025,7 @@ footer p{
     }
 
     th{
-        padding:9px 4px;
+        padding:10px 4px;
 
         font-size:8px;
 
@@ -1297,7 +1035,7 @@ footer p{
     td{
         padding:10px 4px;
 
-        font-size:8px;
+        font-size:9px;
 
         word-break:break-word;
 
@@ -1329,11 +1067,11 @@ footer p{
     }
 
     .notice h3{
-        font-size:11px;
+        font-size:12px;
     }
 
     .notice p{
-        font-size:9px;
+        font-size:10px;
     }
 
 
@@ -1342,8 +1080,7 @@ footer p{
     ===================================================== */
 
     .profile-grid{
-        grid-template-columns:
-            1fr 1fr;
+        grid-template-columns:1fr 1fr;
 
         gap:9px;
     }
@@ -1369,11 +1106,22 @@ footer p{
         padding:24px 14px;
     }
 
+    .support-box h2{
+        font-size:18px;
+    }
+
+    .support-box p{
+        font-size:10px;
+    }
+
+    .support-box a{
+        font-size:11px;
+    }
 }
 
 
 /* =========================================================
-   VERY SMALL PHONES
+   SMALL PHONES
 ========================================================= */
 
 @media(max-width:380px){
@@ -1383,11 +1131,11 @@ footer p{
     }
 
     .wallet-card h5{
-        font-size:8px;
+        font-size:9px;
     }
 
     .wallet-card h3{
-        font-size:14px;
+        font-size:17px;
     }
 
     .action-grid button{
@@ -1400,24 +1148,28 @@ footer p{
         font-size:15px;
     }
 
-        th{
+    th{
         font-size:7px;
+
         padding:8px 3px;
     }
 
     td{
         font-size:7.5px;
+
         padding:9px 3px;
     }
 
     .contact-admin{
         min-width:60px;
+
         font-size:7px;
     }
 
     .contact-admin i{
         width:26px;
         height:26px;
+
         font-size:15px;
     }
 }
@@ -1437,6 +1189,7 @@ footer p{
 
 ::-webkit-scrollbar-thumb{
     background:#9db8d8;
+
     border-radius:5px;
 }
 
