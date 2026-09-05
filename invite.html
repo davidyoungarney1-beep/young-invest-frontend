@@ -31,10 +31,14 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 <div class="topbar">
 
 <a href="dashboard.html">
+
 <i class="fas fa-arrow-left"></i>
+
 </a>
 
-<h2>Invite Friends</h2>
+<h2>
+Invite Friends
+</h2>
 
 <div></div>
 
@@ -45,7 +49,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <div class="hero">
 
-<h1>🎉 Earn Referral Bonus</h1>
+<h1>
+🎉 Earn Referral Bonus
+</h1>
 
 <p>
 Invite your friends and earn rewards whenever they invest.
@@ -58,7 +64,9 @@ Invite your friends and earn rewards whenever they invest.
 
 <div class="card">
 
-<h3>Your Referral Link</h3>
+<h3>
+Your Referral Link
+</h3>
 
 <div class="copy-box">
 
@@ -99,7 +107,9 @@ Share on WhatsApp
 
 <div class="stat-card">
 
-<h4>Total Referrals</h4>
+<h4>
+Total Referrals
+</h4>
 
 <h2 id="totalReferrals">
 0
@@ -109,7 +119,9 @@ Share on WhatsApp
 
 <div class="stat-card">
 
-<h4>Referral Earnings</h4>
+<h4>
+Referral Earnings
+</h4>
 
 <h2 id="referralEarnings">
 ₦0
@@ -124,60 +136,86 @@ Share on WhatsApp
 
 <div class="card">
 
-<h3>Referral Rewards</h3>
+<h3>
+Referral Rewards
+</h3>
 
 <table class="reward-table">
 
 <tr>
 
-<th>Investment Plan</th>
+<th>
+Investment Plan
+</th>
 
-<th>Referral Bonus</th>
-
-</tr>
-
-
-<tr>
-
-<td>Mini Starter (₦3,500)</td>
-
-<td>₦500</td>
+<th>
+Referral Bonus
+</th>
 
 </tr>
 
 
 <tr>
 
-<td>Starter (₦6,500)</td>
+<td>
+Mini Starter (₦4,000)
+</td>
 
-<td>₦2,000</td>
-
-</tr>
-
-
-<tr>
-
-<td>Popular (₦20,000)</td>
-
-<td>₦5,000</td>
+<td>
+₦500
+</td>
 
 </tr>
 
 
 <tr>
 
-<td>Premium (₦50,000)</td>
+<td>
+Starter (₦6,500)
+</td>
 
-<td>₦10,000</td>
+<td>
+₦2,000
+</td>
 
 </tr>
 
 
 <tr>
 
-<td>Diamond (₦100,000)</td>
+<td>
+Popular (₦20,000)
+</td>
 
-<td>₦15,000</td>
+<td>
+₦5,000
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Premium (₦50,000)
+</td>
+
+<td>
+₦10,000
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>
+Diamond (₦100,000)
+</td>
+
+<td>
+₦15,000
+</td>
 
 </tr>
 
@@ -190,17 +228,27 @@ Share on WhatsApp
 
 <div class="card">
 
-<h3>How It Works</h3>
+<h3>
+How It Works
+</h3>
 
 <div class="steps">
 
-<p>✅ Copy your personal referral link.</p>
+<p>
+✅ Copy your personal referral link.
+</p>
 
-<p>✅ Share it with your friends.</p>
+<p>
+✅ Share it with your friends.
+</p>
 
-<p>✅ They register using your link.</p>
+<p>
+✅ They register using your link.
+</p>
 
-<p>✅ Once they invest, your referral bonus is credited.</p>
+<p>
+✅ Once they invest, your referral bonus is credited.
+</p>
 
 </div>
 
@@ -269,9 +317,10 @@ Share on WhatsApp
 const user =
 JSON.parse(localStorage.getItem("user"));
 
-if(!user){
+if (!user) {
 
-window.location.href="login.html";
+window.location.href =
+"login.html";
 
 }
 
@@ -280,7 +329,9 @@ window.location.href="login.html";
 // REFERRAL LINK
 // =========================
 
-document.getElementById("referralLink").value =
+document.getElementById(
+"referralLink"
+).value =
 
 window.location.origin +
 
@@ -296,15 +347,24 @@ user.referralCode;
 function copyReferralLink(){
 
 const input =
-document.getElementById("referralLink");
+document.getElementById(
+"referralLink"
+);
 
 input.select();
 
-input.setSelectionRange(0,99999);
+input.setSelectionRange(
+0,
+99999
+);
 
-navigator.clipboard.writeText(input.value);
+navigator.clipboard.writeText(
+input.value
+);
 
-alert("Referral link copied!");
+alert(
+"Referral link copied!"
+);
 
 }
 
@@ -313,17 +373,22 @@ alert("Referral link copied!");
 // SHARE TO WHATSAPP
 // =========================
 
-document.getElementById("shareWhatsapp").onclick = function(){
+document.getElementById(
+"shareWhatsapp"
+).onclick = function(){
 
 const text =
 
 "Join Crest Wealth Investment using my referral link:%0A%0A" +
 
-document.getElementById("referralLink").value;
+document.getElementById(
+"referralLink"
+).value;
 
 window.open(
 
-"https://wa.me/?text=" + text,
+"https://wa.me/?text=" +
+text,
 
 "_blank"
 
@@ -340,19 +405,25 @@ async function loadReferralStats(){
 
 try{
 
-const response = await fetch(
+const response =
+await fetch(
 
 `https://young-invest-backend.onrender.com/api/referral/${user._id}`
 
 );
 
-const data = await response.json();
+const data =
+await response.json();
 
-document.getElementById("totalReferrals").textContent =
+document.getElementById(
+"totalReferrals"
+).textContent =
 
 data.totalReferrals || 0;
 
-document.getElementById("referralEarnings").textContent =
+document.getElementById(
+"referralEarnings"
+).textContent =
 
 "₦" +
 
