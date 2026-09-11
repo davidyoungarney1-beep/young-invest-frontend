@@ -49,7 +49,11 @@ async function loadUsers() {
         const users = await response.json();
 
         if (!response.ok || !Array.isArray(users)) {
-            throw new Error(users.message || "Unable to load users.");
+
+            throw new Error(
+                users.message || "Unable to load users."
+            );
+
         }
 
         const tbody = document.querySelector("#userTable tbody");
@@ -57,6 +61,20 @@ async function loadUsers() {
         tbody.innerHTML = "";
 
         document.getElementById("totalUsers").textContent = users.length;
+
+        if (users.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="5" style="text-align:center;padding:25px;">
+                        No registered users.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
 
         users.forEach(u => {
 
@@ -67,9 +85,13 @@ async function loadUsers() {
 
                 <td>${u.email || "N/A"}</td>
 
-                <td>₦${Number(u.walletBalance || 0).toLocaleString()}</td>
+                <td>
+                    ₦${Number(u.walletBalance || 0).toLocaleString()}
+                </td>
 
-                <td>₦${Number(u.totalInvestment || 0).toLocaleString()}</td>
+                <td>
+                    ₦${Number(u.totalInvestment || 0).toLocaleString()}
+                </td>
 
                 <td>
 
@@ -78,6 +100,14 @@ async function loadUsers() {
                     onclick="resetPassword('${u._id}')">
 
                     🔑 Reset Password
+
+                    </button>
+
+                    <button
+                    class="delete"
+                    onclick="deleteUser('${u._id}', '${String(u.fullName || "this user").replace(/'/g, "\\'")}')">
+
+                    🗑️ Delete
 
                     </button>
 
@@ -120,16 +150,18 @@ async function loadDeposits() {
         const deposits = await response.json();
 
         if (!response.ok || !Array.isArray(deposits)) {
+
             throw new Error(
                 deposits.message || "Unable to load deposits."
             );
+
         }
 
         const tbody = document.querySelector("#depositTable tbody");
 
         tbody.innerHTML = "";
 
-        // ================= COUNT DEPOSITS FIRST =================
+        // ================= COUNT FIRST =================
 
         const pending = deposits.filter(
             dep => dep.status === "Pending"
@@ -147,7 +179,7 @@ async function loadDeposits() {
         document.getElementById("approvedCount").textContent = approved;
 
 
-        // ================= SHOW DEPOSITS =================
+        // ================= NO DEPOSITS =================
 
         if (deposits.length === 0) {
 
@@ -164,10 +196,12 @@ async function loadDeposits() {
         }
 
 
+        // ================= DISPLAY DEPOSITS =================
+
         deposits.forEach(dep => {
 
-            // ================= SAFE USER HANDLING =================
-            // If the user was deleted, dep.user can be null.
+            // If the user was deleted,
+            // dep.user can be null.
 
             const userName = dep.user
                 ? (dep.user.fullName || "Unknown User")
@@ -199,13 +233,16 @@ async function loadDeposits() {
 
                 </td>
 
-                <td>${dep.status || "Unknown"}</td>
+                <td>
+                    ${dep.status || "Unknown"}
+                </td>
 
                 <td>
 
                     ${
                         dep.status === "Pending"
                         ? `
+
                             <button
                             class="approve"
                             onclick="approveDeposit('${dep._id}')">
@@ -221,6 +258,7 @@ async function loadDeposits() {
                             Reject
 
                             </button>
+
                         `
                         : `
                             <span>
@@ -239,12 +277,6 @@ async function loadDeposits() {
     } catch (error) {
 
         console.error("Load Deposits Error:", error);
-
-        // Keep counters visible even if a rendering error happens.
-
-        document.getElementById("pendingCount").textContent = "0";
-
-        document.getElementById("approvedCount").textContent = "0";
 
         showError(
             "Error",
@@ -274,9 +306,11 @@ async function loadWithdrawals() {
         const withdrawals = await response.json();
 
         if (!response.ok || !Array.isArray(withdrawals)) {
+
             throw new Error(
                 withdrawals.message || "Unable to load withdrawals."
             );
+
         }
 
         const tbody = document.querySelector("#withdrawTable tbody");
@@ -296,6 +330,7 @@ async function loadWithdrawals() {
             return;
 
         }
+
 
         withdrawals.forEach(item => {
 
@@ -320,7 +355,9 @@ async function loadWithdrawals() {
                     ₦${Number(item.amount || 0).toLocaleString()}
                 </td>
 
-                <td>${item.status || "Unknown"}</td>
+                <td>
+                    ${item.status || "Unknown"}
+                </td>
 
                 <td>
 
@@ -676,6 +713,71 @@ async function resetPassword(id) {
 }
 
 
+// ================= DELETE USER =================
+
+async function deleteUser(id, name) {
+
+    showConfirm(
+        "Delete User",
+        `Are you sure you want to permanently delete ${name}? Their deposit and financial history will remain.`,
+        async () => {
+
+            try {
+
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/users/${id}`,
+                    {
+                        method: "DELETE",
+                        headers: {
+                            adminemail: user.email
+                        }
+                    }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message || "Unable to delete user."
+                    );
+
+                }
+
+                showSuccess(
+                    "User Deleted",
+                    data.message,
+                    () => {
+
+                        loadUsers();
+
+                        loadDeposits();
+
+                        loadWithdrawals();
+
+                    }
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Delete User Error:",
+                    error
+                );
+
+                showError(
+                    "Delete Failed",
+                    error.message || "Unable to delete user."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
 // ================= START =================
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -700,3 +802,5 @@ window.approveWithdrawal = approveWithdrawal;
 window.rejectWithdrawal = rejectWithdrawal;
 
 window.resetPassword = resetPassword;
+
+window.deleteUser = deleteUser;
