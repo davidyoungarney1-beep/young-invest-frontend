@@ -1,4 +1,3 @@
-
 // ================= ADMIN CHECK =================
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -31,6 +30,7 @@ if (user.role !== "admin") {
 
 }
 
+
 // ================= LOAD USERS =================
 
 async function loadUsers() {
@@ -48,6 +48,10 @@ async function loadUsers() {
 
         const users = await response.json();
 
+        if (!response.ok || !Array.isArray(users)) {
+            throw new Error(users.message || "Unable to load users.");
+        }
+
         const tbody = document.querySelector("#userTable tbody");
 
         tbody.innerHTML = "";
@@ -58,12 +62,17 @@ async function loadUsers() {
 
             tbody.innerHTML += `
             <tr>
-                <td>${u.fullName}</td>
-                <td>${u.email}</td>
-                <td>₦${Number(u.walletBalance).toLocaleString()}</td>
-                <td>₦${Number(u.totalInvestment).toLocaleString()}</td>
+
+                <td>${u.fullName || "N/A"}</td>
+
+                <td>${u.email || "N/A"}</td>
+
+                <td>₦${Number(u.walletBalance || 0).toLocaleString()}</td>
+
+                <td>₦${Number(u.totalInvestment || 0).toLocaleString()}</td>
 
                 <td>
+
                     <button
                     class="reset"
                     onclick="resetPassword('${u._id}')">
@@ -71,6 +80,7 @@ async function loadUsers() {
                     🔑 Reset Password
 
                     </button>
+
                 </td>
 
             </tr>
@@ -80,7 +90,7 @@ async function loadUsers() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error("Load Users Error:", error);
 
         showError(
             "Error",
@@ -90,6 +100,7 @@ async function loadUsers() {
     }
 
 }
+
 
 // ================= LOAD DEPOSITS =================
 
@@ -108,27 +119,75 @@ async function loadDeposits() {
 
         const deposits = await response.json();
 
+        if (!response.ok || !Array.isArray(deposits)) {
+            throw new Error(
+                deposits.message || "Unable to load deposits."
+            );
+        }
+
         const tbody = document.querySelector("#depositTable tbody");
 
         tbody.innerHTML = "";
 
-        let pending = 0;
-        let approved = 0;
+        // ================= COUNT DEPOSITS FIRST =================
+
+        const pending = deposits.filter(
+            dep => dep.status === "Pending"
+        ).length;
+
+        const approved = deposits.filter(
+            dep => dep.status === "Approved"
+        ).length;
+
+
+        // ================= UPDATE COUNTERS =================
+
+        document.getElementById("pendingCount").textContent = pending;
+
+        document.getElementById("approvedCount").textContent = approved;
+
+
+        // ================= SHOW DEPOSITS =================
+
+        if (deposits.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" style="text-align:center;padding:25px;">
+                        No deposits available.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
 
         deposits.forEach(dep => {
 
-            if (dep.status === "Pending") pending++;
+            // ================= SAFE USER HANDLING =================
+            // If the user was deleted, dep.user can be null.
 
-            if (dep.status === "Approved") approved++;
+            const userName = dep.user
+                ? (dep.user.fullName || "Unknown User")
+                : "Deleted User";
+
+            const userEmail = dep.user
+                ? (dep.user.email || "N/A")
+                : "N/A";
+
 
             tbody.innerHTML += `
             <tr>
 
-                <td>${dep.user.fullName}</td>
+                <td>${userName}</td>
 
-                <td>${dep.user.email}</td>
+                <td>${userEmail}</td>
 
-                <td>₦${Number(dep.amount).toLocaleString()}</td>
+                <td>
+                    ₦${Number(dep.amount || 0).toLocaleString()}
+                </td>
 
                 <td>
 
@@ -140,25 +199,35 @@ async function loadDeposits() {
 
                 </td>
 
-                <td>${dep.status}</td>
+                <td>${dep.status || "Unknown"}</td>
 
                 <td>
 
-                    <button
-                    class="approve"
-                    onclick="approveDeposit('${dep._id}')">
+                    ${
+                        dep.status === "Pending"
+                        ? `
+                            <button
+                            class="approve"
+                            onclick="approveDeposit('${dep._id}')">
 
-                    Approve
+                            Approve
 
-                    </button>
+                            </button>
 
-                    <button
-                    class="reject"
-                    onclick="rejectDeposit('${dep._id}')">
+                            <button
+                            class="reject"
+                            onclick="rejectDeposit('${dep._id}')">
 
-                    Reject
+                            Reject
 
-                    </button>
+                            </button>
+                        `
+                        : `
+                            <span>
+                                ${dep.status || "Processed"}
+                            </span>
+                        `
+                    }
 
                 </td>
 
@@ -167,13 +236,15 @@ async function loadDeposits() {
 
         });
 
-        document.getElementById("pendingCount").textContent = pending;
-
-        document.getElementById("approvedCount").textContent = approved;
-
     } catch (error) {
 
-        console.error(error);
+        console.error("Load Deposits Error:", error);
+
+        // Keep counters visible even if a rendering error happens.
+
+        document.getElementById("pendingCount").textContent = "0";
+
+        document.getElementById("approvedCount").textContent = "0";
 
         showError(
             "Error",
@@ -183,6 +254,7 @@ async function loadDeposits() {
     }
 
 }
+
 
 // ================= LOAD WITHDRAWALS =================
 
@@ -201,45 +273,84 @@ async function loadWithdrawals() {
 
         const withdrawals = await response.json();
 
+        if (!response.ok || !Array.isArray(withdrawals)) {
+            throw new Error(
+                withdrawals.message || "Unable to load withdrawals."
+            );
+        }
+
         const tbody = document.querySelector("#withdrawTable tbody");
 
         tbody.innerHTML = "";
 
+        if (withdrawals.length === 0) {
+
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="7" style="text-align:center;padding:25px;">
+                        No withdrawal requests available.
+                    </td>
+                </tr>
+            `;
+
+            return;
+
+        }
+
         withdrawals.forEach(item => {
+
+            const userName = item.user
+                ? (item.user.fullName || "Unknown User")
+                : "Deleted User";
+
 
             tbody.innerHTML += `
 
             <tr>
 
-                <td>${item.user.fullName}</td>
+                <td>${userName}</td>
 
-                <td>${item.bankName}</td>
+                <td>${item.bankName || "N/A"}</td>
 
-                <td>${item.accountName}</td>
+                <td>${item.accountName || "N/A"}</td>
 
-                <td>${item.accountNumber}</td>
+                <td>${item.accountNumber || "N/A"}</td>
 
-                <td>₦${Number(item.amount).toLocaleString()}</td>
+                <td>
+                    ₦${Number(item.amount || 0).toLocaleString()}
+                </td>
 
-                <td>${item.status}</td>
+                <td>${item.status || "Unknown"}</td>
 
                 <td>
 
-                    <button
-                    class="approve"
-                    onclick="approveWithdrawal('${item._id}')">
+                    ${
+                        item.status === "Pending"
+                        ? `
 
-                    Approve
+                            <button
+                            class="approve"
+                            onclick="approveWithdrawal('${item._id}')">
 
-                    </button>
+                            Approve
 
-                    <button
-                    class="reject"
-                    onclick="rejectWithdrawal('${item._id}')">
+                            </button>
 
-                    Reject
+                            <button
+                            class="reject"
+                            onclick="rejectWithdrawal('${item._id}')">
 
-                    </button>
+                            Reject
+
+                            </button>
+
+                        `
+                        : `
+                            <span>
+                                ${item.status || "Processed"}
+                            </span>
+                        `
+                    }
 
                 </td>
 
@@ -251,7 +362,7 @@ async function loadWithdrawals() {
 
     } catch (error) {
 
-        console.error(error);
+        console.error("Load Withdrawals Error:", error);
 
         showError(
             "Error",
@@ -261,6 +372,8 @@ async function loadWithdrawals() {
     }
 
 }
+
+
 // ================= APPROVE DEPOSIT =================
 
 async function approveDeposit(id) {
@@ -284,22 +397,33 @@ async function approveDeposit(id) {
 
                 const data = await response.json();
 
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message || "Unable to approve deposit."
+                    );
+
+                }
+
                 showSuccess(
                     "Approved!",
                     data.message,
                     () => {
+
                         loadUsers();
+
                         loadDeposits();
+
                     }
                 );
 
             } catch (error) {
 
-                console.error(error);
+                console.error("Approve Deposit Error:", error);
 
                 showError(
                     "Error",
-                    "Something went wrong."
+                    error.message || "Something went wrong."
                 );
 
             }
@@ -308,6 +432,7 @@ async function approveDeposit(id) {
     );
 
 }
+
 
 // ================= REJECT DEPOSIT =================
 
@@ -332,21 +457,31 @@ async function rejectDeposit(id) {
 
                 const data = await response.json();
 
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message || "Unable to reject deposit."
+                    );
+
+                }
+
                 showSuccess(
                     "Rejected",
                     data.message,
                     () => {
+
                         loadDeposits();
+
                     }
                 );
 
             } catch (error) {
 
-                console.error(error);
+                console.error("Reject Deposit Error:", error);
 
                 showError(
                     "Error",
-                    "Something went wrong."
+                    error.message || "Something went wrong."
                 );
 
             }
@@ -356,47 +491,68 @@ async function rejectDeposit(id) {
 
 }
 
+
 // ================= APPROVE WITHDRAWAL =================
+
 async function approveWithdrawal(id) {
-showConfirm(
-    "Approve Withdrawal",
-    "Approve this withdrawal request?",
-    async () => {
 
-        try {
+    showConfirm(
+        "Approve Withdrawal",
+        "Approve this withdrawal request?",
+        async () => {
 
-            const response = await fetch(
-                `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
-                {
-                    method: "PUT",
-                    headers: {
-                        adminemail: user.email
+            try {
+
+                const response = await fetch(
+                    `https://young-invest-backend.onrender.com/api/admin/withdraw/approve/${id}`,
+                    {
+                        method: "PUT",
+                        headers: {
+                            adminemail: user.email
+                        }
                     }
+                );
+
+                const data = await response.json();
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message || "Unable to approve withdrawal."
+                    );
+
                 }
-            );
 
-            const data = await response.json();
+                showSuccess(
+                    "Approved!",
+                    data.message,
+                    () => {
 
-            showSuccess(
-                "Approved!",
-                data.message,
-                () => {
-                    loadWithdrawals();
-                }
-            );
+                        loadWithdrawals();
 
-        } catch (error) {
+                    }
+                );
 
-            showError(
-                "Error",
-                error.message
-            );
+            } catch (error) {
+
+                console.error(
+                    "Approve Withdrawal Error:",
+                    error
+                );
+
+                showError(
+                    "Error",
+                    error.message || "Something went wrong."
+                );
+
+            }
 
         }
+    );
 
-    }
-);
 }
+
+
 // ================= REJECT WITHDRAWAL =================
 
 async function rejectWithdrawal(id) {
@@ -420,21 +576,34 @@ async function rejectWithdrawal(id) {
 
                 const data = await response.json();
 
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message || "Unable to reject withdrawal."
+                    );
+
+                }
+
                 showSuccess(
                     "Rejected",
                     data.message,
                     () => {
+
                         loadWithdrawals();
+
                     }
                 );
 
             } catch (error) {
 
-                console.error(error);
+                console.error(
+                    "Reject Withdrawal Error:",
+                    error
+                );
 
                 showError(
                     "Error",
-                    "Something went wrong."
+                    error.message || "Something went wrong."
                 );
 
             }
@@ -443,6 +612,8 @@ async function rejectWithdrawal(id) {
     );
 
 }
+
+
 // ================= RESET PASSWORD =================
 
 async function resetPassword(id) {
@@ -487,7 +658,10 @@ async function resetPassword(id) {
 
             } catch (error) {
 
-                console.error(error);
+                console.error(
+                    "Reset Password Error:",
+                    error
+                );
 
                 showError(
                     "Error",
@@ -501,6 +675,7 @@ async function resetPassword(id) {
 
 }
 
+
 // ================= START =================
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -512,8 +687,16 @@ window.addEventListener("DOMContentLoaded", () => {
     loadWithdrawals();
 
 });
+
+
+// ================= MAKE FUNCTIONS AVAILABLE =================
+
 window.approveDeposit = approveDeposit;
+
 window.rejectDeposit = rejectDeposit;
+
 window.approveWithdrawal = approveWithdrawal;
+
 window.rejectWithdrawal = rejectWithdrawal;
+
 window.resetPassword = resetPassword;
