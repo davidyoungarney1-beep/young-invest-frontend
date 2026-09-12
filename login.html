@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Login | Crest Wealth Investment</title>
-
-<link rel="stylesheet" href="popup.css">
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-<style>
+<!DOCTYPE html><html lang="en">
+<head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Login | Crest Wealth Investment</title><link rel="stylesheet" href="popup.css"><link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet"><style>
 
 *{
 margin:0;
@@ -21,79 +12,204 @@ font-family:Poppins,sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+background:
+radial-gradient(circle at top left,rgba(37,99,235,.35),transparent 35%),
+radial-gradient(circle at bottom right,rgba(30,64,175,.4),transparent 35%),
+linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
 min-height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-padding:30px;
+padding:25px;
+position:relative;
+overflow:hidden;
 }
+
+/* Background decorations */
+
+body::before{
+content:"";
+position:absolute;
+width:280px;
+height:280px;
+border-radius:50%;
+background:rgba(59,130,246,.12);
+top:-100px;
+right:-80px;
+filter:blur(5px);
+}
+
+body::after{
+content:"";
+position:absolute;
+width:220px;
+height:220px;
+border-radius:50%;
+background:rgba(96,165,250,.10);
+bottom:-80px;
+left:-70px;
+}
+
+/* Login container */
 
 .login-box{
 width:100%;
-max-width:430px;
-background:#fff;
-border-radius:18px;
-padding:35px;
-box-shadow:0 20px 50px rgba(0,0,0,.35);
+max-width:450px;
+background:rgba(255,255,255,.98);
+border-radius:24px;
+padding:38px 35px;
+box-shadow:
+0 25px 70px rgba(0,0,0,.4),
+0 0 0 1px rgba(255,255,255,.15);
+position:relative;
+z-index:2;
+animation:boxIn .6s ease;
 }
 
-.logo{
-text-align:center;
-font-size:50px;
-margin-bottom:10px;
+@keyframes boxIn{
+from{
+opacity:0;
+transform:translateY(25px) scale(.97);
 }
+to{
+opacity:1;
+transform:translateY(0) scale(1);
+}
+}
+
+/* Logo */
+
+.logo-container{
+display:flex;
+justify-content:center;
+align-items:center;
+margin-bottom:18px;
+}
+
+.logo-container img{
+width:95px;
+height:95px;
+object-fit:contain;
+border-radius:50%;
+box-shadow:0 8px 25px rgba(37,99,235,.20);
+}
+
+/* Heading */
 
 .login-box h2{
 text-align:center;
-color:#1d4ed8;
-margin-bottom:8px;
+color:#123c91;
+font-size:26px;
+font-weight:700;
+margin-bottom:6px;
 }
 
 .login-box p{
 text-align:center;
-color:#666;
-margin-bottom:20px;
+color:#64748b;
+font-size:14px;
+margin-bottom:25px;
 }
 
-.login-box input{
+/* Input group */
+
+.input-group{
+position:relative;
+margin:13px 0;
+}
+
+.input-group input{
 width:100%;
-padding:14px;
-margin:10px 0;
-border:1px solid #ddd;
-border-radius:10px;
+height:54px;
+padding:0 48px 0 16px;
+border:1.5px solid #dbe3ef;
+border-radius:12px;
 font-size:15px;
+color:#0f172a;
+background:#f8fafc;
 outline:none;
 transition:.3s;
 }
 
-.login-box input:focus{
+.input-group input:focus{
 border-color:#2563eb;
-box-shadow:0 0 8px rgba(37,99,235,.25);
+background:#fff;
+box-shadow:0 0 0 4px rgba(37,99,235,.10);
 }
 
-.login-box button{
-width:100%;
-padding:15px;
-margin-top:15px;
+/* Input icons */
+
+.input-icon{
+position:absolute;
+right:16px;
+top:50%;
+transform:translateY(-50%);
+font-size:18px;
+color:#64748b;
+pointer-events:none;
+}
+
+/* Password eye */
+
+.password-toggle{
+position:absolute;
+right:14px;
+top:50%;
+transform:translateY(-50%);
 border:none;
-border-radius:10px;
-background:#2563eb;
+background:none;
+padding:5px;
+width:auto;
+margin:0;
+color:#64748b;
+font-size:18px;
+cursor:pointer;
+}
+
+.password-toggle:hover{
+background:none;
+color:#2563eb;
+}
+
+/* Login button */
+
+.login-box button.login-btn{
+width:100%;
+height:54px;
+padding:0 15px;
+margin-top:18px;
+border:none;
+border-radius:12px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
 color:white;
 font-size:16px;
 font-weight:600;
 cursor:pointer;
+box-shadow:0 8px 20px rgba(37,99,235,.28);
 transition:.3s;
 }
 
-.login-box button:hover{
-background:#1d4ed8;
+.login-box button.login-btn:hover{
+transform:translateY(-2px);
+box-shadow:0 12px 25px rgba(37,99,235,.35);
 }
+
+.login-box button.login-btn:active{
+transform:translateY(0);
+}
+
+.login-box button:disabled{
+opacity:.75;
+cursor:not-allowed;
+transform:none;
+}
+
+/* Loader */
 
 .loader{
 width:18px;
 height:18px;
-border:3px solid rgba(255,255,255,.3);
+border:3px solid rgba(255,255,255,.35);
 border-top:3px solid #fff;
 border-radius:50%;
 display:inline-block;
@@ -108,12 +224,10 @@ transform:rotate(360deg);
 }
 }
 
-button:disabled{
-opacity:.8;
-cursor:not-allowed;
-}
+/* Forgot password */
+
 .forgot-password{
-margin-top:15px;
+margin-top:18px;
 text-align:center;
 }
 
@@ -121,88 +235,188 @@ text-align:center;
 color:#2563eb;
 text-decoration:none;
 font-weight:600;
+font-size:14px;
 transition:.3s;
 }
 
 .forgot-password a:hover{
 color:#1d4ed8;
 text-decoration:underline;
-  }
+}
+
+/* Divider */
+
+.divider{
+display:flex;
+align-items:center;
+gap:12px;
+margin:24px 0 18px;
+color:#94a3b8;
+font-size:12px;
+}
+
+.divider::before,
+.divider::after{
+content:"";
+height:1px;
+background:#e2e8f0;
+flex:1;
+}
+
+/* Signup */
+
 .signup{
-margin-top:20px;
 text-align:center;
+color:#64748b;
+font-size:14px;
 }
 
 .signup a{
 color:#2563eb;
 font-weight:600;
 text-decoration:none;
+margin-left:4px;
 }
 
-</style>
+.signup a:hover{
+text-decoration:underline;
+}
 
-</head>
+/* Security message */
 
-<body>
+.security{
+margin-top:25px;
+padding:11px 12px;
+background:#eff6ff;
+border:1px solid #dbeafe;
+border-radius:10px;
+text-align:center;
+color:#475569;
+font-size:11px;
+}
 
-<div class="login-box">
+.security span{
+color:#2563eb;
+font-weight:600;
+}
 
-<div class="logo">🏦</div>
+/* Mobile */
 
-<h2>Welcome Back</h2>
+@media(max-width:480px){
 
-<p>Login to your investment account.</p>
+body{
+padding:15px;
+}
 
-<form id="loginForm">
+.login-box{
+padding:30px 22px;
+border-radius:20px;
+}
 
-<input
+.logo-container img{
+width:82px;
+height:82px;
+}
+
+.login-box h2{
+font-size:23px;
+}
+
+.login-box p{
+font-size:13px;
+}
+
+.input-group input{
+height:52px;
+}
+
+.login-box button.login-btn{
+height:52px;
+}
+
+}
+
+</style></head><body><div class="login-box"><!-- Crest Wealth Logo --><div class="logo-container"><img
+src="1234.png"
+alt="Crest Wealth Investment Logo">
+
+</div><h2>Welcome Back</h2><p>Login to your Crest Wealth investment account.</p><form id="loginForm"><!-- Email --><div class="input-group"><input
 type="email"
 id="email"
 placeholder="Email Address"
+autocomplete="email"
 required>
 
-<input
+<span class="input-icon">✉</span>
+
+</div><!-- Password --><div class="input-group"><input
 type="password"
 id="password"
 placeholder="Password"
+autocomplete="current-password"
 required>
 
 <button
+type="button"
+class="password-toggle"
+id="togglePassword"
+aria-label="Show password">
+
+👁️
+
+</button></div><!-- Login --><button
 type="submit"
-id="loginBtn">
+id="loginBtn"
+class="login-btn">
 
 Login
 
-</button>
-
-<div class="forgot-password">
-
-<a href="forgot-password.html">
-
+</button><!-- Forgot password --><div class="forgot-password"><a href="forgot-password.html">
 Forgot Password?
-
-</a>
-
-</div>
-
-<div class="signup">
-
-Don't have an account?
+</a></div><div class="divider">
+<span>ACCOUNT</span>
+</div><!-- Signup --><div class="signup">Don't have an account?
 
 <a href="register.html">
-
 Create Account
+</a></div><!-- Security --><div class="security">🔒 <span>Secure Login</span> — Your account information is protected.
 
-</a>
+</div></form></div><script src="popup.js"></script><script src="login.js"></script><script>
 
-</div>
+/* =========================
+   SHOW / HIDE PASSWORD
+========================= */
 
-</form>
+const passwordInput = document.getElementById("password");
+const togglePassword = document.getElementById("togglePassword");
 
-</div>
+togglePassword.addEventListener("click", function(){
 
-<script src="popup.js"></script>
-<script src="login.js"></script>
+if(passwordInput.type === "password"){
 
-</body>
+passwordInput.type = "text";
+
+togglePassword.textContent = "🙈";
+
+togglePassword.setAttribute(
+"aria-label",
+"Hide password"
+);
+
+}else{
+
+passwordInput.type = "password";
+
+togglePassword.textContent = "👁️";
+
+togglePassword.setAttribute(
+"aria-label",
+"Show password"
+);
+
+}
+
+});
+
+</script></body>
 </html>
