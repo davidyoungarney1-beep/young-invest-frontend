@@ -1,40 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport"
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Create Account | Crest Wealth Investment</title>
-<link rel="stylesheet" href="popup.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<title>Create Account | Crest Wealth Investment</title><link rel="stylesheet" href="popup.css"><link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet"><style>
 
-<style>
-.loader{
-    width:18px;
-    height:18px;
-    border:3px solid rgba(255,255,255,.3);
-    border-top:3px solid #fff;
-    border-radius:50%;
-    display:inline-block;
-    animation:spin .8s linear infinite;
-    vertical-align:middle;
-    margin-right:8px;
-}
+/* =========================
+   RESET
+========================= */
 
-@keyframes spin{
-    100%{
-        transform:rotate(360deg);
-    }
-}
-
-button:disabled{
-    opacity:.8;
-    cursor:not-allowed;
-    }
 *{
 margin:0;
 padding:0;
@@ -42,9 +16,29 @@ box-sizing:border-box;
 font-family:Poppins,sans-serif;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body{
 
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+background:
+radial-gradient(
+circle at top left,
+rgba(37,99,235,.35),
+transparent 35%
+),
+radial-gradient(
+circle at bottom right,
+rgba(30,64,175,.4),
+transparent 35%
+),
+linear-gradient(
+135deg,
+#020617,
+#0f172a,
+#1e3a8a
+);
 
 min-height:100vh;
 
@@ -54,69 +48,196 @@ justify-content:center;
 
 align-items:center;
 
-padding:30px;
+padding:25px;
+
+position:relative;
+
+overflow-x:hidden;
 
 }
+
+/* Background decorations */
+
+body::before{
+
+content:"";
+
+position:absolute;
+
+width:280px;
+
+height:280px;
+
+border-radius:50%;
+
+background:rgba(59,130,246,.12);
+
+top:-100px;
+
+right:-80px;
+
+}
+
+body::after{
+
+content:"";
+
+position:absolute;
+
+width:220px;
+
+height:220px;
+
+border-radius:50%;
+
+background:rgba(96,165,250,.10);
+
+bottom:-80px;
+
+left:-70px;
+
+}
+
+/* =========================
+   REGISTER BOX
+========================= */
 
 .register-box{
 
 width:100%;
 
-max-width:430px;
+max-width:450px;
 
-background:#fff;
+background:rgba(255,255,255,.98);
 
-border-radius:18px;
+border-radius:24px;
 
 padding:35px;
 
-box-shadow:0 20px 50px rgba(0,0,0,.35);
+box-shadow:
+0 25px 70px rgba(0,0,0,.4),
+0 0 0 1px rgba(255,255,255,.15);
+
+position:relative;
+
+z-index:2;
+
+animation:boxIn .6s ease;
 
 }
 
-.logo{
+@keyframes boxIn{
 
-text-align:center;
+from{
 
-font-size:50px;
+opacity:0;
 
-margin-bottom:10px;
+transform:translateY(25px) scale(.97);
 
 }
+
+to{
+
+opacity:1;
+
+transform:translateY(0) scale(1);
+
+}
+
+}
+
+/* =========================
+   LOGO
+========================= */
+
+.logo-container{
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+.logo-container img{
+
+width:88px;
+
+height:88px;
+
+object-fit:contain;
+
+border-radius:50%;
+
+box-shadow:
+0 8px 25px rgba(37,99,235,.20);
+
+}
+
+/* =========================
+   HEADER
+========================= */
 
 .register-box h2{
 
 text-align:center;
 
-color:#1d4ed8;
+color:#123c91;
 
-margin-bottom:8px;
+font-size:25px;
+
+font-weight:700;
+
+margin-bottom:6px;
 
 }
 
-.register-box p{
+.register-box > p{
 
 text-align:center;
 
-color:#666;
+color:#64748b;
 
-margin-bottom:20px;
+font-size:14px;
+
+margin-bottom:23px;
 
 }
 
-.register-box input{
+/* =========================
+   INPUT GROUP
+========================= */
+
+.input-group{
+
+position:relative;
+
+margin:12px 0;
+
+}
+
+.input-group input{
 
 width:100%;
 
-padding:14px;
+height:53px;
 
-margin:10px 0;
+padding:
+0 48px
+0 16px;
 
-border:1px solid #ddd;
+border:1.5px solid #dbe3ef;
 
-border-radius:10px;
+border-radius:12px;
 
-font-size:15px;
+font-size:14px;
+
+color:#0f172a;
+
+background:#f8fafc;
 
 outline:none;
 
@@ -124,27 +245,170 @@ transition:.3s;
 
 }
 
-.register-box input:focus{
+.input-group input:focus{
 
 border-color:#2563eb;
 
-box-shadow:0 0 8px rgba(37,99,235,.25);
+background:#fff;
+
+box-shadow:
+0 0 0 4px
+rgba(37,99,235,.10);
 
 }
 
-.register-box button{
+/* Input icons */
+
+.input-icon{
+
+position:absolute;
+
+right:16px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+font-size:17px;
+
+color:#64748b;
+
+pointer-events:none;
+
+}
+
+/* =========================
+   PASSWORD TOGGLE
+========================= */
+
+.password-toggle{
+
+position:absolute;
+
+right:12px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+border:none !important;
+
+background:transparent !important;
+
+width:auto !important;
+
+height:auto !important;
+
+padding:5px !important;
+
+margin:0 !important;
+
+color:#64748b !important;
+
+font-size:18px !important;
+
+cursor:pointer;
+
+box-shadow:none !important;
+
+}
+
+.password-toggle:hover{
+
+color:#2563eb !important;
+
+background:transparent !important;
+
+transform:translateY(-50%);
+
+}
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+.password-strength{
+
+height:5px;
 
 width:100%;
 
-padding:15px;
-
-margin-top:15px;
-
-border:none;
+background:#e2e8f0;
 
 border-radius:10px;
 
-background:#2563eb;
+margin-top:-5px;
+
+margin-bottom:9px;
+
+overflow:hidden;
+
+}
+
+.password-strength-bar{
+
+height:100%;
+
+width:0%;
+
+border-radius:10px;
+
+transition:.3s;
+
+}
+
+.strength-text{
+
+font-size:11px;
+
+margin-top:-5px;
+
+margin-bottom:8px;
+
+color:#64748b;
+
+}
+
+/* =========================
+   PASSWORD MATCH
+========================= */
+
+.password-match{
+
+font-size:11px;
+
+margin-top:-5px;
+
+margin-bottom:7px;
+
+min-height:16px;
+
+}
+
+/* =========================
+   REGISTER BUTTON
+========================= */
+
+.register-box button.register-btn{
+
+width:100%;
+
+height:54px;
+
+padding:0 15px;
+
+margin-top:12px;
+
+border:none;
+
+border-radius:12px;
+
+background:
+linear-gradient(
+135deg,
+#2563eb,
+#1d4ed8
+);
 
 color:white;
 
@@ -154,21 +418,88 @@ font-weight:600;
 
 cursor:pointer;
 
+box-shadow:
+0 8px 20px
+rgba(37,99,235,.28);
+
 transition:.3s;
 
 }
 
-.register-box button:hover{
+.register-box button.register-btn:hover{
 
-background:#1d4ed8;
+transform:translateY(-2px);
+
+box-shadow:
+0 12px 25px
+rgba(37,99,235,.35);
 
 }
+
+.register-box button.register-btn:active{
+
+transform:translateY(0);
+
+}
+
+/* =========================
+   LOADER
+========================= */
+
+.loader{
+
+width:18px;
+
+height:18px;
+
+border:3px solid
+rgba(255,255,255,.35);
+
+border-top:3px solid #fff;
+
+border-radius:50%;
+
+display:inline-block;
+
+animation:spin .8s linear infinite;
+
+vertical-align:middle;
+
+margin-right:8px;
+
+}
+
+@keyframes spin{
+
+100%{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+button:disabled{
+
+opacity:.75;
+
+cursor:not-allowed;
+
+}
+
+/* =========================
+   LOGIN LINK
+========================= */
 
 .login{
 
 margin-top:20px;
 
 text-align:center;
+
+color:#64748b;
+
+font-size:14px;
 
 }
 
@@ -180,6 +511,8 @@ font-weight:600;
 
 text-decoration:none;
 
+margin-left:4px;
+
 }
 
 .login a:hover{
@@ -188,81 +521,390 @@ text-decoration:underline;
 
 }
 
-</style>
+/* =========================
+   SECURITY
+========================= */
 
-</head>
+.security{
 
-<body>
+margin-top:20px;
 
-<div class="register-box">
+padding:11px;
 
-<div class="logo">
-🏦
-</div>
+background:#eff6ff;
 
-<h2>Create Account</h2>
+border:1px solid #dbeafe;
 
-<p>Join Crest Wealth Investment today.</p>
+border-radius:10px;
 
-<form id="registerForm">
+text-align:center;
 
-<input
+font-size:11px;
+
+color:#475569;
+
+}
+
+.security span{
+
+color:#2563eb;
+
+font-weight:600;
+
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:480px){
+
+body{
+
+padding:15px;
+
+align-items:center;
+
+}
+
+.register-box{
+
+padding:28px 22px;
+
+border-radius:20px;
+
+}
+
+.logo-container img{
+
+width:78px;
+
+height:78px;
+
+}
+
+.register-box h2{
+
+font-size:23px;
+
+}
+
+.register-box > p{
+
+font-size:13px;
+
+}
+
+.input-group input{
+
+height:51px;
+
+}
+
+.register-box button.register-btn{
+
+height:52px;
+
+}
+
+}
+
+</style></head><body><div class="register-box"><!-- CREST WEALTH LOGO --><div class="logo-container"><img
+src="1234.png"
+alt="Crest Wealth Investment Logo">
+
+</div><h2>Create Account</h2><p>Join Crest Wealth Investment today.</p><form id="registerForm"><!-- FULL NAME --><div class="input-group"><input
 type="text"
 id="fullName"
 placeholder="Full Name"
+autocomplete="name"
 required>
 
-<input
+<span class="input-icon">👤</span>
+
+</div><!-- EMAIL --><div class="input-group"><input
 type="email"
 id="email"
 placeholder="Email Address"
+autocomplete="email"
 required>
 
-<input
+<span class="input-icon">✉️</span>
+
+</div><!-- PHONE --><div class="input-group"><input
 type="tel"
 id="phone"
 placeholder="Phone Number"
+autocomplete="tel"
 required>
 
-<input
+<span class="input-icon">📱</span>
+
+</div><!-- REFERRAL --><div class="input-group"><input
 type="text"
 id="referralCode"
 placeholder="Referral Code (Optional)"
 autocomplete="off">
 
-<input
+<span class="input-icon">🎁</span>
+
+</div><!-- PASSWORD --><div class="input-group"><input
 type="password"
 id="password"
 placeholder="Password"
+autocomplete="new-password"
 required>
 
-<input
+<button
+type="button"
+class="password-toggle"
+id="togglePassword"
+aria-label="Show password">
+
+👁️
+
+</button></div><!-- PASSWORD STRENGTH --><div class="password-strength"><div
+class="password-strength-bar"
+id="strengthBar">
+</div></div><div
+class="strength-text"
+id="strengthText">Password strength
+
+</div><!-- CONFIRM PASSWORD --><div class="input-group"><input
 type="password"
 id="confirmPassword"
 placeholder="Confirm Password"
+autocomplete="new-password"
 required>
-<button type="submit" id="registerBtn">
-    Create Account
-</button>
 
-<div class="login">
+<button
+type="button"
+class="password-toggle"
+id="toggleConfirmPassword"
+aria-label="Show password">
 
-Already have an account?
+👁️
+
+</button></div><div
+class="password-match"
+id="passwordMatch">
+</div><!-- REGISTER BUTTON --><button
+type="submit"
+id="registerBtn"
+class="register-btn">
+
+Create Account
+
+</button><div class="login">Already have an account?
 
 <a href="login.html">
-
 Login
+</a></div><div class="security">🔒 <span>Secure Registration</span> —
+Your account information is protected.
 
-</a>
+</div></form></div><script src="popup.js"></script><script src="register.js"></script><script>
 
-</div>
+/* =========================
+   SHOW / HIDE PASSWORD
+========================= */
 
-</form>
+const password =
+document.getElementById("password");
 
-</div>
-<script src="popup.js"></script>
-<script src="register.js"></script>
+const confirmPassword =
+document.getElementById("confirmPassword");
 
-</body>
+const togglePassword =
+document.getElementById("togglePassword");
 
-</html>
+const toggleConfirmPassword =
+document.getElementById("toggleConfirmPassword");
+
+
+togglePassword.addEventListener("click",function(){
+
+if(password.type === "password"){
+
+password.type = "text";
+
+togglePassword.textContent = "🙈";
+
+togglePassword.setAttribute(
+"aria-label",
+"Hide password"
+);
+
+}else{
+
+password.type = "password";
+
+togglePassword.textContent = "👁️";
+
+togglePassword.setAttribute(
+"aria-label",
+"Show password"
+);
+
+}
+
+});
+
+
+toggleConfirmPassword.addEventListener("click",function(){
+
+if(confirmPassword.type === "password"){
+
+confirmPassword.type = "text";
+
+toggleConfirmPassword.textContent = "🙈";
+
+toggleConfirmPassword.setAttribute(
+"aria-label",
+"Hide password"
+);
+
+}else{
+
+confirmPassword.type = "password";
+
+toggleConfirmPassword.textContent = "👁️";
+
+toggleConfirmPassword.setAttribute(
+"aria-label",
+"Show password"
+);
+
+}
+
+});
+
+
+/* =========================
+   PASSWORD STRENGTH
+========================= */
+
+const strengthBar =
+document.getElementById("strengthBar");
+
+const strengthText =
+document.getElementById("strengthText");
+
+
+password.addEventListener("input",function(){
+
+const value = password.value;
+
+let strength = 0;
+
+if(value.length >= 6)
+strength++;
+
+if(value.length >= 10)
+strength++;
+
+if(/[A-Z]/.test(value))
+strength++;
+
+if(/[0-9]/.test(value))
+strength++;
+
+if(/[^A-Za-z0-9]/.test(value))
+strength++;
+
+if(value.length === 0){
+
+strengthBar.style.width = "0%";
+
+strengthText.textContent =
+"Password strength";
+
+}
+
+else if(strength <= 2){
+
+strengthBar.style.width = "35%";
+
+strengthText.textContent =
+"Weak password";
+
+strengthText.style.color =
+"#dc2626";
+
+}
+
+else if(strength <= 3){
+
+strengthBar.style.width = "65%";
+
+strengthText.textContent =
+"Medium password";
+
+strengthText.style.color =
+"#d97706";
+
+}
+
+else{
+
+strengthBar.style.width = "100%";
+
+strengthText.textContent =
+"Strong password";
+
+strengthText.style.color =
+"#16a34a";
+
+}
+
+});
+
+
+/* =========================
+   CONFIRM PASSWORD CHECK
+========================= */
+
+confirmPassword.addEventListener(
+"input",
+checkPasswordMatch
+);
+
+password.addEventListener(
+"input",
+checkPasswordMatch
+);
+
+
+function checkPasswordMatch(){
+
+const match =
+document.getElementById("passwordMatch");
+
+if(confirmPassword.value.length === 0){
+
+match.textContent = "";
+
+return;
+
+}
+
+if(password.value === confirmPassword.value){
+
+match.textContent =
+"✓ Passwords match";
+
+match.style.color =
+"#16a34a";
+
+}else{
+
+match.textContent =
+"✕ Passwords do not match";
+
+match.style.color =
+"#dc2626";
+
+}
+
+}
+
+</script></body></html>
