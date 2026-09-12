@@ -1,7 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport"
-content="width=device-width, initial-scale=1.0">
-
-<title>Create Account | Crest Wealth Investment</title><link rel="stylesheet" href="popup.css"><link
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | Crest Wealth Investment</title><link rel="stylesheet" href="popup.css"><link
 href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
 rel="stylesheet"><style>
 
@@ -56,7 +53,7 @@ overflow-x:hidden;
 
 }
 
-/* Background decorations */
+/* Background decoration */
 
 body::before{
 
@@ -225,9 +222,7 @@ width:100%;
 
 height:53px;
 
-padding:
-0 48px
-0 16px;
+padding:0 16px;
 
 border:1.5px solid #dbe3ef;
 
@@ -257,26 +252,6 @@ rgba(37,99,235,.10);
 
 }
 
-/* Input icons */
-
-.input-icon{
-
-position:absolute;
-
-right:16px;
-
-top:50%;
-
-transform:translateY(-50%);
-
-font-size:17px;
-
-color:#64748b;
-
-pointer-events:none;
-
-}
-
 /* =========================
    PASSWORD TOGGLE
 ========================= */
@@ -291,35 +266,79 @@ top:50%;
 
 transform:translateY(-50%);
 
+width:38px !important;
+
+height:38px !important;
+
+padding:0 !important;
+
+margin:0 !important;
+
 border:none !important;
 
 background:transparent !important;
 
-width:auto !important;
-
-height:auto !important;
-
-padding:5px !important;
-
-margin:0 !important;
-
-color:#64748b !important;
-
-font-size:18px !important;
+box-shadow:none !important;
 
 cursor:pointer;
 
-box-shadow:none !important;
+display:flex;
+
+justify-content:center;
+
+align-items:center;
 
 }
 
-.password-toggle:hover{
+/* CSS eye */
 
-color:#2563eb !important;
+.eye{
 
-background:transparent !important;
+width:19px;
 
-transform:translateY(-50%);
+height:12px;
+
+border:2px solid #64748b;
+
+border-radius:80% 20%;
+
+transform:rotate(45deg);
+
+position:relative;
+
+display:block;
+
+}
+
+.eye::after{
+
+content:"";
+
+position:absolute;
+
+width:5px;
+
+height:5px;
+
+background:#64748b;
+
+border-radius:50%;
+
+top:1.5px;
+
+left:5px;
+
+}
+
+.password-toggle.active .eye{
+
+border-color:#2563eb;
+
+}
+
+.password-toggle.active .eye::after{
+
+background:#2563eb;
 
 }
 
@@ -337,9 +356,9 @@ background:#e2e8f0;
 
 border-radius:10px;
 
-margin-top:-5px;
+margin-top:-4px;
 
-margin-bottom:9px;
+margin-bottom:8px;
 
 overflow:hidden;
 
@@ -361,8 +380,6 @@ transition:.3s;
 
 font-size:11px;
 
-margin-top:-5px;
-
 margin-bottom:8px;
 
 color:#64748b;
@@ -377,7 +394,7 @@ color:#64748b;
 
 font-size:11px;
 
-margin-top:-5px;
+margin-top:-4px;
 
 margin-bottom:7px;
 
@@ -442,6 +459,14 @@ transform:translateY(0);
 
 }
 
+.register-box button:disabled{
+
+opacity:.75;
+
+cursor:not-allowed;
+
+}
+
 /* =========================
    LOADER
 ========================= */
@@ -476,14 +501,6 @@ margin-right:8px;
 transform:rotate(360deg);
 
 }
-
-}
-
-button:disabled{
-
-opacity:.75;
-
-cursor:not-allowed;
 
 }
 
@@ -620,16 +637,12 @@ placeholder="Full Name"
 autocomplete="name"
 required>
 
-<span class="input-icon">👤</span>
-
 </div><!-- EMAIL --><div class="input-group"><input
 type="email"
 id="email"
 placeholder="Email Address"
 autocomplete="email"
 required>
-
-<span class="input-icon">✉️</span>
 
 </div><!-- PHONE --><div class="input-group"><input
 type="tel"
@@ -638,15 +651,11 @@ placeholder="Phone Number"
 autocomplete="tel"
 required>
 
-<span class="input-icon">📱</span>
-
 </div><!-- REFERRAL --><div class="input-group"><input
 type="text"
 id="referralCode"
 placeholder="Referral Code (Optional)"
 autocomplete="off">
-
-<span class="input-icon">🎁</span>
 
 </div><!-- PASSWORD --><div class="input-group"><input
 type="password"
@@ -661,7 +670,7 @@ class="password-toggle"
 id="togglePassword"
 aria-label="Show password">
 
-👁️
+<span class="eye"></span>
 
 </button></div><!-- PASSWORD STRENGTH --><div class="password-strength"><div
 class="password-strength-bar"
@@ -683,7 +692,7 @@ class="password-toggle"
 id="toggleConfirmPassword"
 aria-label="Show password">
 
-👁️
+<span class="eye"></span>
 
 </button></div><div
 class="password-match"
@@ -699,7 +708,7 @@ Create Account
 
 <a href="login.html">
 Login
-</a></div><div class="security">🔒 <span>Secure Registration</span> —
+</a></div><div class="security"><span>Secure Registration</span> —
 Your account information is protected.
 
 </div></form></div><script src="popup.js"></script><script src="register.js"></script><script>
@@ -727,7 +736,7 @@ if(password.type === "password"){
 
 password.type = "text";
 
-togglePassword.textContent = "🙈";
+togglePassword.classList.add("active");
 
 togglePassword.setAttribute(
 "aria-label",
@@ -738,7 +747,7 @@ togglePassword.setAttribute(
 
 password.type = "password";
 
-togglePassword.textContent = "👁️";
+togglePassword.classList.remove("active");
 
 togglePassword.setAttribute(
 "aria-label",
@@ -756,7 +765,7 @@ if(confirmPassword.type === "password"){
 
 confirmPassword.type = "text";
 
-toggleConfirmPassword.textContent = "🙈";
+toggleConfirmPassword.classList.add("active");
 
 toggleConfirmPassword.setAttribute(
 "aria-label",
@@ -767,7 +776,7 @@ toggleConfirmPassword.setAttribute(
 
 confirmPassword.type = "password";
 
-toggleConfirmPassword.textContent = "👁️";
+toggleConfirmPassword.classList.remove("active");
 
 toggleConfirmPassword.setAttribute(
 "aria-label",
@@ -817,6 +826,9 @@ strengthBar.style.width = "0%";
 
 strengthText.textContent =
 "Password strength";
+
+strengthText.style.color =
+"#64748b";
 
 }
 
@@ -890,7 +902,7 @@ return;
 if(password.value === confirmPassword.value){
 
 match.textContent =
-"✓ Passwords match";
+"Passwords match";
 
 match.style.color =
 "#16a34a";
@@ -898,7 +910,7 @@ match.style.color =
 }else{
 
 match.textContent =
-"✕ Passwords do not match";
+"Passwords do not match";
 
 match.style.color =
 "#dc2626";
