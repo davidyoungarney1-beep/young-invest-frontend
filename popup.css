@@ -1,166 +1,182 @@
-/* =========================================================
-   EVERGREEN INVESTMENTS
-   PREMIUM POPUP DESIGN
-========================================================= */
-
-:root{
-    --evergreen:#147a58;
-    --evergreen-dark:#083d2e;
-    --green:#20a873;
-    --mint:#e8f7f0;
-
-    --text:#12251e;
-    --muted:#718079;
-
-    --white:#ffffff;
-}
+// =========================================================
+// EVERGREEN INVESTMENTS
+// PREMIUM POPUP SYSTEM
+// =========================================================
 
 
 /* =========================================================
-   POPUP OVERLAY
+   REMOVE EXISTING POPUP
 ========================================================= */
 
-.popup-overlay{
+function removePopup(callback = null){
 
-    position:fixed;
+    const overlay =
+        document.getElementById("popupOverlay");
 
-    inset:0;
+    if(!overlay){
 
-    width:100%;
-    height:100%;
+        if(callback) callback();
 
-    display:flex;
+        return;
 
-    justify-content:center;
-    align-items:center;
+    }
 
-    padding:20px;
+    overlay.classList.remove("show");
 
-    background:rgba(3,24,18,.68);
+    setTimeout(() => {
 
-    backdrop-filter:blur(9px);
-    -webkit-backdrop-filter:blur(9px);
+        if(overlay){
 
-    opacity:0;
+            overlay.remove();
 
-    visibility:hidden;
+        }
 
-    transition:
-        opacity .25s ease,
-        visibility .25s ease;
+        if(callback){
 
-    z-index:99999;
-}
+            callback();
 
+        }
 
-.popup-overlay.show{
-
-    opacity:1;
-
-    visibility:visible;
+    }, 220);
 
 }
 
 
 /* =========================================================
-   MAIN POPUP
+   SHOW POPUP
 ========================================================= */
 
-.popup,
-.popup-box{
+function showPopup(
+    type,
+    title,
+    message,
+    callback = null
+){
 
-    position:relative;
+    const old =
+        document.getElementById("popupOverlay");
 
-    width:100%;
+    if(old){
 
-    max-width:390px;
+        old.remove();
 
-    background:#ffffff;
-
-    border-radius:24px;
-
-    padding:38px 30px 30px;
-
-    text-align:center;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,.30);
-
-    transform:
-        translateY(20px)
-        scale(.95);
-
-    transition:
-        transform .28s cubic-bezier(.2,.8,.2,1);
-
-}
+    }
 
 
-/* Animate when visible */
-
-.popup-overlay.show .popup,
-.popup-overlay.show .popup-box{
-
-    transform:
-        translateY(0)
-        scale(1);
-
-}
+    let icon = "";
 
 
-/* =========================================================
-   TOP EVERGREEN LINE
-========================================================= */
+    if(type === "success"){
 
-.popup::before,
-.popup-box::before{
+        icon =
+            '<i class="fa-solid fa-check"></i>';
 
-    content:"";
+    }
 
-    position:absolute;
+    else if(type === "error"){
 
-    top:0;
-    left:0;
+        icon =
+            '<i class="fa-solid fa-xmark"></i>';
 
-    width:100%;
+    }
 
-    height:4px;
+    else if(type === "question"){
 
-    background:
-        linear-gradient(
-            90deg,
-            #083d2e,
-            #147a58,
-            #20a873,
-            #55d9a4
-        );
+        icon =
+            '<i class="fa-solid fa-question"></i>';
 
-}
+    }
+
+    else if(type === "password"){
+
+        icon =
+            '<i class="fa-solid fa-lock"></i>';
+
+    }
+
+    else{
+
+        icon =
+            '<i class="fa-solid fa-info"></i>';
+
+    }
 
 
-/* =========================================================
-   POPUP ICON
-========================================================= */
+    const overlay =
+        document.createElement("div");
 
-.popup-icon{
 
-    width:70px;
-    height:70px;
+    overlay.className =
+        "popup-overlay";
 
-    border-radius:50%;
 
-    display:flex;
+    overlay.id =
+        "popupOverlay";
 
-    justify-content:center;
-    align-items:center;
 
-    margin:0 auto 20px;
+    overlay.innerHTML = `
 
-    font-size:25px;
+        <div class="popup">
 
-    font-weight:700;
+            <div class="popup-icon ${type}">
+                ${icon}
+            </div>
+
+            <h2>${title}</h2>
+
+            <p>${message}</p>
+
+            <button
+                class="popup-main-btn"
+                id="popupBtn"
+                type="button">
+
+                <span>Continue</span>
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(overlay);
+
+
+    requestAnimationFrame(() => {
+
+        overlay.classList.add("show");
+
+    });
+
+
+    const button =
+        document.getElementById("popupBtn");
+
+
+    button.onclick = () => {
+
+        removePopup(callback);
+
+    };
+
+
+    /* Prevent clicking outside from doing anything */
+
+    overlay.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === overlay){
+
+                return;
+
+            }
+
+        }
+    );
 
 }
 
@@ -169,14 +185,18 @@
    SUCCESS
 ========================================================= */
 
-.popup-icon.success{
+function showSuccess(
+    title,
+    message,
+    callback = null
+){
 
-    background:#e8f7f0;
-
-    color:#147a58;
-
-    box-shadow:
-        0 0 0 8px #f4fbf8;
+    showPopup(
+        "success",
+        title,
+        message,
+        callback
+    );
 
 }
 
@@ -185,376 +205,294 @@
    ERROR
 ========================================================= */
 
-.popup-icon.error{
+function showError(
+    title,
+    message,
+    callback = null
+){
 
-    background:#fdecec;
-
-    color:#c73b3b;
-
-    box-shadow:
-        0 0 0 8px #fff7f7;
-
-}
-
-
-/* =========================================================
-   QUESTION
-========================================================= */
-
-.popup-icon.question{
-
-    background:#e8f7f0;
-
-    color:#147a58;
-
-    box-shadow:
-        0 0 0 8px #f4fbf8;
+    showPopup(
+        "error",
+        title,
+        message,
+        callback
+    );
 
 }
 
 
 /* =========================================================
-   PASSWORD
+   CONFIRM
 ========================================================= */
 
-.popup-icon.password{
+function showConfirm(
+    title,
+    message,
+    callback = null
+){
 
-    background:#e8f7f0;
+    const old =
+        document.getElementById("popupOverlay");
 
-    color:#147a58;
+    if(old){
 
-    box-shadow:
-        0 0 0 8px #f4fbf8;
+        old.remove();
+
+    }
+
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "popup-overlay";
+
+
+    overlay.id =
+        "popupOverlay";
+
+
+    overlay.innerHTML = `
+
+        <div class="popup">
+
+            <div class="popup-icon question">
+
+                <i class="fa-solid fa-question"></i>
+
+            </div>
+
+            <h2>${title}</h2>
+
+            <p>${message}</p>
+
+            <div class="popup-actions">
+
+                <button
+                    class="cancel-btn"
+                    id="cancelBtn"
+                    type="button">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    class="confirm-btn"
+                    id="confirmBtn"
+                    type="button">
+
+                    Continue
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(overlay);
+
+
+    requestAnimationFrame(() => {
+
+        overlay.classList.add("show");
+
+    });
+
+
+    const cancelBtn =
+        document.getElementById("cancelBtn");
+
+
+    const confirmBtn =
+        document.getElementById("confirmBtn");
+
+
+    cancelBtn.onclick = () => {
+
+        removePopup();
+
+    };
+
+
+    confirmBtn.onclick = () => {
+
+        removePopup(callback);
+
+    };
 
 }
 
 
 /* =========================================================
-   TITLE
+   PASSWORD PROMPT
 ========================================================= */
 
-.popup h2,
-.popup-box h2{
+function showPasswordPrompt(
+    title,
+    callback = null
+){
 
-    font-family:'Manrope','DM Sans',sans-serif;
+    const old =
+        document.getElementById("popupOverlay");
 
-    font-size:21px;
+    if(old){
 
-    font-weight:800;
-
-    letter-spacing:-.4px;
-
-    color:var(--text);
-
-    margin:0 0 9px;
-
-}
-
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-.popup p,
-.popup-box p{
-
-    max-width:310px;
-
-    margin:0 auto 25px;
-
-    font-family:'DM Sans',sans-serif;
-
-    font-size:13px;
-
-    line-height:1.7;
-
-    color:var(--muted);
-
-}
-
-
-/* =========================================================
-   MAIN BUTTON
-========================================================= */
-
-.popup button,
-.popup-box button{
-
-    width:100%;
-
-    height:50px;
-
-    padding:0 15px;
-
-    border:none;
-
-    border-radius:11px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #147a58,
-            #0a4f3b
-        );
-
-    color:#ffffff;
-
-    font-family:'DM Sans',sans-serif;
-
-    font-size:13px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    transition:.2s;
-
-    box-shadow:
-        0 10px 22px rgba(20,122,88,.20);
-
-}
-
-
-.popup button:hover,
-.popup-box button:hover{
-
-    transform:translateY(-1px);
-
-    background:
-        linear-gradient(
-            135deg,
-            #178861,
-            #0b5942
-        );
-
-    box-shadow:
-        0 14px 28px rgba(20,122,88,.25);
-
-}
-
-
-.popup button:active,
-.popup-box button:active{
-
-    transform:translateY(0);
-
-}
-
-
-/* =========================================================
-   CONFIRM / CANCEL
-========================================================= */
-
-.popup-actions{
-
-    display:flex;
-
-    gap:10px;
-
-    margin-top:5px;
-
-}
-
-
-.popup-actions button{
-
-    flex:1;
-
-}
-
-
-/* CANCEL */
-
-.popup-actions .cancel-btn{
-
-    background:#f0f4f2 !important;
-
-    color:#617069 !important;
-
-    box-shadow:none !important;
-
-    border:1px solid #dfe8e3;
-
-}
-
-
-.popup-actions .cancel-btn:hover{
-
-    background:#e6ece9 !important;
-
-}
-
-
-/* CONFIRM */
-
-.popup-actions .confirm-btn{
-
-    background:
-        linear-gradient(
-            135deg,
-            #147a58,
-            #0a4f3b
-        ) !important;
-
-    color:#ffffff !important;
-
-}
-
-
-/* =========================================================
-   POPUP INPUT
-========================================================= */
-
-.popup input,
-.popup-box input{
-
-    width:100%;
-
-    height:50px;
-
-    padding:0 15px;
-
-    margin:5px 0 20px;
-
-    border:1px solid #dfe8e3;
-
-    border-radius:11px;
-
-    background:#f8faf9;
-
-    color:var(--text);
-
-    font-family:'DM Sans',sans-serif;
-
-    font-size:13px;
-
-    outline:none;
-
-    transition:.2s;
-
-}
-
-
-.popup input::placeholder,
-.popup-box input::placeholder{
-
-    color:#9aa7a1;
-
-}
-
-
-.popup input:focus,
-.popup-box input:focus{
-
-    border-color:#20a873;
-
-    background:#ffffff;
-
-    box-shadow:
-        0 0 0 4px rgba(32,168,115,.08);
-
-}
-
-
-/* =========================================================
-   LOADING SPINNER
-========================================================= */
-
-.loading-spinner{
-
-    width:42px;
-
-    height:42px;
-
-    border:3px solid #e2ebe6;
-
-    border-top:3px solid #147a58;
-
-    border-radius:50%;
-
-    margin:20px auto;
-
-    animation:spin .75s linear infinite;
-
-}
-
-
-@keyframes spin{
-
-    to{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:480px){
-
-    .popup-overlay{
-
-        padding:18px;
+        old.remove();
 
     }
 
 
-    .popup,
-    .popup-box{
-
-        max-width:100%;
-
-        border-radius:21px;
-
-        padding:35px 22px 24px;
-
-    }
+    const overlay =
+        document.createElement("div");
 
 
-    .popup-icon{
-
-        width:62px;
-        height:62px;
-
-        font-size:22px;
-
-        margin-bottom:18px;
-
-    }
+    overlay.className =
+        "popup-overlay";
 
 
-    .popup h2,
-    .popup-box h2{
-
-        font-size:19px;
-
-    }
+    overlay.id =
+        "popupOverlay";
 
 
-    .popup p,
-    .popup-box p{
+    overlay.innerHTML = `
 
-        font-size:12px;
+        <div class="popup">
 
-        margin-bottom:22px;
+            <div class="popup-icon password">
 
-    }
+                <i class="fa-solid fa-lock"></i>
+
+            </div>
+
+            <h2>${title}</h2>
+
+            <p>
+                Enter the new password below.
+            </p>
+
+            <div class="popup-input">
+
+                <i class="fa-solid fa-key"></i>
+
+                <input
+                    type="password"
+                    id="popupPassword"
+                    placeholder="New password"
+                    autocomplete="new-password"
+                >
+
+            </div>
+
+            <div class="popup-actions">
+
+                <button
+                    class="cancel-btn"
+                    id="cancelBtn"
+                    type="button">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    class="confirm-btn"
+                    id="confirmBtn"
+                    type="button">
+
+                    Reset
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
 
 
-    .popup button,
-    .popup-box button{
-
-        height:48px;
-
-    }
+    document.body.appendChild(overlay);
 
 
-    .popup-actions{
+    requestAnimationFrame(() => {
 
-        gap:8px;
+        overlay.classList.add("show");
 
-    }
+    });
 
-    }
+
+    const passwordInput =
+        document.getElementById("popupPassword");
+
+
+    passwordInput.focus();
+
+
+    const cancelBtn =
+        document.getElementById("cancelBtn");
+
+
+    const confirmBtn =
+        document.getElementById("confirmBtn");
+
+
+    cancelBtn.onclick = () => {
+
+        removePopup();
+
+    };
+
+
+    confirmBtn.onclick = () => {
+
+        const password =
+            passwordInput.value.trim();
+
+
+        if(password.length < 6){
+
+            showError(
+                "Invalid Password",
+                "Password must be at least 6 characters."
+            );
+
+            return;
+
+        }
+
+
+        removePopup(() => {
+
+            if(callback){
+
+                callback(password);
+
+            }
+
+        });
+
+    };
+
+
+    /* Allow Enter to submit */
+
+    passwordInput.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                confirmBtn.click();
+
+            }
+
+        }
+    );
+
+}
