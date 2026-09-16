@@ -1,371 +1,1340 @@
-<!DOCTYPE html><html lang="en">
-<head><meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Create Account | Crest Wealth Investment</title><link rel="stylesheet" href="popup.css"><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><style>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta
+name="theme-color"
+content="#083d2e">
+
+<title>Create Account | Evergreen Investments</title>
+
+<!-- POPUP -->
+<link rel="stylesheet" href="popup.css">
+
+<!-- GOOGLE FONTS -->
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+<!-- FONT AWESOME -->
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+<style>
+
+/* =========================================================
+   EVERGREEN AUTH REGISTER
+   MATCHES EVERGREEN LOGIN
+========================================================= */
+
+:root{
+
+    --evergreen:#147a58;
+    --evergreen-dark:#083d2e;
+
+    --green:#20a873;
+    --mint:#e8f7f0;
+
+    --text:#12251e;
+    --muted:#718079;
+
+    --white:#ffffff;
+
+    --border:#dce7e2;
+
+}
+
+
+/* =========================================================
+   RESET
+========================================================= */
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
 }
 
 html,
 body{
-width:100%;
-min-height:100%;
+
+    width:100%;
+    min-height:100%;
+
 }
 
 body{
-min-height:100vh;
-background:
-radial-gradient(circle at 10% 10%,rgba(59,130,246,.25),transparent 30%),
-radial-gradient(circle at 90% 90%,rgba(30,64,175,.30),transparent 30%),
-linear-gradient(135deg,#020617,#0f172a,#1e3a8a);
-display:flex;
-align-items:center;
-justify-content:center;
-padding:20px;
+
+    min-height:100vh;
+
+    font-family:"DM Sans",sans-serif;
+
+    background:#f4f7f5;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
 }
 
-/* REGISTER CARD */
+a{
 
-.register-box{
-width:100%;
-max-width:420px;
-background:#fff;
-border-radius:22px;
-padding:28px;
-box-shadow:0 20px 60px rgba(0,0,0,.40);
+    text-decoration:none;
+
+    color:inherit;
+
 }
 
-/* LOGO */
+button,
+input{
 
-.logo{
-width:72px;
-height:72px;
-margin:0 auto 12px;
-display:flex;
-align-items:center;
-justify-content:center;
+    font-family:inherit;
+
 }
 
-.logo img{
-width:100%;
-height:100%;
-object-fit:contain;
+
+/* =========================================================
+   AUTH PAGE
+========================================================= */
+
+.auth-page{
+
+    min-height:100vh;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
 }
 
-/* HEADER */
 
-.register-box h2{
-text-align:center;
-font-size:23px;
-font-weight:700;
-color:#123c91;
-margin-bottom:5px;
+/* =========================================================
+   LEFT BRANDING
+========================================================= */
+
+.auth-brand{
+
+    position:relative;
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    padding:45px 8%;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(39,195,137,.18),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #052b20,
+            #083d2e 55%,
+            #0a6045
+        );
+
 }
 
-.register-box > p{
-text-align:center;
-font-size:13px;
-color:#64748b;
-margin-bottom:20px;
+
+/* DECORATIVE CIRCLES */
+
+.auth-brand::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    right:-270px;
+    top:-190px;
+
+    border-radius:50%;
+
+    border:1px solid
+    rgba(255,255,255,.07);
+
 }
 
-/* INPUT */
+.auth-brand::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:360px;
+    height:360px;
+
+    left:-210px;
+    bottom:-190px;
+
+    border-radius:50%;
+
+    border:1px solid
+    rgba(255,255,255,.06);
+
+}
+
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.auth-brand-logo{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    color:white;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:18px;
+
+    font-weight:800;
+
+    letter-spacing:-.4px;
+
+}
+
+.auth-brand-mark{
+
+    width:43px;
+    height:43px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:13px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #27bd82,
+            #0d6b4d
+        );
+
+    color:white;
+
+    box-shadow:
+        0 10px 25px
+        rgba(0,0,0,.16);
+
+}
+
+.auth-brand-mark i{
+
+    font-size:19px;
+
+}
+
+
+/* =========================================================
+   BRAND CONTENT
+========================================================= */
+
+.auth-brand-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:520px;
+
+}
+
+.auth-brand-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:18px;
+
+    color:#72dcae;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    text-transform:uppercase;
+
+}
+
+.auth-brand-label i{
+
+    font-size:8px;
+
+}
+
+
+.auth-brand-content h1{
+
+    max-width:560px;
+
+    color:white;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:clamp(
+        42px,
+        5vw,
+        65px
+    );
+
+    line-height:1.05;
+
+    letter-spacing:-3px;
+
+    margin-bottom:22px;
+
+}
+
+.auth-brand-content p{
+
+    max-width:500px;
+
+    color:#b7d1c6;
+
+    font-size:14px;
+
+    line-height:1.85;
+
+}
+
+
+/* =========================================================
+   BRAND FOOTER
+========================================================= */
+
+.auth-brand-footer{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#91b5a7;
+
+    font-size:10px;
+
+}
+
+.auth-brand-footer i{
+
+    color:#42cd94;
+
+}
+
+
+/* =========================================================
+   RIGHT AUTH AREA
+========================================================= */
+
+.auth-form-area{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:50px 8%;
+
+    background:#f7f9f8;
+
+}
+
+
+/* =========================================================
+   FORM CONTAINER
+========================================================= */
+
+.auth-form{
+
+    width:100%;
+
+    max-width:440px;
+
+}
+
+
+/* =========================================================
+   MOBILE BRAND
+========================================================= */
+
+.mobile-brand{
+
+    display:none;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:30px;
+
+    color:var(--evergreen-dark);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:17px;
+
+    font-weight:800;
+
+}
+
+.mobile-brand-mark{
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:var(--evergreen);
+
+    color:white;
+
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.form-header{
+
+    margin-bottom:25px;
+
+}
+
+.form-header span{
+
+    display:block;
+
+    color:var(--evergreen);
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:1.6px;
+
+    text-transform:uppercase;
+
+    margin-bottom:8px;
+
+}
+
+.form-header h2{
+
+    color:var(--evergreen-dark);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:31px;
+
+    line-height:1.15;
+
+    letter-spacing:-1.2px;
+
+    margin-bottom:7px;
+
+}
+
+.form-header p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
 
 .input-group{
-position:relative;
-margin-bottom:11px;
+
+    position:relative;
+
+    margin-bottom:11px;
+
 }
 
 .input-group input{
-width:100%;
-height:50px;
-border:1px solid #dbe3ef;
-border-radius:11px;
-background:#f8fafc;
-outline:none;
-font-size:13px;
-padding:0 45px;
-color:#0f172a;
-transition:.25s;
+
+    width:100%;
+
+    height:51px;
+
+    padding:0 45px;
+
+    border:1px solid var(--border);
+
+    border-radius:11px;
+
+    outline:none;
+
+    background:white;
+
+    color:var(--text);
+
+    font-size:12px;
+
+    transition:.25s ease;
+
+}
+
+.input-group input::placeholder{
+
+    color:#98a49f;
+
 }
 
 .input-group input:focus{
-background:#fff;
-border-color:#2563eb;
-box-shadow:0 0 0 3px rgba(37,99,235,.10);
+
+    border-color:var(--green);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(32,168,115,.09);
+
 }
 
 .input-icon{
-position:absolute;
-left:15px;
-top:50%;
-transform:translateY(-50%);
-color:#64748b;
-font-size:14px;
+
+    position:absolute;
+
+    left:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#89958f;
+
+    font-size:13px;
+
+    pointer-events:none;
+
 }
 
-/* PASSWORD TOGGLE */
+
+/* =========================================================
+   PASSWORD TOGGLE
+========================================================= */
 
 .password-toggle{
-position:absolute;
-right:10px;
-top:50%;
-transform:translateY(-50%);
-border:none;
-background:transparent;
-color:#64748b;
-cursor:pointer;
-padding:7px;
-font-size:15px;
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:34px;
+    height:34px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:#7d8983;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.2s ease;
+
 }
 
 .password-toggle:hover{
-color:#2563eb;
+
+    color:var(--evergreen);
+
+    background:var(--mint);
+
 }
 
-/* REGISTER BUTTON */
+
+/* =========================================================
+   REGISTER BUTTON
+========================================================= */
 
 .register-btn{
-width:100%;
-height:51px;
-border:none;
-border-radius:11px;
-margin-top:5px;
-background:linear-gradient(135deg,#2563eb,#1d4ed8);
-color:#fff;
-font-size:15px;
-font-weight:600;
-cursor:pointer;
-box-shadow:0 7px 18px rgba(37,99,235,.25);
-transition:.25s;
+
+    width:100%;
+
+    height:51px;
+
+    margin-top:5px;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #147a58,
+            #0d6549
+        );
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 9px 22px
+        rgba(20,122,88,.18);
+
+    transition:.25s ease;
+
 }
 
 .register-btn:hover{
-transform:translateY(-1px);
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 27px
+        rgba(20,122,88,.23);
+
 }
 
 .register-btn:disabled{
-opacity:.75;
-cursor:not-allowed;
+
+    opacity:.70;
+
+    cursor:not-allowed;
+
+    transform:none;
+
 }
 
-/* LOADER */
+
+/* =========================================================
+   LOADER
+========================================================= */
 
 .loader{
-width:17px;
-height:17px;
-border:3px solid rgba(255,255,255,.35);
-border-top:3px solid #fff;
-border-radius:50%;
-display:inline-block;
-animation:spin .8s linear infinite;
-vertical-align:middle;
-margin-right:7px;
+
+    width:16px;
+    height:16px;
+
+    border:3px solid
+    rgba(255,255,255,.30);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    animation:spin .8s linear infinite;
+
+    vertical-align:middle;
+
+    margin-right:7px;
+
 }
 
 @keyframes spin{
-100%{
-transform:rotate(360deg);
-}
+
+    to{
+
+        transform:rotate(360deg);
+
+    }
+
 }
 
-/* LOGIN */
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.register-note{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:7px;
+
+    margin-top:13px;
+
+    color:#8a9791;
+
+    font-size:9px;
+
+    line-height:1.6;
+
+}
+
+.register-note i{
+
+    color:var(--green);
+
+    margin-top:2px;
+
+}
+
+
+/* =========================================================
+   LOGIN LINK
+========================================================= */
 
 .login{
-text-align:center;
-font-size:13px;
-color:#64748b;
-margin-top:17px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-top:17px;
+
 }
 
 .login a{
-color:#2563eb;
-font-weight:600;
-text-decoration:none;
-margin-left:3px;
+
+    color:var(--evergreen);
+
+    font-weight:800;
+
+    margin-left:4px;
+
 }
 
 .login a:hover{
-text-decoration:underline;
-}
 
-/* MOBILE */
-
-@media(max-width:480px){
-
-body{
-padding:12px;
-align-items:center;
-}
-
-.register-box{
-padding:24px 19px;
-border-radius:19px;
-}
-
-.logo{
-width:65px;
-height:65px;
-}
-
-.register-box h2{
-font-size:21px;
-}
-
-.register-box > p{
-font-size:12px;
-margin-bottom:17px;
-}
-
-.input-group{
-margin-bottom:9px;
-}
-
-.input-group input{
-height:48px;
-}
-
-.register-btn{
-height:49px;
-}
+    text-decoration:underline;
 
 }
 
-</style></head><body><div class="register-box"><div class="logo"><img
-src="1234.png"
-alt="Crest Wealth Investment">
 
-</div><h2>Create Account</h2><p>Join Crest Wealth Investment today.</p><form id="registerForm"><div class="input-group"><i class="fa-solid fa-user input-icon"></i>
+/* =========================================================
+   TABLET
+========================================================= */
 
-<input
-type="text"
-id="fullName"
-placeholder="Full Name"
-autocomplete="name"
-required>
+@media(max-width:850px){
 
-</div><div class="input-group"><i class="fa-solid fa-envelope input-icon"></i>
+    .auth-page{
 
-<input
-type="email"
-id="email"
-placeholder="Email Address"
-autocomplete="email"
-required>
+        grid-template-columns:1fr;
 
-</div><div class="input-group"><i class="fa-solid fa-phone input-icon"></i>
+    }
 
-<input
-type="tel"
-id="phone"
-placeholder="Phone Number"
-autocomplete="tel"
-required>
+    .auth-brand{
 
-</div><div class="input-group"><i class="fa-solid fa-gift input-icon"></i>
+        display:none;
 
-<input
-type="text"
-id="referralCode"
-placeholder="Referral Code (Optional)"
-autocomplete="off">
+    }
 
-</div><div class="input-group"><i class="fa-solid fa-lock input-icon"></i>
+    .auth-form-area{
 
-<input
-type="password"
-id="password"
-placeholder="Password"
-autocomplete="new-password"
-required>
+        min-height:100vh;
 
-<button
-type="button"
-class="password-toggle"
-id="togglePassword"
-aria-label="Show password">
+        padding:35px 25px;
 
-<i class="fa-solid fa-eye"></i>
+    }
 
-</button></div><div class="input-group"><i class="fa-solid fa-shield-halved input-icon"></i>
+    .mobile-brand{
 
-<input
-type="password"
-id="confirmPassword"
-placeholder="Confirm Password"
-autocomplete="new-password"
-required>
+        display:flex;
 
-<button
-type="button"
-class="password-toggle"
-id="toggleConfirmPassword"
-aria-label="Show password">
-
-<i class="fa-solid fa-eye"></i>
-
-</button></div><button
-type="submit"
-id="registerBtn"
-class="register-btn">
-
-Create Account
-
-</button><div class="login">Already have an account?
-
-<a href="login.html">
-Login
-</a></div></form></div><script src="popup.js"></script><script src="register.js"></script><script>
-
-/* PASSWORD SHOW/HIDE */
-
-function setupPasswordToggle(inputId,toggleId){
-
-const input =
-document.getElementById(inputId);
-
-const toggle =
-document.getElementById(toggleId);
-
-toggle.addEventListener("click",function(){
-
-const icon =
-toggle.querySelector("i");
-
-if(input.type === "password"){
-
-input.type = "text";
-
-icon.classList.remove("fa-eye");
-
-icon.classList.add("fa-eye-slash");
-
-}else{
-
-input.type = "password";
-
-icon.classList.remove("fa-eye-slash");
-
-icon.classList.add("fa-eye");
+    }
 
 }
 
-});
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:500px){
+
+    .auth-form-area{
+
+        padding:25px 18px;
+
+    }
+
+    .auth-form{
+
+        max-width:430px;
+
+    }
+
+    .mobile-brand{
+
+        margin-bottom:25px;
+
+        font-size:15px;
+
+    }
+
+    .mobile-brand-mark{
+
+        width:36px;
+        height:36px;
+
+    }
+
+    .form-header{
+
+        margin-bottom:21px;
+
+    }
+
+    .form-header h2{
+
+        font-size:27px;
+
+    }
+
+    .form-header p{
+
+        font-size:11px;
+
+    }
+
+    .input-group{
+
+        margin-bottom:9px;
+
+    }
+
+    .input-group input{
+
+        height:49px;
+
+    }
+
+    .register-btn{
+
+        height:50px;
+
+    }
 
 }
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:360px){
+
+    .auth-form-area{
+
+        padding:22px 15px;
+
+    }
+
+    .form-header h2{
+
+        font-size:25px;
+
+    }
+
+    .mobile-brand{
+
+        font-size:14px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="auth-page">
+
+
+    <!-- =================================================
+         LEFT SIDE
+    ================================================== -->
+
+    <section class="auth-brand">
+
+
+        <!-- BRAND -->
+
+        <div class="auth-brand-logo">
+
+            <div class="auth-brand-mark">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <span>
+                Evergreen Investments
+            </span>
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="auth-brand-content">
+
+            <div class="auth-brand-label">
+
+                <i class="fa-solid fa-circle"></i>
+
+                Start your journey
+
+            </div>
+
+
+            <h1>
+
+                Grow with a
+                clearer future.
+
+            </h1>
+
+
+            <p>
+
+                Create your Evergreen account and
+                access a simple platform for managing
+                your account, investments and financial
+                activity.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- FOOTER -->
+
+        <div class="auth-brand-footer">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Secure account access
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         RIGHT SIDE
+    ================================================== -->
+
+    <section class="auth-form-area">
+
+
+        <div class="auth-form">
+
+
+            <!-- MOBILE BRAND -->
+
+            <div class="mobile-brand">
+
+                <div class="mobile-brand-mark">
+
+                    <i class="fa-solid fa-leaf"></i>
+
+                </div>
+
+                <span>
+                    Evergreen Investments
+                </span>
+
+            </div>
+
+
+
+            <!-- FORM HEADER -->
+
+            <div class="form-header">
+
+                <span>
+                    Create Account
+                </span>
+
+                <h2>
+                    Join Evergreen
+                </h2>
+
+                <p>
+                    Enter your details to create your account.
+                </p>
+
+            </div>
+
+
+
+            <!-- FORM -->
+
+            <form id="registerForm">
+
+
+                <!-- FULL NAME -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-user input-icon">
+                    </i>
+
+                    <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Full Name"
+                    autocomplete="name"
+                    required>
+
+                </div>
+
+
+
+                <!-- EMAIL -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-envelope input-icon">
+                    </i>
+
+                    <input
+                    type="email"
+                    id="email"
+                    placeholder="Email Address"
+                    autocomplete="email"
+                    required>
+
+                </div>
+
+
+
+                <!-- PHONE -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-phone input-icon">
+                    </i>
+
+                    <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number"
+                    autocomplete="tel"
+                    required>
+
+                </div>
+
+
+
+                <!-- REFERRAL -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-link input-icon">
+                    </i>
+
+                    <input
+                    type="text"
+                    id="referralCode"
+                    placeholder="Referral Code (Optional)"
+                    autocomplete="off">
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-lock input-icon">
+                    </i>
+
+                    <input
+                    type="password"
+                    id="password"
+                    placeholder="Password"
+                    autocomplete="new-password"
+                    required>
+
+
+                    <button
+                    type="button"
+                    class="password-toggle"
+                    id="togglePassword"
+                    aria-label="Show password">
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- CONFIRM PASSWORD -->
+
+                <div class="input-group">
+
+                    <i
+                    class="fa-solid fa-shield-halved input-icon">
+                    </i>
+
+                    <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm Password"
+                    autocomplete="new-password"
+                    required>
+
+
+                    <button
+                    type="button"
+                    class="password-toggle"
+                    id="toggleConfirmPassword"
+                    aria-label="Show password">
+
+                        <i class="fa-solid fa-eye"></i>
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- REGISTER -->
+
+                <button
+                type="submit"
+                id="registerBtn"
+                class="register-btn">
+
+                    Create Account
+
+                </button>
+
+
+
+                <!-- SECURITY -->
+
+                <div class="register-note">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <span>
+
+                        Keep your account credentials private
+                        and never share your password.
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- LOGIN -->
+
+                <div class="login">
+
+                    Already have an account?
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </section>
+
+
+</div>
+
+
+
+<!-- EXISTING SCRIPTS -->
+
+<script src="popup.js"></script>
+
+<script src="register.js"></script>
+
+
+<!-- PASSWORD TOGGLE -->
+
+<script>
+
+function setupPasswordToggle(
+    inputId,
+    toggleId
+){
+
+    const input =
+        document.getElementById(inputId);
+
+    const toggle =
+        document.getElementById(toggleId);
+
+    if(!input || !toggle){
+
+        return;
+
+    }
+
+
+    toggle.addEventListener(
+        "click",
+        function(){
+
+            const icon =
+                toggle.querySelector("i");
+
+
+            if(input.type === "password"){
+
+                input.type = "text";
+
+                icon.classList.remove(
+                    "fa-eye"
+                );
+
+                icon.classList.add(
+                    "fa-eye-slash"
+                );
+
+                toggle.setAttribute(
+                    "aria-label",
+                    "Hide password"
+                );
+
+            }else{
+
+                input.type = "password";
+
+                icon.classList.remove(
+                    "fa-eye-slash"
+                );
+
+                icon.classList.add(
+                    "fa-eye"
+                );
+
+                toggle.setAttribute(
+                    "aria-label",
+                    "Show password"
+                );
+
+            }
+
+        }
+    );
+
+}
+
 
 setupPasswordToggle(
-"password",
-"togglePassword"
+    "password",
+    "togglePassword"
 );
+
 
 setupPasswordToggle(
-"confirmPassword",
-"toggleConfirmPassword"
+    "confirmPassword",
+    "toggleConfirmPassword"
 );
 
-</script></body>
+</script>
+
+
+</body>
+
    </html>
