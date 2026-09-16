@@ -19,68 +19,86 @@ if (!user) {
     );
 
     throw new Error("No user logged in");
-
 }
 
 
 // ================= USER DETAILS =================
 
-document.getElementById("userName").textContent =
-    user.fullName || "User";
+const userName = document.getElementById("userName");
+const profileName = document.getElementById("profileName");
+const profileEmail = document.getElementById("profileEmail");
+const profilePhone = document.getElementById("profilePhone");
 
-document.getElementById("profileName").textContent =
-    user.fullName || "User";
+if (userName) {
+    userName.textContent = user.fullName || "User";
+}
 
-document.getElementById("profileEmail").textContent =
-    user.email || "—";
+if (profileName) {
+    profileName.textContent = user.fullName || "User";
+}
 
-document.getElementById("profilePhone").textContent =
-    user.phone || "—";
+if (profileEmail) {
+    profileEmail.textContent = user.email || "—";
+}
+
+if (profilePhone) {
+    profilePhone.textContent = user.phone || "—";
+}
 
 
 // ================= WALLET =================
 
-document.getElementById("walletBalance").textContent =
-    "₦" + Number(user.walletBalance || 0).toLocaleString();
+const walletBalance = document.getElementById("walletBalance");
+const totalInvestment = document.getElementById("totalInvestment");
+const totalEarnings = document.getElementById("totalEarnings");
+const withdrawable = document.getElementById("withdrawable");
 
-document.getElementById("totalInvestment").textContent =
-    "₦" + Number(user.totalInvestment || 0).toLocaleString();
+if (walletBalance) {
+    walletBalance.textContent =
+        "₦" + Number(user.walletBalance || 0).toLocaleString();
+}
 
-document.getElementById("totalEarnings").textContent =
-    "₦" + Number(user.totalEarnings || 0).toLocaleString();
+if (totalInvestment) {
+    totalInvestment.textContent =
+        "₦" + Number(user.totalInvestment || 0).toLocaleString();
+}
 
-document.getElementById("withdrawable").textContent =
-    "₦" + Number(user.withdrawableBalance || 0).toLocaleString();
+if (totalEarnings) {
+    totalEarnings.textContent =
+        "₦" + Number(user.totalEarnings || 0).toLocaleString();
+}
+
+if (withdrawable) {
+    withdrawable.textContent =
+        "₦" + Number(user.withdrawableBalance || 0).toLocaleString();
+}
 
 
 // ================= LOGOUT =================
 
-const logoutButton =
-    document.getElementById("logout");
-
+const logoutButton = document.getElementById("logout");
 
 if (logoutButton) {
 
-    logoutButton.onclick = function (event) {
+    logoutButton.addEventListener("click", function (event) {
 
         event.preventDefault();
 
         showConfirm(
             "Log Out?",
             "Are you sure you want to log out of your Evergreen account?",
-            () => {
 
-                // Remove logged-in user
+            function () {
+
                 localStorage.removeItem("user");
 
-                // Show success popup
                 showSuccess(
                     "Logged Out",
                     "You have been logged out successfully.",
-                    () => {
 
-                        window.location.href =
-                            "login.html";
+                    function () {
+
+                        window.location.href = "login.html";
 
                     }
                 );
@@ -88,6 +106,6 @@ if (logoutButton) {
             }
         );
 
-    };
+    });
 
 }
