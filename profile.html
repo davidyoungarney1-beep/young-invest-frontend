@@ -4,184 +4,1119 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>My Profile | Crest Wealth Investment</title>
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta
+name="theme-color"
+content="#083d2e">
 
-<link rel="stylesheet" href="popup.css">
+<title>My Profile | Evergreen Investments</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link
+rel="stylesheet"
+href="popup.css">
+
 
 <style>
 
+/* =========================================================
+   EVERGREEN PROFILE
+========================================================= */
+
+:root{
+
+    --evergreen:#147a58;
+    --evergreen-dark:#083d2e;
+
+    --green:#20a873;
+    --mint:#e8f7f0;
+
+    --text:#12251e;
+    --muted:#718079;
+
+    --white:#ffffff;
+
+    --border:#dce7e2;
+
+}
+
+
+/* RESET */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+
+    margin:0;
+    padding:0;
+
+    box-sizing:border-box;
+
 }
 
 body{
-background:linear-gradient(135deg,#07162c,#0A2540,#0f4c81);
-min-height:100vh;
-padding:30px 15px;
+
+    min-height:100vh;
+
+    font-family:"DM Sans",sans-serif;
+
+    background:
+
+        radial-gradient(
+            circle at top right,
+            rgba(32,168,115,.13),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            145deg,
+            #052b20,
+            #083d2e 48%,
+            #0c6046
+        );
+
+    color:var(--text);
+
+    padding:35px 18px;
+
 }
 
-.container{
-max-width:700px;
-margin:auto;
-background:#fff;
-border-radius:20px;
-padding:30px;
-box-shadow:0 15px 35px rgba(0,0,0,.25);
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.profile-container{
+
+    width:100%;
+
+    max-width:850px;
+
+    margin:auto;
+
 }
 
-.profile-top{
-text-align:center;
-margin-bottom:30px;
+
+/* =========================================================
+   TOP BAR
+========================================================= */
+
+.top-bar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:18px;
+
+    color:white;
+
 }
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:16px;
+
+    font-weight:800;
+
+}
+
+.brand-logo{
+
+    width:38px;
+    height:38px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border-radius:11px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #27bd82,
+            #0d6b4d
+        );
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,.15);
+
+}
+
+.brand-logo i{
+
+    font-size:16px;
+
+}
+
+.page-label{
+
+    font-size:10px;
+
+    font-weight:700;
+
+    letter-spacing:1.3px;
+
+    text-transform:uppercase;
+
+    color:#a7c8bb;
+
+}
+
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
+.profile-card{
+
+    background:#f7f9f8;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 25px 60px
+        rgba(0,0,0,.22);
+
+}
+
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.profile-header{
+
+    position:relative;
+
+    padding:38px 30px 32px;
+
+    background:white;
+
+    border-bottom:1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:22px;
+
+}
+
+
+/* AVATAR */
 
 .avatar{
-width:110px;
-height:110px;
-border-radius:50%;
-background:#0A2540;
-color:#fff;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:42px;
-font-weight:700;
-margin:auto;
-margin-bottom:15px;
+
+    width:82px;
+    height:82px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:22px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #147a58,
+            #083d2e
+        );
+
+    color:white;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:31px;
+
+    font-weight:800;
+
+    box-shadow:
+        0 12px 25px
+        rgba(8,61,46,.20);
+
 }
 
-.profile-top h2{
-color:#07162c;
-margin-bottom:5px;
+
+/* PROFILE NAME */
+
+.profile-heading{
+
+    min-width:0;
+
 }
 
-.profile-top p{
-color:#777;
+.profile-heading h2{
+
+    color:var(--evergreen-dark);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:25px;
+
+    line-height:1.2;
+
+    letter-spacing:-.7px;
+
+    margin-bottom:5px;
+
+    word-break:break-word;
+
 }
 
-.info-box{
-margin-top:20px;
+.profile-heading p{
+
+    color:var(--muted);
+
+    font-size:12px;
+
+    word-break:break-word;
+
 }
+
+
+/* =========================================================
+   ACCOUNT CONTENT
+========================================================= */
+
+.profile-content{
+
+    padding:25px;
+
+}
+
+
+/* SECTION TITLE */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    margin-bottom:13px;
+
+    color:var(--evergreen-dark);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:13px;
+
+    font-weight:800;
+
+}
+
+.section-title i{
+
+    color:var(--green);
+
+    font-size:13px;
+
+}
+
+
+/* =========================================================
+   INFORMATION CARD
+========================================================= */
+
+.info-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    margin-bottom:20px;
+
+}
+
+
+/* INFO ROW */
 
 .info-row{
-display:flex;
-justify-content:space-between;
-padding:14px 0;
-border-bottom:1px solid #eee;
+
+    min-height:59px;
+
+    padding:13px 17px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    border-bottom:1px solid #edf2ef;
+
+}
+
+.info-row:last-child{
+
+    border-bottom:none;
+
+}
+
+
+/* LEFT */
+
+.info-left{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    min-width:0;
+
+}
+
+.info-icon{
+
+    width:32px;
+    height:32px;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:var(--mint);
+
+    color:var(--evergreen);
+
+    font-size:12px;
+
 }
 
 .info-title{
-font-weight:600;
-color:#07162c;
+
+    color:#53625b;
+
+    font-size:11px;
+
+    font-weight:600;
+
 }
+
+
+/* RIGHT */
 
 .info-value{
-color:#555;
-text-align:right;
+
+    color:var(--text);
+
+    font-size:11px;
+
+    font-weight:700;
+
+    text-align:right;
+
+    word-break:break-word;
+
 }
 
+.money{
+
+    color:var(--evergreen);
+
+}
+
+
+/* =========================================================
+   BALANCE SECTION
+========================================================= */
+
+.balance-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:12px;
+
+    margin-bottom:20px;
+
+}
+
+.balance-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:17px;
+
+}
+
+.balance-icon{
+
+    width:32px;
+    height:32px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:9px;
+
+    background:var(--mint);
+
+    color:var(--green);
+
+    font-size:12px;
+
+    margin-bottom:12px;
+
+}
+
+.balance-label{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    font-weight:600;
+
+    margin-bottom:4px;
+
+}
+
+.balance-value{
+
+    color:var(--evergreen-dark);
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+/* =========================================================
+   ROLE
+========================================================= */
+
+.role-badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    background:var(--mint);
+
+    color:var(--evergreen);
+
+    font-size:9px;
+
+    font-weight:800;
+
+}
+
+.role-badge i{
+
+    font-size:8px;
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
 .back-btn{
-display:block;
-width:100%;
-margin-top:30px;
-padding:15px;
-border:none;
-border-radius:12px;
-background:#00c853;
-color:#fff;
-font-size:17px;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
+
+    width:100%;
+
+    height:50px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #147a58,
+            #0d6549
+        );
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 10px 22px
+        rgba(20,122,88,.18);
+
+    transition:.25s ease;
+
 }
 
 .back-btn:hover{
-background:#00a844;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 13px 27px
+        rgba(20,122,88,.24);
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    body{
+
+        padding:18px 12px;
+
+    }
+
+    .top-bar{
+
+        margin-bottom:13px;
+
+    }
+
+    .brand{
+
+        font-size:14px;
+
+    }
+
+    .brand-logo{
+
+        width:35px;
+        height:35px;
+
+    }
+
+    .page-label{
+
+        font-size:8px;
+
+    }
+
+    .profile-card{
+
+        border-radius:20px;
+
+    }
+
+    .profile-header{
+
+        padding:25px 19px;
+
+        gap:15px;
+
+    }
+
+    .avatar{
+
+        width:67px;
+        height:67px;
+
+        border-radius:18px;
+
+        font-size:25px;
+
+    }
+
+    .profile-heading h2{
+
+        font-size:20px;
+
+    }
+
+    .profile-heading p{
+
+        font-size:10px;
+
+    }
+
+    .profile-content{
+
+        padding:17px;
+
+    }
+
+    .balance-grid{
+
+        gap:9px;
+
+    }
+
+    .balance-card{
+
+        padding:14px;
+
+    }
+
+    .balance-value{
+
+        font-size:15px;
+
+    }
+
+    .info-row{
+
+        padding:12px 13px;
+
+        gap:10px;
+
+    }
+
+    .info-icon{
+
+        width:29px;
+        height:29px;
+
+    }
+
+    .info-title{
+
+        font-size:10px;
+
+    }
+
+    .info-value{
+
+        font-size:10px;
+
+    }
+
+}
+
+
+/* SMALL PHONES */
+
+@media(max-width:370px){
+
+    .profile-heading h2{
+
+        font-size:18px;
+
+    }
+
+    .balance-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-<div class="profile-top">
+<div class="profile-container">
 
-<div class="avatar" id="avatar">
-U
+
+    <!-- TOP BAR -->
+
+    <div class="top-bar">
+
+        <div class="brand">
+
+            <div class="brand-logo">
+
+                <i class="fa-solid fa-leaf"></i>
+
+            </div>
+
+            <span>
+                Evergreen Investments
+            </span>
+
+        </div>
+
+        <div class="page-label">
+            My Profile
+        </div>
+
+    </div>
+
+
+
+    <!-- PROFILE CARD -->
+
+    <div class="profile-card">
+
+
+        <!-- PROFILE HEADER -->
+
+        <div class="profile-header">
+
+
+            <div
+            class="avatar"
+            id="avatar">
+
+                U
+
+            </div>
+
+
+            <div class="profile-heading">
+
+                <h2 id="fullName">
+                    Loading...
+                </h2>
+
+                <p id="email">
+                    Loading...
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- CONTENT -->
+
+        <div class="profile-content">
+
+
+            <!-- ACCOUNT INFORMATION -->
+
+            <div class="section-title">
+
+                <i class="fa-solid fa-user"></i>
+
+                Account Information
+
+            </div>
+
+
+            <div class="info-card">
+
+
+                <!-- PHONE -->
+
+                <div class="info-row">
+
+                    <div class="info-left">
+
+                        <div class="info-icon">
+
+                            <i class="fa-solid fa-phone"></i>
+
+                        </div>
+
+                        <span class="info-title">
+                            Phone
+                        </span>
+
+                    </div>
+
+                    <span
+                    class="info-value"
+                    id="phone">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- REFERRAL -->
+
+                <div class="info-row">
+
+                    <div class="info-left">
+
+                        <div class="info-icon">
+
+                            <i class="fa-solid fa-link"></i>
+
+                        </div>
+
+                        <span class="info-title">
+                            Referral Code
+                        </span>
+
+                    </div>
+
+                    <span
+                    class="info-value"
+                    id="referralCode">
+
+                        -
+
+                    </span>
+
+                </div>
+
+
+
+                <!-- ROLE -->
+
+                <div class="info-row">
+
+                    <div class="info-left">
+
+                        <div class="info-icon">
+
+                            <i class="fa-solid fa-user-shield"></i>
+
+                        </div>
+
+                        <span class="info-title">
+                            Account Role
+                        </span>
+
+                    </div>
+
+                    <span
+                    class="role-badge"
+                    id="role">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                        User
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ACCOUNT BALANCES -->
+
+            <div class="section-title">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                Account Overview
+
+            </div>
+
+
+            <div class="balance-grid">
+
+
+                <!-- WALLET -->
+
+                <div class="balance-card">
+
+                    <div class="balance-icon">
+
+                        <i class="fa-solid fa-wallet"></i>
+
+                    </div>
+
+                    <div class="balance-label">
+                        Wallet Balance
+                    </div>
+
+                    <div
+                    class="balance-value"
+                    id="wallet">
+
+                        ₦0
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- INVESTMENT -->
+
+                <div class="balance-card">
+
+                    <div class="balance-icon">
+
+                        <i class="fa-solid fa-chart-column"></i>
+
+                    </div>
+
+                    <div class="balance-label">
+                        Total Investment
+                    </div>
+
+                    <div
+                    class="balance-value"
+                    id="investment">
+
+                        ₦0
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- WITHDRAWABLE -->
+
+                <div class="balance-card">
+
+                    <div class="balance-icon">
+
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+
+                    </div>
+
+                    <div class="balance-label">
+                        Withdrawable Balance
+                    </div>
+
+                    <div
+                    class="balance-value"
+                    id="withdrawable">
+
+                        ₦0
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- REFERRAL -->
+
+                <div class="balance-card">
+
+                    <div class="balance-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div class="balance-label">
+                        Referral Earnings
+                    </div>
+
+                    <div
+                    class="balance-value"
+                    id="referralEarnings">
+
+                        ₦0
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- BACK -->
+
+            <button
+            class="back-btn"
+            onclick="window.location.href='dashboard.html'">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Mine
+
+            </button>
+
+
+        </div>
+
+
+    </div>
+
+
 </div>
 
-<h2 id="fullName">
-Loading...
-</h2>
 
-<p id="email">
-Loading...
-</p>
-
-</div>
-
-<div class="info-box">
-
-<div class="info-row">
-<span class="info-title">📱 Phone</span>
-<span class="info-value" id="phone">-</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">🎁 Referral Code</span>
-<span class="info-value" id="referralCode">-</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">💰 Wallet Balance</span>
-<span class="info-value" id="wallet">₦0</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">📈 Total Investment</span>
-<span class="info-value" id="investment">₦0</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">💵 Withdrawable Balance</span>
-<span class="info-value" id="withdrawable">₦0</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">🎉 Referral Earnings</span>
-<span class="info-value" id="referralEarnings">₦0</span>
-</div>
-
-<div class="info-row">
-<span class="info-title">👤 Role</span>
-<span class="info-value" id="role">User</span>
-</div>
-
-</div>
-
-<button
-class="back-btn"
-onclick="window.location.href='dashboard.html'">
-
-⬅ Back to Dashboard
-
-</button>
-
-</div>
 
 <script src="popup.js"></script>
+
+
 <script>
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user =
+JSON.parse(
+    localStorage.getItem("user")
+);
+
 
 if(!user){
 
@@ -189,48 +1124,124 @@ if(!user){
 
     window.location.href="login.html";
 
+}else{
+
+
+    /* =====================================================
+       AVATAR
+    ===================================================== */
+
+    const fullName =
+        user.fullName || "User";
+
+
+    document
+        .getElementById("avatar")
+        .textContent =
+        fullName
+        .charAt(0)
+        .toUpperCase();
+
+
+
+    /* =====================================================
+       BASIC INFORMATION
+    ===================================================== */
+
+    document
+        .getElementById("fullName")
+        .textContent =
+        fullName;
+
+
+    document
+        .getElementById("email")
+        .textContent =
+        user.email || "-";
+
+
+    document
+        .getElementById("phone")
+        .textContent =
+        user.phone || "-";
+
+
+    document
+        .getElementById("referralCode")
+        .textContent =
+        user.referralCode ||
+        "Not Available";
+
+
+
+    /* =====================================================
+       BALANCES
+    ===================================================== */
+
+    document
+        .getElementById("wallet")
+        .textContent =
+        "₦" +
+        Number(
+            user.walletBalance || 0
+        ).toLocaleString();
+
+
+    document
+        .getElementById("investment")
+        .textContent =
+        "₦" +
+        Number(
+            user.totalInvestment || 0
+        ).toLocaleString();
+
+
+    document
+        .getElementById("withdrawable")
+        .textContent =
+        "₦" +
+        Number(
+            user.withdrawableBalance || 0
+        ).toLocaleString();
+
+
+    document
+        .getElementById("referralEarnings")
+        .textContent =
+        "₦" +
+        Number(
+            user.referralEarnings || 0
+        ).toLocaleString();
+
+
+
+    /* =====================================================
+       ROLE
+    ===================================================== */
+
+    const role =
+        user.role || "user";
+
+
+    document
+        .getElementById("role")
+        .innerHTML = `
+
+            <i class="fa-solid fa-circle-check"></i>
+
+            ${
+                role.charAt(0).toUpperCase()
+                +
+                role.slice(1)
+            }
+
+        `;
+
 }
-
-// Avatar
-
-document.getElementById("avatar").textContent =
-user.fullName.charAt(0).toUpperCase();
-
-// Basic Information
-
-document.getElementById("fullName").textContent =
-user.fullName;
-
-document.getElementById("email").textContent =
-user.email;
-
-document.getElementById("phone").textContent =
-user.phone;
-
-document.getElementById("referralCode").textContent =
-user.referralCode || "Not Available";
-
-// Balances
-
-document.getElementById("wallet").textContent =
-"₦" + Number(user.walletBalance).toLocaleString();
-
-document.getElementById("investment").textContent =
-"₦" + Number(user.totalInvestment).toLocaleString();
-
-document.getElementById("withdrawable").textContent =
-"₦" + Number(user.withdrawableBalance).toLocaleString();
-
-document.getElementById("referralEarnings").textContent =
-"₦" + Number(user.referralEarnings).toLocaleString();
-
-// Role
-
-document.getElementById("role").textContent =
-user.role.charAt(0).toUpperCase() + user.role.slice(1);
 
 </script>
 
+
 </body>
 
-  </html>
+    </html>
