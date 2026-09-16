@@ -1,27 +1,122 @@
 // =========================================================
 // EVERGREEN INVESTMENTS
-// POPUP SYSTEM
+// PREMIUM POPUP SYSTEM
 // =========================================================
 
-function showPopup(type, title, message, callback = null) {
 
-    const old = document.getElementById("popupOverlay");
+/* =========================================================
+   REMOVE EXISTING POPUP
+========================================================= */
 
-    if (old) old.remove();
+function removePopup(callback = null){
 
-    const icon = type === "success"
-        ? '<i class="fa-solid fa-check"></i>'
-        : '<i class="fa-solid fa-xmark"></i>';
+    const overlay =
+        document.getElementById("popupOverlay");
 
-    const overlay = document.createElement("div");
+    if(!overlay){
 
-    overlay.className = "popup-overlay show";
-    overlay.id = "popupOverlay";
+        if(callback) callback();
+
+        return;
+
+    }
+
+    overlay.classList.remove("show");
+
+    setTimeout(() => {
+
+        if(overlay){
+
+            overlay.remove();
+
+        }
+
+        if(callback){
+
+            callback();
+
+        }
+
+    }, 220);
+
+}
+
+
+/* =========================================================
+   SHOW POPUP
+========================================================= */
+
+function showPopup(
+    type,
+    title,
+    message,
+    callback = null
+){
+
+    const old =
+        document.getElementById("popupOverlay");
+
+    if(old){
+
+        old.remove();
+
+    }
+
+
+    let icon = "";
+
+
+    if(type === "success"){
+
+        icon =
+            '<i class="fa-solid fa-check"></i>';
+
+    }
+
+    else if(type === "error"){
+
+        icon =
+            '<i class="fa-solid fa-xmark"></i>';
+
+    }
+
+    else if(type === "question"){
+
+        icon =
+            '<i class="fa-solid fa-question"></i>';
+
+    }
+
+    else if(type === "password"){
+
+        icon =
+            '<i class="fa-solid fa-lock"></i>';
+
+    }
+
+    else{
+
+        icon =
+            '<i class="fa-solid fa-info"></i>';
+
+    }
+
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "popup-overlay";
+
+
+    overlay.id =
+        "popupOverlay";
+
 
     overlay.innerHTML = `
-        <div class="popup">
 
-            <div class="popup-top-line"></div>
+        <div class="popup">
 
             <div class="popup-icon ${type}">
                 ${icon}
@@ -31,38 +126,70 @@ function showPopup(type, title, message, callback = null) {
 
             <p>${message}</p>
 
-            <button class="popup-main-btn" id="popupBtn">
-                Continue
+            <button
+                class="popup-main-btn"
+                id="popupBtn"
+                type="button">
+
+                <span>Continue</span>
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </button>
 
         </div>
+
     `;
+
 
     document.body.appendChild(overlay);
 
-    document.getElementById("popupBtn").onclick = () => {
 
-        overlay.classList.remove("show");
+    requestAnimationFrame(() => {
 
-        setTimeout(() => {
+        overlay.classList.add("show");
 
-            overlay.remove();
+    });
 
-            if (callback) callback();
 
-        }, 180);
+    const button =
+        document.getElementById("popupBtn");
+
+
+    button.onclick = () => {
+
+        removePopup(callback);
 
     };
+
+
+    /* Prevent clicking outside from doing anything */
+
+    overlay.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === overlay){
+
+                return;
+
+            }
+
+        }
+    );
 
 }
 
 
-// =========================================================
-// SUCCESS
-// =========================================================
+/* =========================================================
+   SUCCESS
+========================================================= */
 
-function showSuccess(title, message, callback = null) {
+function showSuccess(
+    title,
+    message,
+    callback = null
+){
 
     showPopup(
         "success",
@@ -74,43 +201,66 @@ function showSuccess(title, message, callback = null) {
 }
 
 
-// =========================================================
-// ERROR
-// =========================================================
+/* =========================================================
+   ERROR
+========================================================= */
 
-function showError(title, message) {
+function showError(
+    title,
+    message,
+    callback = null
+){
 
     showPopup(
         "error",
         title,
-        message
+        message,
+        callback
     );
 
 }
 
 
-// =========================================================
-// CONFIRM
-// =========================================================
+/* =========================================================
+   CONFIRM
+========================================================= */
 
-function showConfirm(title, message, callback) {
+function showConfirm(
+    title,
+    message,
+    callback = null
+){
 
-    const old = document.getElementById("popupOverlay");
+    const old =
+        document.getElementById("popupOverlay");
 
-    if (old) old.remove();
+    if(old){
 
-    const overlay = document.createElement("div");
+        old.remove();
 
-    overlay.className = "popup-overlay show";
-    overlay.id = "popupOverlay";
+    }
+
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "popup-overlay";
+
+
+    overlay.id =
+        "popupOverlay";
+
 
     overlay.innerHTML = `
+
         <div class="popup">
 
-            <div class="popup-top-line"></div>
-
             <div class="popup-icon question">
+
                 <i class="fa-solid fa-question"></i>
+
             </div>
 
             <h2>${title}</h2>
@@ -120,16 +270,18 @@ function showConfirm(title, message, callback) {
             <div class="popup-actions">
 
                 <button
-                class="cancel-btn"
-                id="cancelBtn">
+                    class="cancel-btn"
+                    id="cancelBtn"
+                    type="button">
 
                     Cancel
 
                 </button>
 
                 <button
-                class="confirm-btn"
-                id="confirmBtn">
+                    class="confirm-btn"
+                    id="confirmBtn"
+                    type="button">
 
                     Continue
 
@@ -138,49 +290,83 @@ function showConfirm(title, message, callback) {
             </div>
 
         </div>
+
     `;
+
 
     document.body.appendChild(overlay);
 
-    document.getElementById("cancelBtn").onclick = () => {
 
-        overlay.remove();
+    requestAnimationFrame(() => {
+
+        overlay.classList.add("show");
+
+    });
+
+
+    const cancelBtn =
+        document.getElementById("cancelBtn");
+
+
+    const confirmBtn =
+        document.getElementById("confirmBtn");
+
+
+    cancelBtn.onclick = () => {
+
+        removePopup();
 
     };
 
-    document.getElementById("confirmBtn").onclick = () => {
 
-        overlay.remove();
+    confirmBtn.onclick = () => {
 
-        if (callback) callback();
+        removePopup(callback);
 
     };
 
 }
 
 
-// =========================================================
-// PASSWORD PROMPT
-// =========================================================
+/* =========================================================
+   PASSWORD PROMPT
+========================================================= */
 
-function showPasswordPrompt(title, callback) {
+function showPasswordPrompt(
+    title,
+    callback = null
+){
 
-    const old = document.getElementById("popupOverlay");
+    const old =
+        document.getElementById("popupOverlay");
 
-    if (old) old.remove();
+    if(old){
 
-    const overlay = document.createElement("div");
+        old.remove();
 
-    overlay.className = "popup-overlay show";
-    overlay.id = "popupOverlay";
+    }
+
+
+    const overlay =
+        document.createElement("div");
+
+
+    overlay.className =
+        "popup-overlay";
+
+
+    overlay.id =
+        "popupOverlay";
+
 
     overlay.innerHTML = `
+
         <div class="popup">
 
-            <div class="popup-top-line"></div>
-
             <div class="popup-icon password">
+
                 <i class="fa-solid fa-lock"></i>
+
             </div>
 
             <h2>${title}</h2>
@@ -194,25 +380,29 @@ function showPasswordPrompt(title, callback) {
                 <i class="fa-solid fa-key"></i>
 
                 <input
-                type="password"
-                id="popupPassword"
-                placeholder="New password">
+                    type="password"
+                    id="popupPassword"
+                    placeholder="New password"
+                    autocomplete="new-password"
+                >
 
             </div>
 
             <div class="popup-actions">
 
                 <button
-                class="cancel-btn"
-                id="cancelBtn">
+                    class="cancel-btn"
+                    id="cancelBtn"
+                    type="button">
 
                     Cancel
 
                 </button>
 
                 <button
-                class="confirm-btn"
-                id="confirmBtn">
+                    class="confirm-btn"
+                    id="confirmBtn"
+                    type="button">
 
                     Reset
 
@@ -221,24 +411,49 @@ function showPasswordPrompt(title, callback) {
             </div>
 
         </div>
+
     `;
+
 
     document.body.appendChild(overlay);
 
-    document.getElementById("cancelBtn").onclick = () => {
 
-        overlay.remove();
+    requestAnimationFrame(() => {
+
+        overlay.classList.add("show");
+
+    });
+
+
+    const passwordInput =
+        document.getElementById("popupPassword");
+
+
+    passwordInput.focus();
+
+
+    const cancelBtn =
+        document.getElementById("cancelBtn");
+
+
+    const confirmBtn =
+        document.getElementById("confirmBtn");
+
+
+    cancelBtn.onclick = () => {
+
+        removePopup();
 
     };
 
-    document.getElementById("confirmBtn").onclick = () => {
+
+    confirmBtn.onclick = () => {
 
         const password =
-        document.getElementById("popupPassword")
-        .value
-        .trim();
+            passwordInput.value.trim();
 
-        if (password.length < 6) {
+
+        if(password.length < 6){
 
             showError(
                 "Invalid Password",
@@ -249,10 +464,35 @@ function showPasswordPrompt(title, callback) {
 
         }
 
-        overlay.remove();
 
-        if (callback) callback(password);
+        removePopup(() => {
+
+            if(callback){
+
+                callback(password);
+
+            }
+
+        });
 
     };
 
-}
+
+    /* Allow Enter to submit */
+
+    passwordInput.addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+
+                event.preventDefault();
+
+                confirmBtn.click();
+
+            }
+
+        }
+    );
+
+            }
