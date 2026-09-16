@@ -13,8 +13,20 @@ window.addEventListener("DOMContentLoaded", () => {
         const password =
             document.getElementById("password").value;
 
+        if (!email || !password) {
+
+            showError(
+                "Missing Information",
+                "Please enter your email and password."
+            );
+
+            return;
+        }
+
         loginBtn.disabled = true;
-        loginBtn.innerHTML = "Connecting...";
+
+        loginBtn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Logging In...';
 
         try {
 
@@ -34,53 +46,15 @@ window.addEventListener("DOMContentLoaded", () => {
                 }
             );
 
-            const text = await response.text();
-
-            console.log("STATUS:", response.status);
-            console.log("RESPONSE:", text);
-
-            let data;
-
-            try {
-                data = JSON.parse(text);
-            } catch {
-                alert(
-                    "Server response:\n\n" +
-                    text
-                );
-
-                loginBtn.disabled = false;
-                loginBtn.innerHTML =
-                    "Login to Evergreen";
-
-                return;
-            }
+            const data = await response.json();
 
             if (!response.ok) {
 
-                alert(
-                    "Login failed:\n\n" +
-                    (data.message || "Unknown error")
+                throw new Error(
+                    data.message ||
+                    "Invalid email or password."
                 );
 
-                loginBtn.disabled = false;
-                loginBtn.innerHTML =
-                    "Login to Evergreen";
-
-                return;
-            }
-
-            if (!data.user) {
-
-                alert(
-                    "Login response did not contain a user."
-                );
-
-                loginBtn.disabled = false;
-                loginBtn.innerHTML =
-                    "Login to Evergreen";
-
-                return;
             }
 
             localStorage.setItem(
@@ -88,22 +62,41 @@ window.addEventListener("DOMContentLoaded", () => {
                 JSON.stringify(data.user)
             );
 
-            alert("LOGIN SUCCESSFUL");
+            showSuccess(
+                "Login Successful",
+                "Welcome back to Evergreen Investments.",
+                () => {
 
-            window.location.href = "home.html";
+                    if (data.user.role === "admin") {
+
+                        window.location.href = "admin.html";
+
+                    } else {
+
+                        window.location.href = "home.html";
+
+                    }
+
+                }
+            );
 
         } catch (error) {
 
-            console.error(error);
+            console.error("Login Error:", error);
 
-            alert(
-                "Connection error:\n\n" +
-                error.message
+            showError(
+                "Login Failed",
+                error.message ||
+                "Unable to connect to the server."
             );
 
+        } finally {
+
             loginBtn.disabled = false;
+
             loginBtn.innerHTML =
                 "Login to Evergreen";
+
         }
 
     });
