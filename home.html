@@ -8,76 +8,51 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#063b2f">
+<meta name="theme-color" content="#063b29">
 
-<title>Home | Evergreen Investments</title>
+<title>Evergreen Investments | Home</title>
+
+<link rel="icon"
+href="https://www.google.com/s2/favicons?domain=evergreen.com&sz=128">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+>
 
 <style>
 
 /* =========================================================
-   EVERGREEN INVESTMENTS
-   HOME PAGE
+   GLOBAL
 ========================================================= */
 
-:root{
-
-    --green:#0f6b4f;
-    --green-dark:#084c3b;
-    --green-deep:#063b2f;
-    --green-light:#e9f7f1;
-    --accent:#1fa774;
-
-    --white:#ffffff;
-    --text:#18332b;
-    --muted:#71827c;
-
-    --background:#f5f8f6;
-
-    --shadow:
-        0 8px 25px rgba(6,59,47,0.08);
-
-}
-
 *{
-
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
 
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-
     font-family:"Poppins",sans-serif;
-
-    background:var(--background);
-
-    color:var(--text);
-
+    background:#f4faf7;
+    color:#14251e;
     min-height:100vh;
-
-    padding-bottom:85px;
-
+    padding-bottom:90px;
 }
 
 a{
-
-    text-decoration:none;
-
-    color:inherit;
-
+    -webkit-tap-highlight-color:transparent;
 }
 
 
@@ -88,24 +63,20 @@ a{
 .top-header{
 
     background:
-        linear-gradient(
-            135deg,
-            var(--green-deep),
-            var(--green),
-            var(--accent)
-        );
+    linear-gradient(
+        135deg,
+        #042b1e,
+        #07563d,
+        #0b8058
+    );
 
-    color:white;
+    color:#fff;
 
-    padding:20px 18px 24px;
-
-    border-radius:
-        0 0 28px 28px;
+    padding:17px 17px 21px;
 
     position:relative;
 
     overflow:hidden;
-
 }
 
 .top-header::before{
@@ -114,18 +85,15 @@ a{
 
     position:absolute;
 
-    width:180px;
-
-    height:180px;
+    width:240px;
+    height:240px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,.07);
 
-    right:-70px;
-
-    top:-70px;
-
+    right:-105px;
+    top:-130px;
 }
 
 .top-header::after{
@@ -134,21 +102,22 @@ a{
 
     position:absolute;
 
-    width:120px;
-
-    height:120px;
+    width:150px;
+    height:150px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,0.06);
+    background:rgba(255,255,255,.035);
 
-    left:-50px;
-
-    bottom:-60px;
-
+    left:-90px;
+    bottom:-100px;
 }
 
-.header-content{
+.header-inner{
+
+    max-width:1100px;
+
+    margin:auto;
 
     position:relative;
 
@@ -156,11 +125,15 @@ a{
 
     display:flex;
 
-    align-items:center;
-
     justify-content:space-between;
 
+    align-items:center;
 }
+
+
+/* =========================================================
+   CUSTOM EVERGREEN LOGO
+========================================================= */
 
 .brand{
 
@@ -169,195 +142,308 @@ a{
     align-items:center;
 
     gap:11px;
-
 }
 
-.brand img{
+.evergreen-logo{
 
     width:46px;
-
     height:46px;
 
-    border-radius:13px;
+    border-radius:14px;
 
-    object-fit:cover;
-
-    background:white;
-
-    padding:4px;
-
-}
-
-.brand-text h1{
-
-    font-size:18px;
-
-    font-weight:700;
-
-}
-
-.brand-text p{
-
-    font-size:11px;
-
-    opacity:.82;
-
-    margin-top:2px;
-
-}
-
-.notification-icon{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:13px;
+    background:
+    linear-gradient(
+        145deg,
+        #ffffff,
+        #dff7ea
+    );
 
     display:flex;
 
-    align-items:center;
-
     justify-content:center;
-
-    background:rgba(255,255,255,.13);
-
-    color:white;
-
-    font-size:17px;
-
-}
-
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.hero-image{
-
-    margin-top:18px;
-
-    height:165px;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(3,55,43,.92),
-            rgba(15,107,79,.78)
-        );
+    align-items:center;
 
     position:relative;
 
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:20px;
-
     box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
+    0 7px 22px rgba(0,0,0,.18);
 
+    overflow:hidden;
 }
 
-.hero-image::before{
+.evergreen-logo::before{
 
     content:"";
 
     position:absolute;
 
-    width:180px;
+    width:29px;
+    height:29px;
 
-    height:180px;
+    border-radius:50% 0 50% 0;
 
-    border-radius:50%;
+    background:#087a52;
 
-    background:rgba(255,255,255,.06);
-
-    right:-50px;
-
-    top:-70px;
-
+    transform:
+    rotate(-45deg)
+    translate(-2px,-1px);
 }
 
-.hero-image-content{
+.evergreen-logo::after{
 
-    position:relative;
+    content:"";
 
-    z-index:2;
+    position:absolute;
 
-    max-width:62%;
+    width:4px;
+    height:22px;
 
+    background:#07563d;
+
+    border-radius:5px;
+
+    transform:
+    rotate(40deg)
+    translate(6px,5px);
 }
 
-.hero-image-content h2{
+.logo-small-leaf{
 
-    font-size:21px;
+    position:absolute;
 
-    line-height:1.25;
+    width:13px;
+    height:8px;
 
-    margin-bottom:7px;
+    background:#20a873;
 
+    border-radius:100% 0 100% 0;
+
+    transform:rotate(25deg);
+
+    top:10px;
+    right:9px;
 }
 
-.hero-image-content p{
+.brand-text h1{
 
-    font-size:11px;
+    font-size:17px;
 
-    line-height:1.6;
+    font-weight:700;
 
-    opacity:.85;
-
+    line-height:1.2;
 }
 
-.hero-logo{
+.brand-text span{
 
-    position:relative;
+    display:block;
 
-    z-index:2;
+    font-size:9px;
 
-    width:105px;
+    opacity:.72;
 
-    height:105px;
+    margin-top:3px;
+}
 
-    border-radius:50%;
+.header-bell{
 
-    background:white;
+    width:42px;
+    height:42px;
 
-    padding:8px;
+    border-radius:13px;
 
-    object-fit:contain;
+    background:rgba(255,255,255,.10);
 
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
+    border:1px solid rgba(255,255,255,.07);
 
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    color:#fff;
+
+    font-size:16px;
 }
 
 
 /* =========================================================
-   MAIN CONTENT
+   MAIN
 ========================================================= */
 
-.container{
+.main{
 
-    width:100%;
-
-    max-width:700px;
+    max-width:1100px;
 
     margin:auto;
 
-    padding:16px;
-
+    padding:15px;
 }
 
 
 /* =========================================================
-   SMALL QUICK ACTIONS
+   HERO
+========================================================= */
+
+.hero{
+
+    margin-top:-3px;
+
+    min-height:245px;
+
+    border-radius:23px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    color:#fff;
+
+    background-image:
+    linear-gradient(
+        110deg,
+        rgba(2,39,27,.96) 0%,
+        rgba(3,69,47,.83) 43%,
+        rgba(5,91,61,.48) 100%
+    ),
+    url("https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1400&q=85");
+
+    background-size:cover;
+
+    background-position:center;
+
+    box-shadow:
+    0 15px 38px rgba(7,84,59,.20);
+}
+
+.hero::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border:1px solid rgba(255,255,255,.09);
+
+    border-radius:50%;
+
+    right:-90px;
+    top:-90px;
+}
+
+.hero::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:130px;
+    height:130px;
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:50%;
+
+    right:55px;
+    top:20px;
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:3;
+
+    padding:28px 22px;
+
+    max-width:650px;
+}
+
+.hero-label{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    background:rgba(255,255,255,.12);
+
+    border:1px solid rgba(255,255,255,.14);
+
+    padding:7px 11px;
+
+    border-radius:30px;
+
+    font-size:9px;
+
+    margin-bottom:13px;
+
+    backdrop-filter:blur(8px);
+}
+
+.hero-label i{
+
+    font-size:9px;
+
+    color:#61d8a5;
+}
+
+.hero h2{
+
+    font-size:25px;
+
+    line-height:1.25;
+
+    margin-bottom:10px;
+
+    font-weight:700;
+
+    max-width:500px;
+}
+
+.hero p{
+
+    font-size:11px;
+
+    line-height:1.75;
+
+    max-width:500px;
+
+    opacity:.86;
+}
+
+.hero-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-top:18px;
+
+    background:#fff;
+
+    color:#07543b;
+
+    text-decoration:none;
+
+    padding:11px 16px;
+
+    border-radius:12px;
+
+    font-size:10px;
+
+    font-weight:700;
+
+    box-shadow:0 6px 20px rgba(0,0,0,.13);
+}
+
+
+/* =========================================================
+   QUICK ACTIONS
 ========================================================= */
 
 .quick-actions{
@@ -365,21 +451,416 @@ a{
     display:grid;
 
     grid-template-columns:
-        repeat(4,1fr);
+    repeat(5,1fr);
 
     gap:9px;
 
-    margin-bottom:18px;
+    margin:16px 0;
+}
+
+.quick-card{
+
+    background:#fff;
+
+    border:1px solid #e4eee9;
+
+    border-radius:17px;
+
+    padding:14px 5px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#19372b;
+
+    box-shadow:
+    0 5px 18px rgba(15,50,37,.045);
+
+    transition:.2s;
+}
+
+.quick-card:active{
+
+    transform:scale(.95);
+}
+
+.quick-icon{
+
+    width:43px;
+    height:43px;
+
+    margin:auto auto 8px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:#e8f7f0;
+
+    color:#08734d;
+
+    font-size:17px;
+}
+
+.quick-card span{
+
+    display:block;
+
+    font-size:9px;
+
+    font-weight:600;
+}
+
+
+/* =========================================================
+   ACTIVITY
+========================================================= */
+
+.activity-title{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:20px 2px 9px;
+}
+
+.activity-title h3{
+
+    font-size:14px;
+
+    color:#15372a;
+}
+
+.activity-title span{
+
+    font-size:8px;
+
+    color:#789087;
+}
+
+.activity-wrapper{
+
+    background:#fff;
+
+    border:1px solid #e4eee9;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    height:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    box-shadow:
+    0 5px 18px rgba(15,50,37,.04);
+}
+
+.activity-wrapper::before,
+.activity-wrapper::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:38px;
+
+    height:100%;
+
+    z-index:3;
+
+    pointer-events:none;
+}
+
+.activity-wrapper::before{
+
+    left:0;
+
+    background:
+    linear-gradient(
+        to right,
+        #fff,
+        transparent
+    );
+}
+
+.activity-wrapper::after{
+
+    right:0;
+
+    background:
+    linear-gradient(
+        to left,
+        #fff,
+        transparent
+    );
+}
+
+.activity-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:
+    scrollActivity 45s
+    linear infinite;
+}
+
+.activity-item{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-right:25px;
+
+    white-space:nowrap;
+
+    font-size:9px;
+
+    color:#53675f;
+}
+
+.activity-dot{
+
+    width:29px;
+    height:29px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:#e8f7f0;
+
+    color:#08734d;
+
+    font-size:10px;
+}
+
+.activity-item strong{
+
+    color:#08734d;
+
+    font-weight:700;
+}
+
+@keyframes scrollActivity{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(-50%);
+    }
 
 }
 
-.quick-action{
 
-    background:white;
+/* =========================================================
+   BALANCE
+========================================================= */
 
-    border-radius:15px;
+.balance-card{
 
-    min-height:76px;
+    margin-top:17px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #042b1e,
+        #08704d
+    );
+
+    border-radius:21px;
+
+    padding:22px;
+
+    color:#fff;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+    0 13px 30px rgba(5,70,47,.15);
+}
+
+.balance-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:50%;
+
+    right:-70px;
+    top:-75px;
+}
+
+.balance-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    position:relative;
+
+    z-index:2;
+}
+
+.balance-title{
+
+    font-size:10px;
+
+    opacity:.73;
+}
+
+.balance-icon{
+
+    width:38px;
+    height:38px;
+
+    background:rgba(255,255,255,.10);
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+.balance-amount{
+
+    position:relative;
+
+    z-index:2;
+
+    font-size:29px;
+
+    font-weight:700;
+
+    margin-top:8px;
+
+    letter-spacing:-.5px;
+}
+
+.balance-bottom{
+
+    position:relative;
+
+    z-index:2;
+
+    margin-top:17px;
+
+    padding-top:15px;
+
+    border-top:1px solid rgba(255,255,255,.1);
+
+    display:flex;
+
+    justify-content:space-between;
+}
+
+.balance-stat small{
+
+    display:block;
+
+    font-size:8px;
+
+    opacity:.6;
+
+    margin-bottom:4px;
+}
+
+.balance-stat strong{
+
+    font-size:11px;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin:23px 2px 12px;
+}
+
+.section-heading h3{
+
+    font-size:15px;
+
+    color:#16382c;
+}
+
+.section-heading span{
+
+    font-size:8px;
+
+    color:#82948c;
+}
+
+
+/* =========================================================
+   PARTNERS
+========================================================= */
+
+.partner-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:10px;
+}
+
+.partner-card{
+
+    background:#fff;
+
+    border:1px solid #e3eee8;
+
+    border-radius:17px;
+
+    min-height:105px;
+
+    padding:14px 8px 11px;
 
     display:flex;
 
@@ -389,393 +870,138 @@ a{
 
     justify-content:center;
 
-    gap:7px;
-
-    box-shadow:var(--shadow);
-
-    color:var(--text);
+    box-shadow:
+    0 5px 18px rgba(15,50,37,.035);
 
     transition:.2s;
-
 }
 
-.quick-action:active{
+.partner-card:active{
 
-    transform:scale(.96);
-
+    transform:scale(.97);
 }
 
-.quick-icon{
+.partner-logo{
 
-    width:34px;
+    width:54px;
+    height:48px;
 
-    height:34px;
+    object-fit:contain;
 
-    border-radius:10px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:var(--green-light);
-
-    color:var(--green);
-
-    font-size:14px;
-
+    margin-bottom:8px;
 }
 
-.quick-action span{
-
-    font-size:10px;
-
-    font-weight:600;
-
-}
-
-
-/* =========================================================
-   RECHARGE ACTIVITY TICKER
-========================================================= */
-
-.ticker{
-
-    width:100%;
-
-    overflow:hidden;
-
-    background:white;
-
-    border-radius:14px;
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:18px;
-
-    height:42px;
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-.ticker-track{
-
-    display:flex;
-
-    width:max-content;
-
-    animation:
-        scrollTicker 42s linear infinite;
-
-}
-
-.ticker-item{
-
-    white-space:nowrap;
-
-    padding:0 20px;
-
-    font-size:11px;
-
-    font-weight:500;
-
-    color:var(--green);
-
-}
-
-@keyframes scrollTicker{
-
-    from{
-
-        transform:translateX(0);
-
-    }
-
-    to{
-
-        transform:translateX(-50%);
-
-    }
-
-}
-
-
-/* =========================================================
-   BALANCE CARD
-========================================================= */
-
-.balance-card{
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--green-deep),
-            var(--green)
-        );
-
-    color:white;
-
-    border-radius:21px;
-
-    padding:20px;
-
-    box-shadow:
-        0 12px 30px rgba(6,59,47,.17);
-
-    margin-bottom:15px;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.balance-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:170px;
-
-    height:170px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.06);
-
-    right:-60px;
-
-    top:-80px;
-
-}
-
-.balance-label{
-
-    font-size:11px;
-
-    opacity:.78;
-
-    margin-bottom:5px;
-
-}
-
-.balance-value{
-
-    font-size:27px;
-
-    font-weight:700;
-
-    letter-spacing:.3px;
-
-}
-
-.balance-card-bottom{
-
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    margin-top:18px;
-
-}
-
-.balance-stat{
-
-    position:relative;
-
-    z-index:2;
-
-}
-
-.balance-stat small{
-
-    display:block;
+.partner-name{
 
     font-size:9px;
 
-    opacity:.7;
-
-    margin-bottom:3px;
-
-}
-
-.balance-stat strong{
-
-    font-size:14px;
-
-}
-
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin:20px 2px 11px;
-
-}
-
-.section-title h3{
-
-    font-size:15px;
-
-    font-weight:700;
-
-}
-
-.section-title span{
-
-    font-size:10px;
-
-    color:var(--muted);
-
-}
-
-
-/* =========================================================
-   PARTNER SECTION
-========================================================= */
-
-.partner-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:9px;
-
-}
-
-.partner{
-
-    background:white;
-
-    border-radius:14px;
-
-    padding:13px 5px;
+    color:#50655c;
 
     text-align:center;
 
-    box-shadow:var(--shadow);
-
+    font-weight:600;
 }
 
-.partner-number{
-
-    width:34px;
-
-    height:34px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:var(--green-light);
-
-    color:var(--green);
+.partner-status{
 
     display:flex;
 
     align-items:center;
 
-    justify-content:center;
+    gap:4px;
 
-    font-size:12px;
+    margin-top:4px;
 
-    font-weight:700;
+    font-size:7px;
 
+    color:#84958e;
 }
 
-.partner p{
+.partner-status i{
 
-    font-size:9px;
+    color:#1ba16f;
 
-    color:var(--muted);
-
-    margin-top:7px;
-
+    font-size:5px;
 }
 
 
 /* =========================================================
-   INFO CARD
+   PROTECTION
 ========================================================= */
 
-.info-card{
+.protection-card{
 
-    background:white;
+    margin-top:17px;
+
+    background:#eaf8f1;
+
+    border:1px solid #d5eee1;
 
     border-radius:18px;
 
-    padding:17px;
-
-    margin-top:18px;
-
-    box-shadow:var(--shadow);
-
-}
-
-.info-row{
+    padding:16px;
 
     display:flex;
-
-    align-items:center;
 
     gap:12px;
 
+    align-items:flex-start;
 }
 
-.info-icon{
+.protection-icon{
 
     width:40px;
-
     height:40px;
 
+    min-width:40px;
+
     border-radius:12px;
+
+    background:#fff;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
-    background:var(--green-light);
+    color:#08734d;
 
-    color:var(--green);
-
+    box-shadow:
+    0 4px 12px rgba(0,0,0,.04);
 }
 
-.info-text h4{
+.protection-text h4{
 
-    font-size:13px;
+    font-size:12px;
 
-    margin-bottom:3px;
+    color:#154a37;
 
+    margin-bottom:4px;
 }
 
-.info-text p{
+.protection-text p{
 
-    font-size:10px;
+    font-size:9px;
 
-    color:var(--muted);
+    line-height:1.7;
 
-    line-height:1.5;
+    color:#668076;
+}
 
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer-note{
+
+    text-align:center;
+
+    padding:22px 0 5px;
+
+    font-size:8px;
+
+    color:#9aaaa3;
 }
 
 
@@ -788,36 +1014,45 @@ a{
     position:fixed;
 
     left:0;
-
     right:0;
-
     bottom:0;
 
-    height:70px;
+    z-index:9999;
 
-    background:white;
+    background:
+    rgba(255,255,255,.97);
 
-    border-top:
-        1px solid #e5ebe8;
+    backdrop-filter:blur(16px);
+
+    border-top:1px solid #e4eee9;
+
+    height:72px;
 
     display:flex;
 
-    align-items:center;
-
-    justify-content:space-around;
-
-    z-index:1000;
+    justify-content:center;
 
     box-shadow:
-        0 -5px 20px rgba(0,0,0,.06);
-
+    0 -5px 25px rgba(10,50,35,.07);
 }
 
-.bottom-nav a{
+.bottom-inner{
 
-    flex:1;
+    width:100%;
 
-    height:100%;
+    max-width:650px;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+}
+
+.nav-item{
+
+    text-decoration:none;
+
+    color:#87978f;
 
     display:flex;
 
@@ -829,112 +1064,154 @@ a{
 
     gap:5px;
 
-    color:#8a9993;
-
-    font-size:10px;
+    font-size:9px;
 
     font-weight:500;
-
 }
 
-.bottom-nav a i{
+.nav-item i{
 
-    font-size:17px;
-
+    font-size:18px;
 }
 
-.bottom-nav a.active{
+.nav-item.active{
 
-    color:var(--green);
+    color:#08734d;
 
+    font-weight:700;
 }
 
-.bottom-nav a.active i{
+.nav-item.active i{
 
-    transform:translateY(-1px);
-
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:380px){
-
-    .hero-image{
-
-        height:150px;
-
-        padding:16px;
-
-    }
-
-    .hero-image-content h2{
-
-        font-size:18px;
-
-    }
-
-    .hero-logo{
-
-        width:85px;
-
-        height:85px;
-
-    }
-
-    .quick-actions{
-
-        gap:6px;
-
-    }
-
-    .quick-action{
-
-        min-height:70px;
-
-    }
-
-    .balance-value{
-
-        font-size:24px;
-
-    }
-
+    transform:
+    translateY(-1px);
 }
 
 
 /* =========================================================
-   TABLET / DESKTOP
+   DESKTOP
 ========================================================= */
 
 @media(min-width:700px){
 
-    .container{
+    body{
+        padding-bottom:100px;
+    }
 
+    .main{
         padding:22px;
-
     }
 
-    .hero-image{
-
-        height:190px;
-
+    .top-header{
+        padding-left:25px;
+        padding-right:25px;
     }
 
-    .hero-logo{
-
-        width:130px;
-
-        height:130px;
-
+    .hero{
+        min-height:280px;
     }
 
-    .quick-action{
+    .hero-content{
+        padding:40px 35px;
+    }
 
-        min-height:85px;
+    .hero h2{
+        font-size:32px;
+    }
 
+    .hero p{
+        font-size:13px;
+    }
+
+    .quick-actions{
+        gap:14px;
+    }
+
+    .quick-card{
+        padding:18px 10px;
+    }
+
+    .quick-icon{
+        width:50px;
+        height:50px;
+    }
+
+    .quick-card span{
+        font-size:11px;
+    }
+
+    .partner-grid{
+        grid-template-columns:
+        repeat(8,1fr);
+    }
+
+    .partner-card{
+        min-height:115px;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media(max-width:370px){
+
+    .hero h2{
+        font-size:22px;
+    }
+
+    .hero-content{
+        padding:24px 18px;
+    }
+
+    .quick-actions{
+        gap:6px;
+    }
+
+    .quick-card{
+        padding:11px 3px;
+    }
+
+    .quick-icon{
+        width:38px;
+        height:38px;
+    }
+
+    .quick-card span{
+        font-size:8px;
+    }
+
+    .partner-grid{
+        gap:7px;
+    }
+
+    .partner-card{
+        min-height:95px;
+        padding:10px 5px;
+    }
+
+    .partner-logo{
+        width:45px;
+        height:40px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+    *{
+        scroll-behavior:auto !important;
+    }
+
+    .activity-track{
+        animation:none;
     }
 
 }
@@ -947,71 +1224,47 @@ a{
 <body>
 
 
-<!-- =======================================================
-     TOP HEADER
-======================================================= -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="top-header">
 
-    <div class="header-content">
+    <div class="header-inner">
+
 
         <div class="brand">
 
-            <img
-                src="1234.png"
-                alt="Evergreen Investments"
-            >
 
-            <div class="brand-text">
+            <div class="evergreen-logo">
 
-                <h1>Evergreen Investments</h1>
-
-                <p>Smart investment. Steady growth.</p>
+                <div class="logo-small-leaf"></div>
 
             </div>
 
-        </div>
 
+            <div class="brand-text">
 
-        <a
-            href="transaction.html"
-            class="notification-icon"
-        >
+                <h1>
+                    Evergreen Investments
+                </h1>
 
-            <i class="fa-solid fa-bell"></i>
+                <span>
+                    Smart investment. Steady growth.
+                </span>
 
-        </a>
+            </div>
 
-    </div>
-
-
-    <!-- ===================================================
-         HERO IMAGE
-    ==================================================== -->
-
-    <div class="hero-image">
-
-        <div class="hero-image-content">
-
-            <h2>
-                Grow Your Wealth
-                With Confidence
-            </h2>
-
-            <p>
-                Manage your investments,
-                recharge your account and
-                track your earnings.
-            </p>
 
         </div>
 
 
-        <img
-            src="1234.png"
-            alt="Evergreen Investments"
-            class="hero-logo"
-        >
+        <div class="header-bell">
+
+            <i class="fa-regular fa-bell"></i>
+
+        </div>
+
 
     </div>
 
@@ -1019,309 +1272,921 @@ a{
 
 
 
-<main class="container">
+<main class="main">
 
 
-    <!-- ===================================================
-         QUICK ACTIONS
-    ==================================================== -->
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-    <div class="quick-actions">
+<section class="hero">
 
 
-        <a
-            href="deposit.html"
-            class="quick-action"
-        >
+    <div class="hero-content">
 
-            <div class="quick-icon">
 
-                <i class="fa-solid fa-wallet"></i>
+        <div class="hero-label">
 
-            </div>
+            <i class="fa-solid fa-leaf"></i>
 
-            <span>Recharge</span>
-
-        </a>
-
-
-        <a
-            href="withdraw.html"
-            class="quick-action"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-money-bill-transfer"></i>
-
-            </div>
-
-            <span>Withdraw</span>
-
-        </a>
-
-
-        <a
-            href="https://t.me/Crestwealth"
-            class="quick-action"
-            target="_blank"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-headset"></i>
-
-            </div>
-
-            <span>Help</span>
-
-        </a>
-
-
-        <a
-            href="transaction.html"
-            class="quick-action"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-clock-rotate-left"></i>
-
-            </div>
-
-            <span>Records</span>
-
-        </a>
-
-
-    </div>
-
-
-
-    <!-- ===================================================
-         RECHARGE ACTIVITY
-    ==================================================== -->
-
-    <div class="ticker">
-
-        <div class="ticker-track">
-
-
-            <div class="ticker-item">
-                ******8969 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******7694 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******8261 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******3406 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******7453 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******6486 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3918 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******2976 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******2489 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******7859 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******2633 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******5637 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******6038 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3502 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******7304 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******9579 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******8765 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******0209 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******5789 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******1374 Recharge 60,000
-            </div>
-
-
-            <!-- Duplicate for continuous loop -->
-
-            <div class="ticker-item">
-                ******8969 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******7694 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******8261 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******3406 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******7453 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******6486 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3918 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******2976 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******2489 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******7859 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******2633 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******5637 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******6038 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3502 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******7304 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******9579 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******8765 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******0209 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******5789 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******1374 Recharge 60,000
-            </div>
+            Evergreen Investment Platform
 
         </div>
 
+
+        <h2>
+
+            Grow your financial journey
+            with Evergreen.
+
+        </h2>
+
+
+        <p>
+
+            Manage your investments, track your earnings
+            and stay connected with your account from one
+            simple dashboard.
+
+        </p>
+
+
+        <a
+            href="investment.html"
+            class="hero-button"
+        >
+
+            Explore Investments
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+
     </div>
 
 
+</section>
 
-    <!-- ===================================================
-         BALANCE
-    ==================================================== -->
 
-    <div class="balance-card">
 
-        <div class="balance-label">
+<!-- =====================================================
+     QUICK ACTIONS
+===================================================== -->
+
+<section class="quick-actions">
+
+
+    <a
+        href="deposit.html"
+        class="quick-card"
+    >
+
+        <div class="quick-icon">
+
+            <i class="fa-solid fa-wallet"></i>
+
+        </div>
+
+        <span>
+            Recharge
+        </span>
+
+    </a>
+
+
+
+    <a
+        href="withdraw.html"
+        class="quick-card"
+    >
+
+        <div class="quick-icon">
+
+            <i class="fa-solid fa-money-bill-transfer"></i>
+
+        </div>
+
+        <span>
+            Withdraw
+        </span>
+
+    </a>
+
+
+
+    <a
+        href="https://t.me/Crestwealth"
+        class="quick-card"
+        target="_blank"
+        rel="noopener"
+    >
+
+        <div class="quick-icon">
+
+            <i class="fa-solid fa-headset"></i>
+
+        </div>
+
+        <span>
+            Help
+        </span>
+
+    </a>
+
+
+
+    <a
+        href="transaction.html"
+        class="quick-card"
+    >
+
+        <div class="quick-icon">
+
+            <i class="fa-solid fa-clock-rotate-left"></i>
+
+        </div>
+
+        <span>
+            Records
+        </span>
+
+    </a>
+
+
+
+    <a
+        href="investment.html"
+        class="quick-card"
+    >
+
+        <div class="quick-icon">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+        </div>
+
+        <span>
+            Invest
+        </span>
+
+    </a>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     RECHARGE ACTIVITY
+===================================================== -->
+
+<div class="activity-title">
+
+    <h3>
+        Recent Recharge Activity
+    </h3>
+
+    <span>
+        Live activity
+    </span>
+
+</div>
+
+
+
+<div class="activity-wrapper">
+
+
+    <div class="activity-track">
+
+
+        <!-- SET 1 -->
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8969
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7694
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8261
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3406
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7453
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******6486
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3918
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2976
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2489
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7859
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2633
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******5637
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******6038
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3502
+
+            <strong>
+                Recharge 250,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7304
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******9579
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8765
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******0209
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******5789
+
+            <strong>
+                Recharge 250,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******1374
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+
+        <!-- SET 2 FOR LOOP -->
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8969
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7694
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8261
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3406
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7453
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******6486
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3918
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2976
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2489
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7859
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******2633
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******5637
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******6038
+
+            <strong>
+                Recharge 120,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******3502
+
+            <strong>
+                Recharge 250,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******7304
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******9579
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******8765
+
+            <strong>
+                Recharge 1,000,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******0209
+
+            <strong>
+                Recharge 30,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******5789
+
+            <strong>
+                Recharge 250,000
+            </strong>
+
+        </div>
+
+
+        <div class="activity-item">
+
+            <div class="activity-dot">
+                <i class="fa-solid fa-arrow-up"></i>
+            </div>
+
+            ******1374
+
+            <strong>
+                Recharge 60,000
+            </strong>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     BALANCE
+===================================================== -->
+
+<section class="balance-card">
+
+
+    <div class="balance-top">
+
+
+        <div class="balance-title">
             Account Balance
         </div>
 
-        <div
-            class="balance-value"
-            id="accountBalance"
+
+        <div class="balance-icon">
+
+            <i class="fa-solid fa-wallet"></i>
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        class="balance-amount"
+        id="accountBalance"
+    >
+        ₦0.00
+    </div>
+
+
+    <div class="balance-bottom">
+
+
+        <div class="balance-stat">
+
+            <small>
+                Cumulative Income
+            </small>
+
+            <strong id="cumulativeIncome">
+                ₦0.00
+            </strong>
+
+        </div>
+
+
+        <div class="balance-stat">
+
+            <small>
+                Account Status
+            </small>
+
+            <strong>
+                Active
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =====================================================
+     GLOBAL INVESTMENT NETWORK
+===================================================== -->
+
+<div class="section-heading">
+
+
+    <h3>
+        Global Investment Network
+    </h3>
+
+
+    <span>
+        Selected brands
+    </span>
+
+
+</div>
+
+
+
+<div class="partner-grid">
+
+
+    <!-- BLACKROCK -->
+
+    <div class="partner-card">
+
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=blackrock.com&sz=128"
+            alt="BlackRock"
+            loading="lazy"
         >
-            ₦0
+
+        <div class="partner-name">
+            BlackRock
         </div>
 
+        <div class="partner-status">
 
-        <div class="balance-card-bottom">
+            <i class="fa-solid fa-circle"></i>
 
-
-            <div class="balance-stat">
-
-                <small>
-                    Cumulative Income
-                </small>
-
-                <strong id="cumulativeIncome">
-                    ₦0
-                </strong>
-
-            </div>
-
-
-            <div class="balance-stat">
-
-                <small>
-                    Status
-                </small>
-
-                <strong>
-                    Active
-                </strong>
-
-            </div>
-
+            Investment brand
 
         </div>
 
@@ -1329,289 +2194,421 @@ a{
 
 
 
-    <!-- ===================================================
-         PARTNERS
-    ==================================================== -->
+    <!-- VANGUARD -->
 
-    <div class="section-title">
+    <div class="partner-card">
 
-        <h3>
-            Partners
-        </h3>
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=vanguard.com&sz=128"
+            alt="Vanguard"
+            loading="lazy"
+        >
 
-        <span>
-            1 - 8
-        </span>
+        <div class="partner-name">
+            Vanguard
+        </div>
+
+        <div class="partner-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Investment brand
+
+        </div>
 
     </div>
 
 
-    <div class="partner-grid">
 
+    <!-- FIDELITY -->
 
-        <div class="partner">
+    <div class="partner-card">
 
-            <div class="partner-number">
-                1
-            </div>
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=fidelity.com&sz=128"
+            alt="Fidelity"
+            loading="lazy"
+        >
 
-            <p>Partner 1</p>
-
+        <div class="partner-name">
+            Fidelity
         </div>
 
+        <div class="partner-status">
 
-        <div class="partner">
+            <i class="fa-solid fa-circle"></i>
 
-            <div class="partner-number">
-                2
-            </div>
-
-            <p>Partner 2</p>
+            Investment brand
 
         </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                3
-            </div>
-
-            <p>Partner 3</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                4
-            </div>
-
-            <p>Partner 4</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                5
-            </div>
-
-            <p>Partner 5</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                6
-            </div>
-
-            <p>Partner 6</p>
-
-        </div>
-               <div class="partner">
-
-            <div class="partner-number">
-                7
-            </div>
-
-            <p>Partner 7</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                8
-            </div>
-
-            <p>Partner 8</p>
-
-        </div>
-
 
     </div>
 
 
 
-    <!-- ===================================================
-         INFO CARD
-    ==================================================== -->
+    <!-- JP MORGAN -->
 
-    <div class="info-card">
+    <div class="partner-card">
 
-        <div class="info-row">
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=jpmorgan.com&sz=128"
+            alt="J.P. Morgan"
+            loading="lazy"
+        >
 
-            <div class="info-icon">
+        <div class="partner-name">
+            J.P. Morgan
+        </div>
 
-                <i class="fa-solid fa-shield-halved"></i>
+        <div class="partner-status">
 
-            </div>
+            <i class="fa-solid fa-circle"></i>
 
-
-            <div class="info-text">
-
-                <h4>
-                    Your account is protected
-                </h4>
-
-                <p>
-                    Keep your account details private
-                    and never share your password.
-                </p>
-
-            </div>
+            Investment brand
 
         </div>
 
     </div>
+
+
+
+    <!-- INVESCO -->
+
+    <div class="partner-card">
+
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=invesco.com&sz=128"
+            alt="Invesco"
+            loading="lazy"
+        >
+
+        <div class="partner-name">
+            Invesco
+        </div>
+
+        <div class="partner-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Investment brand
+
+        </div>
+
+    </div>
+
+
+
+    <!-- MORGAN STANLEY -->
+
+    <div class="partner-card">
+
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=morganstanley.com&sz=128"
+            alt="Morgan Stanley"
+            loading="lazy"
+        >
+
+        <div class="partner-name">
+            Morgan Stanley
+        </div>
+
+        <div class="partner-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Investment brand
+
+        </div>
+
+    </div>
+
+
+
+    <!-- GOLDMAN SACHS -->
+
+    <div class="partner-card">
+
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=goldmansachs.com&sz=128"
+            alt="Goldman Sachs"
+            loading="lazy"
+        >
+
+        <div class="partner-name">
+            Goldman Sachs
+        </div>
+
+        <div class="partner-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Investment brand
+
+        </div>
+
+    </div>
+
+
+
+    <!-- STATE STREET -->
+
+    <div class="partner-card">
+
+        <img
+            class="partner-logo"
+            src="https://www.google.com/s2/favicons?domain=statestreet.com&sz=128"
+            alt="State Street"
+            loading="lazy"
+        >
+
+        <div class="partner-name">
+            State Street
+        </div>
+
+        <div class="partner-status">
+
+            <i class="fa-solid fa-circle"></i>
+
+            Investment brand
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+
+<!-- =====================================================
+     PROTECTION CARD
+===================================================== -->
+
+<section class="protection-card">
+
+
+    <div class="protection-icon">
+
+        <i class="fa-solid fa-shield-halved"></i>
+
+    </div>
+
+
+    <div class="protection-text">
+
+        <h4>
+            Your account is protected
+        </h4>
+
+        <p>
+
+            Keep your login information private and use
+            only the official Evergreen Investments platform
+            when accessing your account.
+
+        </p>
+
+    </div>
+
+
+</section>
+
+
+
+<div class="footer-note">
+
+    Evergreen Investments
+
+</div>
 
 
 </main>
 
 
 
-<!-- =======================================================
+<!-- =====================================================
      BOTTOM NAVIGATION
-======================================================= -->
+===================================================== -->
 
 <nav class="bottom-nav">
 
 
-    <!-- HOME -->
-
-    <a
-        href="home.html"
-        class="active"
-    >
-
-        <i class="fa-solid fa-house"></i>
-
-        <span>
-            Home
-        </span>
-
-    </a>
+    <div class="bottom-inner">
 
 
-    <!-- PRODUCT -->
+        <a
+            href="home.html"
+            class="nav-item active"
+        >
 
-    <a
-        href="investment.html"
-    >
+            <i class="fa-solid fa-house"></i>
 
-        <i class="fa-solid fa-chart-line"></i>
+            <span>
+                Home
+            </span>
 
-        <span>
-            Product
-        </span>
-
-    </a>
-
-
-    <!-- TEAM -->
-
-    <a
-        href="invite.html"
-    >
-
-        <i class="fa-solid fa-users"></i>
-
-        <span>
-            Team
-        </span>
-
-    </a>
+        </a>
 
 
-    <!-- MINE -->
 
-    <a
-        href="dashboard.html"
-    >
+        <a
+            href="investment.html"
+            class="nav-item"
+        >
 
-        <i class="fa-solid fa-user"></i>
+            <i class="fa-solid fa-chart-pie"></i>
 
-        <span>
-            Mine
-        </span>
+            <span>
+                Product
+            </span>
 
-    </a>
+        </a>
+
+
+
+        <a
+            href="invite.html"
+            class="nav-item"
+        >
+
+            <i class="fa-solid fa-users"></i>
+
+            <span>
+                Team
+            </span>
+
+        </a>
+
+
+
+        <a
+            href="dashboard.html"
+            class="nav-item"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+                Mine
+            </span>
+
+        </a>
+
+
+    </div>
 
 
 </nav>
 
 
 
-<!-- =======================================================
-     HOME PAGE SCRIPT
-======================================================= -->
-
 <script>
 
 /* =========================================================
-   CHECK LOGIN
+   LOGIN CHECK
 ========================================================= */
 
-const user = JSON.parse(
-    localStorage.getItem("user")
-);
+const user =
+    JSON.parse(
+        localStorage.getItem("user")
+    );
+
 
 if(!user){
 
-    window.location.replace("login.html");
+    window.location.href =
+        "login.html";
 
 }
 
 
+
 /* =========================================================
-   DISPLAY USER DATA
+   INITIAL USER DATA
 ========================================================= */
 
 if(user){
 
-    const accountBalance =
-        document.getElementById("accountBalance");
+    const balance =
+        Number(
+            user.walletBalance || 0
+        );
 
-    const cumulativeIncome =
-        document.getElementById("cumulativeIncome");
+
+    const earnings =
+        Number(
+            user.totalEarnings || 0
+        );
 
 
-    /*
-       Use the information already stored
-       in localStorage first.
-    */
+    document.getElementById(
+        "accountBalance"
+    ).textContent =
 
-    accountBalance.textContent =
         "₦" +
-        Number(user.walletBalance || 0)
-        .toLocaleString();
+
+        balance.toLocaleString(
+            "en-NG",
+            {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+            }
+        );
 
 
-    cumulativeIncome.textContent =
+    document.getElementById(
+        "cumulativeIncome"
+    ).textContent =
+
         "₦" +
-        Number(user.totalEarnings || 0)
-        .toLocaleString();
+
+        earnings.toLocaleString(
+            "en-NG",
+            {
+                minimumFractionDigits:2,
+                maximumFractionDigits:2
+            }
+        );
 
 }
 
 
+
 /* =========================================================
-   GET FRESH DASHBOARD DATA
+   LOAD FRESH DASHBOARD DATA
 ========================================================= */
 
-if(user && user._id){
+async function loadDashboard(){
 
-    fetch(
-        `https://young-invest-backend.onrender.com/api/dashboard/${user._id}`
-    )
+    if(
+        !user ||
+        !user._id
+    ){
 
-    .then(response => {
+        return;
+
+    }
+
+
+    try{
+
+
+        const response =
+
+            await fetch(
+
+                "https://young-invest-backend.onrender.com/api/dashboard/" +
+
+                user._id
+
+            );
+
 
         if(!response.ok){
 
@@ -1621,75 +2618,101 @@ if(user && user._id){
 
         }
 
-        return response.json();
 
-    })
-
-    .then(data => {
-
-        /*
-           Keep your existing backend connection.
-        */
-
-        const accountBalance =
-            document.getElementById("accountBalance");
-
-        const cumulativeIncome =
-            document.getElementById("cumulativeIncome");
+        const data =
+            await response.json();
 
 
-        /*
-           Wallet balance
-        */
+
+        /* ACCOUNT BALANCE */
 
         if(
             data.walletBalance !== undefined
         ){
 
-            accountBalance.textContent =
+            document.getElementById(
+                "accountBalance"
+            ).textContent =
+
                 "₦" +
+
                 Number(
                     data.walletBalance || 0
-                ).toLocaleString();
+                ).toLocaleString(
+                    "en-NG",
+                    {
+                        minimumFractionDigits:2,
+                        maximumFractionDigits:2
+                    }
+                );
 
         }
 
 
-        /*
-           Total earnings
-        */
+
+        /* TOTAL EARNINGS */
 
         if(
             data.totalEarnings !== undefined
         ){
 
-            cumulativeIncome.textContent =
+            document.getElementById(
+                "cumulativeIncome"
+            ).textContent =
+
                 "₦" +
+
                 Number(
                     data.totalEarnings || 0
-                ).toLocaleString();
+                ).toLocaleString(
+                    "en-NG",
+                    {
+                        minimumFractionDigits:2,
+                        maximumFractionDigits:2
+                    }
+                );
 
         }
 
-    })
 
-    .catch(error => {
+
+        /* SAVE UPDATED DATA */
+
+        const updatedUser = {
+
+            ...user,
+
+            ...data
+
+        };
+
+
+        localStorage.setItem(
+            "user",
+            JSON.stringify(
+                updatedUser
+            )
+        );
+
+
+    }catch(error){
 
         console.log(
-            "Dashboard data error:",
+            "Dashboard loading error:",
             error
         );
 
-    });
+    }
 
 }
+
+
+loadDashboard();
+
 
 </script>
 
 
 </body>
 
-   </html>
-
-
-      
+</html>
