@@ -4,1183 +4,1476 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Evergreen Investments | Home</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+<meta name="theme-color" content="#063b2f">
+
+<title>Home | Evergreen Investments</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
 rel="stylesheet">
 
-<link
-rel="stylesheet"
+<link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 /* =========================================================
-   EVERGREEN INVESTMENTS - HOME
+   EVERGREEN INVESTMENTS
+   HOME PAGE
 ========================================================= */
 
 :root{
+
     --green:#0f6b4f;
     --green-dark:#084c3b;
     --green-deep:#063b2f;
     --green-light:#e9f7f1;
     --accent:#1fa774;
+
     --white:#ffffff;
-    --bg:#f4f8f6;
-    --text:#14221d;
-    --muted:#718079;
-    --border:#e3ebe7;
-    --danger:#d64545;
-    --shadow:0 8px 25px rgba(6,59,47,.08);
+    --text:#18332b;
+    --muted:#71827c;
+
+    --background:#f5f8f6;
+
+    --shadow:
+        0 8px 25px rgba(6,59,47,0.08);
+
 }
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
 
-html{
-    scroll-behavior:smooth;
 }
 
 body{
-    background:var(--bg);
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--background);
+
     color:var(--text);
+
     min-height:100vh;
+
     padding-bottom:85px;
+
 }
 
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
 /* =========================================================
-   TOP BANNER
+   TOP HEADER
 ========================================================= */
 
-.top-banner{
-    position:relative;
-    min-height:220px;
-    overflow:hidden;
+.top-header{
+
     background:
         linear-gradient(
             135deg,
-            rgba(6,59,47,.98),
-            rgba(15,107,79,.94),
-            rgba(31,167,116,.88)
+            var(--green-deep),
+            var(--green),
+            var(--accent)
         );
+
     color:white;
-}
 
-.banner-content{
+    padding:20px 18px 24px;
+
+    border-radius:
+        0 0 28px 28px;
+
     position:relative;
-    z-index:2;
-    max-width:1100px;
-    margin:auto;
-    padding:28px 20px 35px;
+
+    overflow:hidden;
+
 }
 
-.banner-brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:35px;
-}
+.top-header::before{
 
-.banner-brand img{
-    width:52px;
-    height:52px;
-    object-fit:contain;
-    border-radius:14px;
-    background:white;
-    padding:5px;
-}
+    content:"";
 
-.banner-brand h1{
-    font-size:21px;
-    font-weight:700;
-}
-
-.banner-content h2{
-    font-size:30px;
-    line-height:1.25;
-    margin-bottom:8px;
-}
-
-.banner-content p{
-    font-size:14px;
-    opacity:.88;
-}
-
-.banner-decoration{
     position:absolute;
-    width:220px;
-    height:220px;
+
+    width:180px;
+
+    height:180px;
+
     border-radius:50%;
-    border:35px solid rgba(255,255,255,.07);
-    right:-80px;
+
+    background:rgba(255,255,255,0.08);
+
+    right:-70px;
+
     top:-70px;
+
 }
 
-.banner-decoration.two{
-    width:150px;
-    height:150px;
-    left:-70px;
-    top:100px;
-    border-width:25px;
+.top-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,0.06);
+
+    left:-50px;
+
+    bottom:-60px;
+
 }
+
+.header-content{
+
+    position:relative;
+
+    z-index:2;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+}
+
+.brand img{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:13px;
+
+    object-fit:cover;
+
+    background:white;
+
+    padding:4px;
+
+}
+
+.brand-text h1{
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.brand-text p{
+
+    font-size:11px;
+
+    opacity:.82;
+
+    margin-top:2px;
+
+}
+
+.notification-icon{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:13px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.13);
+
+    color:white;
+
+    font-size:17px;
+
+}
+
 
 /* =========================================================
-   PAGE CONTAINER
+   HERO IMAGE
+========================================================= */
+
+.hero-image{
+
+    margin-top:18px;
+
+    height:165px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3,55,43,.92),
+            rgba(15,107,79,.78)
+        );
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.hero-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    right:-50px;
+
+    top:-70px;
+
+}
+
+.hero-image-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:62%;
+
+}
+
+.hero-image-content h2{
+
+    font-size:21px;
+
+    line-height:1.25;
+
+    margin-bottom:7px;
+
+}
+
+.hero-image-content p{
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    opacity:.85;
+
+}
+
+.hero-logo{
+
+    position:relative;
+
+    z-index:2;
+
+    width:105px;
+
+    height:105px;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+    object-fit:contain;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
 ========================================================= */
 
 .container{
-    width:min(1100px,94%);
-    margin:-25px auto 0;
-    position:relative;
-    z-index:5;
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:16px;
+
 }
+
 
 /* =========================================================
-   QUICK BUTTONS
+   SMALL QUICK ACTIONS
 ========================================================= */
 
-.quick-grid{
+.quick-actions{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:14px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    margin-bottom:18px;
+
 }
 
-.quick-card{
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:16px;
-    padding:18px 10px;
-    text-align:center;
-    text-decoration:none;
-    color:var(--text);
+.quick-action{
+
+    background:white;
+
+    border-radius:15px;
+
+    min-height:76px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
     box-shadow:var(--shadow);
-    transition:.25s;
+
+    color:var(--text);
+
+    transition:.2s;
+
 }
 
-.quick-card:hover{
-    transform:translateY(-3px);
-    border-color:#c9ded5;
+.quick-action:active{
+
+    transform:scale(.96);
+
 }
 
 .quick-icon{
-    width:48px;
-    height:48px;
-    margin:0 auto 9px;
-    border-radius:14px;
+
+    width:34px;
+
+    height:34px;
+
+    border-radius:10px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
+
     background:var(--green-light);
+
     color:var(--green);
-    font-size:19px;
-}
 
-.quick-card span{
-    display:block;
-    font-size:12px;
-    font-weight:600;
-}
-
-/* =========================================================
-   SECOND BUTTON ROW
-========================================================= */
-
-.action-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    margin-bottom:18px;
-}
-
-/* =========================================================
-   RECHARGE ACTIVITY
-========================================================= */
-
-.activity-box{
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:16px;
-    overflow:hidden;
-    box-shadow:var(--shadow);
-    margin-bottom:18px;
-}
-
-.activity-title{
-    display:flex;
-    align-items:center;
-    gap:9px;
-    padding:14px 16px;
-    border-bottom:1px solid var(--border);
     font-size:14px;
-    font-weight:700;
+
 }
 
-.activity-title i{
-    color:var(--green);
+.quick-action span{
+
+    font-size:10px;
+
+    font-weight:600;
+
 }
 
-.ticker-window{
+
+/* =========================================================
+   RECHARGE ACTIVITY TICKER
+========================================================= */
+
+.ticker{
+
     width:100%;
+
     overflow:hidden;
-    padding:13px 0;
-    white-space:nowrap;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:18px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
 }
 
 .ticker-track{
-    display:inline-flex;
-    align-items:center;
-    width:max-content;
-    animation:scrollTicker 42s linear infinite;
-}
 
-.ticker-track:hover{
-    animation-play-state:paused;
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        scrollTicker 42s linear infinite;
+
 }
 
 .ticker-item{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    margin-right:40px;
-    font-size:12px;
-    color:#53625c;
-}
 
-.ticker-item strong{
+    white-space:nowrap;
+
+    padding:0 20px;
+
+    font-size:11px;
+
+    font-weight:500;
+
     color:var(--green);
-}
 
-.ticker-dot{
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    background:var(--accent);
-    display:inline-block;
 }
 
 @keyframes scrollTicker{
+
     from{
+
         transform:translateX(0);
+
     }
 
     to{
+
         transform:translateX(-50%);
+
     }
+
 }
 
+
 /* =========================================================
-   TASK CENTER
+   BALANCE CARD
 ========================================================= */
 
-.task-card{
-    position:relative;
-    overflow:hidden;
+.balance-card{
+
     background:
         linear-gradient(
             135deg,
             var(--green-deep),
             var(--green)
         );
+
     color:white;
-    border-radius:20px;
-    padding:24px;
-    margin-bottom:18px;
-    box-shadow:0 12px 30px rgba(6,59,47,.18);
-}
 
-.task-content{
-    position:relative;
-    z-index:2;
-}
+    border-radius:21px;
 
-.task-label{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-size:12px;
-    font-weight:600;
-    opacity:.85;
-    margin-bottom:8px;
-}
-
-.task-card h2{
-    font-size:22px;
-    margin-bottom:5px;
-}
-
-.task-card p{
-    font-size:13px;
-    opacity:.82;
-    margin-bottom:20px;
-}
-
-.task-button{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:white;
-    color:var(--green-dark);
-    text-decoration:none;
-    padding:11px 18px;
-    border-radius:11px;
-    font-size:13px;
-    font-weight:700;
-    transition:.25s;
-}
-
-.task-button:hover{
-    transform:translateY(-2px);
-}
-
-.task-decoration{
-    position:absolute;
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    border:35px solid rgba(255,255,255,.07);
-    right:-65px;
-    top:-75px;
-}
-
-/* =========================================================
-   BALANCE CARDS
-========================================================= */
-
-.balance-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-    margin-bottom:18px;
-}
-
-.balance-card{
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:18px;
     padding:20px;
-    box-shadow:var(--shadow);
-}
 
-.balance-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
+    box-shadow:
+        0 12px 30px rgba(6,59,47,.17);
+
     margin-bottom:15px;
+
+    position:relative;
+
+    overflow:hidden;
+
 }
 
-.balance-icon{
-    width:42px;
-    height:42px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:12px;
-    background:var(--green-light);
-    color:var(--green);
+.balance-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    right:-60px;
+
+    top:-80px;
+
 }
 
 .balance-label{
-    color:var(--muted);
-    font-size:12px;
-    font-weight:500;
+
+    font-size:11px;
+
+    opacity:.78;
+
+    margin-bottom:5px;
+
 }
 
 .balance-value{
-    font-size:24px;
+
+    font-size:27px;
+
     font-weight:700;
-    color:var(--text);
+
+    letter-spacing:.3px;
+
 }
 
+.balance-card-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:18px;
+
+}
+
+.balance-stat{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.balance-stat small{
+
+    display:block;
+
+    font-size:9px;
+
+    opacity:.7;
+
+    margin-bottom:3px;
+
+}
+
+.balance-stat strong{
+
+    font-size:14px;
+
+}
+
+
 /* =========================================================
-   PARTNERS
+   SECTION TITLE
 ========================================================= */
 
 .section-title{
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    margin:22px 2px 12px;
+
+    margin:20px 2px 11px;
+
 }
 
 .section-title h3{
-    font-size:17px;
+
+    font-size:15px;
+
+    font-weight:700;
+
 }
 
 .section-title span{
-    font-size:11px;
+
+    font-size:10px;
+
     color:var(--muted);
+
 }
 
-.partner-card{
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:18px;
-    box-shadow:var(--shadow);
-    margin-bottom:20px;
-}
+
+/* =========================================================
+   PARTNER SECTION
+========================================================= */
 
 .partner-grid{
+
     display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
 }
 
 .partner{
-    text-align:center;
-    padding:13px 5px;
+
+    background:white;
+
     border-radius:14px;
-    background:#f7faf8;
-    border:1px solid #edf2ef;
+
+    padding:13px 5px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
 }
 
-.partner-icon{
-    width:40px;
-    height:40px;
+.partner-number{
+
+    width:34px;
+
+    height:34px;
+
+    margin:auto;
+
     border-radius:50%;
+
     background:var(--green-light);
+
     color:var(--green);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    margin:0 auto 7px;
-    font-size:14px;
+
+    font-size:12px;
+
+    font-weight:700;
+
 }
 
-.partner span{
-    font-size:10px;
-    color:#52615a;
-    font-weight:600;
+.partner p{
+
+    font-size:9px;
+
+    color:var(--muted);
+
+    margin-top:7px;
+
 }
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:17px;
+
+    margin-top:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.info-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.info-icon{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+}
+
+.info-text h4{
+
+    font-size:13px;
+
+    margin-bottom:3px;
+
+}
+
+.info-text p{
+
+    font-size:10px;
+
+    color:var(--muted);
+
+    line-height:1.5;
+
+}
+
 
 /* =========================================================
    BOTTOM NAVIGATION
 ========================================================= */
 
 .bottom-nav{
+
     position:fixed;
+
     left:0;
+
     right:0;
+
     bottom:0;
+
     height:70px;
-    background:rgba(255,255,255,.97);
-    backdrop-filter:blur(12px);
-    -webkit-backdrop-filter:blur(12px);
-    border-top:1px solid var(--border);
+
+    background:white;
+
+    border-top:
+        1px solid #e5ebe8;
+
     display:flex;
+
     align-items:center;
-    justify-content:center;
+
+    justify-content:space-around;
+
     z-index:1000;
-    box-shadow:0 -5px 20px rgba(0,0,0,.05);
+
+    box-shadow:
+        0 -5px 20px rgba(0,0,0,.06);
+
 }
 
-.bottom-nav-inner{
-    width:min(600px,100%);
+.bottom-nav a{
+
+    flex:1;
+
     height:100%;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-}
 
-.nav-item{
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
+
     justify-content:center;
-    gap:4px;
-    color:#7c8883;
-    text-decoration:none;
+
+    gap:5px;
+
+    color:#8a9993;
+
     font-size:10px;
+
     font-weight:500;
-    transition:.2s;
+
 }
 
-.nav-item i{
-    font-size:18px;
+.bottom-nav a i{
+
+    font-size:17px;
+
 }
 
-.nav-item.active{
+.bottom-nav a.active{
+
     color:var(--green);
+
 }
 
-.nav-item:hover{
-    color:var(--green);
+.bottom-nav a.active i{
+
+    transform:translateY(-1px);
+
 }
+
 
 /* =========================================================
-   RESPONSIVE
+   MOBILE
 ========================================================= */
 
-@media(max-width:700px){
+@media(max-width:380px){
 
-    .top-banner{
-        min-height:205px;
+    .hero-image{
+
+        height:150px;
+
+        padding:16px;
+
     }
 
-    .banner-content{
-        padding:22px 16px 30px;
+    .hero-image-content h2{
+
+        font-size:18px;
+
     }
 
-    .banner-brand{
-        margin-bottom:28px;
+    .hero-logo{
+
+        width:85px;
+
+        height:85px;
+
     }
 
-    .banner-content h2{
-        font-size:25px;
+    .quick-actions{
+
+        gap:6px;
+
     }
+
+    .quick-action{
+
+        min-height:70px;
+
+    }
+
+    .balance-value{
+
+        font-size:24px;
+
+    }
+
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media(min-width:700px){
 
     .container{
-        width:94%;
+
+        padding:22px;
+
     }
 
-    .quick-grid,
-    .action-grid{
-        grid-template-columns:repeat(2,1fr);
+    .hero-image{
+
+        height:190px;
+
     }
 
-    .quick-card{
-        padding:15px 8px;
+    .hero-logo{
+
+        width:130px;
+
+        height:130px;
+
     }
 
-    .balance-value{
-        font-size:20px;
+    .quick-action{
+
+        min-height:85px;
+
     }
 
-    .partner-grid{
-        grid-template-columns:repeat(4,1fr);
-        gap:8px;
-    }
-
-}
-
-@media(max-width:420px){
-
-    .banner-brand h1{
-        font-size:18px;
-    }
-
-    .banner-brand img{
-        width:46px;
-        height:46px;
-    }
-
-    .banner-content h2{
-        font-size:22px;
-    }
-
-    .quick-icon{
-        width:43px;
-        height:43px;
-    }
-
-    .task-card{
-        padding:20px;
-    }
-
-    .task-card h2{
-        font-size:20px;
-    }
-
-    .balance-card{
-        padding:16px 13px;
-    }
-
-    .balance-value{
-        font-size:18px;
-    }
-
-    .partner{
-        padding:10px 3px;
-    }
-
-    .partner-icon{
-        width:36px;
-        height:36px;
-    }
-
-}
-
-/* =========================================================
-   ACCESSIBILITY
-========================================================= */
-
-a,
-button{
-    -webkit-tap-highlight-color:transparent;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
+
 <!-- =======================================================
-     BANNER
+     TOP HEADER
 ======================================================= -->
 
-<header class="top-banner">
+<header class="top-header">
 
-    <div class="banner-decoration"></div>
-    <div class="banner-decoration two"></div>
+    <div class="header-content">
 
-    <div class="banner-content">
+        <div class="brand">
 
-        <div class="banner-brand">
+            <img
+                src="1234.png"
+                alt="Evergreen Investments"
+            >
 
-            <img src="1234.png" alt="Evergreen Investments">
+            <div class="brand-text">
 
-            <h1>Evergreen Investments</h1>
+                <h1>Evergreen Investments</h1>
+
+                <p>Smart investment. Steady growth.</p>
+
+            </div>
 
         </div>
 
-        <h2>Grow Your Wealth With Confidence</h2>
 
-        <p>
-            Manage your investments, recharge your account
-            and track your earnings.
-        </p>
+        <a
+            href="transaction.html"
+            class="notification-icon"
+        >
+
+            <i class="fa-solid fa-bell"></i>
+
+        </a>
+
+    </div>
+
+
+    <!-- ===================================================
+         HERO IMAGE
+    ==================================================== -->
+
+    <div class="hero-image">
+
+        <div class="hero-image-content">
+
+            <h2>
+                Grow Your Wealth
+                With Confidence
+            </h2>
+
+            <p>
+                Manage your investments,
+                recharge your account and
+                track your earnings.
+            </p>
+
+        </div>
+
+
+        <img
+            src="1234.png"
+            alt="Evergreen Investments"
+            class="hero-logo"
+        >
 
     </div>
 
 </header>
 
 
+
 <main class="container">
 
 
-<!-- =======================================================
-     QUICK ACTIONS
-======================================================= -->
+    <!-- ===================================================
+         QUICK ACTIONS
+    ==================================================== -->
 
-<section class="quick-grid">
+    <div class="quick-actions">
 
-    <a href="deposit.html" class="quick-card">
 
-        <div class="quick-icon">
-            <i class="fa-solid fa-wallet"></i>
-        </div>
+        <a
+            href="deposit.html"
+            class="quick-action"
+        >
 
-        <span>Recharge</span>
+            <div class="quick-icon">
 
-    </a>
+                <i class="fa-solid fa-wallet"></i>
 
-
-    <a href="withdraw.html" class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-money-bill-transfer"></i>
-        </div>
-
-        <span>Withdraw</span>
-
-    </a>
-
-
-    <a href="https://t.me/Crestwealth"
-       target="_blank"
-       class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-headset"></i>
-        </div>
-
-        <span>Help</span>
-
-    </a>
-
-
-    <a href="transaction.html" class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-receipt"></i>
-        </div>
-
-        <span>Records</span>
-
-    </a>
-
-</section>
-
-
-<section class="action-grid">
-
-    <a href="#" class="quick-card" id="checkInButton">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-calendar-check"></i>
-        </div>
-
-        <span>Check In</span>
-
-    </a>
-
-
-    <a href="#" class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-circle-info"></i>
-        </div>
-
-        <span>About Us</span>
-
-    </a>
-
-
-    <a href="#" class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-shield-halved"></i>
-        </div>
-
-        <span>Regulation</span>
-
-    </a>
-
-
-    <a href="https://t.me/Crestwealth"
-       target="_blank"
-       class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-comments"></i>
-        </div>
-
-        <span>Help</span>
-
-    </a>
-
-</section>
-
-
-<section class="action-grid">
-
-    <a href="#" class="quick-card" id="taskCenterButton">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-list-check"></i>
-        </div>
-
-        <span>Task Center</span>
-
-    </a>
-
-
-    <a href="#" class="quick-card">
-
-        <div class="quick-icon">
-            <i class="fa-solid fa-bell"></i>
-        </div>
-
-        <span>Notification</span>
-
-    </a>
-
-</section>
-
-
-<!-- =======================================================
-     RECHARGE ACTIVITY TICKER
-======================================================= -->
-
-<section class="activity-box">
-
-    <div class="activity-title">
-
-        <i class="fa-solid fa-bolt"></i>
-
-        <span>Recent Recharge Activity</span>
-
-    </div>
-
-
-    <div class="ticker-window">
-
-        <div class="ticker-track">
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8969 Recharge <strong>₦1,000,000</strong>
             </div>
 
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7694 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8261 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3406 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7453 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******6486 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3918 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2976 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2489 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7859 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2633 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******5637 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******6038 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3502 Recharge <strong>₦250,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7304 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******9579 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8765 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******0209 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******5789 Recharge <strong>₦250,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******1374 Recharge <strong>₦60,000</strong>
-            </div>
-
-
-            <!-- DUPLICATE FOR CONTINUOUS LOOP -->
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8969 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7694 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8261 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3406 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7453 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******6486 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3918 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2976 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2489 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7859 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******2633 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******5637 Recharge <strong>₦60,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******6038 Recharge <strong>₦120,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******3502 Recharge <strong>₦250,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******7304 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******9579 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******8765 Recharge <strong>₦1,000,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******0209 Recharge <strong>₦30,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******5789 Recharge <strong>₦250,000</strong>
-            </div>
-
-            <div class="ticker-item">
-                <span class="ticker-dot"></span>
-                ******1374 Recharge <strong>₦60,000</strong>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =======================================================
-     TASK CENTER
-======================================================= -->
-
-<section class="task-card">
-
-    <div class="task-decoration"></div>
-
-    <div class="task-content">
-
-        <div class="task-label">
-            <i class="fa-solid fa-list-check"></i>
-            TASK CENTER
-        </div>
-
-        <h2>Task Center</h2>
-
-        <p>
-            Complete tasks and get generous bonuses
-        </p>
-
-        <a href="#" class="task-button" id="enterTaskButton">
-
-            Click to enter
-
-            <i class="fa-solid fa-arrow-right"></i>
+            <span>Recharge</span>
 
         </a>
 
+
+        <a
+            href="withdraw.html"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+            </div>
+
+            <span>Withdraw</span>
+
+        </a>
+
+
+        <a
+            href="https://t.me/Crestwealth"
+            class="quick-action"
+            target="_blank"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <span>Help</span>
+
+        </a>
+
+
+        <a
+            href="transaction.html"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+            </div>
+
+            <span>Records</span>
+
+        </a>
+
+
     </div>
 
-</section>
 
 
-<!-- =======================================================
-     BALANCE / INCOME
-======================================================= -->
+    <!-- ===================================================
+         RECHARGE ACTIVITY
+    ==================================================== -->
 
-<section class="balance-grid">
+    <div class="ticker">
+
+        <div class="ticker-track">
+
+
+            <div class="ticker-item">
+                ******8969 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******7694 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******8261 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******3406 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******7453 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******6486 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3918 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******2976 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******2489 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******7859 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******2633 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******5637 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******6038 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3502 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******7304 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******9579 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******8765 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******0209 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******5789 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******1374 Recharge 60,000
+            </div>
+
+
+            <!-- Duplicate for continuous loop -->
+
+            <div class="ticker-item">
+                ******8969 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******7694 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******8261 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******3406 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******7453 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******6486 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3918 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******2976 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******2489 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******7859 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******2633 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******5637 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******6038 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3502 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******7304 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******9579 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******8765 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******0209 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******5789 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******1374 Recharge 60,000
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         BALANCE
+    ==================================================== -->
 
     <div class="balance-card">
 
-        <div class="balance-top">
-
-            <div>
-                <div class="balance-label">
-                    Account balance
-                </div>
-            </div>
-
-            <div class="balance-icon">
-                <i class="fa-solid fa-wallet"></i>
-            </div>
-
+        <div class="balance-label">
+            Account Balance
         </div>
 
-        <div class="balance-value" id="accountBalance">
+        <div
+            class="balance-value"
+            id="accountBalance"
+        >
             ₦0
+        </div>
+
+
+        <div class="balance-card-bottom">
+
+
+            <div class="balance-stat">
+
+                <small>
+                    Cumulative Income
+                </small>
+
+                <strong id="cumulativeIncome">
+                    ₦0
+                </strong>
+
+            </div>
+
+
+            <div class="balance-stat">
+
+                <small>
+                    Status
+                </small>
+
+                <strong>
+                    Active
+                </strong>
+
+            </div>
+
+
         </div>
 
     </div>
 
 
-    <div class="balance-card">
 
-        <div class="balance-top">
+    <!-- ===================================================
+         PARTNERS
+    ==================================================== -->
 
-            <div>
-                <div class="balance-label">
-                    Cumulative income
-                </div>
-            </div>
+    <div class="section-title">
 
-            <div class="balance-icon">
-                <i class="fa-solid fa-chart-line"></i>
-            </div>
+        <h3>
+            Partners
+        </h3>
 
-        </div>
-
-        <div class="balance-value" id="cumulativeIncome">
-            ₦0
-        </div>
+        <span>
+            1 - 8
+        </span>
 
     </div>
 
-</section>
-
-
-<!-- =======================================================
-     PARTNERS
-======================================================= -->
-
-<div class="section-title">
-
-    <h3>Partner</h3>
-
-    <span>Our partner network</span>
-
-</div>
-
-
-<section class="partner-card">
 
     <div class="partner-grid">
 
-        <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <span>Partner 1</span>
-        </div>
 
         <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
+
+            <div class="partner-number">
+                1
             </div>
-            <span>Partner 2</span>
+
+            <p>Partner 1</p>
+
         </div>
 
-        <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <span>Partner 3</span>
-        </div>
 
         <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
+
+            <div class="partner-number">
+                2
             </div>
-            <span>Partner 4</span>
+
+            <p>Partner 2</p>
+
         </div>
 
-        <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <span>Partner 5</span>
-        </div>
 
         <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
+
+            <div class="partner-number">
+                3
             </div>
-            <span>Partner 6</span>
+
+            <p>Partner 3</p>
+
         </div>
 
-        <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
-            </div>
-            <span>Partner 7</span>
-        </div>
 
         <div class="partner">
-            <div class="partner-icon">
-                <i class="fa-solid fa-user"></i>
+
+            <div class="partner-number">
+                4
             </div>
-            <span>Partner 8</span>
+
+            <p>Partner 4</p>
+
+        </div>
+
+
+        <div class="partner">
+
+            <div class="partner-number">
+                5
+            </div>
+
+            <p>Partner 5</p>
+
+        </div>
+
+
+        <div class="partner">
+
+            <div class="partner-number">
+                6
+            </div>
+
+            <p>Partner 6</p>
+
+        </div>
+               <div class="partner">
+
+            <div class="partner-number">
+                7
+            </div>
+
+            <p>Partner 7</p>
+
+        </div>
+
+
+        <div class="partner">
+
+            <div class="partner-number">
+                8
+            </div>
+
+            <p>Partner 8</p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         INFO CARD
+    ==================================================== -->
+
+    <div class="info-card">
+
+        <div class="info-row">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+
+            <div class="info-text">
+
+                <h4>
+                    Your account is protected
+                </h4>
+
+                <p>
+                    Keep your account details private
+                    and never share your password.
+                </p>
+
+            </div>
+
         </div>
 
     </div>
 
-</section>
 
 </main>
+
 
 
 <!-- =======================================================
@@ -1189,130 +1482,214 @@ button{
 
 <nav class="bottom-nav">
 
-    <div class="bottom-nav-inner">
 
-        <a href="home.html" class="nav-item active">
+    <!-- HOME -->
 
-            <i class="fa-solid fa-house"></i>
+    <a
+        href="home.html"
+        class="active"
+    >
 
-            <span>Home</span>
+        <i class="fa-solid fa-house"></i>
 
-        </a>
+        <span>
+            Home
+        </span>
 
-
-        <a href="investment.html" class="nav-item">
-
-            <i class="fa-solid fa-box-open"></i>
-
-            <span>Product</span>
-
-        </a>
+    </a>
 
 
-        <a href="invite.html" class="nav-item">
+    <!-- PRODUCT -->
 
-            <i class="fa-solid fa-users"></i>
+    <a
+        href="investment.html"
+    >
 
-            <span>Team</span>
+        <i class="fa-solid fa-chart-line"></i>
 
-        </a>
+        <span>
+            Product
+        </span>
+
+    </a>
 
 
-        <a href="dashboard.html" class="nav-item">
+    <!-- TEAM -->
 
-            <i class="fa-solid fa-user"></i>
+    <a
+        href="invite.html"
+    >
 
-            <span>Mine</span>
+        <i class="fa-solid fa-users"></i>
 
-        </a>
+        <span>
+            Team
+        </span>
 
-    </div>
+    </a>
+
+
+    <!-- MINE -->
+
+    <a
+        href="dashboard.html"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+            Mine
+        </span>
+
+    </a>
+
 
 </nav>
 
 
+
+<!-- =======================================================
+     HOME PAGE SCRIPT
+======================================================= -->
+
 <script>
 
 /* =========================================================
-   LOGIN CHECK
+   CHECK LOGIN
 ========================================================= */
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(
+    localStorage.getItem("user")
+);
 
 if(!user){
 
-    window.location.href = "login.html";
+    window.location.replace("login.html");
 
 }
 
 
 /* =========================================================
-   FORMAT MONEY
-========================================================= */
-
-function formatMoney(value){
-
-    const number = Number(value) || 0;
-
-    return "₦" + number.toLocaleString();
-
-}
-
-
-/* =========================================================
-   DISPLAY USER BALANCES
+   DISPLAY USER DATA
 ========================================================= */
 
 if(user){
 
-    document.getElementById("accountBalance").textContent =
-        formatMoney(user.walletBalance);
+    const accountBalance =
+        document.getElementById("accountBalance");
 
-    document.getElementById("cumulativeIncome").textContent =
-        formatMoney(user.totalEarnings);
+    const cumulativeIncome =
+        document.getElementById("cumulativeIncome");
+
+
+    /*
+       Use the information already stored
+       in localStorage first.
+    */
+
+    accountBalance.textContent =
+        "₦" +
+        Number(user.walletBalance || 0)
+        .toLocaleString();
+
+
+    cumulativeIncome.textContent =
+        "₦" +
+        Number(user.totalEarnings || 0)
+        .toLocaleString();
 
 }
 
 
 /* =========================================================
-   CHECK IN
+   GET FRESH DASHBOARD DATA
 ========================================================= */
 
-document.getElementById("checkInButton")
-.addEventListener("click", function(event){
+if(user && user._id){
 
-    event.preventDefault();
+    fetch(
+        `https://young-invest-backend.onrender.com/api/dashboard/${user._id}`
+    )
 
-    alert("Check-in feature coming soon.");
+    .then(response => {
 
-});
+        if(!response.ok){
+
+            throw new Error(
+                "Dashboard request failed"
+            );
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        /*
+           Keep your existing backend connection.
+        */
+
+        const accountBalance =
+            document.getElementById("accountBalance");
+
+        const cumulativeIncome =
+            document.getElementById("cumulativeIncome");
 
 
-/* =========================================================
-   TASK CENTER
-========================================================= */
+        /*
+           Wallet balance
+        */
 
-document.getElementById("taskCenterButton")
-.addEventListener("click", function(event){
+        if(
+            data.walletBalance !== undefined
+        ){
 
-    event.preventDefault();
+            accountBalance.textContent =
+                "₦" +
+                Number(
+                    data.walletBalance || 0
+                ).toLocaleString();
 
-    document.getElementById("enterTaskButton").click();
-
-});
+        }
 
 
-document.getElementById("enterTaskButton")
-.addEventListener("click", function(event){
+        /*
+           Total earnings
+        */
 
-    event.preventDefault();
+        if(
+            data.totalEarnings !== undefined
+        ){
 
-    alert("Task Center coming soon.");
+            cumulativeIncome.textContent =
+                "₦" +
+                Number(
+                    data.totalEarnings || 0
+                ).toLocaleString();
 
-});
+        }
+
+    })
+
+    .catch(error => {
+
+        console.log(
+            "Dashboard data error:",
+            error
+        );
+
+    });
+
+}
 
 </script>
 
+
 </body>
 
-</html>
+   </html>
+
+
+      
