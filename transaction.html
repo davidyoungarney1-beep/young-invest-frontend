@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
 <meta charset="UTF-8">
@@ -11,15 +12,17 @@
 
 <meta
     name="theme-color"
-    content="#0b3d2e"
+    content="#083d2e"
 >
 
 <title>
-    Transaction History | Evergreen Investments
+    Transactions | Evergreen Investments
 </title>
 
 
-<!-- GOOGLE FONTS -->
+<!-- =====================================================
+     GOOGLE FONTS
+===================================================== -->
 
 <link
     rel="preconnect"
@@ -33,12 +36,14 @@
 >
 
 <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
     rel="stylesheet"
 >
 
 
-<!-- FONT AWESOME -->
+<!-- =====================================================
+     FONT AWESOME
+===================================================== -->
 
 <link
     rel="stylesheet"
@@ -55,13 +60,14 @@
 :root{
 
     --evergreen:#147a58;
+
     --evergreen-dark:#083d2e;
 
     --green:#20a873;
 
-    --mint:#e8f7f0;
+    --light-green:#e8f7f0;
 
-    --background:#f5f8f6;
+    --background:#f4f8f6;
 
     --white:#ffffff;
 
@@ -69,11 +75,15 @@
 
     --muted:#718079;
 
-    --border:#e3ebe7;
+    --border:#e1ebe6;
 
-    --red:#ef4444;
+    --red:#e74c3c;
 
     --orange:#f59e0b;
+
+    --blue:#3b82f6;
+
+    --purple:#7c3aed;
 
 }
 
@@ -84,14 +94,18 @@
 
 *{
 
-    box-sizing:border-box;
-
     margin:0;
 
     padding:0;
 
+    box-sizing:border-box;
+
 }
 
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body{
 
@@ -107,6 +121,8 @@ body{
 
     min-height:100vh;
 
+    padding-bottom:80px;
+
 }
 
 
@@ -119,27 +135,30 @@ body{
     background:
         linear-gradient(
             135deg,
-            #083d2e,
+            #062f24,
+            #083d2e 50%,
             #147a58
         );
 
     color:white;
 
     padding:
-        18px 18px 22px;
-
-    position:relative;
+        17px 16px 25px;
 
 }
 
 
 .header-top{
 
+    max-width:700px;
+
+    margin:auto;
+
     display:flex;
 
     align-items:center;
 
-    gap:14px;
+    gap:13px;
 
 }
 
@@ -154,22 +173,20 @@ body{
 
     height:40px;
 
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.12);
-
     display:flex;
 
     align-items:center;
 
     justify-content:center;
 
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.12);
+
     color:white;
 
     text-decoration:none;
-
-    flex-shrink:0;
 
 }
 
@@ -182,14 +199,14 @@ body{
 
 
 /* =====================================================
-   EVERGREEN LOGO
+   LOGO
 ===================================================== */
 
 .evergreen-logo{
 
-    width:38px;
+    width:39px;
 
-    height:38px;
+    height:39px;
 
     position:relative;
 
@@ -211,8 +228,6 @@ body{
     border-radius:
         100% 0 100% 0;
 
-    transform:rotate(-35deg);
-
 }
 
 
@@ -221,6 +236,9 @@ body{
     left:3px;
 
     top:1px;
+
+    transform:
+        rotate(-35deg);
 
 }
 
@@ -244,10 +262,10 @@ body{
 
     top:10px;
 
+    background:#75d6ad;
+
     transform:
         rotate(-5deg);
-
-    background:#75d6ad;
 
 }
 
@@ -260,11 +278,11 @@ body{
 
     height:20px;
 
-    background:#d8b58a;
+    left:17px;
 
     bottom:0;
 
-    left:17px;
+    background:#d8b58a;
 
     border-radius:4px;
 
@@ -272,35 +290,30 @@ body{
 
 
 /* =====================================================
-   TITLE
+   HEADER TEXT
 ===================================================== */
 
-.header-title{
+.header-text h1{
 
     font-family:
         "Manrope",
         sans-serif;
 
-}
-
-
-.header-title h1{
-
-    font-size:18px;
+    font-size:19px;
 
     font-weight:800;
 
 }
 
 
-.header-title p{
+.header-text p{
 
-    margin-top:3px;
-
-    font-size:12px;
+    font-size:11px;
 
     color:
-        rgba(255,255,255,.72);
+        rgba(255,255,255,.68);
+
+    margin-top:3px;
 
 }
 
@@ -318,35 +331,120 @@ body{
     margin:auto;
 
     padding:
-        20px 16px 100px;
+        0 15px 30px;
 
 }
 
 
 /* =====================================================
-   SUMMARY
+   SUMMARY CARD
 ===================================================== */
 
 .summary-card{
 
     background:white;
 
-    border:1px solid var(--border);
+    border:
+        1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:20px;
 
-    padding:18px;
+    padding:19px;
 
-    margin-bottom:20px;
+    margin-top:-8px;
 
     box-shadow:
-        0 8px 25px
-        rgba(8,61,46,.05);
+        0 10px 30px
+        rgba(8,61,46,.07);
 
 }
 
 
-.summary-title{
+.summary-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+.summary-icon{
+
+    width:45px;
+
+    height:45px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        var(--light-green);
+
+    color:
+        var(--evergreen);
+
+}
+
+
+.summary-icon i{
+
+    font-size:18px;
+
+}
+
+
+.summary-text h2{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:15px;
+
+    font-weight:800;
+
+}
+
+
+.summary-text p{
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
+    margin-top:3px;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:
+        22px 2px 11px;
+
+}
+
+
+.section-title h3{
 
     font-family:
         "Manrope",
@@ -356,16 +454,15 @@ body{
 
     font-weight:800;
 
-    margin-bottom:5px;
-
 }
 
 
-.summary-text{
+.section-title span{
 
-    font-size:12px;
+    font-size:11px;
 
-    color:var(--muted);
+    color:
+        var(--muted);
 
 }
 
@@ -380,7 +477,7 @@ body{
 
     flex-direction:column;
 
-    gap:12px;
+    gap:11px;
 
 }
 
@@ -391,41 +488,46 @@ body{
 
 .transaction{
 
-    background:
-        var(--white);
+    position:relative;
+
+    background:white;
 
     border:
         1px solid var(--border);
 
-    border-radius:16px;
+    border-radius:17px;
 
-    padding:16px;
+    padding:15px;
 
     box-shadow:
         0 5px 18px
-        rgba(8,61,46,.04);
+        rgba(8,61,46,.035);
+
+    overflow:hidden;
 
 }
 
 
 /* =====================================================
-   TOP
+   TRANSACTION TOP
 ===================================================== */
 
 .top{
 
     display:flex;
 
-    justify-content:space-between;
-
     align-items:center;
+
+    justify-content:space-between;
 
     gap:12px;
 
-    margin-bottom:10px;
-
 }
 
+
+/* =====================================================
+   TYPE
+===================================================== */
 
 .type{
 
@@ -433,9 +535,9 @@ body{
         "Manrope",
         sans-serif;
 
-    font-weight:800;
+    font-size:14px;
 
-    font-size:15px;
+    font-weight:800;
 
     color:
         var(--text);
@@ -443,13 +545,17 @@ body{
 }
 
 
+/* =====================================================
+   AMOUNT
+===================================================== */
+
 .amount{
 
     font-family:
         "Manrope",
         sans-serif;
 
-    font-size:16px;
+    font-size:15px;
 
     font-weight:800;
 
@@ -460,7 +566,7 @@ body{
 
 
 /* =====================================================
-   STATUS
+   STATUS ROW
 ===================================================== */
 
 .status{
@@ -469,12 +575,16 @@ body{
 
     align-items:center;
 
+    justify-content:center;
+
+    margin-top:9px;
+
     padding:
         5px 10px;
 
     border-radius:30px;
 
-    font-size:11px;
+    font-size:10px;
 
     font-weight:700;
 
@@ -483,46 +593,54 @@ body{
 }
 
 
-/* Existing transaction.js statuses */
+/* =====================================================
+   STATUS COLORS
+===================================================== */
 
 .Pending{
 
-    background:#f59e0b;
+    background:
+        var(--orange);
 
 }
 
 
 .Approved{
 
-    background:#20a873;
+    background:
+        var(--green);
 
 }
 
 
 .Rejected{
 
-    background:#ef4444;
+    background:
+        var(--red);
 
 }
 
 
 .Active{
 
-    background:#3b82f6;
+    background:
+        var(--blue);
 
 }
 
 
 .Completed{
 
-    background:#6b7280;
+    background:
+        #6b7280;
 
 }
 
 
 .Credited{
 
-    background:#20a873;
+    background:
+        var(--green);
 
 }
 
@@ -533,18 +651,28 @@ body{
 
 .date{
 
-    font-size:12px;
-
-    color:
-        var(--muted);
-
-    margin-top:10px;
-
     display:flex;
 
     align-items:center;
 
     gap:6px;
+
+    margin-top:9px;
+
+    font-size:11px;
+
+    color:
+        var(--muted);
+
+}
+
+
+.date i{
+
+    font-size:10px;
+
+    color:
+        #91a49b;
 
 }
 
@@ -560,24 +688,40 @@ body{
     border:
         1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:20px;
 
-    padding:40px 20px;
+    padding:
+        45px 20px;
 
     text-align:center;
-
-    color:var(--muted);
 
 }
 
 
 .empty-state i{
 
-    font-size:30px;
+    width:58px;
 
-    color:#9ab8aa;
+    height:58px;
 
-    margin-bottom:12px;
+    border-radius:18px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    margin:
+        0 auto 15px;
+
+    background:
+        var(--light-green);
+
+    color:
+        var(--evergreen);
+
+    font-size:22px;
 
 }
 
@@ -590,9 +734,7 @@ body{
 
     font-size:15px;
 
-    color:var(--text);
-
-    margin-bottom:5px;
+    margin-bottom:6px;
 
 }
 
@@ -600,6 +742,11 @@ body{
 .empty-state p{
 
     font-size:12px;
+
+    color:
+        var(--muted);
+
+    line-height:1.6;
 
 }
 
@@ -612,11 +759,11 @@ body{
 
     position:fixed;
 
-    bottom:0;
-
     left:0;
 
     right:0;
+
+    bottom:0;
 
     height:68px;
 
@@ -627,25 +774,21 @@ body{
 
     display:flex;
 
+    align-items:center;
+
     justify-content:
         space-around;
 
-    align-items:center;
-
-    z-index:100;
+    z-index:1000;
 
     box-shadow:
         0 -5px 20px
-        rgba(8,61,46,.05);
+        rgba(8,61,46,.06);
 
 }
 
 
 .bottom-nav a{
-
-    text-decoration:none;
-
-    color:#8b9993;
 
     display:flex;
 
@@ -653,7 +796,13 @@ body{
 
     align-items:center;
 
+    justify-content:center;
+
     gap:4px;
+
+    text-decoration:none;
+
+    color:#8b9993;
 
     font-size:10px;
 
@@ -677,17 +826,32 @@ body{
 }
 
 
+.bottom-nav a.active i{
+
+    transform:
+        translateY(-1px);
+
+}
+
+
 /* =====================================================
-   RESPONSIVE
+   MOBILE
 ===================================================== */
 
 @media(max-width:420px){
 
     .container{
 
-        padding-left:13px;
+        padding-left:12px;
 
-        padding-right:13px;
+        padding-right:12px;
+
+    }
+
+
+    .summary-card{
+
+        padding:16px;
 
     }
 
@@ -701,14 +865,14 @@ body{
 
     .type{
 
-        font-size:14px;
+        font-size:13px;
 
     }
 
 
     .amount{
 
-        font-size:15px;
+        font-size:14px;
 
     }
 
@@ -754,14 +918,14 @@ body{
         </div>
 
 
-        <div class="header-title">
+        <div class="header-text">
 
             <h1>
-                Transaction History
+                Transactions
             </h1>
 
             <p>
-                Your account activity
+                Evergreen Investments
             </p>
 
         </div>
@@ -780,21 +944,35 @@ body{
 <main class="container">
 
 
-    <!-- SUMMARY -->
+    <!-- =================================================
+         SUMMARY
+    ================================================== -->
 
     <div class="summary-card">
 
-        <div class="summary-title">
-
-            Account Activity
-
-        </div>
+        <div class="summary-top">
 
 
-        <div class="summary-text">
+            <div class="summary-icon">
 
-            View your deposits, withdrawals,
-            investments and earnings.
+                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+            </div>
+
+
+            <div class="summary-text">
+
+                <h2>
+                    Account Activity
+                </h2>
+
+                <p>
+                    Deposits, withdrawals, investments
+                    and earnings
+                </p>
+
+            </div>
+
 
         </div>
 
@@ -802,7 +980,27 @@ body{
 
 
 
-    <!-- TRANSACTIONS -->
+    <!-- =================================================
+         SECTION TITLE
+    ================================================== -->
+
+    <div class="section-title">
+
+        <h3>
+            Recent Transactions
+        </h3>
+
+        <span>
+            Account history
+        </span>
+
+    </div>
+
+
+
+    <!-- =================================================
+         TRANSACTIONS
+    ================================================== -->
 
     <div id="transactions">
 
@@ -874,7 +1072,7 @@ body{
 
 
 <!-- =====================================================
-     EXISTING TRANSACTION JAVASCRIPT
+     EXISTING TRANSACTION SCRIPT
 ===================================================== -->
 
 <script src="transaction.js"></script>
@@ -882,4 +1080,4 @@ body{
 
 </body>
 
-              </html>
+    </html>
