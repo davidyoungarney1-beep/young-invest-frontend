@@ -12,15 +12,10 @@
 
 <meta
     name="theme-color"
-    content="#083d2e"
+    content="#0b3d2e"
 >
 
-<title>
-    My Investments | Evergreen Investments
-</title>
-
-
-<!-- GOOGLE FONTS -->
+<title>My Investments | Evergreen Investments</title>
 
 <link
     rel="preconnect"
@@ -38,9 +33,6 @@
     rel="stylesheet"
 >
 
-
-<!-- FONT AWESOME -->
-
 <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -55,27 +47,25 @@
 
 :root{
 
-    --evergreen:#147a58;
-    --evergreen-dark:#083d2e;
-
+    --dark:#092f25;
+    --evergreen:#137957;
     --green:#20a873;
-    --mint:#e8f7f0;
 
-    --background:#f4f8f6;
+    --background:#f5f8f6;
 
     --white:#ffffff;
 
-    --text:#12251e;
+    --text:#10231d;
 
-    --muted:#718079;
+    --muted:#718078;
 
-    --border:#e1ebe6;
+    --border:#e2ebe6;
 
-    --orange:#f59e0b;
+    --soft:#edf8f3;
 
-    --blue:#3b82f6;
+    --gold:#c79b45;
 
-    --red:#ef4444;
+    --red:#e05252;
 
 }
 
@@ -87,7 +77,6 @@
 *{
 
     margin:0;
-
     padding:0;
 
     box-sizing:border-box;
@@ -95,340 +84,64 @@
 }
 
 
-/* =====================================================
-   BODY
-===================================================== */
+html{
+
+    scroll-behavior:smooth;
+
+}
+
 
 body{
 
-    font-family:
-        "DM Sans",
-        sans-serif;
+    font-family:"DM Sans",sans-serif;
 
-    background:
-        var(--background);
+    background:var(--background);
 
-    color:
-        var(--text);
+    color:var(--text);
 
     min-height:100vh;
 
-    padding-bottom:85px;
+    padding-bottom:90px;
 
 }
 
 
 /* =====================================================
-   HEADER
+   TOP AREA
 ===================================================== */
 
-.header{
+.top-area{
 
     background:
         linear-gradient(
-            135deg,
-            #062f24,
-            #083d2e 50%,
-            #147a58
+            145deg,
+            #061f18,
+            #092f25 55%,
+            #0e5b42
         );
 
-    color:white;
-
     padding:
-        17px 16px 25px;
+        18px 16px 34px;
+
+    color:white;
 
 }
 
 
-.header-inner{
+.top-inner{
 
     max-width:700px;
 
     margin:auto;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:13px;
-
 }
 
 
 /* =====================================================
-   BACK BUTTON
+   TOP BAR
 ===================================================== */
 
-.back-button{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.12);
-
-    color:white;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-decoration:none;
-
-    flex-shrink:0;
-
-}
-
-
-.back-button i{
-
-    font-size:15px;
-
-}
-
-
-/* =====================================================
-   EVERGREEN LOGO
-===================================================== */
-
-.evergreen-logo{
-
-    width:40px;
-
-    height:40px;
-
-    position:relative;
-
-    flex-shrink:0;
-
-}
-
-
-.logo-leaf{
-
-    position:absolute;
-
-    width:18px;
-
-    height:25px;
-
-    background:#20a873;
-
-    border-radius:
-        100% 0 100% 0;
-
-}
-
-
-.logo-leaf.one{
-
-    left:3px;
-
-    top:1px;
-
-    transform:
-        rotate(-35deg);
-
-}
-
-
-.logo-leaf.two{
-
-    right:2px;
-
-    top:1px;
-
-    transform:
-        rotate(35deg)
-        scaleX(-1);
-
-}
-
-
-.logo-leaf.three{
-
-    left:11px;
-
-    top:11px;
-
-    background:#75d6ad;
-
-    transform:
-        rotate(-5deg);
-
-}
-
-
-.logo-trunk{
-
-    position:absolute;
-
-    width:5px;
-
-    height:20px;
-
-    left:18px;
-
-    bottom:0;
-
-    background:#d8b58a;
-
-    border-radius:4px;
-
-}
-
-
-/* =====================================================
-   HEADER TEXT
-===================================================== */
-
-.header-text h1{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:19px;
-
-    font-weight:800;
-
-}
-
-
-.header-text p{
-
-    margin-top:3px;
-
-    font-size:11px;
-
-    color:
-        rgba(255,255,255,.70);
-
-}
-
-
-/* =====================================================
-   CONTAINER
-===================================================== */
-
-.container{
-
-    width:100%;
-
-    max-width:700px;
-
-    margin:auto;
-
-    padding:
-        20px 15px 30px;
-
-}
-
-
-/* =====================================================
-   INTRO CARD
-===================================================== */
-
-.intro-card{
-
-    background:white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:19px;
-
-    padding:18px;
-
-    margin-bottom:20px;
-
-    box-shadow:
-        0 8px 25px
-        rgba(8,61,46,.05);
-
-}
-
-
-.intro-top{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:12px;
-
-}
-
-
-.intro-icon{
-
-    width:46px;
-
-    height:46px;
-
-    border-radius:14px;
-
-    background:
-        var(--mint);
-
-    color:
-        var(--evergreen);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    flex-shrink:0;
-
-}
-
-
-.intro-icon i{
-
-    font-size:19px;
-
-}
-
-
-.intro-text h2{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:15px;
-
-    font-weight:800;
-
-}
-
-
-.intro-text p{
-
-    color:
-        var(--muted);
-
-    font-size:11px;
-
-    line-height:1.5;
-
-    margin-top:3px;
-
-}
-
-
-/* =====================================================
-   SECTION TITLE
-===================================================== */
-
-.section-heading{
+.top-bar{
 
     display:flex;
 
@@ -436,17 +149,197 @@ body{
 
     justify-content:space-between;
 
-    margin:
-        0 2px 11px;
+}
+
+
+.back-link{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    background:
+        rgba(255,255,255,.10);
+
+    text-decoration:none;
 
 }
 
 
-.section-heading h3{
+.mine-label{
 
-    font-family:
-        "Manrope",
-        sans-serif;
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.4px;
+
+    color:
+        rgba(255,255,255,.75);
+
+}
+
+
+.mine-label i{
+
+    font-size:13px;
+
+}
+
+
+/* =====================================================
+   PAGE TITLE
+===================================================== */
+
+.page-title{
+
+    margin-top:27px;
+
+}
+
+
+.page-title small{
+
+    font-size:10px;
+
+    color:
+        rgba(255,255,255,.58);
+
+}
+
+
+.page-title h1{
+
+    margin-top:5px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:26px;
+
+    font-weight:800;
+
+}
+
+
+.page-title p{
+
+    margin-top:5px;
+
+    max-width:430px;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    color:
+        rgba(255,255,255,.67);
+
+}
+
+
+/* =====================================================
+   PORTFOLIO SUMMARY
+===================================================== */
+
+.portfolio-summary{
+
+    max-width:700px;
+
+    margin:
+        -20px auto 0;
+
+    padding:
+        0 15px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+
+.summary-card{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:17px;
+
+    box-shadow:
+        0 12px 30px
+        rgba(8,61,46,.08);
+
+}
+
+
+.summary-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:10px;
+
+}
+
+
+.summary-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.summary-icon{
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:13px;
+
+    background:var(--soft);
+
+    color:var(--evergreen);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.summary-title h2{
+
+    font-family:"Manrope",sans-serif;
 
     font-size:14px;
 
@@ -455,18 +348,128 @@ body{
 }
 
 
-.section-heading span{
+.summary-title p{
+
+    margin-top:2px;
+
+    font-size:9px;
+
+    color:var(--muted);
+
+}
+
+
+.mine-badge{
+
+    padding:
+        6px 10px;
+
+    border-radius:30px;
+
+    background:#f5f1e8;
+
+    color:#94702f;
+
+    border:
+        1px solid #eadfc8;
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+.summary-line{
+
+    height:1px;
+
+    background:var(--border);
+
+    margin:15px 0;
+
+}
+
+
+.summary-note{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:var(--muted);
 
     font-size:10px;
 
-    color:
-        var(--muted);
+}
+
+
+.summary-note i{
+
+    color:var(--green);
 
 }
 
 
 /* =====================================================
-   INVESTMENT CONTAINER
+   MAIN
+===================================================== */
+
+.main{
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:
+        22px 15px 30px;
+
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-header{
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+    margin-bottom:12px;
+
+}
+
+
+.section-header h2{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:15px;
+
+    font-weight:800;
+
+}
+
+
+.section-header span{
+
+    color:var(--muted);
+
+    font-size:9px;
+
+}
+
+
+/* =====================================================
+   INVESTMENT LIST
 ===================================================== */
 
 #investmentContainer{
@@ -475,40 +478,40 @@ body{
 
     flex-direction:column;
 
-    gap:13px;
+    gap:14px;
 
 }
 
 
 /* =====================================================
-   INVESTMENT CARD
+   INVESTMENT ITEM
 ===================================================== */
 
-.card{
+.investment-item{
 
     background:white;
 
     border:
         1px solid var(--border);
 
-    border-radius:18px;
+    border-radius:19px;
 
     overflow:hidden;
 
     box-shadow:
         0 6px 20px
-        rgba(8,61,46,.045);
+        rgba(8,61,46,.04);
 
 }
 
 
 /* =====================================================
-   CARD HEADER
+   ITEM TOP
 ===================================================== */
 
-.card-header{
+.item-top{
 
-    padding:16px;
+    padding:15px;
 
     display:flex;
 
@@ -516,15 +519,12 @@ body{
 
     justify-content:space-between;
 
-    gap:12px;
-
-    border-bottom:
-        1px solid var(--border);
+    gap:10px;
 
 }
 
 
-.plan-info{
+.plan-left{
 
     display:flex;
 
@@ -537,19 +537,24 @@ body{
 }
 
 
-.plan-icon{
+.plan-symbol{
 
     width:43px;
 
     height:43px;
 
-    border-radius:13px;
+    flex-shrink:0;
+
+    border-radius:14px;
 
     background:
-        var(--mint);
+        linear-gradient(
+            145deg,
+            #e5f6ee,
+            #f4fbf8
+        );
 
-    color:
-        var(--evergreen);
+    color:var(--evergreen);
 
     display:flex;
 
@@ -557,25 +562,28 @@ body{
 
     justify-content:center;
 
-    flex-shrink:0;
+}
+
+
+.plan-symbol i{
+
+    font-size:16px;
 
 }
 
 
-.plan-icon i{
+.plan-name{
 
-    font-size:17px;
+    min-width:0;
 
 }
 
 
-.plan-info h2{
+.plan-name h3{
 
-    font-family:
-        "Manrope",
-        sans-serif;
+    font-family:"Manrope",sans-serif;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:800;
 
@@ -588,14 +596,13 @@ body{
 }
 
 
-.plan-info p{
+.plan-name p{
 
     margin-top:3px;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:10px;
+    font-size:9px;
 
 }
 
@@ -606,125 +613,107 @@ body{
 
 .status{
 
+    flex-shrink:0;
+
     padding:
-        5px 10px;
+        5px 9px;
 
     border-radius:30px;
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:700;
-
-    white-space:nowrap;
 
 }
 
 
 .status.running{
 
-    background:#e8f7f0;
+    background:#e7f7ef;
 
-    color:
-        var(--evergreen);
-
-    border:
-        1px solid #bce6d3;
+    color:#137957;
 
 }
 
 
 .status.completed{
 
-    background:#edf4ff;
+    background:#edf2f0;
 
-    color:
-        var(--blue);
-
-    border:
-        1px solid #c8dcfa;
+    color:#65736d;
 
 }
 
 
 /* =====================================================
-   CARD CONTENT
+   AMOUNT PANEL
 ===================================================== */
 
-.card-content{
+.amount-panel{
 
-    padding:16px;
+    margin:
+        0 15px;
 
-}
+    padding:
+        14px;
 
-
-/* =====================================================
-   MAIN INVESTMENT VALUE
-===================================================== */
-
-.main-stat{
+    border-radius:15px;
 
     background:
         linear-gradient(
             135deg,
-            #f1faf6,
+            #f0faf5,
             #f8fcfa
         );
 
     border:
-        1px solid #dfeee7;
-
-    border-radius:14px;
-
-    padding:15px;
-
-    margin-bottom:14px;
+        1px solid #deeee7;
 
 }
 
 
-.main-stat p{
+.amount-label{
 
-    font-size:10px;
+    color:var(--muted);
 
-    color:
-        var(--muted);
-
-    margin-bottom:4px;
+    font-size:9px;
 
 }
 
 
-.main-stat h3{
+.amount{
 
-    font-family:
-        "Manrope",
-        sans-serif;
+    margin-top:3px;
+
+    font-family:"Manrope",sans-serif;
+
+    color:var(--evergreen);
 
     font-size:23px;
 
     font-weight:800;
 
-    color:
-        var(--evergreen);
-
 }
 
 
 /* =====================================================
-   DETAILS GRID
+   DETAILS
 ===================================================== */
 
-.details-grid{
+.details{
 
     display:grid;
 
     grid-template-columns:
-        repeat(2,1fr);
+        repeat(3,1fr);
+
+    margin:
+        15px;
 
     border:
         1px solid var(--border);
 
-    border-radius:13px;
+    border-radius:14px;
 
     overflow:hidden;
 
@@ -733,27 +722,18 @@ body{
 
 .detail{
 
-    padding:13px;
+    padding:
+        11px 9px;
 
     border-right:
         1px solid var(--border);
 
-    border-bottom:
-        1px solid var(--border);
-
 }
 
 
-.detail:nth-child(2n){
+.detail:last-child{
 
     border-right:none;
-
-}
-
-
-.detail:nth-last-child(-n+2){
-
-    border-bottom:none;
 
 }
 
@@ -762,28 +742,22 @@ body{
 
     display:block;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:9px;
+    font-size:8px;
 
-    margin-bottom:5px;
+    margin-bottom:4px;
 
 }
 
 
 .detail-value{
 
-    font-family:
-        "Manrope",
-        sans-serif;
+    font-family:"Manrope",sans-serif;
 
-    font-size:12px;
+    font-size:11px;
 
     font-weight:700;
-
-    color:
-        var(--text);
 
     word-break:break-word;
 
@@ -794,14 +768,15 @@ body{
    PROGRESS
 ===================================================== */
 
-.progress-section{
+.progress-area{
 
-    margin-top:16px;
+    padding:
+        0 15px 16px;
 
 }
 
 
-.progress-top{
+.progress-head{
 
     display:flex;
 
@@ -809,36 +784,34 @@ body{
 
     justify-content:space-between;
 
-    margin-bottom:7px;
+    margin-bottom:6px;
 
 }
 
 
-.progress-top span{
+.progress-head span{
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:10px;
-
-}
-
-
-.progress-top strong{
-
-    color:
-        var(--evergreen);
-
-    font-size:10px;
+    font-size:9px;
 
 }
 
 
-.progress-bar{
+.progress-head strong{
+
+    color:var(--evergreen);
+
+    font-size:9px;
+
+}
+
+
+.progress-track{
 
     width:100%;
 
-    height:7px;
+    height:6px;
 
     background:#e8efeb;
 
@@ -849,66 +822,57 @@ body{
 }
 
 
-.progress-fill{
+.progress-bar{
 
     height:100%;
+
+    border-radius:20px;
 
     background:
         linear-gradient(
             90deg,
-            #147a58,
+            #137957,
             #20a873
         );
-
-    border-radius:20px;
-
-    transition:
-        width .5s ease;
 
 }
 
 
 /* =====================================================
-   EMPTY STATE
+   EMPTY
 ===================================================== */
 
-.empty{
+.empty-state{
 
     background:white;
 
     border:
         1px solid var(--border);
 
-    border-radius:19px;
+    border-radius:20px;
 
     padding:
-        45px 20px;
+        50px 20px;
 
     text-align:center;
-
-    box-shadow:
-        0 7px 20px
-        rgba(8,61,46,.04);
 
 }
 
 
 .empty-icon{
 
-    width:60px;
+    width:62px;
 
-    height:60px;
+    height:62px;
 
     margin:
-        0 auto 14px;
+        0 auto 15px;
 
-    border-radius:18px;
+    border-radius:19px;
 
-    background:
-        var(--mint);
+    background:var(--soft);
 
-    color:
-        var(--evergreen);
+    color:var(--evergreen);
 
     display:flex;
 
@@ -916,30 +880,29 @@ body{
 
     justify-content:center;
 
-    font-size:23px;
+    font-size:22px;
 
 }
 
 
-.empty h3{
+.empty-state h3{
 
-    font-family:
-        "Manrope",
-        sans-serif;
+    font-family:"Manrope",sans-serif;
 
     font-size:15px;
 
 }
 
 
-.empty p{
+.empty-state p{
 
     margin-top:6px;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:11px;
+    font-size:10px;
+
+    line-height:1.5;
 
 }
 
@@ -948,52 +911,56 @@ body{
    ERROR
 ===================================================== */
 
-.error{
+.error-state{
 
     background:white;
 
     border:
-        1px solid #fecaca;
+        1px solid #f1d2d2;
 
-    border-left:
-        4px solid var(--red);
+    border-radius:18px;
 
-    border-radius:14px;
-
-    padding:20px;
+    padding:30px 20px;
 
     text-align:center;
 
 }
 
 
-.error h3{
+.error-state i{
 
-    color:
-        var(--red);
+    color:var(--red);
+
+    font-size:22px;
+
+}
+
+
+.error-state h3{
+
+    margin-top:10px;
 
     font-size:14px;
 
 }
 
 
-.error p{
+.error-state p{
 
     margin-top:5px;
 
-    color:
-        var(--muted);
+    color:var(--muted);
 
-    font-size:11px;
+    font-size:10px;
 
 }
 
 
 /* =====================================================
-   BACK BUTTON
+   MINE BUTTON
 ===================================================== */
 
-.back-btn{
+.mine-button{
 
     width:100%;
 
@@ -1003,12 +970,17 @@ body{
 
     border:none;
 
-    border-radius:13px;
+    border-radius:14px;
 
-    background:
-        var(--evergreen-dark);
+    background:var(--dark);
 
     color:white;
+
+    font-family:"DM Sans",sans-serif;
+
+    font-size:11px;
+
+    font-weight:700;
 
     display:flex;
 
@@ -1018,34 +990,44 @@ body{
 
     gap:8px;
 
-    font-family:
-        "DM Sans",
-        sans-serif;
-
-    font-size:12px;
-
-    font-weight:700;
-
     cursor:pointer;
 
 }
 
 
 /* =====================================================
-   BOTTOM NAVIGATION
+   FOOTER
+===================================================== */
+
+footer{
+
+    text-align:center;
+
+    padding:
+        5px 15px 25px;
+
+    color:#91a09a;
+
+    font-size:9px;
+
+}
+
+
+/* =====================================================
+   BOTTOM NAV
 ===================================================== */
 
 .bottom-nav{
 
     position:fixed;
 
-    bottom:0;
-
     left:0;
 
     right:0;
 
-    height:68px;
+    bottom:0;
+
+    height:70px;
 
     background:white;
 
@@ -1056,19 +1038,26 @@ body{
 
     align-items:center;
 
-    justify-content:
-        space-around;
-
-    z-index:1000;
+    justify-content:space-around;
 
     box-shadow:
         0 -5px 20px
-        rgba(8,61,46,.06);
+        rgba(8,61,46,.07);
+
+    z-index:1000;
 
 }
 
 
 .bottom-nav a{
+
+    position:relative;
+
+    min-width:55px;
+
+    text-decoration:none;
+
+    color:#89958f;
 
     display:flex;
 
@@ -1078,11 +1067,7 @@ body{
 
     gap:4px;
 
-    text-decoration:none;
-
-    color:#8b9993;
-
-    font-size:10px;
+    font-size:9px;
 
     font-weight:600;
 
@@ -1098,26 +1083,26 @@ body{
 
 .bottom-nav a.active{
 
-    color:
-        var(--evergreen);
+    color:var(--evergreen);
 
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+.bottom-nav a.active::before{
 
-footer{
+    content:"";
 
-    text-align:center;
+    position:absolute;
 
-    padding:
-        10px 15px 25px;
+    top:-14px;
 
-    color:#91a09a;
+    width:28px;
 
-    font-size:9px;
+    height:3px;
+
+    border-radius:10px;
+
+    background:var(--green);
 
 }
 
@@ -1126,9 +1111,9 @@ footer{
    MOBILE
 ===================================================== */
 
-@media(max-width:420px){
+@media(max-width:430px){
 
-    .container{
+    .main{
 
         padding-left:12px;
 
@@ -1137,47 +1122,48 @@ footer{
     }
 
 
-    .card-header{
+    .portfolio-summary{
 
-        padding:14px;
+        padding-left:12px;
 
-    }
-
-
-    .card-content{
-
-        padding:14px;
+        padding-right:12px;
 
     }
 
 
-    .plan-info h2{
+    .page-title h1{
 
-        font-size:13px;
-
-    }
-
-
-    .status{
-
-        font-size:9px;
-
-        padding:
-            5px 8px;
+        font-size:24px;
 
     }
 
 
-    .main-stat h3{
+    .details{
 
-        font-size:21px;
+        grid-template-columns:
+            repeat(3,1fr);
 
     }
 
 
     .detail{
 
-        padding:11px;
+        padding:
+            10px 7px;
+
+    }
+
+
+    .detail-value{
+
+        font-size:10px;
+
+    }
+
+
+    .amount{
+
+        font-size:21px;
 
     }
 
@@ -1192,45 +1178,50 @@ footer{
 
 
 <!-- =====================================================
-     HEADER
+     TOP
 ===================================================== -->
 
-<header class="header">
+<header class="top-area">
 
-    <div class="header-inner">
-
-
-        <a
-            href="dashboard.html"
-            class="back-button"
-        >
-
-            <i class="fa-solid fa-arrow-left"></i>
-
-        </a>
+    <div class="top-inner">
 
 
-        <div class="evergreen-logo">
+        <div class="top-bar">
 
-            <div class="logo-leaf one"></div>
+            <a
+                href="dashboard.html"
+                class="back-link"
+            >
 
-            <div class="logo-leaf two"></div>
+                <i class="fa-solid fa-arrow-left"></i>
 
-            <div class="logo-leaf three"></div>
+            </a>
 
-            <div class="logo-trunk"></div>
+
+            <div class="mine-label">
+
+                <i class="fa-solid fa-user"></i>
+
+                MINE
+
+            </div>
 
         </div>
 
 
-        <div class="header-text">
+        <div class="page-title">
+
+            <small>
+                ACCOUNT PORTFOLIO
+            </small>
 
             <h1>
                 My Investments
             </h1>
 
             <p>
-                Monitor your active investment plans
+                View and monitor the investment plans
+                connected to your account.
             </p>
 
         </div>
@@ -1243,90 +1234,101 @@ footer{
 
 
 <!-- =====================================================
-     MAIN
+     SUMMARY
 ===================================================== -->
 
-<main class="container">
+<section class="portfolio-summary">
+
+    <div class="summary-card">
 
 
-    <!-- =================================================
-         INTRO
-    ================================================== -->
-
-    <div class="intro-card">
-
-        <div class="intro-top">
+        <div class="summary-top">
 
 
-            <div class="intro-icon">
+            <div class="summary-title">
 
-                <i class="fa-solid fa-chart-line"></i>
+                <div class="summary-icon">
+
+                    <i class="fa-solid fa-chart-pie"></i>
+
+                </div>
+
+
+                <div>
+
+                    <h2>
+                        My Portfolio
+                    </h2>
+
+                    <p>
+                        Your personal investments
+                    </p>
+
+                </div>
 
             </div>
 
 
-            <div class="intro-text">
+            <div class="mine-badge">
 
-                <h2>
-                    Investment Portfolio
-                </h2>
-
-                <p>
-                    Track your investment amount,
-                    earnings, progress and completion dates.
-                </p>
+                Mine
 
             </div>
 
 
         </div>
 
+
+        <div class="summary-line"></div>
+
+
+        <div class="summary-note">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+            Your investment information is connected
+            to your account.
+
+        </div>
+
+
     </div>
 
+</section>
 
 
-    <!-- =================================================
-         SECTION
-    ================================================== -->
 
-    <div class="section-heading">
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
-        <h3>
-            Your Investments
-        </h3>
+<main class="main">
+
+
+    <div class="section-header">
+
+        <h2>
+            Investment Plans
+        </h2>
 
         <span>
-            Active plans
+            My account
         </span>
 
     </div>
 
 
+    <div id="investmentContainer"></div>
 
-    <!-- =================================================
-         INVESTMENTS
-    ================================================== -->
-
-    <div id="investmentContainer">
-
-        <!-- Investments load here -->
-
-    </div>
-
-
-
-    <!-- =================================================
-         BACK
-    ================================================== -->
 
     <button
-        class="back-btn"
+        class="mine-button"
         onclick="window.location.href='dashboard.html'"
     >
 
-        <i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-user"></i>
 
-        Back to Mine
+        Return to Mine
 
     </button>
 
@@ -1337,7 +1339,7 @@ footer{
 
 <footer>
 
-    © 2026 Evergreen Investments. All Rights Reserved.
+    © 2026 Evergreen Investments
 
 </footer>
 
@@ -1361,15 +1363,12 @@ footer{
     </a>
 
 
-    <a
-        href="investment.html"
-        class="active"
-    >
+    <a href="investment.html">
 
         <i class="fa-solid fa-box-open"></i>
 
         <span>
-            Products
+            Product
         </span>
 
     </a>
@@ -1386,7 +1385,12 @@ footer{
     </a>
 
 
-    <a href="dashboard.html">
+    <!-- MINE IS ACTIVE -->
+
+    <a
+        href="dashboard.html"
+        class="active"
+    >
 
         <i class="fa-solid fa-user"></i>
 
@@ -1458,14 +1462,14 @@ async function loadInvestments(){
 
 
         /* =================================================
-           NO INVESTMENTS
+           EMPTY
         ================================================== */
 
         if(!investments.length){
 
             container.innerHTML = `
 
-                <div class="empty">
+                <div class="empty-state">
 
                     <div class="empty-icon">
 
@@ -1473,14 +1477,13 @@ async function loadInvestments(){
 
                     </div>
 
-
                     <h3>
-                        No Active Investment Yet
+                        No Investments Yet
                     </h3>
 
-
                     <p>
-                        Start an investment plan to see it here.
+                        Your investment plans will appear
+                        here after you start one.
                     </p>
 
                 </div>
@@ -1493,7 +1496,7 @@ async function loadInvestments(){
 
 
         /* =================================================
-           DISPLAY INVESTMENTS
+           DISPLAY
         ================================================== */
 
         investments.forEach(item => {
@@ -1534,10 +1537,6 @@ async function loadInvestments(){
             }
 
 
-            /* =================================================
-               PROGRESS
-            ================================================= */
-
             const duration =
                 Number(
                     item.duration
@@ -1566,33 +1565,33 @@ async function loadInvestments(){
 
             container.innerHTML += `
 
-                <div class="card">
+                <article class="investment-item">
 
 
-                    <div class="card-header">
+                    <div class="item-top">
 
 
-                        <div class="plan-info">
+                        <div class="plan-left">
 
 
-                            <div class="plan-icon">
+                            <div class="plan-symbol">
 
-                                                              <i class="fa-solid fa-chart-line"></i>
+                                <i class="fa-solid fa-chart-line"></i>
 
                             </div>
 
 
-                            <div>
+                            <div class="plan-name">
 
-                                <h2>
+                                <h3>
                                     ${
                                         item.planName ||
                                         "Investment Plan"
                                     }
-                                </h2>
+                                </h3>
 
                                 <p>
-                                    Investment Account
+                                    Evergreen Investment
                                 </p>
 
                             </div>
@@ -1601,7 +1600,9 @@ async function loadInvestments(){
                         </div>
 
 
-                        <span class="status ${statusClass}">
+                        <span
+                            class="status ${statusClass}"
+                        >
                             ${status}
                         </span>
 
@@ -1609,137 +1610,71 @@ async function loadInvestments(){
                     </div>
 
 
-                    <div class="card-content">
+                    <div class="amount-panel">
+
+                        <div class="amount-label">
+                            Investment Amount
+                        </div>
+
+                        <div class="amount">
+
+                            ₦${Number(
+                                item.amount || 0
+                            ).toLocaleString()}
+
+                        </div>
+
+                    </div>
 
 
-                        <div class="main-stat">
+                    <div class="details">
 
-                            <p>
-                                Investment Amount
-                            </p>
 
-                            <h3>
+                        <div class="detail">
+
+                            <span class="detail-label">
+                                Daily Profit
+                            </span>
+
+                            <span class="detail-value">
+
                                 ₦${Number(
-                                    item.amount || 0
+                                    item.dailyProfit || 0
                                 ).toLocaleString()}
-                            </h3>
+
+                            </span>
 
                         </div>
 
 
-                        <div class="details-grid">
+                        <div class="detail">
 
+                            <span class="detail-label">
+                                Return
+                            </span>
 
-                            <div class="detail">
+                            <span class="detail-value">
 
-                                <span class="detail-label">
-                                    Daily Profit
-                                </span>
+                                ₦${Number(
+                                    item.totalReturn || 0
+                                ).toLocaleString()}
 
-                                <span class="detail-value">
-                                    ₦${Number(
-                                        item.dailyProfit || 0
-                                    ).toLocaleString()}
-                                </span>
-
-                            </div>
-
-
-                            <div class="detail">
-
-                                <span class="detail-label">
-                                    Total Return
-                                </span>
-
-                                <span class="detail-value">
-                                    ₦${Number(
-                                        item.totalReturn || 0
-                                    ).toLocaleString()}
-                                </span>
-
-                            </div>
-
-
-                            <div class="detail">
-
-                                <span class="detail-label">
-                                    Days Paid
-                                </span>
-
-                                <span class="detail-value">
-                                    ${daysPaid} / ${duration}
-                                </span>
-
-                            </div>
-
-
-                            <div class="detail">
-
-                                <span class="detail-label">
-                                    Duration
-                                </span>
-
-                                <span class="detail-value">
-                                    ${duration} Days
-                                </span>
-
-                            </div>
-
-
-                            <div class="detail">
-
-                                <span class="detail-label">
-                                    Start Date
-                                </span>
-
-                                <span class="detail-value">
-                                    ${startDate.toLocaleDateString()}
-                                </span>
-
-                            </div>
-
-
-                            <div class="detail">
-
-                                <span class="detail-label">
-                                    End Date
-                                </span>
-
-                                <span class="detail-value">
-                                    ${endDate.toLocaleDateString()}
-                                </span>
-
-                            </div>
-
+                            </span>
 
                         </div>
 
 
-                        <div class="progress-section">
+                        <div class="detail">
 
+                            <span class="detail-label">
+                                Duration
+                            </span>
 
-                            <div class="progress-top">
+                            <span class="detail-value">
 
-                                <span>
-                                    Investment Progress
-                                </span>
+                                ${duration} Days
 
-                                <strong>
-                                    ${Math.round(progress)}%
-                                </strong>
-
-                            </div>
-
-
-                            <div class="progress-bar">
-
-                                <div
-                                    class="progress-fill"
-                                    style="width:${progress}%"
-                                ></div>
-
-                            </div>
-
+                            </span>
 
                         </div>
 
@@ -1747,7 +1682,87 @@ async function loadInvestments(){
                     </div>
 
 
-                </div>
+                    <div class="details">
+
+
+                        <div class="detail">
+
+                            <span class="detail-label">
+                                Days Paid
+                            </span>
+
+                            <span class="detail-value">
+
+                                ${daysPaid}/${duration}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <span class="detail-label">
+                                Started
+                            </span>
+
+                            <span class="detail-value">
+
+                                ${startDate.toLocaleDateString()}
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="detail">
+
+                            <span class="detail-label">
+                                Ends
+                            </span>
+
+                            <span class="detail-value">
+
+                                ${endDate.toLocaleDateString()}
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+
+                        <div class="progress-head">
+
+                            <span>
+                                Plan Progress
+                            </span>
+
+                            <strong>
+                                ${Math.round(progress)}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="progress-track">
+
+                            <div
+                                class="progress-bar"
+                                style="width:${progress}%"
+                            ></div>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
 
             `;
 
@@ -1766,7 +1781,9 @@ async function loadInvestments(){
 
         container.innerHTML = `
 
-            <div class="error">
+            <div class="error-state">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
 
                 <h3>
                     Unable to Load Investments
@@ -1784,10 +1801,6 @@ async function loadInvestments(){
 
 }
 
-
-/* =====================================================
-   START
-===================================================== */
 
 loadInvestments();
 
