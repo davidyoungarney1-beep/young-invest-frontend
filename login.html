@@ -4,334 +4,215 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login | Evergreen Investments</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<link rel="stylesheet" href="popup.css">
+<meta name="theme-color" content="#063b2f">
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+<title>Home | Evergreen Investments</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
 rel="stylesheet">
 
-<link
-rel="stylesheet"
+<link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 /* =========================================================
-   EVERGREEN INVESTMENTS - LOGIN
+   EVERGREEN INVESTMENTS
+   HOME PAGE
 ========================================================= */
 
 :root{
+
     --green:#0f6b4f;
     --green-dark:#084c3b;
     --green-deep:#063b2f;
     --green-light:#e9f7f1;
     --accent:#1fa774;
-    --text:#14221d;
-    --muted:#718079;
-    --border:#dfe9e4;
+
     --white:#ffffff;
+    --text:#18332b;
+    --muted:#71827c;
+
+    --background:#f5f8f6;
+
+    --shadow:
+        0 8px 25px rgba(6,59,47,0.08);
+
 }
 
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
 
-html,
-body{
-    width:100%;
-    min-height:100%;
 }
 
 body{
+
+    font-family:"Poppins",sans-serif;
+
+    background:var(--background);
+
+    color:var(--text);
 
     min-height:100vh;
 
+    padding-bottom:85px;
+
+}
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+/* =========================================================
+   TOP HEADER
+========================================================= */
+
+.top-header{
+
     background:
-        radial-gradient(
-            circle at 10% 10%,
-            rgba(31,167,116,.20),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 90%,
-            rgba(8,76,59,.30),
-            transparent 32%
-        ),
         linear-gradient(
             135deg,
-            #031c16,
-            #063b2f,
-            #0f6b4f
+            var(--green-deep),
+            var(--green),
+            var(--accent)
         );
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    color:white;
 
-    padding:20px;
+    padding:20px 18px 24px;
+
+    border-radius:
+        0 0 28px 28px;
 
     position:relative;
-    overflow-x:hidden;
+
+    overflow:hidden;
+
 }
 
+.top-header::before{
 
-/* =========================================================
-   BACKGROUND DECORATION
-========================================================= */
-
-body::before{
     content:"";
-    position:fixed;
 
-    width:280px;
-    height:280px;
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
 
     border-radius:50%;
 
-    border:45px solid rgba(255,255,255,.035);
+    background:rgba(255,255,255,0.08);
 
-    top:-120px;
-    right:-90px;
+    right:-70px;
 
-    pointer-events:none;
+    top:-70px;
+
 }
 
-body::after{
-    content:"";
-    position:fixed;
+.top-header::after{
 
-    width:220px;
-    height:220px;
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
 
     border-radius:50%;
 
-    border:35px solid rgba(255,255,255,.035);
+    background:rgba(255,255,255,0.06);
 
-    bottom:-100px;
-    left:-90px;
+    left:-50px;
 
-    pointer-events:none;
+    bottom:-60px;
+
 }
 
-
-/* =========================================================
-   LOGIN CARD
-========================================================= */
-
-.login-box{
+.header-content{
 
     position:relative;
+
     z-index:2;
 
-    width:100%;
-    max-width:430px;
+    display:flex;
 
-    background:rgba(255,255,255,.98);
+    align-items:center;
 
-    border-radius:24px;
-
-    padding:34px 30px;
-
-    box-shadow:
-        0 25px 70px rgba(0,0,0,.35);
-
-    border:1px solid rgba(255,255,255,.35);
+    justify-content:space-between;
 
 }
 
-
-/* =========================================================
-   LOGO
-========================================================= */
-
-.logo{
-
-    width:82px;
-    height:82px;
-
-    margin:0 auto 15px;
+.brand{
 
     display:flex;
+
     align-items:center;
-    justify-content:center;
 
-    border-radius:20px;
-
-    background:#ffffff;
-
-    padding:7px;
-
-    box-shadow:
-        0 8px 22px rgba(6,59,47,.12);
+    gap:11px;
 
 }
 
-.logo img{
+.brand img{
 
-    width:100%;
-    height:100%;
+    width:46px;
 
-    object-fit:contain;
-
-}
-
-
-/* =========================================================
-   BRAND NAME
-========================================================= */
-
-.brand-name{
-
-    text-align:center;
-
-    font-size:21px;
-
-    font-weight:800;
-
-    color:var(--green-dark);
-
-    margin-bottom:4px;
-
-}
-
-.brand-subtitle{
-
-    text-align:center;
-
-    font-size:12px;
-
-    color:var(--muted);
-
-    margin-bottom:24px;
-
-}
-
-
-/* =========================================================
-   WELCOME
-========================================================= */
-
-.login-box h2{
-
-    text-align:center;
-
-    font-size:24px;
-
-    font-weight:700;
-
-    color:var(--text);
-
-    margin-bottom:6px;
-
-}
-
-.login-box > p{
-
-    text-align:center;
-
-    font-size:13px;
-
-    color:var(--muted);
-
-    margin-bottom:24px;
-
-}
-
-
-/* =========================================================
-   INPUT GROUP
-========================================================= */
-
-.input-group{
-
-    position:relative;
-
-    margin-bottom:14px;
-
-}
-
-.input-group input{
-
-    width:100%;
-
-    height:54px;
-
-    border:1px solid var(--border);
+    height:46px;
 
     border-radius:13px;
 
-    background:#f7faf8;
+    object-fit:cover;
 
-    outline:none;
+    background:white;
 
-    font-size:14px;
-
-    padding:0 48px;
-
-    color:var(--text);
-
-    transition:.25s;
+    padding:4px;
 
 }
 
-.input-group input::placeholder{
-    color:#9aa7a1;
-}
+.brand-text h1{
 
-.input-group input:focus{
+    font-size:18px;
 
-    background:#ffffff;
-
-    border-color:var(--accent);
-
-    box-shadow:
-        0 0 0 3px rgba(31,167,116,.11);
+    font-weight:700;
 
 }
 
-.input-icon{
+.brand-text p{
 
-    position:absolute;
+    font-size:11px;
 
-    left:16px;
+    opacity:.82;
 
-    top:50%;
-
-    transform:translateY(-50%);
-
-    color:var(--green);
-
-    font-size:15px;
-
-    pointer-events:none;
+    margin-top:2px;
 
 }
 
+.notification-icon{
 
-/* =========================================================
-   PASSWORD TOGGLE
-========================================================= */
+    width:40px;
 
-.password-toggle{
+    height:40px;
 
-    position:absolute;
-
-    right:10px;
-
-    top:50%;
-
-    transform:translateY(-50%);
-
-    width:34px;
-
-    height:34px;
+    border-radius:13px;
 
     display:flex;
 
@@ -339,169 +220,214 @@ body::after{
 
     justify-content:center;
 
-    border:none;
+    background:rgba(255,255,255,.13);
 
-    background:transparent;
+    color:white;
 
-    color:#718079;
+    font-size:17px;
 
-    cursor:pointer;
+}
 
-    border-radius:8px;
+
+/* =========================================================
+   HERO IMAGE
+========================================================= */
+
+.hero-image{
+
+    margin-top:18px;
+
+    height:165px;
+
+    border-radius:22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3,55,43,.92),
+            rgba(15,107,79,.78)
+        );
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding:20px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.12);
+
+}
+
+.hero-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    right:-50px;
+
+    top:-70px;
+
+}
+
+.hero-image-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:62%;
+
+}
+
+.hero-image-content h2{
+
+    font-size:21px;
+
+    line-height:1.25;
+
+    margin-bottom:7px;
+
+}
+
+.hero-image-content p{
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    opacity:.85;
+
+}
+
+.hero-logo{
+
+    position:relative;
+
+    z-index:2;
+
+    width:105px;
+
+    height:105px;
+
+    border-radius:50%;
+
+    background:white;
+
+    padding:8px;
+
+    object-fit:contain;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:16px;
+
+}
+
+
+/* =========================================================
+   SMALL QUICK ACTIONS
+========================================================= */
+
+.quick-actions{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
+
+    margin-bottom:18px;
+
+}
+
+.quick-action{
+
+    background:white;
+
+    border-radius:15px;
+
+    min-height:76px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    box-shadow:var(--shadow);
+
+    color:var(--text);
 
     transition:.2s;
 
 }
 
-.password-toggle:hover{
+.quick-action:active{
 
-    color:var(--green);
-
-    background:var(--green-light);
+    transform:scale(.96);
 
 }
 
+.quick-icon{
 
-/* =========================================================
-   LOGIN BUTTON
-========================================================= */
+    width:34px;
 
-.login-btn{
+    height:34px;
 
-    width:100%;
-
-    height:54px;
-
-    border:none;
-
-    border-radius:13px;
-
-    margin-top:5px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--green),
-            var(--green-dark)
-        );
-
-    color:#ffffff;
-
-    font-size:15px;
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:
-        0 8px 20px rgba(15,107,79,.24);
-
-    transition:.25s;
-
-}
-
-.login-btn:hover{
-
-    transform:translateY(-2px);
-
-    box-shadow:
-        0 12px 25px rgba(15,107,79,.30);
-
-}
-
-.login-btn:active{
-    transform:translateY(0);
-}
-
-.login-btn:disabled{
-
-    opacity:.75;
-
-    cursor:not-allowed;
-
-}
-
-
-/* =========================================================
-   LOADER
-========================================================= */
-
-.loader{
-
-    width:17px;
-    height:17px;
-
-    border:3px solid rgba(255,255,255,.35);
-
-    border-top:3px solid #ffffff;
-
-    border-radius:50%;
-
-    display:inline-block;
-
-    animation:spin .8s linear infinite;
-
-    vertical-align:middle;
-
-    margin-right:7px;
-
-}
-
-@keyframes spin{
-
-    100%{
-        transform:rotate(360deg);
-    }
-
-}
-
-
-/* =========================================================
-   FORGOT PASSWORD
-========================================================= */
-
-.forgot-password{
-
-    text-align:center;
-
-    margin-top:17px;
-
-}
-
-.forgot-password a{
-
-    color:var(--green);
-
-    font-size:13px;
-
-    font-weight:600;
-
-    text-decoration:none;
-
-}
-
-.forgot-password a:hover{
-
-    text-decoration:underline;
-
-}
-
-
-/* =========================================================
-   DIVIDER
-========================================================= */
-
-.divider{
+    border-radius:10px;
 
     display:flex;
 
     align-items:center;
 
-    gap:10px;
+    justify-content:center;
 
-    margin:21px 0;
+    background:var(--green-light);
 
-    color:#a0aaa5;
+    color:var(--green);
+
+    font-size:14px;
+
+}
+
+.quick-action span{
 
     font-size:10px;
 
@@ -509,49 +435,423 @@ body::after{
 
 }
 
-.divider::before,
-.divider::after{
 
-    content:"";
+/* =========================================================
+   RECHARGE ACTIVITY TICKER
+========================================================= */
 
-    height:1px;
+.ticker{
 
-    background:#e5ebe8;
+    width:100%;
 
-    flex:1;
+    overflow:hidden;
+
+    background:white;
+
+    border-radius:14px;
+
+    box-shadow:var(--shadow);
+
+    margin-bottom:18px;
+
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+
+}
+
+.ticker-track{
+
+    display:flex;
+
+    width:max-content;
+
+    animation:
+        scrollTicker 42s linear infinite;
+
+}
+
+.ticker-item{
+
+    white-space:nowrap;
+
+    padding:0 20px;
+
+    font-size:11px;
+
+    font-weight:500;
+
+    color:var(--green);
+
+}
+
+@keyframes scrollTicker{
+
+    from{
+
+        transform:translateX(0);
+
+    }
+
+    to{
+
+        transform:translateX(-50%);
+
+    }
 
 }
 
 
 /* =========================================================
-   SIGN UP
+   BALANCE CARD
 ========================================================= */
 
-.signup{
+.balance-card{
 
-    text-align:center;
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-deep),
+            var(--green)
+        );
 
-    font-size:13px;
+    color:white;
+
+    border-radius:21px;
+
+    padding:20px;
+
+    box-shadow:
+        0 12px 30px rgba(6,59,47,.17);
+
+    margin-bottom:15px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+.balance-card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.06);
+
+    right:-60px;
+
+    top:-80px;
+
+}
+
+.balance-label{
+
+    font-size:11px;
+
+    opacity:.78;
+
+    margin-bottom:5px;
+
+}
+
+.balance-value{
+
+    font-size:27px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+
+}
+
+.balance-card-bottom{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    gap:15px;
+
+    margin-top:18px;
+
+}
+
+.balance-stat{
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.balance-stat small{
+
+    display:block;
+
+    font-size:9px;
+
+    opacity:.7;
+
+    margin-bottom:3px;
+
+}
+
+.balance-stat strong{
+
+    font-size:14px;
+
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.section-title{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:20px 2px 11px;
+
+}
+
+.section-title h3{
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+.section-title span{
+
+    font-size:10px;
 
     color:var(--muted);
 
 }
 
-.signup a{
 
-    color:var(--green);
+/* =========================================================
+   PARTNER SECTION
+========================================================= */
 
-    font-weight:700;
+.partner-grid{
 
-    text-decoration:none;
+    display:grid;
 
-    margin-left:3px;
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:9px;
 
 }
 
-.signup a:hover{
+.partner{
 
-    text-decoration:underline;
+    background:white;
+
+    border-radius:14px;
+
+    padding:13px 5px;
+
+    text-align:center;
+
+    box-shadow:var(--shadow);
+
+}
+
+.partner-number{
+
+    width:34px;
+
+    height:34px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.partner p{
+
+    font-size:9px;
+
+    color:var(--muted);
+
+    margin-top:7px;
+
+}
+
+
+/* =========================================================
+   INFO CARD
+========================================================= */
+
+.info-card{
+
+    background:white;
+
+    border-radius:18px;
+
+    padding:17px;
+
+    margin-top:18px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.info-row{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.info-icon{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:var(--green-light);
+
+    color:var(--green);
+
+}
+
+.info-text h4{
+
+    font-size:13px;
+
+    margin-bottom:3px;
+
+}
+
+.info-text p{
+
+    font-size:10px;
+
+    color:var(--muted);
+
+    line-height:1.5;
+
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    height:70px;
+
+    background:white;
+
+    border-top:
+        1px solid #e5ebe8;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    z-index:1000;
+
+    box-shadow:
+        0 -5px 20px rgba(0,0,0,.06);
+
+}
+
+.bottom-nav a{
+
+    flex:1;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    color:#8a9993;
+
+    font-size:10px;
+
+    font-weight:500;
+
+}
+
+.bottom-nav a i{
+
+    font-size:17px;
+
+}
+
+.bottom-nav a.active{
+
+    color:var(--green);
+
+}
+
+.bottom-nav a.active i{
+
+    transform:translateY(-1px);
 
 }
 
@@ -560,48 +860,81 @@ body::after{
    MOBILE
 ========================================================= */
 
-@media(max-width:480px){
+@media(max-width:380px){
 
-    body{
-        padding:15px;
-    }
+    .hero-image{
 
-    .login-box{
+        height:150px;
 
-        padding:28px 20px;
-
-        border-radius:21px;
+        padding:16px;
 
     }
 
-    .logo{
+    .hero-image-content h2{
 
-        width:72px;
-        height:72px;
-
-        border-radius:17px;
+        font-size:18px;
 
     }
 
-    .brand-name{
-        font-size:19px;
+    .hero-logo{
+
+        width:85px;
+
+        height:85px;
+
     }
 
-    .login-box h2{
-        font-size:22px;
+    .quick-actions{
+
+        gap:6px;
+
     }
 
-    .login-box > p{
-        font-size:12px;
-        margin-bottom:20px;
+    .quick-action{
+
+        min-height:70px;
+
     }
 
-    .input-group input{
-        height:51px;
+    .balance-value{
+
+        font-size:24px;
+
     }
 
-    .login-btn{
-        height:51px;
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media(min-width:700px){
+
+    .container{
+
+        padding:22px;
+
+    }
+
+    .hero-image{
+
+        height:190px;
+
+    }
+
+    .hero-logo{
+
+        width:130px;
+
+        height:130px;
+
+    }
+
+    .quick-action{
+
+        min-height:85px;
+
     }
 
 }
@@ -614,198 +947,654 @@ body::after{
 <body>
 
 
-<div class="login-box">
+<!-- =======================================================
+     TOP HEADER
+======================================================= -->
+
+<header class="top-header">
+
+    <div class="header-content">
+
+        <div class="brand">
+
+            <img
+                src="1234.png"
+                alt="Evergreen Investments"
+            >
+
+            <div class="brand-text">
+
+                <h1>Evergreen Investments</h1>
+
+                <p>Smart investment. Steady growth.</p>
+
+            </div>
+
+        </div>
 
 
-    <!-- LOGO -->
+        <a
+            href="transaction.html"
+            class="notification-icon"
+        >
 
-    <div class="logo">
+            <i class="fa-solid fa-bell"></i>
+
+        </a>
+
+    </div>
+
+
+    <!-- ===================================================
+         HERO IMAGE
+    ==================================================== -->
+
+    <div class="hero-image">
+
+        <div class="hero-image-content">
+
+            <h2>
+                Grow Your Wealth
+                With Confidence
+            </h2>
+
+            <p>
+                Manage your investments,
+                recharge your account and
+                track your earnings.
+            </p>
+
+        </div>
+
 
         <img
-        src="1234.png"
-        alt="Evergreen Investments">
+            src="1234.png"
+            alt="Evergreen Investments"
+            class="hero-logo"
+        >
+
+    </div>
+
+</header>
+
+
+
+<main class="container">
+
+
+    <!-- ===================================================
+         QUICK ACTIONS
+    ==================================================== -->
+
+    <div class="quick-actions">
+
+
+        <a
+            href="deposit.html"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-wallet"></i>
+
+            </div>
+
+            <span>Recharge</span>
+
+        </a>
+
+
+        <a
+            href="withdraw.html"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-money-bill-transfer"></i>
+
+            </div>
+
+            <span>Withdraw</span>
+
+        </a>
+
+
+        <a
+            href="https://t.me/Crestwealth"
+            class="quick-action"
+            target="_blank"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-headset"></i>
+
+            </div>
+
+            <span>Help</span>
+
+        </a>
+
+
+        <a
+            href="transaction.html"
+            class="quick-action"
+        >
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-clock-rotate-left"></i>
+
+            </div>
+
+            <span>Records</span>
+
+        </a>
+
 
     </div>
 
 
-    <!-- BRAND -->
 
-    <div class="brand-name">
-        Evergreen Investments
+    <!-- ===================================================
+         RECHARGE ACTIVITY
+    ==================================================== -->
+
+    <div class="ticker">
+
+        <div class="ticker-track">
+
+
+            <div class="ticker-item">
+                ******8969 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******7694 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******8261 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******3406 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******7453 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******6486 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3918 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******2976 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******2489 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******7859 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******2633 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******5637 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******6038 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3502 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******7304 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******9579 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******8765 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******0209 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******5789 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******1374 Recharge 60,000
+            </div>
+
+
+            <!-- Duplicate for continuous loop -->
+
+            <div class="ticker-item">
+                ******8969 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******7694 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******8261 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******3406 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******7453 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******6486 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3918 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******2976 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******2489 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******7859 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******2633 Recharge 1,000,000
+            </div>
+
+            <div class="ticker-item">
+                ******5637 Recharge 60,000
+            </div>
+
+            <div class="ticker-item">
+                ******6038 Recharge 120,000
+            </div>
+
+            <div class="ticker-item">
+                ******3502 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******7304 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******9579 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******8765 Recharge 1,000,000
+            </div>
+                       <div class="ticker-item">
+                ******0209 Recharge 30,000
+            </div>
+
+            <div class="ticker-item">
+                ******5789 Recharge 250,000
+            </div>
+
+            <div class="ticker-item">
+                ******1374 Recharge 60,000
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="brand-subtitle">
-        Smart investment. Steady growth.
+
+
+    <!-- ===================================================
+         BALANCE
+    ==================================================== -->
+
+    <div class="balance-card">
+
+        <div class="balance-label">
+            Account Balance
+        </div>
+
+        <div
+            class="balance-value"
+            id="accountBalance"
+        >
+            ₦0
+        </div>
+
+
+        <div class="balance-card-bottom">
+
+            <div class="balance-stat">
+
+                <small>
+                    Cumulative Income
+                </small>
+
+                <strong id="cumulativeIncome">
+                    ₦0
+                </strong>
+
+            </div>
+
+
+            <div class="balance-stat">
+
+                <small>
+                    Status
+                </small>
+
+                <strong>
+                    Active
+                </strong>
+
+            </div>
+
+        </div>
+
     </div>
 
 
-    <!-- WELCOME -->
 
-    <h2>
-        Welcome Back
-    </h2>
+    <!-- ===================================================
+         PARTNERS
+    ==================================================== -->
 
-    <p>
-        Login to your Evergreen Investments account.
-    </p>
+    <div class="section-title">
 
+        <h3>
+            Partners
+        </h3>
 
-    <!-- LOGIN FORM -->
+        <span>
+            1 - 8
+        </span>
 
-    <form id="loginForm">
-
-
-        <!-- EMAIL -->
-
-        <div class="input-group">
-
-            <i class="fa-solid fa-envelope input-icon"></i>
-
-            <input
-            type="email"
-            id="email"
-            placeholder="Email Address"
-            autocomplete="email"
-            required>
-
-        </div>
+    </div>
 
 
-        <!-- PASSWORD -->
-
-        <div class="input-group">
-
-            <i class="fa-solid fa-lock input-icon"></i>
-
-            <input
-            type="password"
-            id="password"
-            placeholder="Password"
-            autocomplete="current-password"
-            required>
+    <div class="partner-grid">
 
 
-            <button
-            type="button"
-            class="password-toggle"
-            id="togglePassword"
-            aria-label="Show password">
+        <div class="partner">
 
-                <i class="fa-solid fa-eye"></i>
+            <div class="partner-number">
+                1
+            </div>
 
-            </button>
+            <p>Partner 1</p>
 
         </div>
 
 
-        <!-- LOGIN -->
+        <div class="partner">
 
-        <button
-        type="submit"
-        id="loginBtn"
-        class="login-btn">
+            <div class="partner-number">
+                2
+            </div>
 
-            Login
-
-        </button>
-
-
-        <!-- FORGOT -->
-
-        <div class="forgot-password">
-
-            <a href="forgot-password.html">
-                Forgot Password?
-            </a>
+            <p>Partner 2</p>
 
         </div>
 
 
-        <!-- DIVIDER -->
+        <div class="partner">
 
-        <div class="divider">
+            <div class="partner-number">
+                3
+            </div>
 
-            <span>ACCOUNT</span>
-
-        </div>
-
-
-        <!-- REGISTER -->
-
-        <div class="signup">
-
-            Don't have an account?
-
-            <a href="register.html">
-                Create Account
-            </a>
+            <p>Partner 3</p>
 
         </div>
 
 
-    </form>
+        <div class="partner">
+
+            <div class="partner-number">
+                4
+            </div>
+
+            <p>Partner 4</p>
+
+        </div>
 
 
-</div>
+        <div class="partner">
+
+            <div class="partner-number">
+                5
+            </div>
+
+            <p>Partner 5</p>
+
+        </div>
 
 
-<script src="popup.js"></script>
+        <div class="partner">
 
-<script src="login.js"></script>
+            <div class="partner-number">
+                6
+            </div>
+
+            <p>Partner 6</p>
+
+        </div>
+
+
+        <div class="partner">
+
+            <div class="partner-number">
+                7
+            </div>
+
+            <p>Partner 7</p>
+
+        </div>
+
+
+        <div class="partner">
+
+            <div class="partner-number">
+                8
+            </div>
+
+            <p>Partner 8</p>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         INFORMATION
+    ==================================================== -->
+
+    <div class="info-card">
+
+        <div class="info-row">
+
+            <div class="info-icon">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+            </div>
+
+            <div class="info-text">
+
+                <h4>
+                    Your account is protected
+                </h4>
+
+                <p>
+                    Keep your login information
+                    secure and never share your
+                    password with anyone.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =======================================================
+     BOTTOM NAVIGATION
+======================================================= -->
+
+<nav class="bottom-nav">
+
+
+    <a
+        href="home.html"
+        class="active"
+    >
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>Home</span>
+
+    </a>
+
+
+    <a
+        href="investment.html"
+    >
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <span>Product</span>
+
+    </a>
+
+
+    <a
+        href="invite.html"
+    >
+
+        <i class="fa-solid fa-users"></i>
+
+        <span>Team</span>
+
+    </a>
+
+
+    <a
+        href="dashboard.html"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>Mine</span>
+
+    </a>
+
+
+</nav>
+
 
 
 <script>
 
 /* =========================================================
-   PASSWORD SHOW / HIDE
+   LOGIN CHECK
 ========================================================= */
 
-const password =
-document.getElementById("password");
-
-const toggle =
-document.getElementById("togglePassword");
+const user = JSON.parse(
+    localStorage.getItem("user")
+);
 
 
-toggle.addEventListener("click", function(){
+if(!user){
 
-    const icon =
-    toggle.querySelector("i");
+    window.location.href = "login.html";
+
+}
 
 
-    if(password.type === "password"){
+/* =========================================================
+   FORMAT MONEY
+========================================================= */
 
-        password.type = "text";
+function formatMoney(amount){
 
-        icon.classList.remove("fa-eye");
+    return "₦" + Number(
+        amount || 0
+    ).toLocaleString(
+        "en-NG",
+        {
+            minimumFractionDigits:0,
+            maximumFractionDigits:2
+        }
+    );
 
-        icon.classList.add("fa-eye-slash");
+}
 
-        toggle.setAttribute(
-            "aria-label",
-            "Hide password"
-        );
 
-    }else{
+/* =========================================================
+   DISPLAY USER DATA
+========================================================= */
 
-        password.type = "password";
+if(user){
 
-        icon.classList.remove("fa-eye-slash");
+    document.getElementById(
+        "accountBalance"
+    ).textContent = formatMoney(
+        user.walletBalance
+    );
 
-        icon.classList.add("fa-eye");
 
-        toggle.setAttribute(
-            "aria-label",
-            "Show password"
-        );
+    document.getElementById(
+        "cumulativeIncome"
+    ).textContent = formatMoney(
+        user.totalEarnings
+    );
 
-    }
-
-});
+}
 
 </script>
 
 
 </body>
 
-         </html>
+</html>
+
+         
+               
