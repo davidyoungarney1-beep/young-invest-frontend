@@ -8,378 +8,2114 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Investment Plans | Crest Wealth</title>
+<meta name="theme-color" content="#071b14">
 
-<link rel="stylesheet"
-href="investment.css">
+<title>Evergreen Investments | Products</title>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
 rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
+
+<style>
+
+/* =========================================================
+   EVERGREEN INVESTMENTS
+   PRODUCT / INVESTMENT PAGE
+========================================================= */
+
+:root{
+
+    --forest:#071b14;
+
+    --forest-2:#0b2a1f;
+
+    --evergreen:#117653;
+
+    --green:#20a873;
+
+    --mint:#dff5eb;
+
+    --soft:#f4f8f6;
+
+    --white:#ffffff;
+
+    --text:#10231c;
+
+    --muted:#718079;
+
+    --border:#dfe9e4;
+
+    --gold:#d4a84f;
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"DM Sans",sans-serif;
+
+    background:#f4f8f6;
+
+    color:var(--text);
+
+    padding-bottom:90px;
+
+}
+
+button,
+a{
+
+    -webkit-tap-highlight-color:transparent;
+
+}
+
+button{
+
+    font-family:inherit;
+
+}
+
+
+/* =========================
+   TOP HEADER
+========================= */
+
+.top-header{
+
+    background:var(--forest);
+
+    color:white;
+
+    padding:
+
+    18px
+
+    18px
+
+    28px;
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+.top-header::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:260px;
+
+    height:260px;
+
+    border-radius:50%;
+
+    background:rgba(32,168,115,.15);
+
+    right:-100px;
+
+    top:-150px;
+
+}
+
+
+.top-header::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+
+    height:180px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    left:-80px;
+
+    bottom:-120px;
+
+}
+
+
+.header-inner{
+
+    max-width:700px;
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+
+.header-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+
+.brand-mark{
+
+    width:38px;
+
+    height:38px;
+
+    border-radius:12px;
+
+    background:linear-gradient(
+
+        145deg,
+
+        #31c98a,
+
+        #0e6548
+
+    );
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    box-shadow:
+
+    0 8px 22px rgba(0,0,0,.22);
+
+}
+
+
+.brand-mark i{
+
+    font-size:17px;
+
+    color:white;
+
+}
+
+
+.brand-name{
+
+    font-family:"Manrope",sans-serif;
+
+    font-weight:800;
+
+    font-size:15px;
+
+}
+
+
+.header-label{
+
+    font-size:10px;
+
+    letter-spacing:1.4px;
+
+    text-transform:uppercase;
+
+    color:#9dc4b5;
+
+    margin-top:28px;
+
+}
+
+
+.header-title{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:31px;
+
+    line-height:1.08;
+
+    margin-top:5px;
+
+    font-weight:800;
+
+}
+
+
+.header-description{
+
+    font-size:13px;
+
+    color:#aac5bb;
+
+    line-height:1.6;
+
+    max-width:480px;
+
+    margin-top:10px;
+
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page{
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:22px 15px 30px;
+
+}
+
+
+/* =========================
+   NOTICE
+========================= */
+
+.notice{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:15px;
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:12px;
+
+    margin-bottom:22px;
+
+    box-shadow:
+
+    0 8px 28px rgba(8,61,46,.05);
+
+}
+
+
+.notice-icon{
+
+    width:38px;
+
+    height:38px;
+
+    min-width:38px;
+
+    border-radius:12px;
+
+    background:var(--mint);
+
+    color:var(--evergreen);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+.notice strong{
+
+    display:block;
+
+    font-size:13px;
+
+    margin-bottom:3px;
+
+}
+
+
+.notice span{
+
+    display:block;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    color:var(--muted);
+
+}
+
+
+/* =========================
+   SECTION HEADING
+========================= */
+
+.section-heading{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+
+    margin:0 2px 14px;
+
+}
+
+
+.section-heading h2{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:20px;
+
+    font-weight:800;
+
+}
+
+
+.section-heading p{
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+/* =========================
+   PRODUCT LIST
+========================= */
+
+.products{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+/* =========================
+   PRODUCT CARD
+========================= */
+
+.product-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    overflow:hidden;
+
+    box-shadow:
+
+    0 12px 35px rgba(8,61,46,.07);
+
+    transition:
+
+    transform .25s ease,
+
+    box-shadow .25s ease;
+
+}
+
+
+.product-card:active{
+
+    transform:scale(.99);
+
+}
+
+
+/* =========================
+   IMAGE
+========================= */
+
+.product-image{
+
+    height:220px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:#17382c;
+
+}
+
+
+.product-image img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:transform .5s ease;
+
+}
+
+
+.product-card:hover .product-image img{
+
+    transform:scale(1.04);
+
+}
+
+
+.product-image::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background:
+
+    linear-gradient(
+
+        to top,
+
+        rgba(3,24,17,.76),
+
+        rgba(3,24,17,.08) 65%,
+
+        transparent
+
+    );
+
+}
+
+
+.product-number{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:15px;
+
+    top:15px;
+
+    width:36px;
+
+    height:36px;
+
+    border-radius:12px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(255,255,255,.15);
+
+    border:1px solid rgba(255,255,255,.28);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    font-size:11px;
+
+    font-weight:800;
+
+}
+
+
+.product-tag{
+
+    position:absolute;
+
+    z-index:2;
+
+    right:15px;
+
+    top:15px;
+
+    padding:7px 10px;
+
+    border-radius:20px;
+
+    background:rgba(7,27,20,.72);
+
+    color:white;
+
+    border:1px solid rgba(255,255,255,.17);
+
+    backdrop-filter:blur(10px);
+
+    font-size:9px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:.7px;
+
+}
+
+
+.image-title{
+
+    position:absolute;
+
+    z-index:2;
+
+    left:18px;
+
+    bottom:17px;
+
+    color:white;
+
+}
+
+
+.image-title span{
+
+    display:block;
+
+    font-size:9px;
+
+    color:#bce7d6;
+
+    text-transform:uppercase;
+
+    letter-spacing:1.2px;
+
+    margin-bottom:4px;
+
+}
+
+
+.image-title h3{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:27px;
+
+    line-height:1;
+
+    font-weight:800;
+
+}
+
+
+/* =========================
+   CARD CONTENT
+========================= */
+
+.product-content{
+
+    padding:18px;
+
+}
+
+
+.product-intro{
+
+    font-size:12px;
+
+    color:var(--muted);
+
+    line-height:1.6;
+
+    margin-bottom:16px;
+
+}
+
+
+/* =========================
+   AMOUNT
+========================= */
+
+.amount-box{
+
+    padding:16px;
+
+    border-radius:17px;
+
+    background:
+
+    linear-gradient(
+
+        135deg,
+
+        #f1faf6,
+
+        #e5f4ed
+
+    );
+
+    border:1px solid #d4ebe0;
+
+    margin-bottom:14px;
+
+}
+
+
+.amount-label{
+
+    font-size:9px;
+
+    color:#668176;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    font-weight:700;
+
+}
+
+
+.amount-value{
+
+    margin-top:4px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:26px;
+
+    font-weight:800;
+
+    color:var(--forest);
+
+}
+
+
+.amount-caption{
+
+    font-size:10px;
+
+    color:#718079;
+
+    margin-top:2px;
+
+}
+
+
+/* =========================
+   STATS
+========================= */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(3,1fr);
+
+    border-top:1px solid var(--border);
+
+    border-bottom:1px solid var(--border);
+
+    margin-bottom:16px;
+
+}
+
+
+.stat{
+
+    padding:14px 8px;
+
+    text-align:center;
+
+}
+
+
+.stat:not(:last-child){
+
+    border-right:1px solid var(--border);
+
+}
+
+
+.stat-label{
+
+    display:block;
+
+    color:var(--muted);
+
+    font-size:9px;
+
+    margin-bottom:5px;
+
+}
+
+
+.stat-value{
+
+    display:block;
+
+    color:var(--text);
+
+    font-size:12px;
+
+    font-weight:800;
+
+}
+
+
+.stat-value.green{
+
+    color:var(--evergreen);
+
+}
+
+
+/* =========================
+   RETURN AREA
+========================= */
+
+.return-row{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:13px 0;
+
+}
+
+
+.return-label{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+}
+
+
+.return-value{
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:17px;
+
+    font-weight:800;
+
+    color:var(--evergreen);
+
+}
+
+
+/* =========================
+   INVEST BUTTON
+========================= */
+
+.invest-btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:14px;
+
+    padding:14px 16px;
+
+    background:var(--forest);
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:800;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:9px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+.invest-btn i{
+
+    font-size:11px;
+
+}
+
+
+.invest-btn:hover{
+
+    background:var(--evergreen);
+
+    transform:translateY(-1px);
+
+}
+
+
+.invest-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+/* =========================
+   PLAN COLORS
+========================= */
+
+.product-card[data-plan="seed"]
+.amount-value{
+
+    color:#117653;
+
+}
+
+
+.product-card[data-plan="growth"]
+.amount-value{
+
+    color:#16855f;
+
+}
+
+
+.product-card[data-plan="plus"]
+.amount-value{
+
+    color:#126c50;
+
+}
+
+
+.product-card[data-plan="premium"]
+.amount-value{
+
+    color:#9b7625;
+
+}
+
+
+.product-card[data-plan="elite"]
+.amount-value{
+
+    color:#765b19;
+
+}
+
+
+/* =========================
+   BOTTOM NAV
+========================= */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    z-index:1000;
+
+    height:72px;
+
+    background:
+
+    rgba(255,255,255,.96);
+
+    backdrop-filter:blur(18px);
+
+    border-top:1px solid var(--border);
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.nav-inner{
+
+    width:100%;
+
+    max-width:700px;
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(4,1fr);
+
+}
+
+
+.nav-item{
+
+    text-decoration:none;
+
+    color:#87938e;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:5px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+}
+
+
+.nav-item i{
+
+    font-size:17px;
+
+}
+
+
+.nav-item.active{
+
+    color:var(--evergreen);
+
+}
+
+
+.nav-item.active i{
+
+    transform:translateY(-1px);
+
+}
+
+
+/* =========================
+   SMALL FOOTNOTE
+========================= */
+
+.page-note{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#8b9892;
+
+    font-size:9px;
+
+    line-height:1.6;
+
+    padding:0 20px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:500px){
+
+    .top-header{
+
+        padding:
+
+        16px
+
+        16px
+
+        25px;
+
+    }
+
+
+    .header-title{
+
+        font-size:28px;
+
+    }
+
+
+    .header-description{
+
+        font-size:12px;
+
+    }
+
+
+    .product-image{
+
+        height:205px;
+
+    }
+
+
+    .product-content{
+
+        padding:16px;
+
+    }
+
+
+    .amount-value{
+
+        font-size:24px;
+
+    }
+
+}
+
+
+/* =========================
+   LARGER SCREEN
+========================= */
+
+@media(min-width:701px){
+
+    body{
+
+        padding-bottom:30px;
+
+    }
+
+
+    .bottom-nav{
+
+        position:static;
+
+        background:transparent;
+
+        border:0;
+
+        height:auto;
+
+        margin-top:5px;
+
+        padding-bottom:25px;
+
+    }
+
+
+    .nav-inner{
+
+        background:white;
+
+        border:1px solid var(--border);
+
+        border-radius:18px;
+
+        overflow:hidden;
+
+        box-shadow:
+
+        0 8px 25px rgba(8,61,46,.06);
+
+    }
+
+
+    .nav-item{
+
+        padding:14px;
+
+    }
+
+}
+
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+button:focus-visible,
+a:focus-visible{
+
+    outline:3px solid rgba(32,168,115,.28);
+
+    outline-offset:3px;
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-<div class="container">
 
-<!-- TOPBAR -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div class="topbar">
+<header class="top-header">
 
-<a href="dashboard.html">
+    <div class="header-inner">
 
-<i class="fas fa-arrow-left"></i>
+        <div class="header-row">
 
-</a>
+            <div class="brand">
 
-<h2>
-Investment Plans
-</h2>
+                <div class="brand-mark">
 
-<div></div>
+                    <i class="fa-solid fa-leaf"></i>
 
-</div>
+                </div>
 
+                <div class="brand-name">
+                    Evergreen Investments
+                </div>
 
-<!-- HERO -->
+            </div>
 
-<div class="hero">
+        </div>
 
-<h1>
-Grow Your Wealth
-</h1>
 
-<p>
-Choose an investment plan that matches your financial goals.
-</p>
+        <div class="header-label">
+            Investment Products
+        </div>
 
-</div>
 
+        <h1 class="header-title">
+            Choose your path.
+        </h1>
 
-<!-- PLANS -->
 
-<div class="plans">
+        <p class="header-description">
+            Explore the available Evergreen investment plans
+            and select the option that matches your intended
+            investment amount and duration.
+        </p>
 
+    </div>
 
-<!-- MINI STARTER -->
+</header>
 
-<div class="plan-card">
 
-<span class="badge">
-Mini Starter
-</span>
 
-<h2>₦4,000</h2>
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
-<h3>₦900 Daily</h3>
+<main class="page">
 
-<p>
-Duration:
-<b>9 Days</b>
-</p>
 
-<p>
-Total Return:
-<b>₦8,100</b>
-</p>
+    <!-- NOTICE -->
 
-<button onclick="startInvestment('Mini Starter')">
+    <div class="notice">
 
-Invest Now
+        <div class="notice-icon">
 
-</button>
+            <i class="fa-solid fa-layer-group"></i>
 
-</div>
+        </div>
 
+        <div>
 
-<!-- STARTER -->
+            <strong>
+                Five investment options
+            </strong>
 
-<div class="plan-card">
+            <span>
+                Each plan has its own starting amount,
+                daily return figure and duration.
+            </span>
 
-<span class="badge">
-Starter
-</span>
+        </div>
 
-<h2>₦6,500</h2>
+    </div>
 
-<h3>₦1,100 Daily</h3>
 
-<p>
-Duration:
-<b>10 Days</b>
-</p>
 
-<p>
-Total Return:
-<b>₦11,000</b>
-</p>
+    <!-- SECTION HEADING -->
 
-<button onclick="startInvestment('Starter')">
+    <div class="section-heading">
 
-Invest Now
+        <h2>
+            Available plans
+        </h2>
 
-</button>
+        <p>
+            5 options
+        </p>
 
-</div>
+    </div>
 
 
-<!-- POPULAR -->
 
-<div class="plan-card popular">
+    <!-- =================================================
+         PRODUCTS
+    ================================================== -->
 
-<span class="badge">
-Popular
-</span>
+    <section class="products">
 
-<h2>₦20,000</h2>
 
-<h3>₦2,500 Daily</h3>
 
-<p>
-Duration:
-<b>20 Days</b>
-</p>
+        <!-- =============================================
+             SEED
+        ============================================== -->
 
-<p>
-Total Return:
-<b>₦50,000</b>
-</p>
+        <article
+            class="product-card"
+            data-plan="seed"
+        >
 
-<button onclick="startInvestment('Popular')">
+            <div class="product-image">
 
-Invest Now
+                <img
+                    src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85"
+                    alt="Modern business workspace"
+                >
 
-</button>
+                <div class="product-number">
+                    01
+                </div>
 
-</div>
+                <div class="product-tag">
+                    Entry
+                </div>
 
+                <div class="image-title">
 
-<!-- PREMIUM -->
+                    <span>
+                        Start small
+                    </span>
 
-<div class="plan-card">
+                    <h3>
+                        Seed
+                    </h3>
 
-<span class="badge">
-Premium
-</span>
+                </div>
 
-<h2>₦50,000</h2>
+            </div>
 
-<h3>₦6,000 Daily</h3>
 
-<p>
-Duration:
-<b>20 Days</b>
-</p>
+            <div class="product-content">
 
-<p>
-Total Return:
-<b>₦120,000</b>
-</p>
+                <p class="product-intro">
+                    A starting-level plan designed for
+                    users beginning their investment journey.
+                </p>
 
-<button onclick="startInvestment('Premium')">
 
-Invest Now
+                <div class="amount-box">
 
-</button>
+                    <div class="amount-label">
+                        Starting amount
+                    </div>
 
-</div>
+                    <div class="amount-value">
+                        ₦5,000
+                    </div>
 
+                    <div class="amount-caption">
+                        Minimum investment amount
+                    </div>
 
-<!-- DIAMOND -->
+                </div>
 
-<div class="plan-card diamond">
 
-<span class="badge">
-Diamond
-</span>
+                <div class="stats">
 
-<h2>₦100,000</h2>
+                    <div class="stat">
 
-<h3>₦10,000 Daily</h3>
+                        <span class="stat-label">
+                            Daily return
+                        </span>
 
-<p>
-Duration:
-<b>25 Days</b>
-</p>
+                        <span class="stat-value green">
+                            ₦950
+                        </span>
 
-<p>
-Total Return:
-<b>₦250,000</b>
-</p>
+                    </div>
 
-<button onclick="startInvestment('Diamond')">
 
-Invest Now
+                    <div class="stat">
 
-</button>
+                        <span class="stat-label">
+                            Duration
+                        </span>
 
-</div>
+                        <span class="stat-value">
+                            10 days
+                        </span>
 
-</div>
+                    </div>
 
 
-<!-- INFORMATION -->
+                    <div class="stat">
 
-<div class="info-card">
+                        <span class="stat-label">
+                            Total returns
+                        </span>
 
-<h2>
-Investment Information
-</h2>
+                        <span class="stat-value">
+                            ₦9,500
+                        </span>
 
-<ul>
+                    </div>
 
-<li>
-✅ Ensure you have sufficient wallet balance to start an investment.
-</li>
+                </div>
 
-<li>
-✅ Select your preferred investment plan and tap
-<b>Invest Now</b>.
-</li>
 
-<li>
-✅ Daily profits are credited automatically every 24 hours.
-</li>
+                <div class="return-row">
 
-<li>
-✅ Earnings are credited according to your selected investment plan.
-</li>
+                    <span class="return-label">
+                        Daily return figure
+                    </span>
 
-<li>
-✅ Contact support if you have any questions.
-</li>
+                    <span class="return-value">
+                        ₦950
+                    </span>
 
-</ul>
+                </div>
 
-</div>
 
+                <button
+                    type="button"
+                    class="invest-btn"
+                    data-plan="Seed"
+                    data-amount="5000"
+                    data-daily-profit="950"
+                    data-total-return="9500"
+                    data-duration="10"
+                >
 
-<!-- BOTTOM NAVIGATION -->
+                    Continue with Seed
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =============================================
+             GROWTH
+        ============================================== -->
+
+        <article
+            class="product-card"
+            data-plan="growth"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85"
+                    alt="Business growth meeting"
+                >
+
+                <div class="product-number">
+                    02
+                </div>
+
+                <div class="product-tag">
+                    Growth
+                </div>
+
+                <div class="image-title">
+
+                    <span>
+                        Build momentum
+                    </span>
+
+                    <h3>
+                        Growth
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <p class="product-intro">
+                    A higher-entry option for users looking
+                    for a larger starting position.
+                </p>
+
+
+                <div class="amount-box">
+
+                    <div class="amount-label">
+                        Starting amount
+                    </div>
+
+                    <div class="amount-value">
+                        ₦7,000
+                    </div>
+
+                    <div class="amount-caption">
+                        Minimum investment amount
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Daily return
+                        </span>
+
+                        <span class="stat-value green">
+                            ₦1,400
+                        </span>
+                                              <span class="stat-value">
+                            10 days
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Total returns
+                        </span>
+
+                        <span class="stat-value">
+                            ₦14,000
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="return-row">
+
+                    <span class="return-label">
+                        Daily return figure
+                    </span>
+
+                    <span class="return-value">
+                        ₦1,400
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="invest-btn"
+                    data-plan="Growth"
+                    data-amount="7000"
+                    data-daily-profit="1400"
+                    data-total-return="14000"
+                    data-duration="10"
+                >
+
+                    Continue with Growth
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =============================================
+             PLUS
+        ============================================== -->
+
+        <article
+            class="product-card"
+            data-plan="plus"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=85"
+                    alt="Financial planning workspace"
+                >
+
+                <div class="product-number">
+                    03
+                </div>
+
+                <div class="product-tag">
+                    Plus
+                </div>
+
+                <div class="image-title">
+
+                    <span>
+                        Expand your position
+                    </span>
+
+                    <h3>
+                        Plus
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <p class="product-intro">
+                    A mid-level plan offering a larger
+                    starting amount and extended duration.
+                </p>
+
+
+                <div class="amount-box">
+
+                    <div class="amount-label">
+                        Starting amount
+                    </div>
+
+                    <div class="amount-value">
+                        ₦15,000
+                    </div>
+
+                    <div class="amount-caption">
+                        Minimum investment amount
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Daily return
+                        </span>
+
+                        <span class="stat-value green">
+                            ₦2,000
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Duration
+                        </span>
+
+                        <span class="stat-value">
+                            13 days
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Total returns
+                        </span>
+
+                        <span class="stat-value">
+                            ₦26,000
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="return-row">
+
+                    <span class="return-label">
+                        Daily return figure
+                    </span>
+
+                    <span class="return-value">
+                        ₦2,000
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="invest-btn"
+                    data-plan="Plus"
+                    data-amount="15000"
+                    data-daily-profit="2000"
+                    data-total-return="26000"
+                    data-duration="13"
+                >
+
+                    Continue with Plus
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =============================================
+             PREMIUM
+        ============================================== -->
+
+        <article
+            class="product-card"
+            data-plan="premium"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=85"
+                    alt="Premium professional office"
+                >
+
+                <div class="product-number">
+                    04
+                </div>
+
+                <div class="product-tag">
+                    Premium
+                </div>
+
+                <div class="image-title">
+
+                    <span>
+                        Larger allocation
+                    </span>
+
+                    <h3>
+                        Premium
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <p class="product-intro">
+                    A larger allocation plan for users
+                    selecting a higher investment amount.
+                </p>
+
+
+                <div class="amount-box">
+
+                    <div class="amount-label">
+                        Starting amount
+                    </div>
+
+                    <div class="amount-value">
+                        ₦45,000
+                    </div>
+
+                    <div class="amount-caption">
+                        Minimum investment amount
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Daily return
+                        </span>
+
+                        <span class="stat-value green">
+                            ₦4,000
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Duration
+                        </span>
+
+                        <span class="stat-value">
+                            16 days
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Total returns
+                        </span>
+
+                        <span class="stat-value">
+                            ₦64,000
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="return-row">
+
+                    <span class="return-label">
+                        Daily return figure
+                    </span>
+
+                    <span class="return-value">
+                        ₦4,000
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="invest-btn"
+                    data-plan="Premium"
+                    data-amount="45000"
+                    data-daily-profit="4000"
+                    data-total-return="64000"
+                    data-duration="16"
+                >
+
+                    Continue with Premium
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- =============================================
+             ELITE
+        ============================================== -->
+
+        <article
+            class="product-card"
+            data-plan="elite"
+        >
+
+            <div class="product-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=85"
+                    alt="Professional financial planning"
+                >
+
+                <div class="product-number">
+                    05
+                </div>
+
+                <div class="product-tag">
+                    Elite
+                </div>
+
+                <div class="image-title">
+
+                    <span>
+                        Highest allocation
+                    </span>
+
+                    <h3>
+                        Elite
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="product-content">
+
+                <p class="product-intro">
+                    The highest allocation option currently
+                    available within the Evergreen product list.
+                </p>
+
+
+                <div class="amount-box">
+
+                    <div class="amount-label">
+                        Starting amount
+                    </div>
+
+                    <div class="amount-value">
+                        ₦95,000
+                    </div>
+
+                    <div class="amount-caption">
+                        Minimum investment amount
+                    </div>
+
+                </div>
+
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Daily return
+                        </span>
+
+                        <span class="stat-value green">
+                            ₦7,000
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Duration
+                        </span>
+
+                        <span class="stat-value">
+                            20 days
+                        </span>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <span class="stat-label">
+                            Total returns
+                        </span>
+
+                        <span class="stat-value">
+                            ₦140,000
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="return-row">
+
+                    <span class="return-label">
+                        Daily return figure
+                    </span>
+
+                    <span class="return-value">
+                        ₦7,000
+                    </span>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="invest-btn"
+                    data-plan="Elite"
+                    data-amount="95000"
+                    data-daily-profit="7000"
+                    data-total-return="140000"
+                    data-duration="20"
+                >
+
+                    Continue with Elite
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         PAGE NOTE
+    ================================================== -->
+
+    <p class="page-note">
+
+        Investment values shown above are the current plan
+        figures configured for Evergreen Investments.
+        Please review the applicable terms before proceeding.
+
+    </p>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
 
 <nav class="bottom-nav">
 
-<a href="dashboard.html">
+    <div class="nav-inner">
 
-<i class="fas fa-house"></i>
 
-<span>Home</span>
+        <a
+            href="home.html"
+            class="nav-item"
+        >
 
-</a>
+            <i class="fa-solid fa-house"></i>
 
-<a href="investment.html" class="active">
+            <span>
+                Home
+            </span>
 
-<i class="fas fa-chart-line"></i>
+        </a>
 
-<span>Invest</span>
 
-</a>
+        <a
+            href="investment.html"
+            class="nav-item active"
+        >
 
-<a href="deposit.html">
+            <i class="fa-solid fa-chart-pie"></i>
 
-<i class="fas fa-wallet"></i>
+            <span>
+                Product
+            </span>
 
-<span>Deposit</span>
+        </a>
 
-</a>
 
-<a href="invite.html">
+        <a
+            href="invite.html"
+            class="nav-item"
+        >
 
-<i class="fas fa-user-plus"></i>
+            <i class="fa-solid fa-users"></i>
 
-<span>Invite</span>
+            <span>
+                Team
+            </span>
 
-</a>
+        </a>
+
+
+        <a
+            href="dashboard.html"
+            class="nav-item"
+        >
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>
+                Mine
+            </span>
+
+        </a>
+
+
+    </div>
 
 </nav>
 
 
-<script>
 
-// =========================
-// LOAD USER
-// =========================
+<!-- =====================================================
+     EXISTING INVESTMENT SCRIPT
+===================================================== -->
 
-const user =
-JSON.parse(localStorage.getItem("user"));
+<script src="investment.js"></script>
 
-if (!user) {
-
-window.location.href = "login.html";
-
-}
-
-
-// =========================
-// START INVESTMENT
-// =========================
-
-async function startInvestment(plan) {
-
-const confirmInvest = confirm(
-
-`Do you want to start the ${plan} investment plan?`
-
-);
-
-if (!confirmInvest) return;
-
-try {
-
-const response = await fetch(
-
-"https://young-invest-backend.onrender.com/api/investment/start",
-
-{
-
-method: "POST",
-
-headers: {
-
-"Content-Type": "application/json"
-
-},
-
-body: JSON.stringify({
-
-userId: user._id,
-
-plan: plan
-
-})
-
-}
-
-);
-
-const data = await response.json();
-
-alert(data.message);
-
-if (response.ok) {
-
-window.location.href =
-"dashboard.html";
-
-}
-
-} catch (error) {
-
-console.log(error);
-
-alert("Something went wrong.");
-
-}
-
-}
-
-</script>
-
-</div>
 
 </body>
 
-  </html>
+                        </html>
+                
