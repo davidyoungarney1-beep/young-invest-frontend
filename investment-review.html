@@ -4,550 +4,1181 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Active Investments | Crest Wealth Investment</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<meta
+    name="theme-color"
+    content="#083d2e"
+>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+<title>
+    My Investments | Evergreen Investments
+</title>
+
+
+<!-- GOOGLE FONTS -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<!-- FONT AWESOME -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+>
+
 
 <style>
 
-/* =========================================================
-   CREST WEALTH
-   ACTIVE INVESTMENT — PROFESSIONAL UI
-========================================================= */
+/* =====================================================
+   ROOT
+===================================================== */
 
 :root{
-    --primary:#0d6efd;
-    --primary-dark:#0b5ed7;
-    --navy:#0b1220;
-    --text:#172033;
-    --muted:#64748b;
-    --light:#f5f7fa;
-    --white:#ffffff;
-    --border:#e5eaf0;
-    --green:#16a34a;
-    --red:#dc2626;
 
-    --shadow:0 8px 25px rgba(15,23,42,.06);
-    --shadow-lg:0 15px 40px rgba(15,23,42,.09);
+    --evergreen:#147a58;
+    --evergreen-dark:#083d2e;
+
+    --green:#20a873;
+    --mint:#e8f7f0;
+
+    --background:#f4f8f6;
+
+    --white:#ffffff;
+
+    --text:#12251e;
+
+    --muted:#718079;
+
+    --border:#e1ebe6;
+
+    --orange:#f59e0b;
+
+    --blue:#3b82f6;
+
+    --red:#ef4444;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
+
     margin:0;
+
     padding:0;
+
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+
 }
+
+
+/* =====================================================
+   BODY
+===================================================== */
 
 body{
-    background:var(--light);
-    color:var(--text);
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
     min-height:100vh;
+
+    padding-bottom:85px;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    HEADER
-========================================================= */
+===================================================== */
 
 .header{
-    height:75px;
-    background:var(--navy);
-    color:#fff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #062f24,
+            #083d2e 50%,
+            #147a58
+        );
+
+    color:white;
+
+    padding:
+        17px 16px 25px;
+
+}
+
+
+.header-inner{
+
+    max-width:700px;
+
+    margin:auto;
+
     display:flex;
+
     align-items:center;
-    justify-content:space-between;
-    padding:0 30px;
-    box-shadow:0 3px 15px rgba(0,0,0,.08);
+
+    gap:13px;
+
 }
 
-.brand{
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    color:white;
+
     display:flex;
+
     align-items:center;
-    gap:11px;
+
+    justify-content:center;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+
 }
 
-.brand img{
-    width:38px;
-    height:38px;
-    object-fit:contain;
-    border-radius:7px;
+
+.back-button i{
+
+    font-size:15px;
+
 }
 
-.brand h2{
-    font-size:18px;
-    font-weight:700;
+
+/* =====================================================
+   EVERGREEN LOGO
+===================================================== */
+
+.evergreen-logo{
+
+    width:40px;
+
+    height:40px;
+
+    position:relative;
+
+    flex-shrink:0;
+
 }
 
-.header-link{
-    display:flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 14px;
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:7px;
-    color:#dbe7f7;
-    font-size:12px;
-    transition:.2s ease;
+
+.logo-leaf{
+
+    position:absolute;
+
+    width:18px;
+
+    height:25px;
+
+    background:#20a873;
+
+    border-radius:
+        100% 0 100% 0;
+
 }
 
-.header-link:hover{
-    background:rgba(255,255,255,.06);
-    color:#fff;
+
+.logo-leaf.one{
+
+    left:3px;
+
+    top:1px;
+
+    transform:
+        rotate(-35deg);
+
 }
 
-/* =========================================================
+
+.logo-leaf.two{
+
+    right:2px;
+
+    top:1px;
+
+    transform:
+        rotate(35deg)
+        scaleX(-1);
+
+}
+
+
+.logo-leaf.three{
+
+    left:11px;
+
+    top:11px;
+
+    background:#75d6ad;
+
+    transform:
+        rotate(-5deg);
+
+}
+
+
+.logo-trunk{
+
+    position:absolute;
+
+    width:5px;
+
+    height:20px;
+
+    left:18px;
+
+    bottom:0;
+
+    background:#d8b58a;
+
+    border-radius:4px;
+
+}
+
+
+/* =====================================================
+   HEADER TEXT
+===================================================== */
+
+.header-text h1{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:19px;
+
+    font-weight:800;
+
+}
+
+
+.header-text p{
+
+    margin-top:3px;
+
+    font-size:11px;
+
+    color:
+        rgba(255,255,255,.70);
+
+}
+
+
+/* =====================================================
    CONTAINER
-========================================================= */
+===================================================== */
 
 .container{
+
     width:100%;
-    max-width:1050px;
+
+    max-width:700px;
+
     margin:auto;
-    padding:35px 20px 70px;
+
+    padding:
+        20px 15px 30px;
+
 }
 
-/* =========================================================
-   PAGE TITLE
-========================================================= */
 
-.page-heading{
-    margin-bottom:28px;
+/* =====================================================
+   INTRO CARD
+===================================================== */
+
+.intro-card{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:19px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(8,61,46,.05);
+
 }
 
-.page-heading h1{
-    font-size:25px;
-    font-weight:700;
-    letter-spacing:-.5px;
-    color:var(--text);
+
+.intro-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-.page-heading p{
-    margin-top:5px;
-    color:var(--muted);
-    font-size:13px;
+
+.intro-icon{
+
+    width:46px;
+
+    height:46px;
+
+    border-radius:14px;
+
+    background:
+        var(--mint);
+
+    color:
+        var(--evergreen);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    flex-shrink:0;
+
 }
 
-/* =========================================================
+
+.intro-icon i{
+
+    font-size:19px;
+
+}
+
+
+.intro-text h2{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:15px;
+
+    font-weight:800;
+
+}
+
+
+.intro-text p{
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    margin-top:3px;
+
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-heading{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin:
+        0 2px 11px;
+
+}
+
+
+.section-heading h3{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+}
+
+
+.section-heading span{
+
+    font-size:10px;
+
+    color:
+        var(--muted);
+
+}
+
+
+/* =====================================================
+   INVESTMENT CONTAINER
+===================================================== */
+
+#investmentContainer{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
+}
+
+
+/* =====================================================
    INVESTMENT CARD
-========================================================= */
+===================================================== */
 
 .card{
-    background:var(--white);
-    border:1px solid var(--border);
-    border-radius:10px;
-    margin-bottom:18px;
-    box-shadow:var(--shadow);
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
     overflow:hidden;
-    transition:.2s ease;
+
+    box-shadow:
+        0 6px 20px
+        rgba(8,61,46,.045);
+
 }
 
-.card:hover{
-    box-shadow:var(--shadow-lg);
-    transform:translateY(-2px);
-}
 
-/* =========================================================
+/* =====================================================
    CARD HEADER
-========================================================= */
+===================================================== */
 
 .card-header{
-    padding:20px 22px;
+
+    padding:16px;
+
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
-    gap:15px;
-    background:#fff;
-    border-bottom:1px solid var(--border);
+
+    gap:12px;
+
+    border-bottom:
+        1px solid var(--border);
+
 }
+
 
 .plan-info{
+
     display:flex;
+
     align-items:center;
-    gap:13px;
+
+    gap:11px;
+
+    min-width:0;
+
 }
+
 
 .plan-icon{
-    width:44px;
-    height:44px;
+
+    width:43px;
+
+    height:43px;
+
+    border-radius:13px;
+
+    background:
+        var(--mint);
+
+    color:
+        var(--evergreen);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    border-radius:8px;
-    background:#edf5ff;
-    color:var(--primary);
-    font-size:18px;
+
+    flex-shrink:0;
+
 }
+
+
+.plan-icon i{
+
+    font-size:17px;
+
+}
+
 
 .plan-info h2{
-    font-size:16px;
-    font-weight:700;
-    color:var(--text);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
 }
+
 
 .plan-info p{
-    margin-top:2px;
-    font-size:11px;
-    color:var(--muted);
+
+    margin-top:3px;
+
+    color:
+        var(--muted);
+
+    font-size:10px;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    STATUS
-========================================================= */
+===================================================== */
 
 .status{
-    padding:6px 11px;
-    border-radius:6px;
+
+    padding:
+        5px 10px;
+
+    border-radius:30px;
+
     font-size:10px;
-    font-weight:600;
+
+    font-weight:700;
+
     white-space:nowrap;
+
 }
+
 
 .status.running{
-    background:#ecfdf3;
-    color:var(--green);
-    border:1px solid #bbf7d0;
+
+    background:#e8f7f0;
+
+    color:
+        var(--evergreen);
+
+    border:
+        1px solid #bce6d3;
+
 }
+
 
 .status.completed{
-    background:#eff6ff;
-    color:var(--primary);
-    border:1px solid #bfdbfe;
+
+    background:#edf4ff;
+
+    color:
+        var(--blue);
+
+    border:
+        1px solid #c8dcfa;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    CARD CONTENT
-========================================================= */
+===================================================== */
 
 .card-content{
-    padding:20px 22px;
+
+    padding:16px;
+
 }
 
-/* =========================================================
-   MAIN STAT
-========================================================= */
+
+/* =====================================================
+   MAIN INVESTMENT VALUE
+===================================================== */
 
 .main-stat{
-    padding:18px;
-    background:#f8fafc;
-    border:1px solid #edf1f5;
-    border-radius:8px;
-    margin-bottom:18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f1faf6,
+            #f8fcfa
+        );
+
+    border:
+        1px solid #dfeee7;
+
+    border-radius:14px;
+
+    padding:15px;
+
+    margin-bottom:14px;
+
 }
+
 
 .main-stat p{
-    color:var(--muted);
-    font-size:11px;
+
+    font-size:10px;
+
+    color:
+        var(--muted);
+
     margin-bottom:4px;
+
 }
+
 
 .main-stat h3{
-    font-size:25px;
-    color:var(--primary);
-    font-weight:700;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:23px;
+
+    font-weight:800;
+
+    color:
+        var(--evergreen);
+
 }
 
-/* =========================================================
+
+/* =====================================================
    DETAILS GRID
-========================================================= */
+===================================================== */
 
 .details-grid{
+
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    border:1px solid var(--border);
-    border-radius:8px;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:13px;
+
     overflow:hidden;
+
 }
+
 
 .detail{
-    padding:15px;
-    border-right:1px solid var(--border);
-    border-bottom:1px solid var(--border);
+
+    padding:13px;
+
+    border-right:
+        1px solid var(--border);
+
+    border-bottom:
+        1px solid var(--border);
+
 }
 
-.detail:nth-child(3n){
+
+.detail:nth-child(2n){
+
     border-right:none;
+
 }
 
-.detail:nth-last-child(-n+3){
+
+.detail:nth-last-child(-n+2){
+
     border-bottom:none;
+
 }
+
 
 .detail-label{
+
     display:block;
-    font-size:10px;
-    color:var(--muted);
+
+    color:
+        var(--muted);
+
+    font-size:9px;
+
     margin-bottom:5px;
+
 }
+
 
 .detail-value{
-    font-size:13px;
-    font-weight:600;
-    color:var(--text);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:
+        var(--text);
+
     word-break:break-word;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    PROGRESS
-========================================================= */
+===================================================== */
 
 .progress-section{
-    margin-top:20px;
+
+    margin-top:16px;
+
 }
+
 
 .progress-top{
+
     display:flex;
-    justify-content:space-between;
+
     align-items:center;
+
+    justify-content:space-between;
+
     margin-bottom:7px;
+
 }
+
 
 .progress-top span{
-    font-size:11px;
-    color:var(--muted);
+
+    color:
+        var(--muted);
+
+    font-size:10px;
+
 }
+
 
 .progress-top strong{
-    font-size:11px;
-    color:var(--text);
+
+    color:
+        var(--evergreen);
+
+    font-size:10px;
+
 }
+
 
 .progress-bar{
+
     width:100%;
+
     height:7px;
-    background:#e9eef4;
-    border-radius:10px;
+
+    background:#e8efeb;
+
+    border-radius:20px;
+
     overflow:hidden;
+
 }
+
 
 .progress-fill{
+
     height:100%;
-    background:var(--primary);
-    border-radius:10px;
-    transition:width .5s ease;
+
+    background:
+        linear-gradient(
+            90deg,
+            #147a58,
+            #20a873
+        );
+
+    border-radius:20px;
+
+    transition:
+        width .5s ease;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    EMPTY STATE
-========================================================= */
+===================================================== */
 
 .empty{
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:10px;
-    padding:55px 20px;
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:19px;
+
+    padding:
+        45px 20px;
+
     text-align:center;
-    box-shadow:var(--shadow);
+
+    box-shadow:
+        0 7px 20px
+        rgba(8,61,46,.04);
+
 }
+
 
 .empty-icon{
+
     width:60px;
+
     height:60px;
-    margin:0 auto 15px;
+
+    margin:
+        0 auto 14px;
+
+    border-radius:18px;
+
+    background:
+        var(--mint);
+
+    color:
+        var(--evergreen);
+
     display:flex;
+
     align-items:center;
+
     justify-content:center;
-    background:#edf5ff;
-    color:var(--primary);
-    border-radius:50%;
-    font-size:24px;
+
+    font-size:23px;
+
 }
+
 
 .empty h3{
-    font-size:16px;
-    color:var(--text);
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:15px;
+
 }
+
 
 .empty p{
+
     margin-top:6px;
-    color:var(--muted);
-    font-size:12px;
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    ERROR
-========================================================= */
+===================================================== */
 
 .error{
-    background:#fff;
-    border:1px solid #fecaca;
-    border-left:4px solid var(--red);
-    border-radius:8px;
+
+    background:white;
+
+    border:
+        1px solid #fecaca;
+
+    border-left:
+        4px solid var(--red);
+
+    border-radius:14px;
+
     padding:20px;
+
     text-align:center;
+
 }
+
 
 .error h3{
-    color:var(--red);
+
+    color:
+        var(--red);
+
     font-size:14px;
+
 }
+
 
 .error p{
-    color:var(--muted);
-    font-size:11px;
+
     margin-top:5px;
+
+    color:
+        var(--muted);
+
+    font-size:11px;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    BACK BUTTON
-========================================================= */
+===================================================== */
 
 .back-btn{
+
     width:100%;
-    max-width:300px;
-    margin:25px auto 0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:8px;
-    padding:13px 18px;
+
+    margin-top:20px;
+
+    padding:13px;
+
     border:none;
-    border-radius:7px;
-    background:var(--navy);
-    color:#fff;
+
+    border-radius:13px;
+
+    background:
+        var(--evergreen-dark);
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
     font-size:12px;
-    font-weight:600;
+
+    font-weight:700;
+
     cursor:pointer;
-    transition:.2s ease;
+
 }
 
-.back-btn:hover{
-    background:#162238;
-    transform:translateY(-1px);
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    height:68px;
+
+    background:white;
+
+    border-top:
+        1px solid var(--border);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:
+        space-around;
+
+    z-index:1000;
+
+    box-shadow:
+        0 -5px 20px
+        rgba(8,61,46,.06);
+
 }
 
-/* =========================================================
+
+.bottom-nav a{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    text-decoration:none;
+
+    color:#8b9993;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+
+.bottom-nav a i{
+
+    font-size:17px;
+
+}
+
+
+.bottom-nav a.active{
+
+    color:
+        var(--evergreen);
+
+}
+
+
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
 footer{
+
     text-align:center;
-    padding:20px;
-    color:#94a3b8;
-    font-size:10px;
+
+    padding:
+        10px 15px 25px;
+
+    color:#91a09a;
+
+    font-size:9px;
+
 }
 
-/* =========================================================
+
+/* =====================================================
    MOBILE
-========================================================= */
+===================================================== */
 
-@media(max-width:700px){
-
-    .header{
-        height:68px;
-        padding:0 15px;
-    }
-
-    .brand h2{
-        font-size:16px;
-    }
-
-    .brand img{
-        width:34px;
-        height:34px;
-    }
-
-    .header-link span{
-        display:none;
-    }
-
-    .header-link{
-        width:38px;
-        height:38px;
-        padding:0;
-        justify-content:center;
-    }
+@media(max-width:420px){
 
     .container{
-        padding:25px 14px 55px;
+
+        padding-left:12px;
+
+        padding-right:12px;
+
     }
 
-    .page-heading h1{
-        font-size:21px;
-    }
-
-    .page-heading p{
-        font-size:11px;
-    }
 
     .card-header{
-        padding:16px;
+
+        padding:14px;
+
     }
+
 
     .card-content{
-        padding:16px;
+
+        padding:14px;
+
     }
+
 
     .plan-info h2{
-        font-size:14px;
+
+        font-size:13px;
+
     }
 
-    .details-grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-
-    .detail{
-        border-right:1px solid var(--border);
-        border-bottom:1px solid var(--border);
-    }
-
-    .detail:nth-child(3n){
-        border-right:1px solid var(--border);
-    }
-
-    .detail:nth-child(2n){
-        border-right:none;
-    }
-
-    .detail:nth-last-child(-n+3){
-        border-bottom:1px solid var(--border);
-    }
-
-    .detail:last-child,
-    .detail:nth-last-child(2){
-        border-bottom:none;
-    }
-
-    .main-stat h3{
-        font-size:21px;
-    }
-
-}
-
-/* =========================================================
-   SMALL PHONES
-========================================================= */
-
-@media(max-width:400px){
 
     .status{
-        padding:5px 8px;
+
         font-size:9px;
+
+        padding:
+            5px 8px;
+
     }
 
-    .plan-icon{
-        width:38px;
-        height:38px;
-        font-size:15px;
+
+    .main-stat h3{
+
+        font-size:21px;
+
     }
 
-    .plan-info h2{
-        font-size:13px;
-    }
 
     .detail{
-        padding:12px;
-    }
 
-    .detail-value{
-        font-size:12px;
+        padding:11px;
+
     }
 
 }
@@ -556,135 +1187,303 @@ footer{
 
 </head>
 
+
 <body>
 
-<!-- HEADER -->
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="header">
 
-<div class="brand">
+    <div class="header-inner">
 
-<img src="1234.png" alt="Crest Wealth Logo">
 
-<h2>Crest Wealth</h2>
+        <a
+            href="dashboard.html"
+            class="back-button"
+        >
 
-</div>
+            <i class="fa-solid fa-arrow-left"></i>
 
-<a href="dashboard.html" class="header-link">
+        </a>
 
-<i class="fas fa-arrow-left"></i>
 
-<span>Dashboard</span>
+        <div class="evergreen-logo">
 
-</a>
+            <div class="logo-leaf one"></div>
+
+            <div class="logo-leaf two"></div>
+
+            <div class="logo-leaf three"></div>
+
+            <div class="logo-trunk"></div>
+
+        </div>
+
+
+        <div class="header-text">
+
+            <h1>
+                My Investments
+            </h1>
+
+            <p>
+                Monitor your active investment plans
+            </p>
+
+        </div>
+
+
+    </div>
 
 </header>
 
 
-<!-- MAIN -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
 <main class="container">
 
-<div class="page-heading">
 
-<h1>Active Investments</h1>
+    <!-- =================================================
+         INTRO
+    ================================================== -->
 
-<p>Monitor your current investment plans and returns.</p>
+    <div class="intro-card">
 
-</div>
-
-
-<div id="investmentContainer">
-
-<!-- Investments load here -->
-
-</div>
+        <div class="intro-top">
 
 
-<button
-class="back-btn"
-onclick="window.location.href='dashboard.html'">
+            <div class="intro-icon">
 
-<i class="fas fa-arrow-left"></i>
+                <i class="fa-solid fa-chart-line"></i>
 
-Back to Dashboard
+            </div>
 
-</button>
+
+            <div class="intro-text">
+
+                <h2>
+                    Investment Portfolio
+                </h2>
+
+                <p>
+                    Track your investment amount,
+                    earnings, progress and completion dates.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         SECTION
+    ================================================== -->
+
+    <div class="section-heading">
+
+        <h3>
+            Your Investments
+        </h3>
+
+        <span>
+            Active plans
+        </span>
+
+    </div>
+
+
+
+    <!-- =================================================
+         INVESTMENTS
+    ================================================== -->
+
+    <div id="investmentContainer">
+
+        <!-- Investments load here -->
+
+    </div>
+
+
+
+    <!-- =================================================
+         BACK
+    ================================================== -->
+
+    <button
+        class="back-btn"
+        onclick="window.location.href='dashboard.html'"
+    >
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Back to Mine
+
+    </button>
+
 
 </main>
 
 
+
 <footer>
 
-© 2026 Crest Wealth Investment. All Rights Reserved.
+    © 2026 Evergreen Investments. All Rights Reserved.
 
 </footer>
 
 
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <a href="home.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home
+        </span>
+
+    </a>
+
+
+    <a
+        href="investment.html"
+        class="active"
+    >
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <span>
+            Products
+        </span>
+
+    </a>
+
+
+    <a href="invite.html">
+
+        <i class="fa-solid fa-users"></i>
+
+        <span>
+            Team
+        </span>
+
+    </a>
+
+
+    <a href="dashboard.html">
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+            Mine
+        </span>
+
+    </a>
+
+
+</nav>
+
+
+
 <script>
 
-/* =========================================================
+/* =====================================================
    USER
-========================================================= */
+===================================================== */
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user =
+    JSON.parse(
+        localStorage.getItem("user")
+    );
 
-if (!user) {
 
-    window.location.href = "login.html";
+if(!user){
+
+    window.location.href =
+        "login.html";
 
 }
 
 
-/* =========================================================
+/* =====================================================
    LOAD INVESTMENTS
-========================================================= */
+===================================================== */
 
 async function loadInvestments(){
 
     const container =
-        document.getElementById("investmentContainer");
+        document.getElementById(
+            "investmentContainer"
+        );
+
 
     try{
 
-        const response = await fetch(
-            `https://young-invest-backend.onrender.com/api/investment/${user._id}`
-        );
+        const response =
+            await fetch(
+                `https://young-invest-backend.onrender.com/api/investment/${user._id}`
+            );
+
 
         if(!response.ok){
 
-            throw new Error("Failed to load investments");
+            throw new Error(
+                "Failed to load investments"
+            );
 
         }
 
-        const investments = await response.json();
+
+        const investments =
+            await response.json();
+
 
         container.innerHTML = "";
 
 
         /* =================================================
-           NO INVESTMENT
-        ================================================= */
+           NO INVESTMENTS
+        ================================================== */
 
         if(!investments.length){
 
             container.innerHTML = `
 
-            <div class="empty">
+                <div class="empty">
 
-                <div class="empty-icon">
+                    <div class="empty-icon">
 
-                    <i class="fas fa-chart-line"></i>
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+
+                    <h3>
+                        No Active Investment Yet
+                    </h3>
+
+
+                    <p>
+                        Start an investment plan to see it here.
+                    </p>
 
                 </div>
-
-                <h3>No Active Investment Yet</h3>
-
-                <p>
-                    Start an investment plan to see it here.
-                </p>
-
-            </div>
 
             `;
 
@@ -695,236 +1494,289 @@ async function loadInvestments(){
 
         /* =================================================
            DISPLAY INVESTMENTS
-        ================================================= */
+        ================================================== */
 
         investments.forEach(item => {
 
-            const now = new Date();
 
-            const endDate = new Date(item.endDate);
+            const now =
+                new Date();
 
-            const startDate = new Date(item.startDate);
 
-            let status = "Running";
+            const endDate =
+                new Date(
+                    item.endDate
+                );
 
-            let statusClass = "running";
+
+            const startDate =
+                new Date(
+                    item.startDate
+                );
+
+
+            let status =
+                "Running";
+
+
+            let statusClass =
+                "running";
 
 
             if(endDate < now){
 
-                status = "Completed";
+                status =
+                    "Completed";
 
-                statusClass = "completed";
+                statusClass =
+                    "completed";
 
             }
 
 
-            /* PROGRESS */
+            /* =================================================
+               PROGRESS
+            ================================================= */
 
             const duration =
-                Number(item.duration) || 1;
+                Number(
+                    item.duration
+                ) || 1;
+
 
             const daysPaid =
-                Number(item.daysPaid) || 0;
+                Number(
+                    item.daysPaid
+                ) || 0;
+
 
             let progress =
                 (daysPaid / duration) * 100;
 
+
             progress =
-                Math.min(100, Math.max(0, progress));
+                Math.min(
+                    100,
+                    Math.max(
+                        0,
+                        progress
+                    )
+                );
 
 
             container.innerHTML += `
 
-            <div class="card">
+                <div class="card">
 
-                <div class="card-header">
 
-                    <div class="plan-info">
+                    <div class="card-header">
 
-                        <div class="plan-icon">
 
-                            <i class="fas fa-chart-line"></i>
+                        <div class="plan-info">
 
-                        </div>
 
-                        <div>
+                            <div class="plan-icon">
 
-                            <h2>
-                                ${item.planName || "Investment Plan"}
-                            </h2>
+                                                              <i class="fa-solid fa-chart-line"></i>
 
-                            <p>
-                                Investment Account
-                            </p>
-
-                        </div>
-
-                    </div>
-
-
-                    <span class="status ${statusClass}">
-
-                        ${status}
-
-                    </span>
-
-                </div>
-
-
-                <div class="card-content">
-
-
-                    <div class="main-stat">
-
-                        <p>
-                            Investment Amount
-                        </p>
-
-                        <h3>
-                            ₦${Number(item.amount || 0).toLocaleString()}
-                        </h3>
-
-                    </div>
-
-
-                    <div class="details-grid">
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Daily Profit
-                            </span>
-
-                            <span class="detail-value">
-                                ₦${Number(item.dailyProfit || 0).toLocaleString()}
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Total Return
-                            </span>
-
-                            <span class="detail-value">
-                                ₦${Number(item.totalReturn || 0).toLocaleString()}
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Days Paid
-                            </span>
-
-                            <span class="detail-value">
-                                ${daysPaid} / ${duration}
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Duration
-                            </span>
-
-                            <span class="detail-value">
-                                ${duration} Days
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Start Date
-                            </span>
-
-                            <span class="detail-value">
-                                ${startDate.toLocaleDateString()}
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                End Date
-                            </span>
-
-                            <span class="detail-value">
-                                ${endDate.toLocaleDateString()}
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="progress-section">
-
-                        <div class="progress-top">
-
-                            <span>
-                                Investment Progress
-                            </span>
-
-                            <strong>
-                                ${Math.round(progress)}%
-                            </strong>
-
-                        </div>
-
-
-                        <div class="progress-bar">
-
-                            <div
-                                class="progress-fill"
-                                style="width:${progress}%">
                             </div>
 
+
+                            <div>
+
+                                <h2>
+                                    ${
+                                        item.planName ||
+                                        "Investment Plan"
+                                    }
+                                </h2>
+
+                                <p>
+                                    Investment Account
+                                </p>
+
+                            </div>
+
+
                         </div>
+
+
+                        <span class="status ${statusClass}">
+                            ${status}
+                        </span>
+
+
+                    </div>
+
+
+                    <div class="card-content">
+
+
+                        <div class="main-stat">
+
+                            <p>
+                                Investment Amount
+                            </p>
+
+                            <h3>
+                                ₦${Number(
+                                    item.amount || 0
+                                ).toLocaleString()}
+                            </h3>
+
+                        </div>
+
+
+                        <div class="details-grid">
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    Daily Profit
+                                </span>
+
+                                <span class="detail-value">
+                                    ₦${Number(
+                                        item.dailyProfit || 0
+                                    ).toLocaleString()}
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    Total Return
+                                </span>
+
+                                <span class="detail-value">
+                                    ₦${Number(
+                                        item.totalReturn || 0
+                                    ).toLocaleString()}
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    Days Paid
+                                </span>
+
+                                <span class="detail-value">
+                                    ${daysPaid} / ${duration}
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    Duration
+                                </span>
+
+                                <span class="detail-value">
+                                    ${duration} Days
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    Start Date
+                                </span>
+
+                                <span class="detail-value">
+                                    ${startDate.toLocaleDateString()}
+                                </span>
+
+                            </div>
+
+
+                            <div class="detail">
+
+                                <span class="detail-label">
+                                    End Date
+                                </span>
+
+                                <span class="detail-value">
+                                    ${endDate.toLocaleDateString()}
+                                </span>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="progress-section">
+
+
+                            <div class="progress-top">
+
+                                <span>
+                                    Investment Progress
+                                </span>
+
+                                <strong>
+                                    ${Math.round(progress)}%
+                                </strong>
+
+                            </div>
+
+
+                            <div class="progress-bar">
+
+                                <div
+                                    class="progress-fill"
+                                    style="width:${progress}%"
+                                ></div>
+
+                            </div>
+
+
+                        </div>
+
 
                     </div>
 
 
                 </div>
-
-            </div>
 
             `;
 
         });
 
 
-    }catch(error){
+    }
 
-        console.log(error);
+    catch(error){
+
+        console.error(
+            "Investment Error:",
+            error
+        );
+
 
         container.innerHTML = `
 
-        <div class="error">
+            <div class="error">
 
-            <h3>
-                Unable to Load Investments
-            </h3>
+                <h3>
+                    Unable to Load Investments
+                </h3>
 
-            <p>
-                Please refresh the page and try again.
-            </p>
+                <p>
+                    Please refresh the page and try again.
+                </p>
 
-        </div>
+            </div>
 
         `;
 
@@ -933,14 +1785,15 @@ async function loadInvestments(){
 }
 
 
-/* =========================================================
+/* =====================================================
    START
-========================================================= */
+===================================================== */
 
 loadInvestments();
 
 </script>
 
+
 </body>
 
-    </html>
+</html>
