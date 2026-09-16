@@ -3,120 +3,883 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Transaction History | Crest Wealth Investment</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<meta
+    name="theme-color"
+    content="#0b3d2e"
+>
+
+<title>
+    Transaction History | Evergreen Investments
+</title>
+
+
+<!-- GOOGLE FONTS -->
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+
+<!-- FONT AWESOME -->
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+>
+
 
 <style>
 
-body{
-font-family:Poppins,sans-serif;
-background:#f5f7fb;
-margin:0;
-padding:20px;
+/* =====================================================
+   ROOT
+===================================================== */
+
+:root{
+
+    --evergreen:#147a58;
+    --evergreen-dark:#083d2e;
+
+    --green:#20a873;
+
+    --mint:#e8f7f0;
+
+    --background:#f5f8f6;
+
+    --white:#ffffff;
+
+    --text:#12251e;
+
+    --muted:#718079;
+
+    --border:#e3ebe7;
+
+    --red:#ef4444;
+
+    --orange:#f59e0b;
+
 }
+
+
+/* =====================================================
+   RESET
+===================================================== */
+
+*{
+
+    box-sizing:border-box;
+
+    margin:0;
+
+    padding:0;
+
+}
+
+
+body{
+
+    font-family:
+        "DM Sans",
+        sans-serif;
+
+    background:
+        var(--background);
+
+    color:
+        var(--text);
+
+    min-height:100vh;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+
+    background:
+        linear-gradient(
+            135deg,
+            #083d2e,
+            #147a58
+        );
+
+    color:white;
+
+    padding:
+        18px 18px 22px;
+
+    position:relative;
+
+}
+
+
+.header-top{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-button{
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:12px;
+
+    background:
+        rgba(255,255,255,.12);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:white;
+
+    text-decoration:none;
+
+    flex-shrink:0;
+
+}
+
+
+.back-button i{
+
+    font-size:15px;
+
+}
+
+
+/* =====================================================
+   EVERGREEN LOGO
+===================================================== */
+
+.evergreen-logo{
+
+    width:38px;
+
+    height:38px;
+
+    position:relative;
+
+    flex-shrink:0;
+
+}
+
+
+.logo-leaf{
+
+    position:absolute;
+
+    width:17px;
+
+    height:24px;
+
+    background:#20a873;
+
+    border-radius:
+        100% 0 100% 0;
+
+    transform:rotate(-35deg);
+
+}
+
+
+.logo-leaf.one{
+
+    left:3px;
+
+    top:1px;
+
+}
+
+
+.logo-leaf.two{
+
+    right:2px;
+
+    top:1px;
+
+    transform:
+        rotate(35deg)
+        scaleX(-1);
+
+}
+
+
+.logo-leaf.three{
+
+    left:10px;
+
+    top:10px;
+
+    transform:
+        rotate(-5deg);
+
+    background:#75d6ad;
+
+}
+
+
+.logo-trunk{
+
+    position:absolute;
+
+    width:5px;
+
+    height:20px;
+
+    background:#d8b58a;
+
+    bottom:0;
+
+    left:17px;
+
+    border-radius:4px;
+
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.header-title{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+}
+
+
+.header-title h1{
+
+    font-size:18px;
+
+    font-weight:800;
+
+}
+
+
+.header-title p{
+
+    margin-top:3px;
+
+    font-size:12px;
+
+    color:
+        rgba(255,255,255,.72);
+
+}
+
+
+/* =====================================================
+   MAIN
+===================================================== */
 
 .container{
-max-width:700px;
-margin:auto;
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:
+        20px 16px 100px;
+
 }
 
-h2{
-text-align:center;
-margin-bottom:20px;
+
+/* =====================================================
+   SUMMARY
+===================================================== */
+
+.summary-card{
+
+    background:white;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-bottom:20px;
+
+    box-shadow:
+        0 8px 25px
+        rgba(8,61,46,.05);
+
 }
+
+
+.summary-title{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:14px;
+
+    font-weight:800;
+
+    margin-bottom:5px;
+
+}
+
+
+.summary-text{
+
+    font-size:12px;
+
+    color:var(--muted);
+
+}
+
+
+/* =====================================================
+   TRANSACTIONS
+===================================================== */
+
+#transactions{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+
+/* =====================================================
+   TRANSACTION CARD
+===================================================== */
 
 .transaction{
-background:#fff;
-padding:15px;
-border-radius:10px;
-margin-bottom:15px;
-box-shadow:0 3px 10px rgba(0,0,0,.08);
+
+    background:
+        var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius:16px;
+
+    padding:16px;
+
+    box-shadow:
+        0 5px 18px
+        rgba(8,61,46,.04);
+
 }
+
+
+/* =====================================================
+   TOP
+===================================================== */
 
 .top{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:8px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:10px;
+
 }
+
 
 .type{
-font-weight:bold;
-font-size:16px;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-weight:800;
+
+    font-size:15px;
+
+    color:
+        var(--text);
+
 }
+
 
 .amount{
-font-size:18px;
-font-weight:bold;
-color:#10b981;
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:16px;
+
+    font-weight:800;
+
+    color:
+        var(--evergreen);
+
 }
+
+
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
-display:inline-block;
-padding:5px 10px;
-border-radius:20px;
-font-size:12px;
-color:#fff;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    padding:
+        5px 10px;
+
+    border-radius:30px;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    color:white;
+
 }
+
+
+/* Existing transaction.js statuses */
 
 .Pending{
-background:#f59e0b;
+
+    background:#f59e0b;
+
 }
+
 
 .Approved{
-background:#10b981;
+
+    background:#20a873;
+
 }
+
 
 .Rejected{
-background:#ef4444;
+
+    background:#ef4444;
+
 }
+
 
 .Active{
-background:#3b82f6;
+
+    background:#3b82f6;
+
 }
+
 
 .Completed{
-background:#6b7280;
+
+    background:#6b7280;
+
 }
+
 
 .Credited{
-background:#10b981;
+
+    background:#20a873;
+
 }
+
+
+/* =====================================================
+   DATE
+===================================================== */
 
 .date{
-font-size:13px;
-color:#666;
-margin-top:8px;
+
+    font-size:12px;
+
+    color:
+        var(--muted);
+
+    margin-top:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
 }
 
-.back{
-display:block;
-text-align:center;
-margin-top:20px;
-text-decoration:none;
-font-weight:bold;
+
+/* =====================================================
+   EMPTY STATE
+===================================================== */
+
+.empty-state{
+
+    background:white;
+
+    border:
+        1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    color:var(--muted);
+
+}
+
+
+.empty-state i{
+
+    font-size:30px;
+
+    color:#9ab8aa;
+
+    margin-bottom:12px;
+
+}
+
+
+.empty-state h3{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:15px;
+
+    color:var(--text);
+
+    margin-bottom:5px;
+
+}
+
+
+.empty-state p{
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    bottom:0;
+
+    left:0;
+
+    right:0;
+
+    height:68px;
+
+    background:white;
+
+    border-top:
+        1px solid var(--border);
+
+    display:flex;
+
+    justify-content:
+        space-around;
+
+    align-items:center;
+
+    z-index:100;
+
+    box-shadow:
+        0 -5px 20px
+        rgba(8,61,46,.05);
+
+}
+
+
+.bottom-nav a{
+
+    text-decoration:none;
+
+    color:#8b9993;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    gap:4px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+}
+
+
+.bottom-nav a i{
+
+    font-size:17px;
+
+}
+
+
+.bottom-nav a.active{
+
+    color:
+        var(--evergreen);
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:420px){
+
+    .container{
+
+        padding-left:13px;
+
+        padding-right:13px;
+
+    }
+
+
+    .transaction{
+
+        padding:14px;
+
+    }
+
+
+    .type{
+
+        font-size:14px;
+
+    }
+
+
+    .amount{
+
+        font-size:15px;
+
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-<h2>Transaction History</h2>
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-<div id="transactions"></div>
+<header class="header">
 
-<a href="dashboard.html" class="back">
-← Back to Dashboard
-</a>
+    <div class="header-top">
 
-</div>
+
+        <a
+            href="dashboard.html"
+            class="back-button"
+        >
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+        </a>
+
+
+        <div class="evergreen-logo">
+
+            <div class="logo-leaf one"></div>
+
+            <div class="logo-leaf two"></div>
+
+            <div class="logo-leaf three"></div>
+
+            <div class="logo-trunk"></div>
+
+        </div>
+
+
+        <div class="header-title">
+
+            <h1>
+                Transaction History
+            </h1>
+
+            <p>
+                Your account activity
+            </p>
+
+        </div>
+
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main class="container">
+
+
+    <!-- SUMMARY -->
+
+    <div class="summary-card">
+
+        <div class="summary-title">
+
+            Account Activity
+
+        </div>
+
+
+        <div class="summary-text">
+
+            View your deposits, withdrawals,
+            investments and earnings.
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TRANSACTIONS -->
+
+    <div id="transactions">
+
+        <!-- transaction.js loads transactions here -->
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+    <a href="home.html">
+
+        <i class="fa-solid fa-house"></i>
+
+        <span>
+            Home
+        </span>
+
+    </a>
+
+
+    <a href="investment.html">
+
+        <i class="fa-solid fa-box-open"></i>
+
+        <span>
+            Products
+        </span>
+
+    </a>
+
+
+    <a href="invite.html">
+
+        <i class="fa-solid fa-users"></i>
+
+        <span>
+            Team
+        </span>
+
+    </a>
+
+
+    <a
+        href="dashboard.html"
+        class="active"
+    >
+
+        <i class="fa-solid fa-user"></i>
+
+        <span>
+            Mine
+        </span>
+
+    </a>
+
+
+</nav>
+
+
+
+<!-- =====================================================
+     EXISTING TRANSACTION JAVASCRIPT
+===================================================== -->
 
 <script src="transaction.js"></script>
 
+
 </body>
-</html>
+
+              </html>
