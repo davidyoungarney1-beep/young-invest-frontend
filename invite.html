@@ -8,7 +8,9 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Team | Evergreen Investments</title>
+<meta name="theme-color" content="#071b12">
+
+<title>My Team | Evergreen Investments</title>
 
 <link
 rel="stylesheet"
@@ -26,85 +28,117 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
 
 <body>
 
-<div class="page">
+<div class="app-shell">
 
-<!-- =========================
-     HEADER
-========================= -->
+<!-- =========================================
+     TOP BAR
+========================================= -->
 
-<header class="header">
+<header class="topbar">
 
-<a href="home.html" class="back-btn">
+<a href="home.html" class="back-button">
 
 <i class="fa-solid fa-arrow-left"></i>
 
 </a>
 
-<div class="header-title">
+<div class="brand-mark">
 
-<span>EVERGREEN</span>
+<div class="brand-symbol">
+<span></span>
+<span></span>
+<span></span>
+</div>
 
-<h2>My Team</h2>
+<div>
+<strong>EVERGREEN</strong>
+<small>INVESTMENTS</small>
+</div>
 
 </div>
 
-<div class="header-spacer"></div>
+<a href="dashboard.html" class="profile-button">
+
+<i class="fa-solid fa-user"></i>
+
+</a>
 
 </header>
 
 
-<!-- =========================
-     HERO
-========================= -->
+<!-- =========================================
+     MAIN
+========================================= -->
 
-<section class="team-hero">
+<main class="main-content">
 
-<div class="hero-content">
 
-<div class="hero-icon">
+<!-- =========================================
+     INTRO
+========================================= -->
 
-<i class="fa-solid fa-users"></i>
+<section class="intro">
+
+<div class="intro-label">
+
+<span class="pulse"></span>
+
+REFERRAL NETWORK
 
 </div>
 
-<div>
-
-<span class="hero-label">
-REFERRAL PROGRAM
-</span>
-
 <h1>
-Grow Your Team
+Build your
+<span>Evergreen</span>
+network.
 </h1>
 
 <p>
-Invite people to Evergreen Investments and earn referral rewards when they invest.
+Invite people, grow your team and receive referral rewards when eligible investments are made.
 </p>
-
-</div>
-
-</div>
 
 </section>
 
 
-<!-- =========================
-     TEAM STATS
-========================= -->
+<!-- =========================================
+     EARNINGS HERO
+========================================= -->
 
-<section class="stats-grid">
+<section class="earnings-hero">
 
-<div class="stat-card">
+<div class="hero-pattern"></div>
 
-<div class="stat-icon">
+<div class="hero-top">
 
-<i class="fa-solid fa-user-group"></i>
+<div>
+
+<span class="hero-caption">
+TOTAL REFERRAL EARNINGS
+</span>
+
+<div class="hero-amount"
+id="referralEarnings">
+
+₦0
 
 </div>
 
-<div class="stat-info">
+</div>
 
-<span>Total Referrals</span>
+<div class="hero-icon">
+
+<i class="fa-solid fa-arrow-trend-up"></i>
+
+</div>
+
+</div>
+
+
+<div class="hero-bottom">
+
+<div class="mini-stat">
+
+<span>Team Members</span>
 
 <strong id="totalReferrals">
 0
@@ -112,23 +146,14 @@ Invite people to Evergreen Investments and earn referral rewards when they inves
 
 </div>
 
-</div>
+<div class="hero-divider"></div>
 
+<div class="mini-stat">
 
-<div class="stat-card">
+<span>Status</span>
 
-<div class="stat-icon earnings">
-
-<i class="fa-solid fa-naira-sign"></i>
-
-</div>
-
-<div class="stat-info">
-
-<span>Referral Earnings</span>
-
-<strong id="referralEarnings">
-₦0
+<strong class="active-status">
+Active
 </strong>
 
 </div>
@@ -138,36 +163,59 @@ Invite people to Evergreen Investments and earn referral rewards when they inves
 </section>
 
 
-<!-- =========================
-     REFERRAL LINK
-========================= -->
+<!-- =========================================
+     PERSONAL INVITATION
+========================================= -->
 
-<section class="referral-card">
+<section class="invite-section">
 
-<div class="section-heading">
+<div class="section-top">
 
 <div>
 
-<span class="small-label">
-YOUR PERSONAL LINK
+<span class="eyebrow">
+YOUR INVITATION
 </span>
 
 <h2>
-Referral Link
+Personal referral link
 </h2>
 
 </div>
 
-<div class="link-icon">
+<div class="section-number">
+01
+</div>
+
+</div>
+
+
+<div class="invitation-card">
+
+<div class="invitation-copy">
+
+<div class="link-badge">
 
 <i class="fa-solid fa-link"></i>
 
 </div>
 
+<div>
+
+<span>
+YOUR UNIQUE LINK
+</span>
+
+<p>
+Share this link with someone you want to invite.
+</p>
+
+</div>
+
 </div>
 
 
-<div class="copy-box">
+<div class="link-field">
 
 <input
 type="text"
@@ -190,83 +238,75 @@ aria-label="Copy referral link"
 
 <button
 type="button"
-class="share-btn"
+class="whatsapp-button"
 id="shareWhatsapp"
 >
 
+<span class="whatsapp-icon">
+
 <i class="fa-brands fa-whatsapp"></i>
 
-<span>
-Share Referral Link
 </span>
 
-<i class="fa-solid fa-arrow-up-right-from-square share-arrow"></i>
+<span>
+Share invitation
+</span>
+
+<i class="fa-solid fa-arrow-right"></i>
 
 </button>
+
+</div>
 
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      HOW IT WORKS
-========================= -->
+========================================= -->
 
-<section class="process-card">
+<section class="process-section">
 
-<div class="section-heading">
+<div class="section-top">
 
 <div>
 
-<span class="small-label">
-SIMPLE PROCESS
+<span class="eyebrow">
+THE PROCESS
 </span>
 
 <h2>
-How It Works
+How your network grows
 </h2>
 
 </div>
 
-</div>
-
-
-<div class="steps">
-
-<div class="step">
-
-<div class="step-number">
-01
-</div>
-
-<div class="step-content">
-
-<h3>
-Copy your link
-</h3>
-
-<p>
-Copy your personal Evergreen referral link.
-</p>
-
-</div>
-
-</div>
-
-
-<div class="step">
-
-<div class="step-number">
+<div class="section-number">
 02
 </div>
 
-<div class="step-content">
+</div>
+
+
+<div class="process-list">
+
+
+<div class="process-item">
+
+<div class="process-marker">
+01
+</div>
+
+<div class="process-line"></div>
+
+<div class="process-content">
 
 <h3>
-Invite friends
+Share your link
 </h3>
 
 <p>
-Share your referral link with people you know.
+Send your personal Evergreen invitation to people you know.
 </p>
 
 </div>
@@ -274,20 +314,22 @@ Share your referral link with people you know.
 </div>
 
 
-<div class="step">
+<div class="process-item">
 
-<div class="step-number">
-03
+<div class="process-marker">
+02
 </div>
 
-<div class="step-content">
+<div class="process-line"></div>
+
+<div class="process-content">
 
 <h3>
 They register
 </h3>
 
 <p>
-Your friend creates an account using your link.
+The person creates an Evergreen account through your referral link.
 </p>
 
 </div>
@@ -295,20 +337,43 @@ Your friend creates an account using your link.
 </div>
 
 
-<div class="step">
+<div class="process-item">
 
-<div class="step-number">
-04
+<div class="process-marker">
+03
 </div>
 
-<div class="step-content">
+<div class="process-line"></div>
+
+<div class="process-content">
 
 <h3>
-Earn rewards
+They invest
 </h3>
 
 <p>
-When they make a qualifying investment, your referral reward is credited.
+A qualifying investment activates the applicable referral reward.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="process-item last">
+
+<div class="process-marker">
+04
+</div>
+
+<div class="process-content">
+
+<h3>
+Reward credited
+</h3>
+
+<p>
+The applicable referral reward is credited according to the referral rules.
 </p>
 
 </div>
@@ -320,192 +385,241 @@ When they make a qualifying investment, your referral reward is credited.
 </section>
 
 
-<!-- =========================
-     REWARD TABLE
-========================= -->
+<!-- =========================================
+     REWARD SECTION
+========================================= -->
 
-<section class="rewards-card">
+<section class="reward-section">
 
-<div class="section-heading">
+<div class="section-top">
 
 <div>
 
-<span class="small-label">
-REWARD STRUCTURE
+<span class="eyebrow">
+REWARD GUIDE
 </span>
 
 <h2>
-Referral Rewards
+Earn by plan
 </h2>
 
 </div>
 
-<div class="reward-badge">
-
-<i class="fa-solid fa-gift"></i>
-
+<div class="section-number">
+03
 </div>
 
 </div>
 
 
-<div class="reward-list">
+<div class="reward-grid">
 
 
-<div class="reward-row reward-head">
+<!-- SEED -->
 
-<span>
-Investment Plan
-</span>
+<div class="reward-card">
 
-<span>
-Bonus
-</span>
+<div class="reward-card-top">
 
-</div>
-
-
-<div class="reward-row">
-
-<div class="plan-info">
-
-<div class="plan-dot">
-M
-</div>
-
-<div>
-
-<strong>
-Mini Starter
-</strong>
-
-<small>
-₦4,000
-</small>
-
-</div>
-
-</div>
-
-<strong class="bonus">
-₦500
-</strong>
-
-</div>
-
-
-<div class="reward-row">
-
-<div class="plan-info">
-
-<div class="plan-dot">
+<div class="plan-symbol">
 S
 </div>
 
-<div>
+<span>
+SEED
+</span>
+
+</div>
+
+<div class="reward-main">
 
 <strong>
-Starter
+₦900
 </strong>
 
-<small>
-₦6,500
-</small>
+<span>
+referral reward
+</span>
 
 </div>
 
-</div>
+<div class="reward-meta">
 
-<strong class="bonus">
-₦2,000
-</strong>
-
-</div>
-
-
-<div class="reward-row">
-
-<div class="plan-info">
-
-<div class="plan-dot">
-P
-</div>
-
-<div>
+<span>Investment</span>
 
 <strong>
-Popular
-</strong>
-
-<small>
-₦20,000
-</small>
-
-</div>
-
-</div>
-
-<strong class="bonus">
 ₦5,000
 </strong>
 
 </div>
 
+</div>
 
-<div class="reward-row">
 
-<div class="plan-info">
+<!-- GROWTH -->
 
-<div class="plan-dot">
+<div class="reward-card featured">
+
+<div class="featured-label">
+POPULAR
+</div>
+
+<div class="reward-card-top">
+
+<div class="plan-symbol">
+G
+</div>
+
+<span>
+GROWTH
+</span>
+
+</div>
+
+<div class="reward-main">
+
+<strong>
+₦1,500
+</strong>
+
+<span>
+referral reward
+</span>
+
+</div>
+
+<div class="reward-meta">
+
+<span>Investment</span>
+
+<strong>
+₦7,000
+</strong>
+
+</div>
+
+</div>
+
+
+<!-- PLUS -->
+
+<div class="reward-card">
+
+<div class="reward-card-top">
+
+<div class="plan-symbol">
 P
 </div>
 
-<div>
+<span>
+PLUS
+</span>
+
+</div>
+
+<div class="reward-main">
 
 <strong>
-Premium
+₦3,000
 </strong>
 
-<small>
-₦50,000
-</small>
+<span>
+referral reward
+</span>
 
 </div>
 
-</div>
+<div class="reward-meta">
 
-<strong class="bonus">
-₦10,000
-</strong>
-
-</div>
-
-
-<div class="reward-row">
-
-<div class="plan-info">
-
-<div class="plan-dot">
-D
-</div>
-
-<div>
+<span>Investment</span>
 
 <strong>
-Diamond
-</strong>
-
-<small>
-₦100,000
-</small>
-
-</div>
-
-</div>
-
-<strong class="bonus">
 ₦15,000
 </strong>
+
+</div>
+
+</div>
+
+
+<!-- PREMIUM -->
+
+<div class="reward-card">
+
+<div class="reward-card-top">
+
+<div class="plan-symbol">
+P
+</div>
+
+<span>
+PREMIUM
+</span>
+
+</div>
+
+<div class="reward-main">
+
+<strong>
+₦6,000
+</strong>
+
+<span>
+referral reward
+</span>
+
+</div>
+
+<div class="reward-meta">
+
+<span>Investment</span>
+
+<strong>
+₦45,000
+</strong>
+
+</div>
+
+</div>
+
+
+<!-- ELITE -->
+
+<div class="reward-card elite-card">
+
+<div class="reward-card-top">
+
+<div class="plan-symbol">
+E
+</div>
+
+<span>
+ELITE
+</span>
+
+</div>
+
+<div class="reward-main">
+
+<strong>
+₦14,000
+</strong>
+
+<span>
+referral reward
+</span>
+
+</div>
+
+<div class="reward-meta">
+
+<span>Investment</span>
+
+<strong>
+₦95,000
+</strong>
+
+</div>
 
 </div>
 
@@ -515,26 +629,26 @@ Diamond
 </section>
 
 
-<!-- =========================
-     IMPORTANT NOTE
-========================= -->
+<!-- =========================================
+     INFORMATION CARD
+========================================= -->
 
-<section class="notice">
+<section class="info-card">
 
-<div class="notice-icon">
+<div class="info-icon">
 
-<i class="fa-solid fa-circle-info"></i>
+<i class="fa-solid fa-shield-halved"></i>
 
 </div>
 
 <div>
 
-<strong>
-Referral Information
-</strong>
+<span>
+REFERRAL INFORMATION
+</span>
 
 <p>
-Referral rewards are credited according to the applicable investment plan and referral rules.
+Rewards are credited according to the applicable investment plan and referral rules. Referral rewards are not generated simply by sharing a link.
 </p>
 
 </div>
@@ -542,11 +656,25 @@ Referral rewards are credited according to the applicable investment plan and re
 </section>
 
 
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer>
+
+<div class="footer-logo">
+
+<div class="brand-symbol small">
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<strong>
+EVERGREEN
+</strong>
+
+</div>
 
 <p>
 © 2026 Evergreen Investments
@@ -554,12 +682,14 @@ Referral rewards are credited according to the applicable investment plan and re
 
 </footer>
 
+</main>
 
-<!-- =========================
-     BOTTOM NAV
-========================= -->
 
-<nav class="bottom-nav">
+<!-- =========================================
+     BOTTOM NAVIGATION
+========================================= -->
+
+<nav class="bottom-navigation">
 
 <a href="home.html">
 
@@ -572,7 +702,7 @@ Referral rewards are credited according to the applicable investment plan and re
 
 <a href="investment.html">
 
-<i class="fa-solid fa-chart-line"></i>
+<i class="fa-solid fa-layer-group"></i>
 
 <span>Product</span>
 
@@ -606,10 +736,12 @@ Referral rewards are credited according to the applicable investment plan and re
 // =========================
 
 const user =
-JSON.parse(localStorage.getItem("user"));
+JSON.parse(
+localStorage.getItem("user")
+);
 
 
-if (!user) {
+if (!user || !user._id) {
 
 window.location.href =
 "login.html";
@@ -629,14 +761,14 @@ window.location.origin +
 
 "/register.html?ref=" +
 
-user.referralCode;
+(user.referralCode || "");
 
 
 // =========================
 // COPY REFERRAL LINK
 // =========================
 
-function copyReferralLink(){
+function copyReferralLink() {
 
 const input =
 document.getElementById(
@@ -653,17 +785,17 @@ input.setSelectionRange(
 if (
 navigator.clipboard &&
 navigator.clipboard.writeText
-){
+) {
 
-navigator.clipboard.writeText(
-input.value
-).then(() => {
+navigator.clipboard
+.writeText(input.value)
+.then(() => {
 
 showCopyMessage();
 
 });
 
-}else{
+} else {
 
 document.execCommand("copy");
 
@@ -675,14 +807,14 @@ showCopyMessage();
 
 
 // =========================
-// COPY MESSAGE
+// COPY FEEDBACK
 // =========================
 
-function showCopyMessage(){
+function showCopyMessage() {
 
 const button =
 document.querySelector(
-".copy-box button"
+".link-field button"
 );
 
 const original =
@@ -691,12 +823,20 @@ button.innerHTML;
 button.innerHTML =
 '<i class="fa-solid fa-check"></i>';
 
+button.classList.add(
+"copied"
+);
+
 setTimeout(() => {
 
 button.innerHTML =
 original;
 
-}, 1500);
+button.classList.remove(
+"copied"
+);
+
+}, 1600);
 
 }
 
@@ -707,7 +847,7 @@ original;
 
 document.getElementById(
 "shareWhatsapp"
-).onclick = function(){
+).onclick = function() {
 
 const link =
 document.getElementById(
@@ -736,9 +876,9 @@ whatsappURL,
 // LOAD REFERRAL STATS
 // =========================
 
-async function loadReferralStats(){
+async function loadReferralStats() {
 
-try{
+try {
 
 const response =
 await fetch(
@@ -747,40 +887,65 @@ await fetch(
 
 );
 
+if (!response.ok) {
 
-const data =
-await response.json();
+        throw new Error(
+            "Unable to load referral statistics."
+        );
+
+    }
+
+    const data =
+        await response.json();
+
+    // =========================
+    // UPDATE TEAM MEMBERS
+    // =========================
+
+    document.getElementById(
+        "totalReferrals"
+    ).textContent =
+        Number(
+            data.totalReferrals || 0
+        ).toLocaleString();
 
 
-document.getElementById(
-"totalReferrals"
-).textContent =
+    // =========================
+    // UPDATE REFERRAL EARNINGS
+    // =========================
 
-data.totalReferrals || 0;
-
-
-document.getElementById(
-"referralEarnings"
-).textContent =
-
-"₦" +
-
-Number(
-data.referralEarnings || 0
-).toLocaleString();
+    document.getElementById(
+        "referralEarnings"
+    ).textContent =
+        "₦" +
+        Number(
+            data.referralEarnings || 0
+        ).toLocaleString();
 
 
-}catch(error){
+} catch (error) {
 
-console.log(
-"Referral Error:",
-error
-);
+    console.error(
+        "Referral Stats Error:",
+        error
+    );
+
+    document.getElementById(
+        "totalReferrals"
+    ).textContent = "0";
+
+    document.getElementById(
+        "referralEarnings"
+    ).textContent = "₦0";
 
 }
 
 }
 
+
+// =========================
+// START REFERRAL STATS
+// =========================
 
 loadReferralStats();
 
@@ -790,4 +955,4 @@ loadReferralStats();
 
 </body>
 
-  </html>
+</html>
