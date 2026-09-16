@@ -8,163 +8,269 @@
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<meta name="theme-color" content="#f4f5f1">
+<meta name="theme-color" content="#06281c">
 
-<title>Deposit | Evergreen Investments</title>
+<title>Evergreen Investments | Deposit</title>
+
+
+<!-- Fonts -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
+rel="stylesheet">
+
+
+<!-- Font Awesome -->
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<!-- Popup -->
 
 <link rel="stylesheet" href="popup.css">
 
-<link
-href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-rel="stylesheet">
-
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 /* =========================================================
    EVERGREEN DEPOSIT
-   CLEAN EDITORIAL FINTECH DESIGN
 ========================================================= */
 
 :root{
-    --ink:#102019;
-    --deep:#0b2b1e;
-    --green:#146b49;
-    --green-2:#1c8a60;
 
-    --paper:#f5f6f2;
+    --deep:#06281c;
+    --dark:#0b3b2a;
+    --green:#147a58;
+    --bright:#20a873;
+
+    --paper:#f5f7f3;
     --white:#ffffff;
 
-    --line:#dfe5df;
-    --soft:#e9eee9;
+    --text:#10251d;
+    --muted:#718079;
 
-    --muted:#78827d;
+    --border:#dfe8e3;
 
-    --danger:#b33a3a;
 }
+
 
 *{
+
     margin:0;
     padding:0;
+
     box-sizing:border-box;
+
 }
 
-html{
-    scroll-behavior:smooth;
-}
 
 body{
-    font-family:"DM Sans",sans-serif;
-    background:#dfe5df;
-    color:var(--ink);
+
     min-height:100vh;
+
+    background:var(--paper);
+
+    color:var(--text);
+
+    font-family:
+        'DM Sans',
+        Arial,
+        sans-serif;
+
 }
+
 
 button,
 input{
+
     font-family:inherit;
+
 }
+
 
 button{
-    -webkit-tap-highlight-color:transparent;
-}
 
-.app{
-    width:100%;
-    max-width:620px;
-    min-height:100vh;
-    margin:auto;
-    background:var(--paper);
-    padding-bottom:40px;
+    cursor:pointer;
+
 }
 
 
 /* =========================================================
-   TOP HEADER
+   TOP BAR
 ========================================================= */
 
 .topbar{
-    height:74px;
-
-    padding:0 22px;
-
-    background:var(--paper);
-
-    border-bottom:1px solid var(--line);
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
 
     position:sticky;
+
     top:0;
 
-    z-index:50;
-}
+    z-index:100;
 
-.back{
-    width:38px;
-    height:38px;
+    width:100%;
 
-    border:1px solid var(--line);
-    border-radius:50%;
-
-    background:var(--white);
-    color:var(--ink);
+    height:68px;
 
     display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:0 18px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    border-bottom:
+        1px solid var(--border);
+
+    backdrop-filter:blur(12px);
+
+}
+
+
+.back-btn{
+
+    width:40px;
+    height:40px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:#fff;
+
+    color:var(--deep);
+
+    display:flex;
+
     align-items:center;
     justify-content:center;
 
-    text-decoration:none;
+    font-size:15px;
 
-    transition:.2s;
 }
 
-.back:active{
-    transform:scale(.94);
-}
 
 .top-title{
-    text-align:center;
+
+    display:flex;
+
+    flex-direction:column;
+
 }
 
-.top-title small{
-    display:block;
-
-    font-size:8px;
-    font-weight:800;
-
-    letter-spacing:2.5px;
-
-    color:var(--green);
-}
 
 .top-title strong{
-    display:block;
 
-    margin-top:3px;
-
-    font-family:"Manrope",sans-serif;
+    font-family:'Manrope',sans-serif;
 
     font-size:15px;
-    letter-spacing:-.2px;
+
+    font-weight:800;
+
 }
 
-.top-space{
-    width:38px;
+
+.top-title span{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    margin-top:2px;
+
 }
 
 
 /* =========================================================
-   MAIN
+   PAGE
 ========================================================= */
 
-.main{
-    padding:28px 20px 50px;
+.page{
+
+    width:100%;
+
+    max-width:720px;
+
+    margin:0 auto;
+
+    padding:30px 18px 50px;
+
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.intro{
+
+    margin-bottom:25px;
+
+}
+
+
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:7px;
+
+    padding:7px 11px;
+
+    margin-bottom:13px;
+
+    border-radius:999px;
+
+    background:var(--green);
+
+    color:#fff;
+
+    font-size:10px;
+
+    font-weight:800;
+
+    letter-spacing:.7px;
+
+}
+
+
+.intro h1{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:29px;
+
+    line-height:1.15;
+
+    letter-spacing:-1px;
+
+    margin-bottom:8px;
+
+}
+
+
+.intro p{
+
+    max-width:540px;
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
 }
 
 
@@ -173,177 +279,127 @@ button{
 ========================================================= */
 
 .channel-screen{
-    min-height:calc(100vh - 120px);
 
-    display:flex;
-    flex-direction:column;
-}
-
-.channel-heading{
-    margin-bottom:26px;
-}
-
-.channel-heading .number{
     display:block;
 
-    font-size:9px;
-    font-weight:800;
-
-    letter-spacing:2px;
-
-    color:var(--green);
-
-    margin-bottom:9px;
-}
-
-.channel-heading h1{
-    font-family:"Manrope",sans-serif;
-
-    font-size:31px;
-
-    line-height:1.05;
-
-    letter-spacing:-1.2px;
 }
 
 
-/* =========================================================
-   CHANNEL LIST
-========================================================= */
+.channel-screen.hidden{
+
+    display:none;
+
+}
+
 
 .channel-list{
-    display:flex;
-    flex-direction:column;
-    gap:12px;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,1fr);
+
+    gap:14px;
+
 }
 
-.channel{
-    width:100%;
 
-    min-height:105px;
+.channel-card{
 
-    border:1px solid var(--line);
+    position:relative;
 
-    background:var(--white);
+    min-height:190px;
+
+    padding:22px;
+
+    border:1px solid var(--border);
 
     border-radius:22px;
 
-    padding:20px;
-
-    display:flex;
-    align-items:center;
-
-    gap:17px;
+    background:#fff;
 
     text-align:left;
 
-    cursor:pointer;
-
-    position:relative;
-
-    overflow:hidden;
-
     transition:
+
         transform .2s ease,
+
         border-color .2s ease,
+
         box-shadow .2s ease;
+
 }
 
-.channel::after{
-    content:"";
 
-    position:absolute;
+.channel-card:hover{
 
-    width:90px;
-    height:90px;
+    transform:translateY(-3px);
 
-    border-radius:50%;
-
-    right:-35px;
-    bottom:-50px;
-
-    background:#edf4ee;
-
-    transition:.25s;
-}
-
-.channel:active{
-    transform:scale(.98);
-}
-
-.channel:hover{
-    border-color:#b7cabe;
+    border-color:#b9d8ca;
 
     box-shadow:
-        0 12px 35px rgba(16,32,25,.07);
+        0 15px 35px rgba(6,40,28,.08);
+
 }
 
-.channel:hover::after{
-    background:#dfeee5;
-}
 
 .channel-number{
-    width:48px;
-    height:48px;
 
-    flex-shrink:0;
+    width:38px;
+    height:38px;
 
-    border-radius:15px;
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    margin-bottom:28px;
+
+    border-radius:12px;
 
     background:var(--deep);
 
-    color:white;
+    color:#fff;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    font-size:12px;
 
-    font-family:"Manrope",sans-serif;
-
-    font-size:11px;
     font-weight:800;
 
-    position:relative;
-    z-index:2;
 }
 
-.channel-text{
-    position:relative;
-    z-index:2;
 
-    flex:1;
+.channel-card h3{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:17px;
+
+    margin-bottom:6px;
+
 }
 
-.channel-text strong{
-    display:block;
 
-    font-family:"Manrope",sans-serif;
+.channel-card p{
 
-    font-size:16px;
+    color:var(--muted);
 
-    letter-spacing:-.2px;
+    font-size:12px;
+
+    line-height:1.6;
+
 }
+
 
 .channel-arrow{
-    width:34px;
-    height:34px;
 
-    border-radius:50%;
+    position:absolute;
 
-    background:#f1f4f0;
+    right:20px;
+
+    bottom:20px;
 
     color:var(--green);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    position:relative;
-    z-index:2;
-
-    flex-shrink:0;
-
-    font-size:11px;
 }
 
 
@@ -352,68 +408,187 @@ button{
 ========================================================= */
 
 .payment-screen{
+
     display:none;
+
 }
 
+
 .payment-screen.active{
+
     display:block;
+
 }
 
 
 /* =========================================================
-   PAYMENT TOP
+   BACK CHANNEL
 ========================================================= */
 
-.payment-heading{
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    margin-bottom:22px;
-}
-
 .change-channel{
-    width:38px;
-    height:38px;
 
-    border:1px solid var(--line);
+    display:inline-flex;
 
-    border-radius:50%;
-
-    background:var(--white);
-
-    color:var(--ink);
-
-    display:flex;
     align-items:center;
-    justify-content:center;
 
-    cursor:pointer;
-}
+    gap:7px;
 
-.payment-heading-text{
-    flex:1;
-}
+    margin-bottom:17px;
 
-.payment-heading-text small{
-    display:block;
+    border:0;
+
+    background:transparent;
 
     color:var(--green);
 
-    font-size:8px;
+    font-size:12px;
+
     font-weight:800;
 
-    letter-spacing:2px;
 }
 
-.payment-heading-text h1{
-    font-family:"Manrope",sans-serif;
 
-    font-size:23px;
+/* =========================================================
+   ACCOUNT CARD
+========================================================= */
 
-    letter-spacing:-.7px;
+.account-card{
 
-    margin-top:3px;
+    overflow:hidden;
+
+    border-radius:24px;
+
+    background:var(--deep);
+
+    color:#fff;
+
+    margin-bottom:18px;
+
+}
+
+
+.account-head{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:19px 20px;
+
+    border-bottom:
+        1px solid rgba(255,255,255,.10);
+
+}
+
+
+.account-head strong{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:15px;
+
+}
+
+
+.channel-label{
+
+    padding:6px 9px;
+
+    border-radius:8px;
+
+    background:rgba(255,255,255,.10);
+
+    font-size:10px;
+
+    font-weight:700;
+
+}
+
+
+.account-body{
+
+    padding:21px 20px 22px;
+
+}
+
+
+.account-row{
+
+    margin-bottom:17px;
+
+}
+
+
+.account-row:last-child{
+
+    margin-bottom:0;
+
+}
+
+
+.account-row span{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    color:rgba(255,255,255,.55);
+
+    font-size:10px;
+
+    text-transform:uppercase;
+
+    letter-spacing:.8px;
+
+}
+
+
+.account-row strong{
+
+    font-size:15px;
+
+    font-weight:700;
+
+}
+
+
+.account-number{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:12px;
+
+}
+
+
+.copy-account{
+
+    flex-shrink:0;
+
+    width:38px;
+    height:38px;
+
+    border:1px solid rgba(255,255,255,.13);
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.08);
+
+    color:#fff;
+
+}
+
+
+.copy-account:active{
+
+    transform:scale(.96);
+
 }
 
 
@@ -421,356 +596,227 @@ button{
    TIMER
 ========================================================= */
 
-.timer{
-    background:var(--deep);
-
-    color:white;
-
-    border-radius:23px;
-
-    padding:20px;
-
-    margin-bottom:14px;
+.timer-card{
 
     display:flex;
+
     align-items:center;
+
     justify-content:space-between;
 
     gap:15px;
-}
 
-.timer-copy small{
-    display:block;
+    padding:16px 18px;
 
-    font-size:8px;
+    margin-bottom:18px;
 
-    letter-spacing:1.7px;
-
-    opacity:.55;
-
-    font-weight:800;
-}
-
-.timer-copy p{
-    font-size:10px;
-
-    margin-top:5px;
-
-    color:rgba(255,255,255,.65);
-}
-
-.time{
-    min-width:94px;
-
-    padding:12px 10px;
-
-    border-radius:14px;
-
-    background:#123b2b;
-
-    text-align:center;
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:20px;
-
-    font-weight:800;
-
-    letter-spacing:1px;
-}
-
-.time.warning{
-    background:#6b521b;
-}
-
-.time.expired{
-    background:#713838;
-}
-
-
-/* =========================================================
-   ACCOUNT PANEL
-========================================================= */
-
-.account-panel{
-    background:var(--white);
-
-    border:1px solid var(--line);
-
-    border-radius:24px;
-
-    padding:22px;
-
-    margin-bottom:14px;
-}
-
-.account-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-
-    margin-bottom:20px;
-}
-
-.account-top small{
-    display:block;
-
-    font-size:8px;
-
-    font-weight:800;
-
-    letter-spacing:1.8px;
-
-    color:var(--green);
-}
-
-.account-top h2{
-    font-family:"Manrope",sans-serif;
-
-    font-size:19px;
-
-    margin-top:4px;
-}
-
-.account-icon{
-    width:40px;
-    height:40px;
-
-    border-radius:13px;
-
-    background:#edf4ee;
-
-    color:var(--green);
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.account-row{
-    padding:14px 0;
-
-    border-top:1px solid #edf0ed;
-}
-
-.account-row label{
-    display:block;
-
-    font-size:9px;
-
-    color:var(--muted);
-
-    margin-bottom:6px;
-}
-
-.account-row strong{
-    font-size:13px;
-
-    font-weight:700;
-}
-
-.account-number{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-
-    gap:10px;
-
-    background:#f3f5f1;
-
-    border-radius:14px;
-
-    padding:12px 13px;
-}
-
-.account-number strong{
-    color:var(--green);
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:18px;
-
-    letter-spacing:1px;
-}
-
-.copy{
-    border:0;
-
-    background:var(--deep);
-
-    color:white;
-
-    border-radius:9px;
-
-    padding:9px 11px;
-
-    font-size:9px;
-
-    font-weight:700;
-
-    cursor:pointer;
-}
-
-
-/* =========================================================
-   EXPIRED
-========================================================= */
-
-.expired{
-    display:none;
-
-    background:#fff4f4;
-
-    border:1px solid #efd5d5;
+    border:1px solid var(--border);
 
     border-radius:18px;
 
-    padding:17px;
+    background:#fff;
 
-    margin-bottom:14px;
-
-    text-align:center;
 }
 
-.expired.active{
-    display:block;
+
+.timer-info{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
 }
 
-.expired i{
-    color:var(--danger);
 
-    font-size:20px;
+.timer-icon{
 
-    margin-bottom:7px;
+    width:40px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:var(--paper);
+
+    color:var(--green);
+
 }
 
-.expired strong{
+
+.timer-info strong{
+
     display:block;
 
     font-size:12px;
+
 }
 
-.expired p{
-    color:#866969;
+
+.timer-info span{
+
+    display:block;
+
+    margin-top:3px;
+
+    color:var(--muted);
 
     font-size:10px;
 
-    margin-top:4px;
 }
 
-.restart{
-    margin-top:11px;
 
-    border:1px solid #ddbaba;
+.timer{
 
-    background:white;
+    font-family:'Manrope',sans-serif;
 
-    color:var(--danger);
+    color:var(--green);
 
-    border-radius:10px;
+    font-size:19px;
 
-    padding:9px 13px;
+    font-weight:800;
 
-    font-size:10px;
+}
 
-    font-weight:700;
 
-    cursor:pointer;
+.timer.expired{
+
+    color:#c53c3c;
+
 }
 
 
 /* =========================================================
-   FORM
+   FORM CARD
 ========================================================= */
 
-.form-panel{
-    background:var(--white);
-
-    border:1px solid var(--line);
-
-    border-radius:24px;
+.form-card{
 
     padding:22px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:#fff;
+
 }
 
-.form-heading{
+
+.form-title{
+
     margin-bottom:20px;
+
 }
 
-.form-heading small{
+
+.form-title h2{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:18px;
+
+    margin-bottom:5px;
+
+}
+
+
+.form-title p{
+
+    color:var(--muted);
+
+    font-size:11px;
+
+    line-height:1.6;
+
+}
+
+
+.form-group{
+
+    margin-bottom:18px;
+
+}
+
+
+.form-group label{
+
     display:block;
 
-    color:var(--green);
+    margin-bottom:7px;
 
-    font-size:8px;
+    color:#42534b;
+
+    font-size:11px;
 
     font-weight:800;
 
-    letter-spacing:1.8px;
 }
 
-.form-heading h2{
-    font-family:"Manrope",sans-serif;
 
-    font-size:19px;
+.input-wrap{
 
-    margin-top:4px;
-}
-
-.field{
-    margin-bottom:18px;
-}
-
-.field label{
-    display:block;
-
-    font-size:10px;
-
-    font-weight:700;
-
-    margin-bottom:7px;
-}
-
-.amount{
     position:relative;
+
 }
 
-.amount span{
+
+.input-wrap span{
+
     position:absolute;
 
     left:14px;
+
     top:50%;
 
     transform:translateY(-50%);
 
-    color:var(--green);
-
-    font-weight:800;
-}
-
-.amount input{
-    width:100%;
-    height:52px;
-
-    border:1px solid var(--line);
-
-    border-radius:14px;
-
-    background:#fafbf9;
-
-    padding:0 13px 0 30px;
-
-    outline:none;
+    color:var(--muted);
 
     font-size:13px;
 
-    color:var(--ink);
 }
 
-.amount input:focus{
-    border-color:#82ae98;
 
-    box-shadow:0 0 0 4px rgba(20,107,73,.07);
+.input-wrap input{
+
+    width:100%;
+
+    height:50px;
+
+    padding:0 14px 0 38px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#f9fbfa;
+
+    color:var(--text);
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+
+.input-wrap input:focus{
+
+    border-color:var(--bright);
+
+    background:#fff;
+
+    box-shadow:
+        0 0 0 4px rgba(32,168,115,.08);
+
 }
 
 
@@ -778,69 +824,85 @@ button{
    RECEIPT
 ========================================================= */
 
-.upload{
-    border:1.5px dashed #b9cbbf;
+.file-box{
 
-    background:#fafbf9;
+    position:relative;
 
-    border-radius:17px;
-
-    padding:20px;
-
-    text-align:center;
-}
-
-.upload-symbol{
-    width:45px;
-    height:45px;
+    border:1px dashed #c9d9d1;
 
     border-radius:14px;
 
-    background:#eaf2ec;
+    background:#f9fbfa;
+
+    padding:18px;
+
+    text-align:center;
+
+}
+
+
+.file-box i{
 
     color:var(--green);
 
-    margin:0 auto;
+    font-size:20px;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+    margin-bottom:8px;
 
-    font-size:17px;
 }
 
-.upload strong{
+
+.file-box strong{
+
     display:block;
 
-    font-size:11px;
+    font-size:12px;
 
-    margin-top:9px;
 }
 
-.upload p{
-    font-size:9px;
+
+.file-box span{
+
+    display:block;
+
+    margin-top:4px;
 
     color:var(--muted);
 
-    margin-top:4px;
+    font-size:10px;
+
 }
 
-.upload input{
+
+.file-box input{
+
+    position:absolute;
+
+    inset:0;
+
     width:100%;
 
-    margin-top:12px;
+    height:100%;
 
-    font-size:10px;
+    opacity:0;
+
+    cursor:pointer;
+
 }
 
-#fileName{
+
+.file-name{
+
     margin-top:9px;
 
     color:var(--green);
 
-    font-size:9px;
+    font-size:10px;
+
+    font-weight:700;
 
     word-break:break-word;
+
 }
 
 
@@ -848,110 +910,159 @@ button{
    SUBMIT
 ========================================================= */
 
-.submit{
+.submit-btn{
+
     width:100%;
 
-    height:54px;
+    height:52px;
+
+    margin-top:3px;
 
     border:0;
 
-    border-radius:15px;
+    border-radius:13px;
 
-    background:var(--deep);
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            var(--dark)
+        );
 
-    color:white;
+    color:#fff;
 
-    font-family:"Manrope",sans-serif;
-
-    font-size:12px;
+    font-size:13px;
 
     font-weight:800;
 
-    cursor:pointer;
+    box-shadow:
+        0 12px 25px rgba(20,122,88,.18);
 
-    transition:.2s;
 }
 
-.submit:active{
-    transform:scale(.985);
-}
 
-.submit:disabled{
-    opacity:.45;
+.submit-btn:disabled{
+
+    opacity:.6;
 
     cursor:not-allowed;
+
 }
 
 
 /* =========================================================
-   FOOTER
+   EXPIRED
 ========================================================= */
 
-.footer{
+.expired-box{
+
+    display:none;
+
+    padding:22px;
+
+    margin-bottom:18px;
+
+    border:1px solid #f0d4d4;
+
+    border-radius:18px;
+
+    background:#fff6f6;
+
     text-align:center;
 
-    padding:25px 20px 5px;
-
-    color:#9aa49e;
-
-    font-size:8px;
-
-    letter-spacing:.3px;
 }
 
 
-/* =========================================================
-   DESKTOP
-========================================================= */
+.expired-box.active{
 
-@media(min-width:700px){
-
-    body{
-        padding:25px 0;
-    }
-
-    .app{
-        border-radius:30px;
-
-        overflow:hidden;
-
-        box-shadow:
-            0 30px 80px rgba(16,32,25,.14);
-    }
-
-    .topbar{
-        position:relative;
-    }
+    display:block;
 
 }
 
 
+.expired-box i{
+
+    color:#c53c3c;
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+
+.expired-box strong{
+
+    display:block;
+
+    margin-bottom:5px;
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:15px;
+
+}
+
+
+.expired-box p{
+
+    color:#7d6969;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+}
+
+
 /* =========================================================
-   SMALL PHONES
+   MOBILE
 ========================================================= */
 
-@media(max-width:380px){
+@media(max-width:560px){
 
-    .main{
-        padding-left:14px;
-        padding-right:14px;
+    .page{
+
+        padding:
+            25px
+            14px
+            40px;
+
     }
 
-    .channel-heading h1{
-        font-size:27px;
+
+    .intro h1{
+
+        font-size:25px;
+
     }
 
-    .timer{
-        padding:16px;
+
+    .channel-list{
+
+        grid-template-columns:1fr;
+
     }
 
-    .time{
-        min-width:82px;
-        font-size:18px;
+
+    .channel-card{
+
+        min-height:150px;
+
     }
 
-    .account-number strong{
-        font-size:15px;
+
+    .channel-number{
+
+        margin-bottom:20px;
+
+    }
+
+
+    .form-card{
+
+        padding:18px;
+
     }
 
 }
@@ -963,401 +1074,451 @@ button{
 
 <body>
 
-<div class="app">
 
-
-<!-- =======================================================
-     HEADER
-======================================================= -->
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
 
 <header class="topbar">
 
-<a
-href="javascript:history.back();"
-class="back"
-aria-label="Go back">
+    <button
+        class="back-btn"
+        type="button"
+        onclick="goBack()">
 
-<i class="fa-solid fa-arrow-left"></i>
+        <i class="fa-solid fa-arrow-left"></i>
 
-</a>
+    </button>
 
-<div class="top-title">
 
-<small>EVERGREEN</small>
+    <div class="top-title">
 
-<strong>Deposit</strong>
+        <strong>EVERGREEN</strong>
 
-</div>
+        <span>Deposit account</span>
 
-<div class="top-space"></div>
+    </div>
 
 </header>
 
 
-<main class="main">
+
+<main class="page">
 
 
-<!-- =======================================================
-     CHANNEL SELECTION
-======================================================= -->
+<!-- =====================================================
+     INTRO
+===================================================== -->
 
-<section
-class="channel-screen"
-id="channelSection">
+<section class="intro">
 
-<div class="channel-heading">
+    <div class="eyebrow">
 
-<span class="number">01 / CHANNEL</span>
+        <i class="fa-solid fa-wallet"></i>
 
-<h1>Select deposit channel</h1>
+        DEPOSIT
 
-</div>
+    </div>
 
 
-<div class="channel-list">
+    <h1>
+        Select a deposit channel.
+    </h1>
 
 
-<!-- CHANNEL 1 -->
-
-<button
-type="button"
-class="channel"
-onclick="selectChannel('deposit1')">
-
-<div class="channel-number">
-01
-</div>
-
-<div class="channel-text">
-
-<strong>DEPOSIT CHANNEL 1</strong>
-
-</div>
-
-<div class="channel-arrow">
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-</button>
-
-
-<!-- CHANNEL 2 -->
-
-<button
-type="button"
-class="channel"
-onclick="selectChannel('deposit2')">
-
-<div class="channel-number">
-02
-</div>
-
-<div class="channel-text">
-
-<strong>DEPOSIT CHANNEL 2</strong>
-
-</div>
-
-<div class="channel-arrow">
-
-<i class="fa-solid fa-arrow-right"></i>
-
-</div>
-
-</button>
-
-</div>
+    <p>
+        Choose one of the available channels
+        to continue with your deposit.
+    </p>
 
 </section>
 
 
-<!-- =======================================================
-     PAYMENT VIEW
-======================================================= -->
+
+<!-- =====================================================
+     CHANNEL SELECTION
+===================================================== -->
 
 <section
-class="payment-screen"
-id="paymentView">
+    class="channel-screen"
+    id="channelScreen">
 
 
-<!-- PAYMENT HEADER -->
-
-<div class="payment-heading">
-
-<button
-type="button"
-class="change-channel"
-onclick="changeChannel()"
-aria-label="Change deposit channel">
-
-<i class="fa-solid fa-arrow-left"></i>
-
-</button>
-
-<div class="payment-heading-text">
-
-<small id="selectedLabel">
-DEPOSIT CHANNEL 1
-</small>
-
-<h1>Payment details</h1>
-
-</div>
-
-</div>
+    <div class="channel-list">
 
 
-<!-- =====================================================
-     TIMER
-===================================================== -->
-
-<div class="timer">
-
-<div class="timer-copy">
-
-<small>PAYMENT WINDOW</small>
-
-<p>
-Complete the transfer before the timer expires.
-</p>
-
-</div>
-
-<div
-class="time"
-id="countdown">
-
-10:00
-
-</div>
-
-</div>
+        <button
+            class="channel-card"
+            type="button"
+            onclick="selectChannel(1)">
 
 
-<!-- =====================================================
-     ACCOUNT DETAILS
-===================================================== -->
+            <div class="channel-number">
 
-<div
-class="account-panel"
-id="bankCard">
+                01
 
-<div class="account-top">
-
-<div>
-
-<small>TRANSFER TO</small>
-
-<h2 id="bankTitle">
-CARBON MFB
-</h2>
-
-</div>
-
-<div class="account-icon">
-
-<i class="fa-solid fa-building-columns"></i>
-
-</div>
-
-</div>
+            </div>
 
 
-<div class="account-row">
-
-<label>
-Bank Name
-</label>
-
-<strong id="bankName">
-CARBON MFB
-</strong>
-
-</div>
+            <h3>
+                DEPOSIT CHANNEL 1
+            </h3>
 
 
-<div class="account-row">
-
-<label>
-Account Name
-</label>
-
-<strong id="accountName">
-DAVID YOUNG
-</strong>
-
-</div>
+            <p>
+                Continue with Channel 1
+                payment details.
+            </p>
 
 
-<div class="account-row">
+            <div class="channel-arrow">
 
-<label>
-Account Number
-</label>
+                <i class="fa-solid fa-arrow-right"></i>
 
-<div class="account-number">
+            </div>
 
-<strong id="accountNumber">
-9503282618
-</strong>
+        </button>
 
-<button
-type="button"
-class="copy"
-id="copyAccountBtn"
-onclick="copyAccount()">
 
-<i class="fa-regular fa-copy"></i>
 
-Copy
+        <button
+            class="channel-card"
+            type="button"
+            onclick="selectChannel(2)">
 
-</button>
 
-</div>
+            <div class="channel-number">
 
-</div>
+                02
 
-</div>
+            </div>
+
+
+            <h3>
+                DEPOSIT CHANNEL 2
+            </h3>
+
+
+            <p>
+                Continue with Channel 2
+                payment details.
+            </p>
+
+
+            <div class="channel-arrow">
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </div>
+
+        </button>
+
+
+    </div>
+
+</section>
+
 
 
 <!-- =====================================================
-     EXPIRED
+     PAYMENT SCREEN
 ===================================================== -->
 
-<div
-class="expired"
-id="expiredMessage">
-
-<i class="fa-solid fa-clock"></i>
-
-<strong>
-Payment session expired
-</strong>
-
-<p>
-Start a new session to continue.
-</p>
-
-<button
-type="button"
-class="restart"
-onclick="restartTimer()">
-
-Start New Session
-
-</button>
-
-</div>
+<section
+    class="payment-screen"
+    id="paymentScreen">
 
 
-<!-- =====================================================
-     FORM
-===================================================== -->
+    <button
+        class="change-channel"
+        type="button"
+        onclick="backToChannels()">
 
-<form
-class="form-panel"
-id="depositForm">
+        <i class="fa-solid fa-arrow-left"></i>
 
-<div class="form-heading">
+        Change channel
 
-<small>PAYMENT CONFIRMATION</small>
-
-<h2>Submit your deposit</h2>
-
-</div>
+    </button>
 
 
-<!-- AMOUNT -->
 
-<div class="field">
+    <!-- ACCOUNT -->
 
-<label for="amount">
-Deposit Amount
-</label>
-
-<div class="amount">
-
-<span>₦</span>
-
-<input
-type="number"
-id="amount"
-name="amount"
-placeholder="Minimum ₦1,000"
-min="1000"
-required>
-
-</div>
-
-</div>
+    <div class="account-card">
 
 
-<!-- RECEIPT -->
+        <div class="account-head">
 
-<div class="field">
-
-<label for="receipt">
-Payment Receipt
-</label>
-
-<div class="upload">
-
-<div class="upload-symbol">
-
-<i class="fa-solid fa-arrow-up-from-bracket"></i>
-
-</div>
-
-<strong>
-Upload payment receipt
-</strong>
-
-<p>
-Select a clear image of your completed transfer.
-</p>
-
-<input
-type="file"
-id="receipt"
-name="receipt"
-accept="image/*"
-required
-onchange="showFileName()">
-
-<div id="fileName"></div>
-
-</div>
-
-</div>
+            <strong>
+                Payment account
+            </strong>
 
 
-<!-- SUBMIT -->
+            <span
+                class="channel-label"
+                id="channelLabel">
 
-<button
-type="submit"
-class="submit"
-id="submitBtn">
+                CHANNEL 1
 
-Submit Deposit
+            </span>
 
-</button>
-
-</form>
+        </div>
 
 
-<div class="footer">
+        <div class="account-body">
 
-Evergreen Investments · Deposit
 
-</div>
+            <div class="account-row">
+
+                <span>
+                    Bank / Provider
+                </span>
+
+                <strong id="bankName">
+                    CARBON MFB
+                </strong>
+
+            </div>
+
+
+            <div class="account-row">
+
+                <span>
+                    Account name
+                </span>
+
+                <strong id="accountName">
+                    DAVID YOUNG
+                </strong>
+
+            </div>
+
+
+            <div class="account-row">
+
+                <span>
+                    Account number
+                </span>
+
+
+                <div class="account-number">
+
+                    <strong id="accountNumber">
+                        9503282618
+                    </strong>
+
+
+                    <button
+                        class="copy-account"
+                        type="button"
+                        onclick="copyAccount()">
+
+                        <i class="fa-regular fa-copy"></i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- TIMER -->
+
+    <div class="timer-card">
+
+
+        <div class="timer-info">
+
+            <div class="timer-icon">
+
+                <i class="fa-regular fa-clock"></i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Payment session
+                </strong>
+
+                <span>
+                    Complete your payment within the session.
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div
+            class="timer"
+            id="timer">
+
+            10:00
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- EXPIRED -->
+
+    <div
+        class="expired-box"
+        id="expiredBox">
+
+
+        <i class="fa-solid fa-clock"></i>
+
+
+        <strong>
+            Payment session expired
+        </strong>
+
+
+        <p>
+            This deposit session has expired.
+            Start again to create a new session.
+        </p>
+
+
+    </div>
+
+
+
+    <!-- FORM -->
+
+    <div
+        class="form-card"
+        id="formCard">
+
+
+        <div class="form-title">
+
+            <h2>
+                Submit your deposit
+            </h2>
+
+            <p>
+                Enter the amount you paid and
+                upload your payment receipt.
+            </p>
+
+        </div>
+
+
+
+        <form id="depositForm">
+
+
+            <!-- AMOUNT -->
+
+            <div class="form-group">
+
+                <label for="amount">
+                    Deposit amount
+                </label>
+
+
+                <div class="input-wrap">
+
+                    <span>
+                        ₦
+                    </span>
+
+
+                    <input
+                        type="number"
+                        id="amount"
+                        name="amount"
+                        min="1000"
+                        placeholder="Minimum ₦1,000"
+                        required>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- RECEIPT -->
+
+            <div class="form-group">
+
+                <label>
+                    Payment receipt
+                </label>
+
+
+                <div class="file-box">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+
+                    <strong>
+                        Upload receipt
+                    </strong>
+
+
+                    <span>
+                        JPG, PNG or PDF
+                    </span>
+
+
+                    <input
+                        type="file"
+                        id="receipt"
+                        name="receipt"
+                        accept="image/*,.pdf"
+                        required>
+
+
+                    <div
+                        class="file-name"
+                        id="fileName">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <button
+                class="submit-btn"
+                id="submitBtn"
+                type="submit">
+
+                Submit Deposit
+
+            </button>
+
+
+        </form>
+
+    </div>
+
 
 </section>
 
 </main>
 
-</div>
+
+
+<!-- =====================================================
+     POPUP SYSTEM
+===================================================== -->
+
+<script src="popup.js"></script>
 
 
 <script>
@@ -1367,13 +1528,12 @@ Evergreen Investments · Deposit
 ========================================================= */
 
 const user =
-JSON.parse(
-localStorage.getItem("user")
-);
+    JSON.parse(localStorage.getItem("user"));
+
 
 if(!user || !user._id){
 
-window.location.href = "login.html";
+    window.location.href = "login.html";
 
 }
 
@@ -1382,40 +1542,119 @@ window.location.href = "login.html";
    CHANNEL DATA
 ========================================================= */
 
-const depositChannels = {
+const channels = {
 
-    deposit1: {
+    1: {
 
-        label: "DEPOSIT CHANNEL 1",
+        bank:
+            "CARBON MFB",
 
-        bankName: "CARBON MFB",
+        name:
+            "DAVID YOUNG",
 
-        accountName: "DAVID YOUNG",
-
-        accountNumber: "9503282618"
+        number:
+            "9503282618"
 
     },
 
-    deposit2: {
 
-        label: "DEPOSIT CHANNEL 2",
+    2: {
 
-        bankName: "SMARTCASH LTD",
+        bank:
+            "SMARTCASH LTD",
 
-        accountName: "NGOzi Nwa",
+        name:
+            "NGOzi Nwa",
 
-        accountNumber: "0548752432"
+        number:
+            "0548752432"
 
     }
 
 };
 
 
-let selectedChannel = "deposit1";
+let selectedChannel = null;
 
-let countdownInterval = null;
+let timerInterval = null;
 
-let timeLeft = 600;
+let secondsLeft = 600;
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const channelScreen =
+    document.getElementById(
+        "channelScreen"
+    );
+
+
+const paymentScreen =
+    document.getElementById(
+        "paymentScreen"
+    );
+
+
+const bankName =
+    document.getElementById(
+        "bankName"
+    );
+
+
+const accountName =
+    document.getElementById(
+        "accountName"
+    );
+
+
+const accountNumber =
+    document.getElementById(
+        "accountNumber"
+    );
+
+
+const channelLabel =
+    document.getElementById(
+        "channelLabel"
+    );
+
+
+const timer =
+    document.getElementById(
+        "timer"
+    );
+
+
+const expiredBox =
+    document.getElementById(
+        "expiredBox"
+    );
+
+
+const formCard =
+    document.getElementById(
+        "formCard"
+    );
+
+
+const depositForm =
+    document.getElementById(
+        "depositForm"
+    );
+
+
+const receiptInput =
+    document.getElementById(
+        "receipt"
+    );
+
+
+const fileName =
+    document.getElementById(
+        "fileName"
+    );
 
 
 /* =========================================================
@@ -1424,54 +1663,37 @@ let timeLeft = 600;
 
 function selectChannel(channel){
 
-    if(!depositChannels[channel]){
-        return;
-    }
-
     selectedChannel = channel;
 
+
     const data =
-        depositChannels[channel];
-
-    document.getElementById(
-        "selectedLabel"
-    ).textContent = data.label;
-
-    document.getElementById(
-        "bankTitle"
-    ).textContent = data.bankName;
-
-    document.getElementById(
-        "bankName"
-    ).textContent = data.bankName;
-
-    document.getElementById(
-        "accountName"
-    ).textContent = data.accountName;
-
-    document.getElementById(
-        "accountNumber"
-    ).textContent = data.accountNumber;
+        channels[channel];
 
 
-    document.getElementById(
-        "channelSection"
-    ).style.display = "none";
+    bankName.textContent =
+        data.bank;
 
 
-    document.getElementById(
-        "paymentView"
-    ).classList.add("active");
+    accountName.textContent =
+        data.name;
 
 
-    document.getElementById(
-        "expiredMessage"
-    ).classList.remove("active");
+    accountNumber.textContent =
+        data.number;
 
 
-    document.getElementById(
-        "bankCard"
-    ).style.opacity = "1";
+    channelLabel.textContent =
+        "CHANNEL " + channel;
+
+
+    channelScreen.classList.add(
+        "hidden"
+    );
+
+
+    paymentScreen.classList.add(
+        "active"
+    );
 
 
     startTimer();
@@ -1480,20 +1702,49 @@ function selectChannel(channel){
 
 
 /* =========================================================
-   CHANGE CHANNEL
+   BACK TO CHANNELS
 ========================================================= */
 
-function changeChannel(){
+function backToChannels(){
 
-    clearInterval(countdownInterval);
+    stopTimer();
 
-    document.getElementById(
-        "paymentView"
-    ).classList.remove("active");
 
-    document.getElementById(
-        "channelSection"
-    ).style.display = "flex";
+    paymentScreen.classList.remove(
+        "active"
+    );
+
+
+    channelScreen.classList.remove(
+        "hidden"
+    );
+
+
+    resetTimer();
+
+}
+
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+function goBack(){
+
+    if(
+        paymentScreen.classList.contains(
+            "active"
+        )
+    ){
+
+        backToChannels();
+
+        return;
+
+    }
+
+
+    window.history.back();
 
 }
 
@@ -1504,201 +1755,204 @@ function changeChannel(){
 
 function startTimer(){
 
-    clearInterval(countdownInterval);
+    stopTimer();
 
-    timeLeft = 600;
 
-    const countdown =
-        document.getElementById(
-            "countdown"
-        );
+    secondsLeft = 600;
 
-    const expiredMessage =
-        document.getElementById(
-            "expiredMessage"
-        );
 
-    const bankCard =
-        document.getElementById(
-            "bankCard"
-        );
-
-    const submitButton =
-        document.getElementById(
-            "submitBtn"
-        );
-
-    expiredMessage.classList.remove(
+    expiredBox.classList.remove(
         "active"
     );
 
-    bankCard.style.opacity = "1";
 
-    submitButton.disabled = false;
+    formCard.style.display =
+        "block";
 
-    countdown.classList.remove(
-        "warning",
+
+    timer.classList.remove(
         "expired"
     );
 
 
-    function updateTimer(){
-
-        const minutes =
-            Math.floor(
-                timeLeft / 60
-            );
-
-        const seconds =
-            timeLeft % 60;
+    updateTimer();
 
 
-        countdown.textContent =
-            String(minutes).padStart(2,"0")
-            + ":" +
-            String(seconds).padStart(2,"0");
+    timerInterval =
+        setInterval(() => {
 
 
-        if(timeLeft <= 60){
-
-            countdown.classList.add(
-                "warning"
-            );
-
-        }
+            secondsLeft--;
 
 
-        if(timeLeft <= 0){
-
-            clearInterval(
-                countdownInterval
-            );
-
-            countdown.textContent =
-                "00:00";
-
-            countdown.classList.remove(
-                "warning"
-            );
-
-            countdown.classList.add(
-                "expired"
-            );
-
-            expiredMessage.classList.add(
-                "active"
-            );
-
-            bankCard.style.opacity =
-                ".55";
-
-            submitButton.disabled =
-                true;
-
-            return;
-
-        }
+            updateTimer();
 
 
-        timeLeft--;
+            if(secondsLeft <= 0){
+
+                stopTimer();
+
+                expireSession();
+
+            }
+
+
+        },1000);
+
+}
+
+
+/* =========================================================
+   UPDATE TIMER
+========================================================= */
+
+function updateTimer(){
+
+    const minutes =
+        Math.floor(secondsLeft / 60);
+
+
+    const seconds =
+        secondsLeft % 60;
+
+
+    timer.textContent =
+        String(minutes).padStart(2,"0")
+        + ":"
+        + String(seconds).padStart(2,"0");
+
+}
+
+
+/* =========================================================
+   STOP TIMER
+========================================================= */
+
+function stopTimer(){
+
+    if(timerInterval){
+
+        clearInterval(
+            timerInterval
+        );
+
+        timerInterval = null;
 
     }
 
+}
+
+
+/* =========================================================
+   RESET TIMER
+========================================================= */
+
+function resetTimer(){
+
+    secondsLeft = 600;
 
     updateTimer();
 
-    countdownInterval =
-        setInterval(
-            updateTimer,
-            1000
-        );
+    timer.classList.remove(
+        "expired"
+    );
+
+    expiredBox.classList.remove(
+        "active"
+    );
+
+    formCard.style.display =
+        "block";
 
 }
 
 
 /* =========================================================
-   RESTART TIMER
+   EXPIRE SESSION
 ========================================================= */
 
-function restartTimer(){
+function expireSession(){
 
-    startTimer();
+    timer.textContent =
+        "00:00";
+
+
+    timer.classList.add(
+        "expired"
+    );
+
+
+    formCard.style.display =
+        "none";
+
+
+    expiredBox.classList.add(
+        "active"
+    );
+
+
+    showError(
+        "Payment Session Expired",
+        "Your 10-minute payment session has expired. Please start the deposit process again."
+    );
 
 }
 
 
 /* =========================================================
-   COPY ACCOUNT NUMBER
+   COPY ACCOUNT
 ========================================================= */
 
-function copyAccount(){
+async function copyAccount(){
 
     const number =
-        document.getElementById(
-            "accountNumber"
-        ).textContent.trim();
+        accountNumber.textContent.trim();
 
 
-    const button =
-        document.getElementById(
-            "copyAccountBtn"
+    try{
+
+        await navigator.clipboard.writeText(
+            number
         );
 
 
-    if(
-        navigator.clipboard &&
-        navigator.clipboard.writeText
-    ){
+        showSuccess(
+            "Copied",
+            "The account number has been copied to your clipboard."
+        );
 
-        navigator.clipboard
-        .writeText(number)
-        .then(() => {
+    }
 
-            const old =
-                button.innerHTML;
+    catch(error){
 
-            button.innerHTML =
-                '<i class="fa-solid fa-check"></i> Copied';
+        const textarea =
+            document.createElement("textarea");
 
-            setTimeout(() => {
 
-                button.innerHTML =
-                    old;
+        textarea.value =
+            number;
 
-            },1500);
-
-        });
-
-    }else{
-
-        const temp =
-            document.createElement(
-                "input"
-            );
-
-        temp.value = number;
 
         document.body.appendChild(
-            temp
+            textarea
         );
 
-        temp.select();
+
+        textarea.select();
+
 
         document.execCommand(
             "copy"
         );
 
-        temp.remove();
 
-        button.innerHTML =
-            '<i class="fa-solid fa-check"></i> Copied';
+        textarea.remove();
 
-        setTimeout(() => {
 
-            button.innerHTML =
-                '<i class="fa-regular fa-copy"></i> Copy';
-
-        },1500);
+        showSuccess(
+            "Copied",
+            "The account number has been copied to your clipboard."
+        );
 
     }
 
@@ -1706,82 +1960,84 @@ function copyAccount(){
 
 
 /* =========================================================
-   FILE NAME
+   RECEIPT NAME
 ========================================================= */
 
-function showFileName(){
+receiptInput.addEventListener(
+    "change",
+    function(){
 
-    const input =
-        document.getElementById(
-            "receipt"
-        );
+        if(this.files.length){
 
-    const fileName =
-        document.getElementById(
-            "fileName"
-        );
+            fileName.textContent =
+                this.files[0].name;
 
+        }
 
-    if(input.files.length > 0){
+        else{
 
-        fileName.textContent =
-            input.files[0].name;
+            fileName.textContent =
+                "";
 
-    }else{
-
-        fileName.textContent = "";
+        }
 
     }
-
-}
+);
 
 
 /* =========================================================
-   DEPOSIT SUBMISSION
+   SUBMIT DEPOSIT
 ========================================================= */
 
-document.getElementById(
-    "depositForm"
-).addEventListener(
+depositForm.addEventListener(
     "submit",
     async function(event){
 
         event.preventDefault();
 
 
+        if(!selectedChannel){
+
+            showError(
+                "Select a Channel",
+                "Please select a deposit channel before submitting your payment."
+            );
+
+            return;
+
+        }
+
+
+        if(secondsLeft <= 0){
+
+            showError(
+                "Session Expired",
+                "Your payment session has expired. Please start the deposit process again."
+            );
+
+            return;
+
+        }
+
+
         const amount =
-            document.getElementById(
-                "amount"
-            ).value;
-
-
-        const receipt =
-            document.getElementById(
-                "receipt"
-            ).files[0];
-
-
-        const submitButton =
-            document.getElementById(
-                "submitBtn"
+            Number(
+                document.getElementById(
+                    "amount"
+                ).value
             );
 
 
-        if(!amount || Number(amount) < 1000){
+        const receipt =
+            receiptInput.files[0];
 
-            if(typeof showError === "function"){
 
-                showError(
-                    "Minimum deposit is ₦1,000."
-                );
+        if(!amount || amount < 1000){
 
-            }else{
-
-                alert(
-                    "Minimum deposit is ₦1,000."
-                );
-
-            }
+            showError(
+                "Invalid Amount",
+                "The minimum deposit amount is ₦1,000."
+            );
 
             return;
 
@@ -1790,45 +2046,61 @@ document.getElementById(
 
         if(!receipt){
 
-            if(typeof showError === "function"){
-
-                showError(
-                    "Please upload your payment receipt."
-                );
-
-            }else{
-
-                alert(
-                    "Please upload your payment receipt."
-                );
-
-            }
+            showError(
+                "Receipt Required",
+                "Please upload your payment receipt before submitting."
+            );
 
             return;
 
         }
 
 
-        if(timeLeft <= 0){
+        showConfirm(
+            "Submit Deposit?",
+            `You are submitting a deposit of ₦${amount.toLocaleString()}. Make sure your payment details and receipt are correct.`,
+            () => {
 
-            if(typeof showError === "function"){
-
-                showError(
-                    "Payment session has expired. Please start a new session."
-                );
-
-            }else{
-
-                alert(
-                    "Payment session has expired."
+                submitDeposit(
+                    amount,
+                    receipt
                 );
 
             }
+        );
 
-            return;
+    }
+);
 
-        }
 
+/* =========================================================
+   SEND DEPOSIT TO BACKEND
+========================================================= */
+
+async function submitDeposit(
+    amount,
+    receipt
+){
+
+    const submitBtn =
+        document.getElementById(
+            "submitBtn"
+        );
+
+
+    const originalText =
+        submitBtn.innerHTML;
+
+
+    submitBtn.disabled =
+        true;
+
+
+    submitBtn.innerHTML =
+        '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+
+
+    try{
 
         const formData =
             new FormData();
@@ -1839,10 +2111,12 @@ document.getElementById(
             user._id
         );
 
+
         formData.append(
             "amount",
             amount
         );
+
 
         formData.append(
             "receipt",
@@ -1850,110 +2124,86 @@ document.getElementById(
         );
 
 
-        submitButton.disabled = true;
+        const response =
+            await fetch(
+                "https://young-invest-backend.onrender.com/api/deposit",
+                {
 
-        submitButton.textContent =
-            "Submitting...";
+                    method:"POST",
 
+                    body:formData
 
-        try{
-
-            const response =
-                await fetch(
-                    "https://young-invest-backend.onrender.com/api/deposit",
-                    {
-                        method:"POST",
-                        body:formData
-                    }
-                );
+                }
+            );
 
 
-            const data =
-                await response.json();
+        const data =
+            await response.json();
 
 
-            if(!response.ok){
+        if(!response.ok){
 
-                throw new Error(
-                    data.message ||
-                    "Deposit submission failed."
-                );
+            throw new Error(
+                data.message ||
+                "Deposit submission failed."
+            );
 
-            }
-
-
-            if(typeof showSuccess === "function"){
-
-                showSuccess(
-                    data.message ||
-                    "Deposit submitted successfully."
-                );
-
-            }else{
-
-                alert(
-                    data.message ||
-                    "Deposit submitted successfully."
-                );
-
-            }
+        }
 
 
-            document.getElementById(
-                "depositForm"
-            ).reset();
-
-
-            document.getElementById(
-                "fileName"
-            ).textContent = "";
-
-
-            setTimeout(() => {
+        showSuccess(
+            "Deposit Submitted",
+            `Your deposit of ₦${amount.toLocaleString()} has been submitted successfully and is awaiting approval.`,
+            () => {
 
                 window.location.href =
                     "dashboard.html";
 
-            },1200);
-
-
-        }catch(error){
-
-            console.error(
-                "Deposit Error:",
-                error
-            );
-
-
-            if(typeof showError === "function"){
-
-                showError(
-                    error.message ||
-                    "Something went wrong while submitting your deposit."
-                );
-
-            }else{
-
-                alert(
-                    error.message ||
-                    "Something went wrong."
-                );
-
             }
+        );
 
 
-            submitButton.disabled =
-                false;
+        depositForm.reset();
 
-            submitButton.textContent =
-                "Submit Deposit";
+        fileName.textContent =
+            "";
 
-        }
+
+        stopTimer();
 
     }
-);
+
+    catch(error){
+
+        console.error(
+            "Deposit Error:",
+            error
+        );
+
+
+        showError(
+            "Deposit Failed",
+            error.message ||
+            "Unable to submit your deposit. Please try again."
+        );
+
+    }
+
+    finally{
+
+        submitBtn.disabled =
+            false;
+
+
+        submitBtn.innerHTML =
+            originalText;
+
+    }
+
+}
 
 </script>
+
 
 </body>
 
