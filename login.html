@@ -4,690 +4,200 @@
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<title>Evergreen Investments | Login</title>
 
-<meta name="theme-color" content="#063b2f">
+<link rel="stylesheet" href="popup.css">
 
-<title>Home | Evergreen Investments</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-
-<link rel="preconnect"
-href="https://fonts.gstatic.com"
-crossorigin>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+<link
+href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap"
 rel="stylesheet">
 
-<link rel="stylesheet"
+<link
+rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
 
 <style>
 
 /* =========================================================
    EVERGREEN INVESTMENTS
-   HOME PAGE
+   NEW LOGIN EXPERIENCE
 ========================================================= */
 
 :root{
+    --forest:#082c22;
+    --forest-2:#0d4636;
+    --evergreen:#147a58;
+    --green:#20a873;
+    --mint:#b9efd9;
 
-    --green:#0f6b4f;
-    --green-dark:#084c3b;
-    --green-deep:#063b2f;
-    --green-light:#e9f7f1;
-    --accent:#1fa774;
-
+    --cream:#f7faf7;
     --white:#ffffff;
-    --text:#18332b;
-    --muted:#71827c;
 
-    --background:#f5f8f6;
+    --text:#12251e;
+    --muted:#718079;
 
-    --shadow:
-        0 8px 25px rgba(6,59,47,0.08);
-
+    --border:#dfe8e3;
 }
 
-*{
 
+/* =========================================================
+   RESET
+========================================================= */
+
+*{
     margin:0;
     padding:0;
     box-sizing:border-box;
+}
 
+html,
+body{
+    width:100%;
+    min-height:100%;
 }
 
 body{
 
-    font-family:"Poppins",sans-serif;
+    min-height:100vh;
 
-    background:var(--background);
+    font-family:'DM Sans',sans-serif;
+
+    background:#f5f8f5;
 
     color:var(--text);
 
+    overflow-x:hidden;
+}
+
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+
+.login-page{
+
     min-height:100vh;
-
-    padding-bottom:85px;
-
-}
-
-a{
-
-    text-decoration:none;
-
-    color:inherit;
-
-}
-
-
-/* =========================================================
-   TOP HEADER
-========================================================= */
-
-.top-header{
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--green-deep),
-            var(--green),
-            var(--accent)
-        );
-
-    color:white;
-
-    padding:20px 18px 24px;
-
-    border-radius:
-        0 0 28px 28px;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-.top-header::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.08);
-
-    right:-70px;
-
-    top:-70px;
-
-}
-
-.top-header::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:120px;
-
-    height:120px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,0.06);
-
-    left:-50px;
-
-    bottom:-60px;
-
-}
-
-.header-content{
-
-    position:relative;
-
-    z-index:2;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-}
-
-.brand{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:11px;
-
-}
-
-.brand img{
-
-    width:46px;
-
-    height:46px;
-
-    border-radius:13px;
-
-    object-fit:cover;
-
-    background:white;
-
-    padding:4px;
-
-}
-
-.brand-text h1{
-
-    font-size:18px;
-
-    font-weight:700;
-
-}
-
-.brand-text p{
-
-    font-size:11px;
-
-    opacity:.82;
-
-    margin-top:2px;
-
-}
-
-.notification-icon{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:13px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:rgba(255,255,255,.13);
-
-    color:white;
-
-    font-size:17px;
-
-}
-
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.hero-image{
-
-    margin-top:18px;
-
-    height:165px;
-
-    border-radius:22px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(3,55,43,.92),
-            rgba(15,107,79,.78)
-        );
-
-    position:relative;
-
-    overflow:hidden;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:20px;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.12);
-
-}
-
-.hero-image::before{
-
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-
-    height:180px;
-
-    border-radius:50%;
-
-    background:rgba(255,255,255,.06);
-
-    right:-50px;
-
-    top:-70px;
-
-}
-
-.hero-image-content{
-
-    position:relative;
-
-    z-index:2;
-
-    max-width:62%;
-
-}
-
-.hero-image-content h2{
-
-    font-size:21px;
-
-    line-height:1.25;
-
-    margin-bottom:7px;
-
-}
-
-.hero-image-content p{
-
-    font-size:11px;
-
-    line-height:1.6;
-
-    opacity:.85;
-
-}
-
-.hero-logo{
-
-    position:relative;
-
-    z-index:2;
-
-    width:105px;
-
-    height:105px;
-
-    border-radius:50%;
-
-    background:white;
-
-    padding:8px;
-
-    object-fit:contain;
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,.15);
-
-}
-
-
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
-
-.container{
-
-    width:100%;
-
-    max-width:700px;
-
-    margin:auto;
-
-    padding:16px;
-
-}
-
-
-/* =========================================================
-   SMALL QUICK ACTIONS
-========================================================= */
-
-.quick-actions{
 
     display:grid;
 
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:9px;
-
-    margin-bottom:18px;
+    grid-template-columns:48% 52%;
 
 }
 
-.quick-action{
 
-    background:white;
+/* =========================================================
+   LEFT BRAND AREA
+========================================================= */
 
-    border-radius:15px;
+.brand-panel{
 
-    min-height:76px;
+    position:relative;
+
+    min-height:100vh;
+
+    overflow:hidden;
+
+    padding:55px;
 
     display:flex;
 
     flex-direction:column;
 
-    align-items:center;
-
-    justify-content:center;
-
-    gap:7px;
-
-    box-shadow:var(--shadow);
-
-    color:var(--text);
-
-    transition:.2s;
-
-}
-
-.quick-action:active{
-
-    transform:scale(.96);
-
-}
-
-.quick-icon{
-
-    width:34px;
-
-    height:34px;
-
-    border-radius:10px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:var(--green-light);
-
-    color:var(--green);
-
-    font-size:14px;
-
-}
-
-.quick-action span{
-
-    font-size:10px;
-
-    font-weight:600;
-
-}
-
-
-/* =========================================================
-   RECHARGE ACTIVITY TICKER
-========================================================= */
-
-.ticker{
-
-    width:100%;
-
-    overflow:hidden;
-
-    background:white;
-
-    border-radius:14px;
-
-    box-shadow:var(--shadow);
-
-    margin-bottom:18px;
-
-    height:42px;
-
-    display:flex;
-
-    align-items:center;
-
-}
-
-.ticker-track{
-
-    display:flex;
-
-    width:max-content;
-
-    animation:
-        scrollTicker 42s linear infinite;
-
-}
-
-.ticker-item{
-
-    white-space:nowrap;
-
-    padding:0 20px;
-
-    font-size:11px;
-
-    font-weight:500;
-
-    color:var(--green);
-
-}
-
-@keyframes scrollTicker{
-
-    from{
-
-        transform:translateX(0);
-
-    }
-
-    to{
-
-        transform:translateX(-50%);
-
-    }
-
-}
-
-
-/* =========================================================
-   BALANCE CARD
-========================================================= */
-
-.balance-card{
+    justify-content:space-between;
 
     background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(32,168,115,.28),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 85%,
+            rgba(185,239,217,.12),
+            transparent 28%
+        ),
         linear-gradient(
-            135deg,
-            var(--green-deep),
-            var(--green)
+            145deg,
+            #061d17,
+            #082c22 45%,
+            #0d4636
         );
 
     color:white;
-
-    border-radius:21px;
-
-    padding:20px;
-
-    box-shadow:
-        0 12px 30px rgba(6,59,47,.17);
-
-    margin-bottom:15px;
-
-    position:relative;
-
-    overflow:hidden;
-
 }
 
-.balance-card::after{
+
+/* =========================================================
+   DECORATIVE SHAPES
+========================================================= */
+
+.brand-panel::before{
 
     content:"";
 
     position:absolute;
 
-    width:170px;
-
-    height:170px;
+    width:420px;
+    height:420px;
 
     border-radius:50%;
 
-    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
 
-    right:-60px;
-
-    top:-80px;
-
-}
-
-.balance-label{
-
-    font-size:11px;
-
-    opacity:.78;
-
-    margin-bottom:5px;
+    right:-190px;
+    top:-170px;
 
 }
 
-.balance-value{
+.brand-panel::after{
 
-    font-size:27px;
+    content:"";
 
-    font-weight:700;
+    position:absolute;
 
-    letter-spacing:.3px;
+    width:520px;
+    height:520px;
 
-}
+    border-radius:50%;
 
-.balance-card-bottom{
+    border:1px solid rgba(255,255,255,.07);
 
-    display:flex;
-
-    justify-content:space-between;
-
-    gap:15px;
-
-    margin-top:18px;
+    left:-280px;
+    bottom:-260px;
 
 }
 
-.balance-stat{
+
+/* =========================================================
+   BRAND HEADER
+========================================================= */
+
+.brand-header{
 
     position:relative;
 
     z-index:2;
 
-}
-
-.balance-stat small{
-
-    display:block;
-
-    font-size:9px;
-
-    opacity:.7;
-
-    margin-bottom:3px;
-
-}
-
-.balance-stat strong{
-
-    font-size:14px;
-
-}
-
-
-/* =========================================================
-   SECTION TITLE
-========================================================= */
-
-.section-title{
-
     display:flex;
 
     align-items:center;
 
-    justify-content:space-between;
-
-    margin:20px 2px 11px;
+    gap:14px;
 
 }
 
-.section-title h3{
+.brand-logo{
 
-    font-size:15px;
-
-    font-weight:700;
-
-}
-
-.section-title span{
-
-    font-size:10px;
-
-    color:var(--muted);
-
-}
-
-
-/* =========================================================
-   PARTNER SECTION
-========================================================= */
-
-.partner-grid{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
-    gap:9px;
-
-}
-
-.partner{
+    width:54px;
+    height:54px;
 
     background:white;
 
-    border-radius:14px;
+    border-radius:16px;
 
-    padding:13px 5px;
-
-    text-align:center;
-
-    box-shadow:var(--shadow);
-
-}
-
-.partner-number{
-
-    width:34px;
-
-    height:34px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:var(--green-light);
-
-    color:var(--green);
+    padding:7px;
 
     display:flex;
 
@@ -695,42 +205,147 @@ a{
 
     justify-content:center;
 
-    font-size:12px;
-
-    font-weight:700;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.20);
 
 }
 
-.partner p{
+.brand-logo img{
 
-    font-size:9px;
+    width:100%;
+    height:100%;
 
-    color:var(--muted);
+    object-fit:contain;
 
-    margin-top:7px;
+}
+
+.brand-name{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:19px;
+
+    font-weight:800;
+
+    letter-spacing:-.4px;
+
+}
+
+.brand-tag{
+
+    font-size:11px;
+
+    color:#a8cfc0;
+
+    margin-top:2px;
 
 }
 
 
 /* =========================================================
-   INFO CARD
+   BRAND CONTENT
 ========================================================= */
 
-.info-card{
+.brand-content{
 
-    background:white;
+    position:relative;
 
-    border-radius:18px;
+    z-index:2;
 
-    padding:17px;
+    max-width:490px;
 
-    margin-top:18px;
-
-    box-shadow:var(--shadow);
+    margin-top:-40px;
 
 }
 
-.info-row{
+.eyebrow{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    padding:8px 12px;
+
+    border:1px solid rgba(185,239,217,.18);
+
+    border-radius:30px;
+
+    background:rgba(255,255,255,.05);
+
+    color:#b9efd9;
+
+    font-size:11px;
+
+    font-weight:700;
+
+    letter-spacing:.8px;
+
+    text-transform:uppercase;
+
+    margin-bottom:25px;
+
+}
+
+.eyebrow span{
+
+    width:6px;
+    height:6px;
+
+    border-radius:50%;
+
+    background:#35d798;
+
+    box-shadow:
+        0 0 12px #35d798;
+
+}
+
+.brand-content h1{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:clamp(38px,4vw,58px);
+
+    line-height:1.04;
+
+    letter-spacing:-2.5px;
+
+    font-weight:800;
+
+    margin-bottom:20px;
+
+}
+
+.brand-content h1 span{
+
+    color:#55d9a4;
+
+}
+
+.brand-content p{
+
+    max-width:420px;
+
+    color:#b7cdc4;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   BRAND FOOTER
+========================================================= */
+
+.brand-footer{
+
+    position:relative;
+
+    z-index:2;
 
     display:flex;
 
@@ -738,120 +353,558 @@ a{
 
     gap:12px;
 
-}
+    color:#91afa4;
 
-.info-icon{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    background:var(--green-light);
-
-    color:var(--green);
+    font-size:11px;
 
 }
 
-.info-text h4{
+.status-dot{
 
-    font-size:13px;
+    width:8px;
+    height:8px;
 
-    margin-bottom:3px;
+    border-radius:50%;
 
-}
+    background:#38d99a;
 
-.info-text p{
-
-    font-size:10px;
-
-    color:var(--muted);
-
-    line-height:1.5;
+    box-shadow:
+        0 0 12px rgba(56,217,154,.8);
 
 }
 
 
 /* =========================================================
-   BOTTOM NAVIGATION
+   RIGHT LOGIN AREA
 ========================================================= */
 
-.bottom-nav{
+.form-panel{
 
-    position:fixed;
+    min-height:100vh;
 
-    left:0;
-
-    right:0;
-
-    bottom:0;
-
-    height:70px;
-
-    background:white;
-
-    border-top:
-        1px solid #e5ebe8;
+    background:#f7faf7;
 
     display:flex;
-
-    align-items:center;
-
-    justify-content:space-around;
-
-    z-index:1000;
-
-    box-shadow:
-        0 -5px 20px rgba(0,0,0,.06);
-
-}
-
-.bottom-nav a{
-
-    flex:1;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
 
     align-items:center;
 
     justify-content:center;
 
-    gap:5px;
+    padding:40px;
 
-    color:#8a9993;
+}
+
+.form-container{
+
+    width:100%;
+
+    max-width:440px;
+
+}
+
+
+/* =========================================================
+   FORM HEADER
+========================================================= */
+
+.form-top{
+
+    margin-bottom:35px;
+
+}
+
+.form-top .mobile-brand{
+
+    display:none;
+
+}
+
+.form-top h2{
+
+    font-family:'Manrope',sans-serif;
+
+    font-size:32px;
+
+    font-weight:800;
+
+    letter-spacing:-1px;
+
+    color:#10241d;
+
+    margin-bottom:8px;
+
+}
+
+.form-top p{
+
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.6;
+
+}
+
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+.field{
+
+    margin-bottom:20px;
+
+}
+
+.field label{
+
+    display:block;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    color:#34483f;
+
+    margin-bottom:8px;
+
+}
+
+.input-wrap{
+
+    position:relative;
+
+}
+
+.input-wrap > i{
+
+    position:absolute;
+
+    left:16px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#7c9188;
+
+    font-size:14px;
+
+    pointer-events:none;
+
+    transition:.2s;
+
+}
+
+.input-wrap input{
+
+    width:100%;
+
+    height:56px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#12251e;
+
+    outline:none;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:14px;
+
+    padding:0 48px;
+
+    transition:.25s;
+
+}
+
+.input-wrap input::placeholder{
+
+    color:#a1aea8;
+
+}
+
+.input-wrap input:focus{
+
+    border-color:#20a873;
+
+    box-shadow:
+        0 0 0 4px rgba(32,168,115,.08);
+
+}
+
+.input-wrap input:focus + .field-focus{
+
+    opacity:1;
+
+}
+
+
+/* =========================================================
+   PASSWORD BUTTON
+========================================================= */
+
+.password-toggle{
+
+    position:absolute;
+
+    right:8px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    width:38px;
+    height:38px;
+
+    border:0;
+
+    background:transparent;
+
+    border-radius:9px;
+
+    color:#81918a;
+
+    cursor:pointer;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    transition:.2s;
+
+}
+
+.password-toggle:hover{
+
+    background:#eef7f2;
+
+    color:#147a58;
+
+}
+
+
+/* =========================================================
+   FORM OPTIONS
+========================================================= */
+
+.form-options{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:flex-end;
+
+    margin-top:-5px;
+
+    margin-bottom:24px;
+
+}
+
+.forgot{
+
+    color:#147a58;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    text-decoration:none;
+
+}
+
+.forgot:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================================
+   LOGIN BUTTON
+========================================================= */
+
+.login-btn{
+
+    width:100%;
+
+    height:57px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #147a58,
+            #0a4f3b
+        );
+
+    color:white;
+
+    font-family:'DM Sans',sans-serif;
+
+    font-size:14px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 12px 25px rgba(20,122,88,.18);
+
+    transition:.25s;
+
+}
+
+.login-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 16px 30px rgba(20,122,88,.25);
+
+}
+
+.login-btn:active{
+
+    transform:translateY(0);
+
+}
+
+.login-btn:disabled{
+
+    opacity:.7;
+
+    cursor:not-allowed;
+
+}
+
+
+/* =========================================================
+   LOADER
+========================================================= */
+
+.loader{
+
+    width:17px;
+    height:17px;
+
+    border:2px solid rgba(255,255,255,.35);
+
+    border-top-color:white;
+
+    border-radius:50%;
+
+    display:inline-block;
+
+    vertical-align:middle;
+
+    margin-right:7px;
+
+    animation:spin .7s linear infinite;
+
+}
+
+@keyframes spin{
+
+    to{
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+.divider{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin:30px 0 22px;
+
+    color:#a0aaa5;
 
     font-size:10px;
 
-    font-weight:500;
+    font-weight:700;
+
+    letter-spacing:.7px;
 
 }
 
-.bottom-nav a i{
+.divider::before,
+.divider::after{
 
-    font-size:17px;
+    content:"";
+
+    flex:1;
+
+    height:1px;
+
+    background:#e2e9e5;
 
 }
 
-.bottom-nav a.active{
 
-    color:var(--green);
+/* =========================================================
+   CREATE ACCOUNT
+========================================================= */
+
+.create-account{
+
+    text-align:center;
+
+    color:#74837d;
+
+    font-size:13px;
 
 }
 
-.bottom-nav a.active i{
+.create-account a{
 
-    transform:translateY(-1px);
+    color:#147a58;
+
+    font-weight:800;
+
+    text-decoration:none;
+
+    margin-left:4px;
+
+}
+
+.create-account a:hover{
+
+    text-decoration:underline;
+
+}
+
+
+/* =========================================================
+   SECURITY NOTE
+========================================================= */
+
+.security-note{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    margin-top:30px;
+
+    color:#9aa7a1;
+
+    font-size:10px;
+
+}
+
+.security-note i{
+
+    color:#147a58;
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:850px){
+
+    .login-page{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .brand-panel{
+
+        display:none;
+
+    }
+
+    .form-panel{
+
+        min-height:100vh;
+
+        padding:30px 22px;
+
+    }
+
+    .form-container{
+
+        max-width:460px;
+
+    }
+
+    .form-top .mobile-brand{
+
+        display:flex;
+
+        align-items:center;
+
+        gap:12px;
+
+        margin-bottom:38px;
+
+    }
+
+    .mobile-brand-logo{
+
+        width:48px;
+        height:48px;
+
+        padding:6px;
+
+        background:white;
+
+        border-radius:14px;
+
+        box-shadow:
+            0 7px 20px rgba(15,60,45,.10);
+
+    }
+
+    .mobile-brand-logo img{
+
+        width:100%;
+        height:100%;
+
+        object-fit:contain;
+
+    }
+
+    .mobile-brand-name{
+
+        font-family:'Manrope',sans-serif;
+
+        font-weight:800;
+
+        color:#0a4635;
+
+        font-size:17px;
+
+    }
 
 }
 
@@ -860,45 +913,67 @@ a{
    MOBILE
 ========================================================= */
 
-@media(max-width:380px){
+@media(max-width:480px){
 
-    .hero-image{
+    .form-panel{
 
-        height:150px;
+        padding:24px 18px;
 
-        padding:16px;
-
-    }
-
-    .hero-image-content h2{
-
-        font-size:18px;
+        align-items:flex-start;
 
     }
 
-    .hero-logo{
+    .form-container{
 
-        width:85px;
-
-        height:85px;
+        padding-top:8px;
 
     }
 
-    .quick-actions{
+    .form-top{
 
-        gap:6px;
-
-    }
-
-    .quick-action{
-
-        min-height:70px;
+        margin-bottom:30px;
 
     }
 
-    .balance-value{
+    .form-top .mobile-brand{
 
-        font-size:24px;
+        margin-bottom:34px;
+
+    }
+
+    .form-top h2{
+
+        font-size:28px;
+
+    }
+
+    .form-top p{
+
+        font-size:12px;
+
+    }
+
+    .field{
+
+        margin-bottom:17px;
+
+    }
+
+    .input-wrap input{
+
+        height:54px;
+
+    }
+
+    .login-btn{
+
+        height:55px;
+
+    }
+
+    .divider{
+
+        margin-top:27px;
 
     }
 
@@ -906,34 +981,38 @@ a{
 
 
 /* =========================================================
-   TABLET / DESKTOP
+   SMALL PHONES
 ========================================================= */
 
-@media(min-width:700px){
+@media(max-height:650px) and (max-width:480px){
 
-    .container{
+    .form-panel{
 
-        padding:22px;
-
-    }
-
-    .hero-image{
-
-        height:190px;
+        padding-top:16px;
 
     }
 
-    .hero-logo{
+    .form-top .mobile-brand{
 
-        width:130px;
-
-        height:130px;
+        margin-bottom:22px;
 
     }
 
-    .quick-action{
+    .form-top{
 
-        min-height:85px;
+        margin-bottom:22px;
+
+    }
+
+    .field{
+
+        margin-bottom:13px;
+
+    }
+
+    .security-note{
+
+        margin-top:20px;
 
     }
 
@@ -947,647 +1026,339 @@ a{
 <body>
 
 
-<!-- =======================================================
-     TOP HEADER
-======================================================= -->
+<div class="login-page">
 
-<header class="top-header">
 
-    <div class="header-content">
+    <!-- =====================================================
+         LEFT EVERGREEN BRAND PANEL
+    ====================================================== -->
 
-        <div class="brand">
+    <section class="brand-panel">
 
-            <img
+
+        <!-- BRAND HEADER -->
+
+        <div class="brand-header">
+
+            <div class="brand-logo">
+
+                <img
                 src="1234.png"
-                alt="Evergreen Investments"
-            >
+                alt="Evergreen Investments">
 
-            <div class="brand-text">
+            </div>
 
-                <h1>Evergreen Investments</h1>
+            <div>
 
-                <p>Smart investment. Steady growth.</p>
+                <div class="brand-name">
+                    Evergreen Investments
+                </div>
+
+                <div class="brand-tag">
+                    Smart investment. Steady growth.
+                </div>
 
             </div>
 
         </div>
 
 
-        <a
-            href="transaction.html"
-            class="notification-icon"
-        >
+        <!-- BRAND MESSAGE -->
 
-            <i class="fa-solid fa-bell"></i>
+        <div class="brand-content">
 
-        </a>
+            <div class="eyebrow">
 
-    </div>
+                <span></span>
+
+                Investment platform
+
+            </div>
 
 
-    <!-- ===================================================
-         HERO IMAGE
-    ==================================================== -->
+            <h1>
 
-    <div class="hero-image">
+                Grow with a
+                <span>clearer future.</span>
 
-        <div class="hero-image-content">
+            </h1>
 
-            <h2>
-                Grow Your Wealth
-                With Confidence
-            </h2>
 
             <p>
-                Manage your investments,
-                recharge your account and
-                track your earnings.
+
+                Access your Evergreen Investments
+                account and manage your investment
+                journey from one simple dashboard.
+
             </p>
 
         </div>
 
 
-        <img
-            src="1234.png"
-            alt="Evergreen Investments"
-            class="hero-logo"
-        >
+        <!-- BRAND FOOTER -->
 
-    </div>
+        <div class="brand-footer">
 
-</header>
+            <span class="status-dot"></span>
 
-
-
-<main class="container">
-
-
-    <!-- ===================================================
-         QUICK ACTIONS
-    ==================================================== -->
-
-    <div class="quick-actions">
-
-
-        <a
-            href="deposit.html"
-            class="quick-action"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-wallet"></i>
-
-            </div>
-
-            <span>Recharge</span>
-
-        </a>
-
-
-        <a
-            href="withdraw.html"
-            class="quick-action"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-money-bill-transfer"></i>
-
-            </div>
-
-            <span>Withdraw</span>
-
-        </a>
-
-
-        <a
-            href="https://t.me/Crestwealth"
-            class="quick-action"
-            target="_blank"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-headset"></i>
-
-            </div>
-
-            <span>Help</span>
-
-        </a>
-
-
-        <a
-            href="transaction.html"
-            class="quick-action"
-        >
-
-            <div class="quick-icon">
-
-                <i class="fa-solid fa-clock-rotate-left"></i>
-
-            </div>
-
-            <span>Records</span>
-
-        </a>
-
-
-    </div>
-
-
-
-    <!-- ===================================================
-         RECHARGE ACTIVITY
-    ==================================================== -->
-
-    <div class="ticker">
-
-        <div class="ticker-track">
-
-
-            <div class="ticker-item">
-                ******8969 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******7694 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******8261 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******3406 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******7453 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******6486 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3918 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******2976 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******2489 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******7859 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******2633 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******5637 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******6038 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3502 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******7304 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******9579 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******8765 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******0209 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******5789 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******1374 Recharge 60,000
-            </div>
-
-
-            <!-- Duplicate for continuous loop -->
-
-            <div class="ticker-item">
-                ******8969 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******7694 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******8261 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******3406 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******7453 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******6486 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3918 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******2976 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******2489 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******7859 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******2633 Recharge 1,000,000
-            </div>
-
-            <div class="ticker-item">
-                ******5637 Recharge 60,000
-            </div>
-
-            <div class="ticker-item">
-                ******6038 Recharge 120,000
-            </div>
-
-            <div class="ticker-item">
-                ******3502 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******7304 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******9579 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******8765 Recharge 1,000,000
-            </div>
-                       <div class="ticker-item">
-                ******0209 Recharge 30,000
-            </div>
-
-            <div class="ticker-item">
-                ******5789 Recharge 250,000
-            </div>
-
-            <div class="ticker-item">
-                ******1374 Recharge 60,000
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ===================================================
-         BALANCE
-    ==================================================== -->
-
-    <div class="balance-card">
-
-        <div class="balance-label">
-            Account Balance
-        </div>
-
-        <div
-            class="balance-value"
-            id="accountBalance"
-        >
-            ₦0
-        </div>
-
-
-        <div class="balance-card-bottom">
-
-            <div class="balance-stat">
-
-                <small>
-                    Cumulative Income
-                </small>
-
-                <strong id="cumulativeIncome">
-                    ₦0
-                </strong>
-
-            </div>
-
-
-            <div class="balance-stat">
-
-                <small>
-                    Status
-                </small>
-
-                <strong>
-                    Active
-                </strong>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <!-- ===================================================
-         PARTNERS
-    ==================================================== -->
-
-    <div class="section-title">
-
-        <h3>
-            Partners
-        </h3>
-
-        <span>
-            1 - 8
-        </span>
-
-    </div>
-
-
-    <div class="partner-grid">
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                1
-            </div>
-
-            <p>Partner 1</p>
+            Secure account access
 
         </div>
 
 
-        <div class="partner">
-
-            <div class="partner-number">
-                2
-            </div>
-
-            <p>Partner 2</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                3
-            </div>
-
-            <p>Partner 3</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                4
-            </div>
-
-            <p>Partner 4</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                5
-            </div>
-
-            <p>Partner 5</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                6
-            </div>
-
-            <p>Partner 6</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                7
-            </div>
-
-            <p>Partner 7</p>
-
-        </div>
-
-
-        <div class="partner">
-
-            <div class="partner-number">
-                8
-            </div>
-
-            <p>Partner 8</p>
-
-        </div>
-
-
-    </div>
+    </section>
 
 
 
-    <!-- ===================================================
-         INFORMATION
-    ==================================================== -->
+    <!-- =====================================================
+         RIGHT LOGIN PANEL
+    ====================================================== -->
 
-    <div class="info-card">
+    <section class="form-panel">
 
-        <div class="info-row">
 
-            <div class="info-icon">
+        <div class="form-container">
 
-                <i class="fa-solid fa-shield-halved"></i>
 
-            </div>
+            <!-- FORM HEADER -->
 
-            <div class="info-text">
+            <div class="form-top">
 
-                <h4>
-                    Your account is protected
-                </h4>
+
+                <!-- MOBILE BRAND -->
+
+                <div class="mobile-brand">
+
+                    <div class="mobile-brand-logo">
+
+                        <img
+                        src="1234.png"
+                        alt="Evergreen Investments">
+
+                    </div>
+
+                    <div class="mobile-brand-name">
+
+                        Evergreen Investments
+
+                    </div>
+
+                </div>
+
+
+                <h2>
+                    Sign in
+                </h2>
 
                 <p>
-                    Keep your login information
-                    secure and never share your
-                    password with anyone.
+                    Enter your account details to continue.
                 </p>
 
             </div>
 
+
+
+            <!-- LOGIN FORM -->
+
+            <form id="loginForm">
+
+
+                <!-- EMAIL -->
+
+                <div class="field">
+
+                    <label for="email">
+                        Email address
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fa-solid fa-at"></i>
+
+                        <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        autocomplete="email"
+                        required>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- PASSWORD -->
+
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <div class="input-wrap">
+
+                        <i class="fa-solid fa-key"></i>
+
+                        <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required>
+
+
+                        <button
+                        type="button"
+                        class="password-toggle"
+                        id="togglePassword"
+                        aria-label="Show password">
+
+                            <i class="fa-solid fa-eye"></i>
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FORGOT PASSWORD -->
+
+                <div class="form-options">
+
+                    <a
+                    href="forgot-password.html"
+                    class="forgot">
+
+                        Forgot password?
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- LOGIN -->
+
+                <button
+                type="submit"
+                id="loginBtn"
+                class="login-btn">
+
+                    Login to Evergreen
+
+                </button>
+
+
+
+                <!-- DIVIDER -->
+
+                <div class="divider">
+
+                    <span>NEW TO EVERGREEN?</span>
+
+                </div>
+
+
+
+                <!-- CREATE ACCOUNT -->
+
+                <div class="create-account">
+
+                    Don't have an account?
+
+                    <a href="register.html">
+                        Create an account
+                    </a>
+
+                </div>
+
+
+
+                <!-- SECURITY -->
+
+                <div class="security-note">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Your account connection is protected
+
+                </div>
+
+
+            </form>
+
+
         </div>
 
-    </div>
+
+    </section>
 
 
-</main>
+</div>
 
 
 
-<!-- =======================================================
-     BOTTOM NAVIGATION
-======================================================= -->
+<!-- =========================================================
+     EXISTING SCRIPTS
+========================================================= -->
 
-<nav class="bottom-nav">
+<script src="popup.js"></script>
 
-
-    <a
-        href="home.html"
-        class="active"
-    >
-
-        <i class="fa-solid fa-house"></i>
-
-        <span>Home</span>
-
-    </a>
-
-
-    <a
-        href="investment.html"
-    >
-
-        <i class="fa-solid fa-chart-line"></i>
-
-        <span>Product</span>
-
-    </a>
-
-
-    <a
-        href="invite.html"
-    >
-
-        <i class="fa-solid fa-users"></i>
-
-        <span>Team</span>
-
-    </a>
-
-
-    <a
-        href="dashboard.html"
-    >
-
-        <i class="fa-solid fa-user"></i>
-
-        <span>Mine</span>
-
-    </a>
-
-
-</nav>
+<script src="login.js"></script>
 
 
 
 <script>
 
 /* =========================================================
-   LOGIN CHECK
+   PASSWORD SHOW / HIDE
 ========================================================= */
 
-const user = JSON.parse(
-    localStorage.getItem("user")
-);
+const password =
+document.getElementById("password");
+
+const toggle =
+document.getElementById("togglePassword");
 
 
-if(!user){
+toggle.addEventListener("click", function(){
 
-    window.location.href = "login.html";
-
-}
-
-
-/* =========================================================
-   FORMAT MONEY
-========================================================= */
-
-function formatMoney(amount){
-
-    return "₦" + Number(
-        amount || 0
-    ).toLocaleString(
-        "en-NG",
-        {
-            minimumFractionDigits:0,
-            maximumFractionDigits:2
-        }
-    );
-
-}
+    const icon =
+    toggle.querySelector("i");
 
 
-/* =========================================================
-   DISPLAY USER DATA
-========================================================= */
+    if(password.type === "password"){
 
-if(user){
+        password.type = "text";
 
-    document.getElementById(
-        "accountBalance"
-    ).textContent = formatMoney(
-        user.walletBalance
-    );
+        icon.classList.remove("fa-eye");
 
+        icon.classList.add("fa-eye-slash");
 
-    document.getElementById(
-        "cumulativeIncome"
-    ).textContent = formatMoney(
-        user.totalEarnings
-    );
+        toggle.setAttribute(
+            "aria-label",
+            "Hide password"
+        );
 
-}
+    }else{
+
+        password.type = "password";
+
+        icon.classList.remove("fa-eye-slash");
+
+        icon.classList.add("fa-eye");
+
+        toggle.setAttribute(
+            "aria-label",
+            "Show password"
+        );
+
+    }
+
+});
 
 </script>
 
@@ -1595,6 +1366,3 @@ if(user){
 </body>
 
 </html>
-
-         
-               
