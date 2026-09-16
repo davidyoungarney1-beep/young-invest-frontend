@@ -4,97 +4,89 @@
 // =========================================================
 
 
-/* =========================================================
-   REMOVE EXISTING POPUP
-========================================================= */
+// =========================================================
+// REMOVE EXISTING POPUP
+// =========================================================
 
-function removePopup(callback = null){
+function removePopup(callback = null) {
 
     const overlay =
         document.getElementById("popupOverlay");
 
-    if(!overlay){
+    if (!overlay) {
 
-        if(callback) callback();
+        if (callback) {
+            callback();
+        }
 
         return;
-
     }
 
     overlay.classList.remove("show");
 
     setTimeout(() => {
 
-        if(overlay){
+        overlay.remove();
 
-            overlay.remove();
-
-        }
-
-        if(callback){
-
+        if (callback) {
             callback();
-
         }
 
     }, 220);
-
 }
 
 
-/* =========================================================
-   SHOW POPUP
-========================================================= */
+// =========================================================
+// SHOW POPUP
+// =========================================================
 
 function showPopup(
     type,
     title,
     message,
     callback = null
-){
+) {
 
     const old =
         document.getElementById("popupOverlay");
 
-    if(old){
-
+    if (old) {
         old.remove();
-
     }
 
 
     let icon = "";
 
 
-    if(type === "success"){
+    if (type === "success") {
 
         icon =
             '<i class="fa-solid fa-check"></i>';
 
     }
 
-    else if(type === "error"){
+    else if (type === "error") {
 
         icon =
             '<i class="fa-solid fa-xmark"></i>';
 
     }
 
-    else if(type === "question"){
+    else if (type === "question") {
 
         icon =
             '<i class="fa-solid fa-question"></i>';
 
     }
 
-    else if(type === "password"){
+    else if (type === "password") {
 
         icon =
             '<i class="fa-solid fa-lock"></i>';
 
     }
 
-    else{
+    else {
 
         icon =
             '<i class="fa-solid fa-info"></i>';
@@ -108,7 +100,6 @@ function showPopup(
 
     overlay.className =
         "popup-overlay";
-
 
     overlay.id =
         "popupOverlay";
@@ -156,40 +147,28 @@ function showPopup(
         document.getElementById("popupBtn");
 
 
-    button.onclick = () => {
+    if (button) {
 
-        removePopup(callback);
+        button.onclick = () => {
 
-    };
+            removePopup(callback);
 
+        };
 
-    /* Prevent clicking outside from doing anything */
-
-    overlay.addEventListener(
-        "click",
-        function(event){
-
-            if(event.target === overlay){
-
-                return;
-
-            }
-
-        }
-    );
+    }
 
 }
 
 
-/* =========================================================
-   SUCCESS
-========================================================= */
+// =========================================================
+// SUCCESS
+// =========================================================
 
 function showSuccess(
     title,
     message,
     callback = null
-){
+) {
 
     showPopup(
         "success",
@@ -201,15 +180,15 @@ function showSuccess(
 }
 
 
-/* =========================================================
-   ERROR
-========================================================= */
+// =========================================================
+// ERROR
+// =========================================================
 
 function showError(
     title,
     message,
     callback = null
-){
+) {
 
     showPopup(
         "error",
@@ -221,23 +200,21 @@ function showError(
 }
 
 
-/* =========================================================
-   CONFIRM
-========================================================= */
+// =========================================================
+// CONFIRM
+// =========================================================
 
 function showConfirm(
     title,
     message,
     callback = null
-){
+) {
 
     const old =
         document.getElementById("popupOverlay");
 
-    if(old){
-
+    if (old) {
         old.remove();
-
     }
 
 
@@ -247,7 +224,6 @@ function showConfirm(
 
     overlay.className =
         "popup-overlay";
-
 
     overlay.id =
         "popupOverlay";
@@ -307,43 +283,48 @@ function showConfirm(
     const cancelBtn =
         document.getElementById("cancelBtn");
 
-
     const confirmBtn =
         document.getElementById("confirmBtn");
 
 
-    cancelBtn.onclick = () => {
+    if (cancelBtn) {
 
-        removePopup();
+        cancelBtn.onclick = () => {
 
-    };
+            removePopup();
+
+        };
+
+    }
 
 
-    confirmBtn.onclick = () => {
+    if (confirmBtn) {
 
-        removePopup(callback);
+        confirmBtn.onclick = () => {
 
-    };
+            removePopup(callback);
+
+        };
+
+    }
 
 }
 
 
-/* =========================================================
-   PASSWORD PROMPT
-========================================================= */
+// =========================================================
+// PASSWORD PROMPT
+// =========================================================
 
 function showPasswordPrompt(
     title,
     callback = null
-){
+) {
 
     const old =
         document.getElementById("popupOverlay");
 
-    if(old){
-
+    if (old) {
         old.remove();
-
     }
 
 
@@ -353,7 +334,6 @@ function showPasswordPrompt(
 
     overlay.className =
         "popup-overlay";
-
 
     overlay.id =
         "popupOverlay";
@@ -428,71 +408,87 @@ function showPasswordPrompt(
     const passwordInput =
         document.getElementById("popupPassword");
 
-
-    passwordInput.focus();
-
-
     const cancelBtn =
         document.getElementById("cancelBtn");
-
 
     const confirmBtn =
         document.getElementById("confirmBtn");
 
 
-    cancelBtn.onclick = () => {
+    if (passwordInput) {
 
-        removePopup();
+        passwordInput.focus();
 
-    };
-
-
-    confirmBtn.onclick = () => {
-
-        const password =
-            passwordInput.value.trim();
+    }
 
 
-        if(password.length < 6){
+    if (cancelBtn) {
 
-            showError(
-                "Invalid Password",
-                "Password must be at least 6 characters."
-            );
+        cancelBtn.onclick = () => {
 
-            return;
+            removePopup();
 
-        }
+        };
 
-
-        removePopup(() => {
-
-            if(callback){
-
-                callback(password);
-
-            }
-
-        });
-
-    };
+    }
 
 
-    /* Allow Enter to submit */
+    if (confirmBtn) {
 
-    passwordInput.addEventListener(
-        "keydown",
-        function(event){
+        confirmBtn.onclick = () => {
 
-            if(event.key === "Enter"){
+            const password =
+                passwordInput.value.trim();
 
-                event.preventDefault();
 
-                confirmBtn.click();
+            if (password.length < 6) {
+
+                showError(
+                    "Invalid Password",
+                    "Password must be at least 6 characters."
+                );
+
+                return;
 
             }
 
-        }
-    );
+
+            removePopup(() => {
+
+                if (callback) {
+
+                    callback(password);
+
+                }
+
+            });
+
+        };
+
+    }
+
+
+    if (passwordInput) {
+
+        passwordInput.addEventListener(
+            "keydown",
+            function (event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    if (confirmBtn) {
+
+                        confirmBtn.click();
+
+                    }
+
+                }
 
             }
+        );
+
+    }
+
+   }
