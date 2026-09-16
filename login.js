@@ -1,95 +1,104 @@
-window.addEventListener("DOMContentLoaded",()=>{
+window.addEventListener("DOMContentLoaded", () => {
 
-const form=document.getElementById("loginForm");
+    const form = document.getElementById("loginForm");
+    const loginBtn = document.getElementById("loginBtn");
 
-const loginBtn=document.getElementById("loginBtn");
+    form.addEventListener("submit", async (e) => {
 
-form.addEventListener("submit",async(e)=>{
+        e.preventDefault();
 
-e.preventDefault();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
 
-const email=document.getElementById("email").value.trim();
+        // Disable button while logging in
+        loginBtn.disabled = true;
 
-const password=document.getElementById("password").value;
+        loginBtn.innerHTML = `
+            <span class="loader"></span>
+            Logging In...
+        `;
 
-loginBtn.disabled=true;
+        try {
 
-loginBtn.innerHTML=`
-<span class="loader"></span>
-Logging In...
-`;
+            // Send login request to existing backend
+            const response = await fetch(
+                "https://young-invest-backend.onrender.com/api/auth/login",
+                {
+                    method: "POST",
 
-try{
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
 
-const response=await fetch(
-"https://young-invest-backend.onrender.com/api/auth/login",
-{
-method:"POST",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-email,
-password
-})
-}
-);
+                    body: JSON.stringify({
+                        email: email,
+                        password: password
+                    })
+                }
+            );
 
-const data=await response.json();
+            const data = await response.json();
 
-loginBtn.disabled=false;
+            // Restore button
+            loginBtn.disabled = false;
+            loginBtn.innerHTML = "Login";
 
-loginBtn.innerHTML="Login";
+            // Successful login
+            if (response.ok) {
 
-if(response.ok){
+                // Save user information
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify(data.user)
+                );
 
-localStorage.setItem(
-"user",
-JSON.stringify(data.user)
-);
+                showSuccess(
+                    "Login Successful",
+                    "Welcome back to Evergreen Investments.",
+                    () => {
 
-showSuccess(
-"Login Successful",
-"Welcome back to Crest Wealth Investment.",
-()=>{
+                        // Admin users
+                        if (data.user.role === "admin") {
 
-if(data.user.role==="admin"){
+                            window.location.href = "admin.html";
 
-window.location.href="admin.html";
+                        } else {
 
-}else{
+                            // Normal users
+                            // New Evergreen Investments Home page
+                            window.location.href = "home.html";
 
-window.location.href="dashboard.html";
+                        }
 
-}
+                    }
+                );
 
-}
-);
+            } else {
 
-}else{
+                // Login failed
+                showError(
+                    "Login Failed",
+                    data.message || "Invalid email or password."
+                );
 
-showError(
-"Login Failed",
-data.message||"Invalid email or password."
-);
+            }
 
-}
+        } catch (error) {
 
-}catch(error){
+            console.log("Login Error:", error);
 
-console.log(error);
+            // Restore button
+            loginBtn.disabled = false;
+            loginBtn.innerHTML = "Login";
 
-loginBtn.disabled=false;
+            // Connection error
+            showError(
+                "Connection Error",
+                "Unable to connect to the server."
+            );
 
-loginBtn.innerHTML="Login";
+        }
 
-showError(
-"Connection Error",
-"Unable to connect to the server."
-);
-
-}
-
-});
+    });
 
 });
