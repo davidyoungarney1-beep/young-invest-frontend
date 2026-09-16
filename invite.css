@@ -1,354 +1,708 @@
-/*==================================
-   CREST WEALTH INVITE PAGE
-==================================*/
+/* =====================================================
+   EVERGREEN INVESTMENTS — TEAM / INVITE PAGE
+===================================================== */
+
+:root{
+    --forest:#073b2a;
+    --evergreen:#0f6b4d;
+    --green:#15966a;
+    --mint:#e8f6f0;
+    --soft:#f4f8f6;
+    --text:#11251d;
+    --muted:#718079;
+    --border:#e0ebe6;
+    --white:#ffffff;
+    --shadow:0 12px 35px rgba(7,59,42,.07);
+}
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#eef5ff;
-color:#1e293b;
-padding-bottom:90px;
+    font-family:"DM Sans",sans-serif;
+    background:#edf4f1;
+    color:var(--text);
+    min-height:100vh;
+    padding-bottom:90px;
 }
 
-.container{
-max-width:700px;
-margin:auto;
-padding:20px;
+button,
+input{
+    font-family:inherit;
 }
 
-/*=========================
-TOPBAR
-=========================*/
-
-.topbar{
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-color:#fff;
-padding:18px 20px;
-border-radius:20px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-margin-bottom:20px;
-box-shadow:0 15px 35px rgba(37,99,235,.25);
+a{
+    -webkit-tap-highlight-color:transparent;
 }
 
-.topbar a{
-color:#fff;
-font-size:22px;
-text-decoration:none;
+
+/* =====================================================
+   APP
+===================================================== */
+
+.app{
+    width:100%;
+    max-width:570px;
+    min-height:100vh;
+    margin:auto;
+    background:#f7faf8;
+    overflow:hidden;
 }
 
-.topbar h2{
-font-size:22px;
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.team-header{
+    background:var(--forest);
+    color:white;
+    padding:20px 18px 26px;
 }
 
-/*=========================
-HERO
-=========================*/
-
-.hero{
-background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
-color:#fff;
-padding:30px 20px;
-border-radius:20px;
-text-align:center;
-margin-bottom:20px;
-box-shadow:0 15px 35px rgba(37,99,235,.25);
+.header-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
 }
 
-.hero h1{
-font-size:28px;
-margin-bottom:10px;
+.header-label{
+    font-size:8px;
+    font-weight:800;
+    letter-spacing:2px;
+    opacity:.6;
 }
 
-.hero p{
-font-size:15px;
-opacity:.95;
+.header-title{
+    font-family:"Manrope",sans-serif;
+    font-size:21px;
+    margin-top:4px;
 }
 
-/*=========================
-CARDS
-=========================*/
+.header-icon{
+    width:42px;
+    height:42px;
+    border-radius:13px;
+    background:rgba(255,255,255,.09);
+    border:1px solid rgba(255,255,255,.12);
 
-.card{
-background:#fff;
-padding:20px;
-border-radius:18px;
-margin-bottom:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:#8de0bc;
+    font-size:17px;
 }
 
-.card h3{
-margin-bottom:15px;
-color:#1e3a8a;
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.team-hero{
+    margin:18px;
+    margin-top:-8px;
+
+    background:white;
+    border:1px solid var(--border);
+    border-radius:22px;
+
+    padding:22px 20px;
+
+    box-shadow:var(--shadow);
 }
 
-/*=========================
-COPY BOX
-=========================*/
+.hero-icon{
+    width:47px;
+    height:47px;
 
-.copy-box{
-display:flex;
-gap:10px;
+    border-radius:15px;
+
+    background:var(--mint);
+    color:var(--evergreen);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:19px;
+
+    margin-bottom:14px;
 }
 
-.copy-box input{
-flex:1;
-padding:14px;
-border:1px solid #dbeafe;
-border-radius:10px;
-font-size:14px;
-outline:none;
+.team-hero h1{
+    font-family:"Manrope",sans-serif;
+    font-size:24px;
+    letter-spacing:-.5px;
 }
 
-.copy-box button{
-width:55px;
-border:none;
-border-radius:10px;
-background:#2563eb;
-color:#fff;
-cursor:pointer;
-font-size:18px;
-transition:.3s;
+.team-hero p{
+    margin-top:7px;
+    color:var(--muted);
+    font-size:11px;
+    line-height:1.65;
 }
 
-.copy-box button:hover{
-background:#1d4ed8;
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.content{
+    padding:0 17px;
 }
 
-/*=========================
-WHATSAPP BUTTON
-=========================*/
 
-.share{
-margin-bottom:20px;
+/* =====================================================
+   REFERRAL LINK CARD
+===================================================== */
+
+.referral-card{
+    background:var(--forest);
+    color:white;
+
+    border-radius:21px;
+    padding:20px;
+
+    margin-bottom:15px;
+
+    box-shadow:0 15px 35px rgba(7,59,42,.14);
 }
 
-.share button{
-width:100%;
-padding:16px;
-border:none;
-border-radius:15px;
-background:#25D366;
-color:#fff;
-font-size:16px;
-font-weight:600;
-cursor:pointer;
-transition:.3s;
+.referral-card .small-label{
+    font-size:8px;
+    letter-spacing:1.5px;
+    font-weight:800;
+    opacity:.6;
 }
 
-.share button:hover{
-transform:translateY(-3px);
-  }
-/*==================================
-   INVITE PAGE - PART 2
-==================================*/
+.referral-card h2{
+    font-family:"Manrope",sans-serif;
+    font-size:16px;
+    margin-top:5px;
+}
 
-/*=========================
-STATS
-=========================*/
+.referral-card p{
+    font-size:10px;
+    line-height:1.5;
+    color:rgba(255,255,255,.65);
+    margin-top:5px;
+}
+
+.referral-box{
+    display:flex;
+    gap:8px;
+    margin-top:15px;
+}
+
+.referral-box input{
+    min-width:0;
+    flex:1;
+
+    height:44px;
+
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:11px;
+
+    background:rgba(255,255,255,.08);
+    color:white;
+
+    padding:0 12px;
+
+    outline:none;
+    font-size:10px;
+}
+
+.referral-box input::selection{
+    background:#15966a;
+}
+
+.copy-btn{
+    width:48px;
+    height:44px;
+
+    border:0;
+    border-radius:11px;
+
+    background:#20a873;
+    color:white;
+
+    cursor:pointer;
+    font-size:13px;
+
+    flex-shrink:0;
+}
+
+.copy-btn:active{
+    transform:scale(.96);
+}
+
+
+/* =====================================================
+   WHATSAPP / SHARE
+===================================================== */
+
+.share-btn{
+    width:100%;
+    height:49px;
+
+    border:0;
+    border-radius:13px;
+
+    background:white;
+    color:var(--evergreen);
+
+    border:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+
+    font-size:11px;
+    font-weight:800;
+
+    cursor:pointer;
+
+    box-shadow:0 7px 20px rgba(7,59,42,.04);
+
+    margin-bottom:15px;
+}
+
+.share-btn i{
+    font-size:15px;
+}
+
+.share-btn:active{
+    transform:scale(.98);
+}
+
+
+/* =====================================================
+   SECTION TITLE
+===================================================== */
+
+.section-heading{
+    margin:23px 2px 11px;
+}
+
+.section-heading span{
+    font-size:8px;
+    letter-spacing:1.6px;
+    font-weight:800;
+    color:var(--green);
+}
+
+.section-heading h2{
+    font-family:"Manrope",sans-serif;
+    font-size:17px;
+    margin-top:3px;
+}
+
+
+/* =====================================================
+   STATS
+===================================================== */
 
 .stats{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-margin-bottom:20px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:11px;
+
+    margin-bottom:15px;
 }
 
 .stat-card{
-background:#fff;
-padding:20px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+    background:white;
+
+    border:1px solid var(--border);
+    border-radius:17px;
+
+    padding:16px;
+
+    box-shadow:0 8px 23px rgba(7,59,42,.045);
 }
 
-.stat-card h4{
-font-size:14px;
-color:#64748b;
-margin-bottom:10px;
+.stat-icon{
+    width:32px;
+    height:32px;
+
+    border-radius:10px;
+
+    background:var(--mint);
+    color:var(--evergreen);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:13px;
+
+    margin-bottom:12px;
 }
 
-.stat-card h2{
-font-size:26px;
-color:#2563eb;
+.stat-card span{
+    display:block;
+    color:var(--muted);
+    font-size:9px;
 }
 
-/*=========================
-REWARD TABLE
-=========================*/
+.stat-card strong{
+    display:block;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:21px;
+
+    margin-top:4px;
+}
+
+
+/* =====================================================
+   HOW IT WORKS
+===================================================== */
+
+.steps-card{
+    background:white;
+
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:0 8px 23px rgba(7,59,42,.045);
+}
+
+.step{
+    display:flex;
+    gap:12px;
+
+    padding:12px 0;
+
+    border-bottom:1px solid #edf1ef;
+}
+
+.step:first-child{
+    padding-top:0;
+}
+
+.step:last-child{
+    border-bottom:0;
+    padding-bottom:0;
+}
+
+.step-number{
+    width:30px;
+    height:30px;
+
+    border-radius:10px;
+
+    background:var(--mint);
+    color:var(--green);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    font-size:10px;
+    font-weight:800;
+
+    flex-shrink:0;
+}
+
+.step h3{
+    font-family:"Manrope",sans-serif;
+    font-size:11px;
+}
+
+.step p{
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:9px;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   REWARD CARD
+===================================================== */
+
+.reward-card{
+    background:white;
+
+    border:1px solid var(--border);
+    border-radius:20px;
+
+    padding:18px;
+
+    box-shadow:0 8px 23px rgba(7,59,42,.045);
+
+    overflow:hidden;
+}
 
 .reward-table{
-width:100%;
-border-collapse:collapse;
+    width:100%;
+    border-collapse:collapse;
 }
 
 .reward-table th{
-background:#edf4ff;
-color:#1e3a8a;
-padding:14px;
-text-align:left;
-font-size:14px;
+    background:#f1f7f4;
+
+    color:#567066;
+
+    padding:11px 8px;
+
+    font-size:8px;
+    text-align:left;
+
+    letter-spacing:.3px;
 }
 
 .reward-table td{
-padding:14px;
-border-bottom:1px solid #e5e7eb;
-font-size:14px;
+    padding:12px 8px;
+
+    border-bottom:1px solid #edf1ef;
+
+    font-size:9px;
+
+    color:var(--muted);
 }
 
 .reward-table tr:last-child td{
-border-bottom:none;
+    border-bottom:0;
 }
 
-/*=========================
-STEPS
-=========================*/
-
-.steps p{
-padding:12px 0;
-font-size:15px;
-border-bottom:1px solid #eef2ff;
+.reward-table td:first-child{
+    font-weight:800;
+    color:var(--text);
 }
 
-.steps p:last-child{
-border-bottom:none;
+.reward-amount{
+    color:var(--green) !important;
+    font-weight:800;
 }
 
-/*=========================
-FOOTER
-=========================*/
 
-footer{
-text-align:center;
-padding:25px 0 90px;
-color:#64748b;
-font-size:14px;
+/* =====================================================
+   REFERRAL CODE
+===================================================== */
+
+.code-card{
+    background:#eef7f3;
+
+    border:1px solid #dcece5;
+    border-radius:18px;
+
+    padding:17px;
+
+    margin-top:15px;
+
+    text-align:center;
 }
 
-/*=========================
-BOTTOM NAVIGATION
-=========================*/
+.code-card span{
+    display:block;
+
+    font-size:8px;
+    letter-spacing:1.4px;
+    font-weight:800;
+
+    color:var(--green);
+}
+
+.code-card strong{
+    display:block;
+
+    margin-top:6px;
+
+    font-family:"Manrope",sans-serif;
+
+    font-size:20px;
+
+    letter-spacing:2px;
+
+    color:var(--forest);
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    text-align:center;
+
+    padding:25px 20px 30px;
+
+    color:#96a39d;
+
+    font-size:9px;
+}
+
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
 
 .bottom-nav{
-position:fixed;
-left:0;
-right:0;
-bottom:0;
-height:70px;
-background:#fff;
-display:flex;
-justify-content:space-around;
-align-items:center;
-box-shadow:0 -5px 25px rgba(0,0,0,.12);
-z-index:1000;
+    position:fixed;
+
+    left:50%;
+    bottom:0;
+
+    transform:translateX(-50%);
+
+    width:100%;
+    max-width:570px;
+
+    height:70px;
+
+    background:rgba(255,255,255,.97);
+
+    border-top:1px solid var(--border);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+
+    z-index:1000;
+
+    backdrop-filter:blur(15px);
 }
 
 .bottom-nav a{
-flex:1;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-text-decoration:none;
-color:#64748b;
-font-size:12px;
-font-weight:600;
-transition:.3s;
-height:100%;
+    width:25%;
+    height:100%;
+
+    text-decoration:none;
+
+    color:#8b9892;
+
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+
+    gap:5px;
+
+    font-size:8px;
+    font-weight:700;
+
+    position:relative;
 }
 
 .bottom-nav a i{
-font-size:20px;
-margin-bottom:4px;
+    font-size:16px;
 }
 
 .bottom-nav a.active{
-color:#2563eb;
-}
-
-.bottom-nav a.active i{
-text-shadow:0 0 12px rgba(37,99,235,.8);
-}
-
-.bottom-nav a::after{
-content:"";
-width:0;
-height:3px;
-background:#2563eb;
-border-radius:20px;
-margin-top:5px;
-transition:.3s;
+    color:var(--green);
 }
 
 .bottom-nav a.active::after{
-width:28px;
+    content:"";
+
+    position:absolute;
+
+    bottom:5px;
+
+    width:25px;
+    height:3px;
+
+    border-radius:10px;
+
+    background:var(--green);
 }
 
-/*=========================
-MOBILE
-=========================*/
 
-@media(max-width:768px){
+/* =====================================================
+   ANIMATIONS
+===================================================== */
 
-.container{
-padding:15px;
-}
-
-.hero h1{
-font-size:23px;
-}
-
-.hero p{
-font-size:14px;
-}
-
-.stats{
-grid-template-columns:1fr;
-}
-
-.reward-table{
-display:block;
-overflow-x:auto;
-white-space:nowrap;
-}
-
-.copy-box{
-flex-direction:column;
-}
-
-.copy-box button{
-width:100%;
-height:50px;
-}
-
-}
-
-/*=========================
-ANIMATION
-=========================*/
-
-.card,
+.team-hero,
+.referral-card,
 .stat-card,
-.hero{
-animation:fadeUp .5s ease;
+.steps-card,
+.reward-card{
+    animation:fadeUp .45s ease both;
 }
 
 @keyframes fadeUp{
 
-from{
-opacity:0;
-transform:translateY(20px);
+    from{
+        opacity:0;
+        transform:translateY(12px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
 }
 
-to{
-opacity:1;
-transform:translateY(0);
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media(max-width:380px){
+
+    .content{
+        padding:0 13px;
+    }
+
+    .team-hero{
+        margin-left:13px;
+        margin-right:13px;
+    }
+
+    .team-hero h1{
+        font-size:22px;
+    }
+
+    .referral-box input{
+        font-size:9px;
+    }
+
+    .stats{
+        gap:8px;
+    }
+
+    .stat-card{
+        padding:14px;
+    }
+
 }
 
-  }
+
+/* =====================================================
+   DESKTOP
+===================================================== */
+
+@media(min-width:700px){
+
+    body{
+        padding:25px 0;
+    }
+
+    .app{
+        border-radius:28px;
+        box-shadow:0 25px 70px rgba(7,59,42,.12);
+    }
+
+    .bottom-nav{
+        border-radius:0 0 28px 28px;
+    }
+
+   }
