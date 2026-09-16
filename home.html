@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Evergreen Investments | Home</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<style>
+
+/* =========================================================
+   EVERGREEN INVESTMENTS - HOME
+========================================================= */
+
+:root{
+    --green:#0f6b4f;
+    --green-dark:#084c3b;
+    --green-deep:#063b2f;
+    --green-light:#e9f7f1;
+    --accent:#1fa774;
+    --white:#ffffff;
+    --bg:#f4f8f6;
+    --text:#14221d;
+    --muted:#718079;
+    --border:#e3ebe7;
+    --danger:#d64545;
+    --shadow:0 8px 25px rgba(6,59,47,.08);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    padding-bottom:85px;
+}
+
+/* =========================================================
+   TOP BANNER
+========================================================= */
+
+.top-banner{
+    position:relative;
+    min-height:220px;
+    overflow:hidden;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6,59,47,.98),
+            rgba(15,107,79,.94),
+            rgba(31,167,116,.88)
+        );
+    color:white;
+}
+
+.banner-content{
+    position:relative;
+    z-index:2;
+    max-width:1100px;
+    margin:auto;
+    padding:28px 20px 35px;
+}
+
+.banner-brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:35px;
+}
+
+.banner-brand img{
+    width:52px;
+    height:52px;
+    object-fit:contain;
+    border-radius:14px;
+    background:white;
+    padding:5px;
+}
+
+.banner-brand h1{
+    font-size:21px;
+    font-weight:700;
+}
+
+.banner-content h2{
+    font-size:30px;
+    line-height:1.25;
+    margin-bottom:8px;
+}
+
+.banner-content p{
+    font-size:14px;
+    opacity:.88;
+}
+
+.banner-decoration{
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    border:35px solid rgba(255,255,255,.07);
+    right:-80px;
+    top:-70px;
+}
+
+.banner-decoration.two{
+    width:150px;
+    height:150px;
+    left:-70px;
+    top:100px;
+    border-width:25px;
+}
+
+/* =========================================================
+   PAGE CONTAINER
+========================================================= */
+
+.container{
+    width:min(1100px,94%);
+    margin:-25px auto 0;
+    position:relative;
+    z-index:5;
+}
+
+/* =========================================================
+   QUICK BUTTONS
+========================================================= */
+
+.quick-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:14px;
+}
+
+.quick-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:18px 10px;
+    text-align:center;
+    text-decoration:none;
+    color:var(--text);
+    box-shadow:var(--shadow);
+    transition:.25s;
+}
+
+.quick-card:hover{
+    transform:translateY(-3px);
+    border-color:#c9ded5;
+}
+
+.quick-icon{
+    width:48px;
+    height:48px;
+    margin:0 auto 9px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:var(--green-light);
+    color:var(--green);
+    font-size:19px;
+}
+
+.quick-card span{
+    display:block;
+    font-size:12px;
+    font-weight:600;
+}
+
+/* =========================================================
+   SECOND BUTTON ROW
+========================================================= */
+
+.action-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+    margin-bottom:18px;
+}
+
+/* =========================================================
+   RECHARGE ACTIVITY
+========================================================= */
+
+.activity-box{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:var(--shadow);
+    margin-bottom:18px;
+}
+
+.activity-title{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    padding:14px 16px;
+    border-bottom:1px solid var(--border);
+    font-size:14px;
+    font-weight:700;
+}
+
+.activity-title i{
+    color:var(--green);
+}
+
+.ticker-window{
+    width:100%;
+    overflow:hidden;
+    padding:13px 0;
+    white-space:nowrap;
+}
+
+.ticker-track{
+    display:inline-flex;
+    align-items:center;
+    width:max-content;
+    animation:scrollTicker 42s linear infinite;
+}
+
+.ticker-track:hover{
+    animation-play-state:paused;
+}
+
+.ticker-item{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-right:40px;
+    font-size:12px;
+    color:#53625c;
+}
+
+.ticker-item strong{
+    color:var(--green);
+}
+
+.ticker-dot{
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    background:var(--accent);
+    display:inline-block;
+}
+
+@keyframes scrollTicker{
+    from{
+        transform:translateX(0);
+    }
+
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* =========================================================
+   TASK CENTER
+========================================================= */
+
+.task-card{
+    position:relative;
+    overflow:hidden;
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-deep),
+            var(--green)
+        );
+    color:white;
+    border-radius:20px;
+    padding:24px;
+    margin-bottom:18px;
+    box-shadow:0 12px 30px rgba(6,59,47,.18);
+}
+
+.task-content{
+    position:relative;
+    z-index:2;
+}
+
+.task-label{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-size:12px;
+    font-weight:600;
+    opacity:.85;
+    margin-bottom:8px;
+}
+
+.task-card h2{
+    font-size:22px;
+    margin-bottom:5px;
+}
+
+.task-card p{
+    font-size:13px;
+    opacity:.82;
+    margin-bottom:20px;
+}
+
+.task-button{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:white;
+    color:var(--green-dark);
+    text-decoration:none;
+    padding:11px 18px;
+    border-radius:11px;
+    font-size:13px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.task-button:hover{
+    transform:translateY(-2px);
+}
+
+.task-decoration{
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    border:35px solid rgba(255,255,255,.07);
+    right:-65px;
+    top:-75px;
+}
+
+/* =========================================================
+   BALANCE CARDS
+========================================================= */
+
+.balance-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+    margin-bottom:18px;
+}
+
+.balance-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:20px;
+    box-shadow:var(--shadow);
+}
+
+.balance-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:15px;
+}
+
+.balance-icon{
+    width:42px;
+    height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:12px;
+    background:var(--green-light);
+    color:var(--green);
+}
+
+.balance-label{
+    color:var(--muted);
+    font-size:12px;
+    font-weight:500;
+}
+
+.balance-value{
+    font-size:24px;
+    font-weight:700;
+    color:var(--text);
+}
+
+/* =========================================================
+   PARTNERS
+========================================================= */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin:22px 2px 12px;
+}
+
+.section-title h3{
+    font-size:17px;
+}
+
+.section-title span{
+    font-size:11px;
+    color:var(--muted);
+}
+
+.partner-card{
+    background:var(--white);
+    border:1px solid var(--border);
+    border-radius:18px;
+    padding:18px;
+    box-shadow:var(--shadow);
+    margin-bottom:20px;
+}
+
+.partner-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.partner{
+    text-align:center;
+    padding:13px 5px;
+    border-radius:14px;
+    background:#f7faf8;
+    border:1px solid #edf2ef;
+}
+
+.partner-icon{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:var(--green-light);
+    color:var(--green);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 7px;
+    font-size:14px;
+}
+
+.partner span{
+    font-size:10px;
+    color:#52615a;
+    font-weight:600;
+}
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.bottom-nav{
+    position:fixed;
+    left:0;
+    right:0;
+    bottom:0;
+    height:70px;
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-top:1px solid var(--border);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:1000;
+    box-shadow:0 -5px 20px rgba(0,0,0,.05);
+}
+
+.bottom-nav-inner{
+    width:min(600px,100%);
+    height:100%;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
+
+.nav-item{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:4px;
+    color:#7c8883;
+    text-decoration:none;
+    font-size:10px;
+    font-weight:500;
+    transition:.2s;
+}
+
+.nav-item i{
+    font-size:18px;
+}
+
+.nav-item.active{
+    color:var(--green);
+}
+
+.nav-item:hover{
+    color:var(--green);
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:700px){
+
+    .top-banner{
+        min-height:205px;
+    }
+
+    .banner-content{
+        padding:22px 16px 30px;
+    }
+
+    .banner-brand{
+        margin-bottom:28px;
+    }
+
+    .banner-content h2{
+        font-size:25px;
+    }
+
+    .container{
+        width:94%;
+    }
+
+    .quick-grid,
+    .action-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .quick-card{
+        padding:15px 8px;
+    }
+
+    .balance-value{
+        font-size:20px;
+    }
+
+    .partner-grid{
+        grid-template-columns:repeat(4,1fr);
+        gap:8px;
+    }
+
+}
+
+@media(max-width:420px){
+
+    .banner-brand h1{
+        font-size:18px;
+    }
+
+    .banner-brand img{
+        width:46px;
+        height:46px;
+    }
+
+    .banner-content h2{
+        font-size:22px;
+    }
+
+    .quick-icon{
+        width:43px;
+        height:43px;
+    }
+
+    .task-card{
+        padding:20px;
+    }
+
+    .task-card h2{
+        font-size:20px;
+    }
+
+    .balance-card{
+        padding:16px 13px;
+    }
+
+    .balance-value{
+        font-size:18px;
+    }
+
+    .partner{
+        padding:10px 3px;
+    }
+
+    .partner-icon{
+        width:36px;
+        height:36px;
+    }
+
+}
+
+/* =========================================================
+   ACCESSIBILITY
+========================================================= */
+
+a,
+button{
+    -webkit-tap-highlight-color:transparent;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- =======================================================
+     BANNER
+======================================================= -->
+
+<header class="top-banner">
+
+    <div class="banner-decoration"></div>
+    <div class="banner-decoration two"></div>
+
+    <div class="banner-content">
+
+        <div class="banner-brand">
+
+            <img src="1234.png" alt="Evergreen Investments">
+
+            <h1>Evergreen Investments</h1>
+
+        </div>
+
+        <h2>Grow Your Wealth With Confidence</h2>
+
+        <p>
+            Manage your investments, recharge your account
+            and track your earnings.
+        </p>
+
+    </div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- =======================================================
+     QUICK ACTIONS
+======================================================= -->
+
+<section class="quick-grid">
+
+    <a href="deposit.html" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+
+        <span>Recharge</span>
+
+    </a>
+
+
+    <a href="withdraw.html" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-money-bill-transfer"></i>
+        </div>
+
+        <span>Withdraw</span>
+
+    </a>
+
+
+    <a href="https://t.me/Crestwealth"
+       target="_blank"
+       class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-headset"></i>
+        </div>
+
+        <span>Help</span>
+
+    </a>
+
+
+    <a href="transaction.html" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-receipt"></i>
+        </div>
+
+        <span>Records</span>
+
+    </a>
+
+</section>
+
+
+<section class="action-grid">
+
+    <a href="#" class="quick-card" id="checkInButton">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-calendar-check"></i>
+        </div>
+
+        <span>Check In</span>
+
+    </a>
+
+
+    <a href="#" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-circle-info"></i>
+        </div>
+
+        <span>About Us</span>
+
+    </a>
+
+
+    <a href="#" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <span>Regulation</span>
+
+    </a>
+
+
+    <a href="https://t.me/Crestwealth"
+       target="_blank"
+       class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-comments"></i>
+        </div>
+
+        <span>Help</span>
+
+    </a>
+
+</section>
+
+
+<section class="action-grid">
+
+    <a href="#" class="quick-card" id="taskCenterButton">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-list-check"></i>
+        </div>
+
+        <span>Task Center</span>
+
+    </a>
+
+
+    <a href="#" class="quick-card">
+
+        <div class="quick-icon">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+
+        <span>Notification</span>
+
+    </a>
+
+</section>
+
+
+<!-- =======================================================
+     RECHARGE ACTIVITY TICKER
+======================================================= -->
+
+<section class="activity-box">
+
+    <div class="activity-title">
+
+        <i class="fa-solid fa-bolt"></i>
+
+        <span>Recent Recharge Activity</span>
+
+    </div>
+
+
+    <div class="ticker-window">
+
+        <div class="ticker-track">
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8969 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7694 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8261 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3406 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7453 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******6486 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3918 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2976 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2489 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7859 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2633 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******5637 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******6038 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3502 Recharge <strong>₦250,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7304 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******9579 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8765 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******0209 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******5789 Recharge <strong>₦250,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******1374 Recharge <strong>₦60,000</strong>
+            </div>
+
+
+            <!-- DUPLICATE FOR CONTINUOUS LOOP -->
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8969 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7694 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8261 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3406 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7453 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******6486 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3918 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2976 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2489 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7859 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******2633 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******5637 Recharge <strong>₦60,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******6038 Recharge <strong>₦120,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******3502 Recharge <strong>₦250,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******7304 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******9579 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******8765 Recharge <strong>₦1,000,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******0209 Recharge <strong>₦30,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******5789 Recharge <strong>₦250,000</strong>
+            </div>
+
+            <div class="ticker-item">
+                <span class="ticker-dot"></span>
+                ******1374 Recharge <strong>₦60,000</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     TASK CENTER
+======================================================= -->
+
+<section class="task-card">
+
+    <div class="task-decoration"></div>
+
+    <div class="task-content">
+
+        <div class="task-label">
+            <i class="fa-solid fa-list-check"></i>
+            TASK CENTER
+        </div>
+
+        <h2>Task Center</h2>
+
+        <p>
+            Complete tasks and get generous bonuses
+        </p>
+
+        <a href="#" class="task-button" id="enterTaskButton">
+
+            Click to enter
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     BALANCE / INCOME
+======================================================= -->
+
+<section class="balance-grid">
+
+    <div class="balance-card">
+
+        <div class="balance-top">
+
+            <div>
+                <div class="balance-label">
+                    Account balance
+                </div>
+            </div>
+
+            <div class="balance-icon">
+                <i class="fa-solid fa-wallet"></i>
+            </div>
+
+        </div>
+
+        <div class="balance-value" id="accountBalance">
+            ₦0
+        </div>
+
+    </div>
+
+
+    <div class="balance-card">
+
+        <div class="balance-top">
+
+            <div>
+                <div class="balance-label">
+                    Cumulative income
+                </div>
+            </div>
+
+            <div class="balance-icon">
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+
+        </div>
+
+        <div class="balance-value" id="cumulativeIncome">
+            ₦0
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =======================================================
+     PARTNERS
+======================================================= -->
+
+<div class="section-title">
+
+    <h3>Partner</h3>
+
+    <span>Our partner network</span>
+
+</div>
+
+
+<section class="partner-card">
+
+    <div class="partner-grid">
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 1</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 2</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 3</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 4</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 5</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 6</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 7</span>
+        </div>
+
+        <div class="partner">
+            <div class="partner-icon">
+                <i class="fa-solid fa-user"></i>
+            </div>
+            <span>Partner 8</span>
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- =======================================================
+     BOTTOM NAVIGATION
+======================================================= -->
+
+<nav class="bottom-nav">
+
+    <div class="bottom-nav-inner">
+
+        <a href="home.html" class="nav-item active">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Home</span>
+
+        </a>
+
+
+        <a href="investment.html" class="nav-item">
+
+            <i class="fa-solid fa-box-open"></i>
+
+            <span>Product</span>
+
+        </a>
+
+
+        <a href="invite.html" class="nav-item">
+
+            <i class="fa-solid fa-users"></i>
+
+            <span>Team</span>
+
+        </a>
+
+
+        <a href="dashboard.html" class="nav-item">
+
+            <i class="fa-solid fa-user"></i>
+
+            <span>Mine</span>
+
+        </a>
+
+    </div>
+
+</nav>
+
+
+<script>
+
+/* =========================================================
+   LOGIN CHECK
+========================================================= */
+
+const user = JSON.parse(localStorage.getItem("user"));
+
+if(!user){
+
+    window.location.href = "login.html";
+
+}
+
+
+/* =========================================================
+   FORMAT MONEY
+========================================================= */
+
+function formatMoney(value){
+
+    const number = Number(value) || 0;
+
+    return "₦" + number.toLocaleString();
+
+}
+
+
+/* =========================================================
+   DISPLAY USER BALANCES
+========================================================= */
+
+if(user){
+
+    document.getElementById("accountBalance").textContent =
+        formatMoney(user.walletBalance);
+
+    document.getElementById("cumulativeIncome").textContent =
+        formatMoney(user.totalEarnings);
+
+}
+
+
+/* =========================================================
+   CHECK IN
+========================================================= */
+
+document.getElementById("checkInButton")
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    alert("Check-in feature coming soon.");
+
+});
+
+
+/* =========================================================
+   TASK CENTER
+========================================================= */
+
+document.getElementById("taskCenterButton")
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    document.getElementById("enterTaskButton").click();
+
+});
+
+
+document.getElementById("enterTaskButton")
+.addEventListener("click", function(event){
+
+    event.preventDefault();
+
+    alert("Task Center coming soon.");
+
+});
+
+</script>
+
+</body>
+
+</html>
