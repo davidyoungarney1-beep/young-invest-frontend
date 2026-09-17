@@ -2,1488 +2,716 @@
 <html lang="en">
 
 <head>
-
 <meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<meta
-    name="theme-color"
-    content="#0b3d2e"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>My Investments | Evergreen Investments</title>
 
-<link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
->
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-<link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap"
-    rel="stylesheet"
->
-
-<link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
->
-
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
-/* =====================================================
-   ROOT
-===================================================== */
-
-:root{
-
-    --dark:#092f25;
-    --evergreen:#137957;
-    --green:#20a873;
-
-    --background:#f5f8f6;
-
-    --white:#ffffff;
-
-    --text:#10231d;
-
-    --muted:#718078;
-
-    --border:#e2ebe6;
-
-    --soft:#edf8f3;
-
-    --gold:#c79b45;
-
-    --red:#e05252;
-
-}
-
-
-/* =====================================================
-   RESET
-===================================================== */
-
 *{
-
     margin:0;
     padding:0;
-
     box-sizing:border-box;
-
 }
 
-
-html{
-
-    scroll-behavior:smooth;
-
+:root{
+    --forest:#073b2a;
+    --green:#137957;
+    --bright:#20a873;
+    --bg:#f5f8f6;
+    --white:#ffffff;
+    --text:#10251d;
+    --muted:#74827c;
+    --border:#e1e9e5;
 }
-
 
 body{
-
     font-family:"DM Sans",sans-serif;
-
-    background:var(--background);
-
+    background:var(--bg);
     color:var(--text);
-
     min-height:100vh;
-
     padding-bottom:90px;
-
 }
 
+/* =========================
+   HEADER
+========================= */
 
-/* =====================================================
-   TOP AREA
-===================================================== */
-
-.top-area{
-
-    background:
-        linear-gradient(
-            145deg,
-            #061f18,
-            #092f25 55%,
-            #0e5b42
-        );
-
-    padding:
-        18px 16px 34px;
-
+.top{
+    background:var(--forest);
     color:white;
-
+    padding:32px 22px 34px;
 }
-
 
 .top-inner{
-
-    max-width:700px;
-
+    max-width:650px;
     margin:auto;
-
 }
 
-
-/* =====================================================
-   TOP BAR
-===================================================== */
-
-.top-bar{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-}
-
-
-.back-link{
-
-    width:40px;
-
-    height:40px;
-
-    border-radius:12px;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    color:white;
-
-    background:
-        rgba(255,255,255,.10);
-
-    text-decoration:none;
-
-}
-
-
-.mine-label{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:8px;
-
+.eyebrow{
     font-size:11px;
-
+    letter-spacing:2px;
     font-weight:700;
-
-    letter-spacing:.4px;
-
-    color:
-        rgba(255,255,255,.75);
-
+    opacity:.65;
+    margin-bottom:10px;
 }
 
-
-.mine-label i{
-
-    font-size:13px;
-
-}
-
-
-/* =====================================================
-   PAGE TITLE
-===================================================== */
-
-.page-title{
-
-    margin-top:27px;
-
-}
-
-
-.page-title small{
-
-    font-size:10px;
-
-    color:
-        rgba(255,255,255,.58);
-
-}
-
-
-.page-title h1{
-
-    margin-top:5px;
-
+.top h1{
     font-family:"Manrope",sans-serif;
-
-    font-size:26px;
-
+    font-size:31px;
+    line-height:1.1;
     font-weight:800;
-
 }
 
+/* =========================
+   CONTENT
+========================= */
 
-.page-title p{
-
-    margin-top:5px;
-
-    max-width:430px;
-
-    font-size:11px;
-
-    line-height:1.5;
-
-    color:
-        rgba(255,255,255,.67);
-
+.container{
+    width:92%;
+    max-width:650px;
+    margin:25px auto;
 }
 
-
-/* =====================================================
+/* =========================
    PORTFOLIO SUMMARY
-===================================================== */
+========================= */
 
-.portfolio-summary{
-
-    max-width:700px;
-
-    margin:
-        -20px auto 0;
-
-    padding:
-        0 15px;
-
-    position:relative;
-
-    z-index:5;
-
-}
-
-
-.summary-card{
-
+.summary{
     background:white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:20px;
-
-    padding:17px;
-
-    box-shadow:
-        0 12px 30px
-        rgba(8,61,46,.08);
-
+    border:1px solid var(--border);
+    padding:20px;
+    margin-bottom:20px;
 }
 
-
-.summary-top{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    gap:10px;
-
+.summary-label{
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    color:var(--muted);
+    font-weight:700;
+    margin-bottom:8px;
 }
-
 
 .summary-title{
-
-    display:flex;
-
-    align-items:center;
-
-    gap:10px;
-
-}
-
-
-.summary-icon{
-
-    width:42px;
-
-    height:42px;
-
-    border-radius:13px;
-
-    background:var(--soft);
-
-    color:var(--evergreen);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-}
-
-
-.summary-title h2{
-
     font-family:"Manrope",sans-serif;
-
-    font-size:14px;
-
+    font-size:21px;
     font-weight:800;
-
+    margin-bottom:4px;
 }
 
-
-.summary-title p{
-
-    margin-top:2px;
-
-    font-size:9px;
-
+.summary-text{
+    font-size:13px;
     color:var(--muted);
-
 }
 
+/* =========================
+   SECTION TITLE
+========================= */
 
-.mine-badge{
-
-    padding:
-        6px 10px;
-
-    border-radius:30px;
-
-    background:#f5f1e8;
-
-    color:#94702f;
-
-    border:
-        1px solid #eadfc8;
-
-    font-size:9px;
-
-    font-weight:700;
-
-}
-
-
-.summary-line{
-
-    height:1px;
-
-    background:var(--border);
-
-    margin:15px 0;
-
-}
-
-
-.summary-note{
-
+.section-heading{
     display:flex;
-
     align-items:center;
-
-    gap:8px;
-
-    color:var(--muted);
-
-    font-size:10px;
-
-}
-
-
-.summary-note i{
-
-    color:var(--green);
-
-}
-
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.main{
-
-    width:100%;
-
-    max-width:700px;
-
-    margin:auto;
-
-    padding:
-        22px 15px 30px;
-
-}
-
-
-/* =====================================================
-   SECTION HEADER
-===================================================== */
-
-.section-header{
-
-    display:flex;
-
-    align-items:end;
-
     justify-content:space-between;
-
-    margin-bottom:12px;
-
+    margin:26px 0 12px;
 }
 
-
-.section-header h2{
-
+.section-heading h2{
     font-family:"Manrope",sans-serif;
-
-    font-size:15px;
-
+    font-size:17px;
     font-weight:800;
-
 }
 
-
-.section-header span{
-
+.section-heading span{
+    font-size:12px;
     color:var(--muted);
-
-    font-size:9px;
-
 }
 
-
-/* =====================================================
-   INVESTMENT LIST
-===================================================== */
-
-#investmentContainer{
-
-    display:flex;
-
-    flex-direction:column;
-
-    gap:14px;
-
-}
-
-
-/* =====================================================
+/* =========================
    INVESTMENT ITEM
-===================================================== */
+========================= */
 
-.investment-item{
-
+.investment{
     background:white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:19px;
-
-    overflow:hidden;
-
-    box-shadow:
-        0 6px 20px
-        rgba(8,61,46,.04);
-
+    border:1px solid var(--border);
+    margin-bottom:14px;
+    padding:20px;
 }
-
-
-/* =====================================================
-   ITEM TOP
-===================================================== */
 
 .item-top{
-
-    padding:15px;
-
     display:flex;
-
-    align-items:center;
-
+    align-items:flex-start;
     justify-content:space-between;
-
-    gap:10px;
-
+    gap:15px;
+    padding-bottom:17px;
+    border-bottom:1px solid var(--border);
 }
 
-
-.plan-left{
-
+.plan-wrap{
     display:flex;
-
-    align-items:center;
-
-    gap:11px;
-
-    min-width:0;
-
+    align-items:flex-start;
+    gap:12px;
 }
 
-
-.plan-symbol{
-
-    width:43px;
-
-    height:43px;
-
-    flex-shrink:0;
-
-    border-radius:14px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #e5f6ee,
-            #f4fbf8
-        );
-
-    color:var(--evergreen);
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
+.plan-marker{
+    width:4px;
+    min-height:45px;
+    background:var(--bright);
+    margin-top:2px;
 }
-
-
-.plan-symbol i{
-
-    font-size:16px;
-
-}
-
 
 .plan-name{
-
-    min-width:0;
-
-}
-
-
-.plan-name h3{
-
     font-family:"Manrope",sans-serif;
-
-    font-size:13px;
-
+    font-size:17px;
     font-weight:800;
-
-    white-space:nowrap;
-
-    overflow:hidden;
-
-    text-overflow:ellipsis;
-
+    line-height:1.2;
 }
 
-
-.plan-name p{
-
-    margin-top:3px;
-
+.plan-date{
+    font-size:12px;
     color:var(--muted);
-
-    font-size:9px;
-
+    margin-top:5px;
 }
-
-
-/* =====================================================
-   STATUS
-===================================================== */
 
 .status{
-
-    flex-shrink:0;
-
-    padding:
-        5px 9px;
-
-    border-radius:30px;
-
-    font-size:9px;
-
-    font-weight:700;
-
-}
-
-
-.status.running{
-
-    background:#e7f7ef;
-
-    color:#137957;
-
-}
-
-
-.status.completed{
-
-    background:#edf2f0;
-
-    color:#65736d;
-
-}
-
-
-/* =====================================================
-   AMOUNT PANEL
-===================================================== */
-
-.amount-panel{
-
-    margin:
-        0 15px;
-
-    padding:
-        14px;
-
-    border-radius:15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #f0faf5,
-            #f8fcfa
-        );
-
-    border:
-        1px solid #deeee7;
-
-}
-
-
-.amount-label{
-
-    color:var(--muted);
-
-    font-size:9px;
-
-}
-
-
-.amount{
-
-    margin-top:3px;
-
-    font-family:"Manrope",sans-serif;
-
-    color:var(--evergreen);
-
-    font-size:23px;
-
+    font-size:10px;
+    letter-spacing:1px;
     font-weight:800;
-
+    color:var(--green);
+    white-space:nowrap;
 }
 
+/* =========================
+   MONEY SECTION
+========================= */
 
-/* =====================================================
+.money{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    border-bottom:1px solid var(--border);
+}
+
+.money-box{
+    padding:18px 0;
+}
+
+.money-box + .money-box{
+    border-left:1px solid var(--border);
+    padding-left:18px;
+}
+
+.money-label{
+    display:block;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+
+.money-value{
+    font-family:"Manrope",sans-serif;
+    font-size:18px;
+    font-weight:800;
+}
+
+.return-value{
+    color:var(--green);
+}
+
+/* =========================
    DETAILS
-===================================================== */
+========================= */
 
 .details{
-
-    display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
-    margin:
-        15px;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:14px;
-
-    overflow:hidden;
-
+    margin-top:4px;
 }
-
 
 .detail{
-
-    padding:
-        11px 9px;
-
-    border-right:
-        1px solid var(--border);
-
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:13px 0;
+    border-bottom:1px solid #edf1ef;
 }
-
 
 .detail:last-child{
-
-    border-right:none;
-
+    border-bottom:none;
 }
 
-
-.detail-label{
-
-    display:block;
-
+.detail span:first-child{
+    font-size:12px;
     color:var(--muted);
-
-    font-size:8px;
-
-    margin-bottom:4px;
-
 }
 
-
-.detail-value{
-
-    font-family:"Manrope",sans-serif;
-
-    font-size:11px;
-
+.detail span:last-child{
+    font-size:12px;
     font-weight:700;
-
-    word-break:break-word;
-
+    text-align:right;
 }
 
+/* =========================
+   EMPTY / ERROR
+========================= */
 
-/* =====================================================
-   PROGRESS
-===================================================== */
-
-.progress-area{
-
-    padding:
-        0 15px 16px;
-
-}
-
-
-.progress-head{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin-bottom:6px;
-
-}
-
-
-.progress-head span{
-
-    color:var(--muted);
-
-    font-size:9px;
-
-}
-
-
-.progress-head strong{
-
-    color:var(--evergreen);
-
-    font-size:9px;
-
-}
-
-
-.progress-track{
-
-    width:100%;
-
-    height:6px;
-
-    background:#e8efeb;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-}
-
-
-.progress-bar{
-
-    height:100%;
-
-    border-radius:20px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #137957,
-            #20a873
-        );
-
-}
-
-
-/* =====================================================
-   EMPTY
-===================================================== */
-
-.empty-state{
-
+.message{
     background:white;
-
-    border:
-        1px solid var(--border);
-
-    border-radius:20px;
-
-    padding:
-        50px 20px;
-
+    border:1px solid var(--border);
+    padding:35px 20px;
     text-align:center;
-
 }
 
-
-.empty-icon{
-
-    width:62px;
-
-    height:62px;
-
-    margin:
-        0 auto 15px;
-
-    border-radius:19px;
-
-    background:var(--soft);
-
-    color:var(--evergreen);
-
+.message-icon{
+    width:45px;
+    height:45px;
+    border:1px solid var(--border);
     display:flex;
-
     align-items:center;
-
     justify-content:center;
-
-    font-size:22px;
-
+    margin:0 auto 15px;
+    color:var(--green);
 }
 
-
-.empty-state h3{
-
+.message h3{
     font-family:"Manrope",sans-serif;
-
-    font-size:15px;
-
+    font-size:17px;
+    margin-bottom:7px;
 }
 
-
-.empty-state p{
-
-    margin-top:6px;
-
+.message p{
     color:var(--muted);
-
-    font-size:10px;
-
-    line-height:1.5;
-
+    font-size:13px;
+    line-height:1.6;
 }
 
+/* =========================
+   BUTTON
+========================= */
 
-/* =====================================================
-   ERROR
-===================================================== */
-
-.error-state{
-
-    background:white;
-
-    border:
-        1px solid #f1d2d2;
-
-    border-radius:18px;
-
-    padding:30px 20px;
-
-    text-align:center;
-
-}
-
-
-.error-state i{
-
-    color:var(--red);
-
-    font-size:22px;
-
-}
-
-
-.error-state h3{
-
-    margin-top:10px;
-
-    font-size:14px;
-
-}
-
-
-.error-state p{
-
-    margin-top:5px;
-
-    color:var(--muted);
-
-    font-size:10px;
-
-}
-
-
-/* =====================================================
-   MINE BUTTON
-===================================================== */
-
-.mine-button{
-
+.return-btn{
     width:100%;
-
-    margin-top:20px;
-
-    padding:13px;
-
     border:none;
-
-    border-radius:14px;
-
-    background:var(--dark);
-
+    background:var(--forest);
     color:white;
-
+    padding:16px;
+    margin-top:20px;
     font-family:"DM Sans",sans-serif;
-
-    font-size:11px;
-
+    font-size:13px;
     font-weight:700;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:8px;
-
     cursor:pointer;
-
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
-footer{
-
-    text-align:center;
-
-    padding:
-        5px 15px 25px;
-
-    color:#91a09a;
-
-    font-size:9px;
-
+.return-btn:active{
+    transform:scale(.99);
 }
 
-
-/* =====================================================
+/* =========================
    BOTTOM NAV
-===================================================== */
+========================= */
 
 .bottom-nav{
-
     position:fixed;
-
-    left:0;
-
-    right:0;
-
     bottom:0;
-
+    left:0;
+    right:0;
     height:70px;
-
     background:white;
-
-    border-top:
-        1px solid var(--border);
-
+    border-top:1px solid var(--border);
     display:flex;
-
-    align-items:center;
-
-    justify-content:space-around;
-
-    box-shadow:
-        0 -5px 20px
-        rgba(8,61,46,.07);
-
+    justify-content:center;
     z-index:1000;
-
 }
 
+.nav-inner{
+    width:100%;
+    max-width:650px;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+}
 
-.bottom-nav a{
-
+.nav-item{
     position:relative;
-
-    min-width:55px;
-
-    text-decoration:none;
-
-    color:#89958f;
-
     display:flex;
-
     flex-direction:column;
-
     align-items:center;
-
-    gap:4px;
-
-    font-size:9px;
-
+    justify-content:center;
+    text-decoration:none;
+    color:#89958f;
+    font-size:10px;
     font-weight:600;
-
+    gap:6px;
 }
 
-
-.bottom-nav a i{
-
+.nav-item i{
     font-size:17px;
-
 }
 
-
-.bottom-nav a.active{
-
-    color:var(--evergreen);
-
+.nav-item.active{
+    color:var(--forest);
 }
 
-
-.bottom-nav a.active::before{
-
+.nav-item.active::before{
     content:"";
-
     position:absolute;
-
-    top:-14px;
-
-    width:28px;
-
-    height:3px;
-
-    border-radius:10px;
-
-    background:var(--green);
-
+    top:0;
+    left:25%;
+    right:25%;
+    height:2px;
+    background:var(--bright);
 }
 
+/* =========================
+   RESPONSIVE
+========================= */
 
-/* =====================================================
-   MOBILE
-===================================================== */
+@media(max-width:420px){
 
-@media(max-width:430px){
-
-    .main{
-
-        padding-left:12px;
-
-        padding-right:12px;
-
+    .top{
+        padding:28px 18px 30px;
     }
 
-
-    .portfolio-summary{
-
-        padding-left:12px;
-
-        padding-right:12px;
-
+    .top h1{
+        font-size:28px;
     }
 
-
-    .page-title h1{
-
-        font-size:24px;
-
+    .container{
+        width:94%;
     }
 
-
-    .details{
-
-        grid-template-columns:
-            repeat(3,1fr);
-
+    .investment{
+        padding:17px;
     }
 
-
-    .detail{
-
-        padding:
-            10px 7px;
-
-    }
-
-
-    .detail-value{
-
-        font-size:10px;
-
-    }
-
-
-    .amount{
-
-        font-size:21px;
-
+    .money-value{
+        font-size:16px;
     }
 
 }
 
 </style>
-
 </head>
 
 
 <body>
 
 
-<!-- =====================================================
-     TOP
-===================================================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<header class="top-area">
+<header class="top">
 
     <div class="top-inner">
 
-
-        <div class="top-bar">
-
-            <a
-                href="dashboard.html"
-                class="back-link"
-            >
-
-                <i class="fa-solid fa-arrow-left"></i>
-
-            </a>
-
-
-            <div class="mine-label">
-
-                <i class="fa-solid fa-user"></i>
-
-                MINE
-
-            </div>
-
+        <div class="eyebrow">
+            ACCOUNT PORTFOLIO
         </div>
 
-
-        <div class="page-title">
-
-            <small>
-                ACCOUNT PORTFOLIO
-            </small>
-
-            <h1>
-                My Investments
-            </h1>
-
-            <p>
-                View and monitor the investment plans
-                connected to your account.
-            </p>
-
-        </div>
-
+        <h1>
+            My Investments
+        </h1>
 
     </div>
 
 </header>
 
 
-
-<!-- =====================================================
-     SUMMARY
-===================================================== -->
-
-<section class="portfolio-summary">
-
-    <div class="summary-card">
-
-
-        <div class="summary-top">
-
-
-            <div class="summary-title">
-
-                <div class="summary-icon">
-
-                    <i class="fa-solid fa-chart-pie"></i>
-
-                </div>
-
-
-                <div>
-
-                    <h2>
-                        My Portfolio
-                    </h2>
-
-                    <p>
-                        Your personal investments
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="mine-badge">
-
-                Mine
-
-            </div>
-
-
-        </div>
-
-
-        <div class="summary-line"></div>
-
-
-        <div class="summary-note">
-
-            <i class="fa-solid fa-shield-halved"></i>
-
-            Your investment information is connected
-            to your account.
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
+<!-- =========================
      MAIN
-===================================================== -->
+========================= -->
 
-<main class="main">
+<main class="container">
 
 
-    <div class="section-header">
+    <section class="summary">
+
+        <div class="summary-label">
+            Portfolio
+        </div>
+
+        <div class="summary-title">
+            Active Investments
+        </div>
+
+        <div class="summary-text">
+            Your current investment records are listed below.
+        </div>
+
+    </section>
+
+
+    <div class="section-heading">
 
         <h2>
-            Investment Plans
+            Investment Records
         </h2>
 
-        <span>
-            My account
+        <span id="investmentCount">
+            0 plans
         </span>
 
     </div>
 
 
-    <div id="investmentContainer"></div>
+    <div id="investmentList">
+
+        <div class="message">
+
+            <div class="message-icon">
+                <i class="fa-solid fa-spinner fa-spin"></i>
+            </div>
+
+            <h3>
+                Loading investments
+            </h3>
+
+            <p>
+                Please wait while your investment records are retrieved.
+            </p>
+
+        </div>
+
+    </div>
 
 
     <button
-        class="mine-button"
-        onclick="window.location.href='dashboard.html'"
+        class="return-btn"
+        onclick="location.href='dashboard.html'"
     >
-
-        <i class="fa-solid fa-user"></i>
-
-        Return to Mine
-
+        Return to Dashboard
     </button>
 
 
 </main>
 
 
-
-<footer>
-
-    © 2026 Evergreen Investments
-
-</footer>
-
-
-
-<!-- =====================================================
-     BOTTOM NAVIGATION
-===================================================== -->
+<!-- =========================
+     BOTTOM NAV
+========================= -->
 
 <nav class="bottom-nav">
 
+    <div class="nav-inner">
 
-    <a href="home.html">
-
-        <i class="fa-solid fa-house"></i>
-
-        <span>
-            Home
-        </span>
-
-    </a>
-
-
-    <a href="investment.html">
-
-        <i class="fa-solid fa-box-open"></i>
-
-        <span>
-            Product
-        </span>
-
-    </a>
+        <a
+            href="home.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-house"></i>
+            <span>Home</span>
+        </a>
 
 
-    <a href="invite.html">
-
-        <i class="fa-solid fa-users"></i>
-
-        <span>
-            Team
-        </span>
-
-    </a>
+        <a
+            href="investment.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-chart-line"></i>
+            <span>Product</span>
+        </a>
 
 
-    <!-- MINE IS ACTIVE -->
+        <a
+            href="invite.html"
+            class="nav-item"
+        >
+            <i class="fa-solid fa-users"></i>
+            <span>Team</span>
+        </a>
 
-    <a
-        href="dashboard.html"
-        class="active"
-    >
 
-        <i class="fa-solid fa-user"></i>
+        <a
+            href="dashboard.html"
+            class="nav-item active"
+        >
+            <i class="fa-solid fa-user"></i>
+            <span>Mine</span>
+        </a>
 
-        <span>
-            Mine
-        </span>
-
-    </a>
-
+    </div>
 
 </nav>
 
 
-
 <script>
 
-/* =====================================================
-   USER
-===================================================== */
+const API =
+"https://young-invest-backend.onrender.com/api/investment";
 
-const user =
-    JSON.parse(
-        localStorage.getItem("user")
+
+const list =
+document.getElementById("investmentList");
+
+const count =
+document.getElementById("investmentCount");
+
+
+/* =========================
+   FORMAT MONEY
+========================= */
+
+function money(value){
+
+    const amount =
+        Number(value) || 0;
+
+    return "₦" + amount.toLocaleString(
+        "en-NG",
+        {
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+        }
     );
-
-
-if(!user){
-
-    window.location.href =
-        "login.html";
 
 }
 
 
-/* =====================================================
+/* =========================
+   FORMAT DATE
+========================= */
+
+function formatDate(date){
+
+    if(!date){
+        return "—";
+    }
+
+    const d =
+        new Date(date);
+
+    if(
+        Number.isNaN(
+            d.getTime()
+        )
+    ){
+        return "—";
+    }
+
+    return d.toLocaleDateString(
+        "en-NG",
+        {
+            day:"2-digit",
+            month:"short",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =========================
+   LOAD USER
+========================= */
+
+const user =
+JSON.parse(
+    localStorage.getItem("user")
+);
+
+
+if(!user || !user._id){
+
+    list.innerHTML = `
+
+        <div class="message">
+
+            <div class="message-icon">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+
+            <h3>
+                Login required
+            </h3>
+
+            <p>
+                Please log in to view your investment records.
+            </p>
+
+        </div>
+
+    `;
+
+    count.textContent =
+        "0 plans";
+
+}else{
+
+    loadInvestments();
+
+}
+
+
+/* =========================
    LOAD INVESTMENTS
-===================================================== */
+========================= */
 
 async function loadInvestments(){
-
-    const container =
-        document.getElementById(
-            "investmentContainer"
-        );
-
 
     try{
 
         const response =
             await fetch(
-                `https://young-invest-backend.onrender.com/api/investment/${user._id}`
+                `${API}/${user._id}`
             );
+
+
+        const data =
+            await response.json();
 
 
         if(!response.ok){
 
             throw new Error(
-                "Failed to load investments"
+                data.message ||
+                "Unable to load investments."
             );
 
         }
 
 
         const investments =
-            await response.json();
+            Array.isArray(data)
+                ? data
+                : (
+                    Array.isArray(data.investments)
+                        ? data.investments
+                        : []
+                );
 
 
-        container.innerHTML = "";
+        count.textContent =
+            `${investments.length} ${
+                investments.length === 1
+                    ? "plan"
+                    : "plans"
+            }`;
 
 
-        /* =================================================
-           EMPTY
-        ================================================== */
+        if(investments.length === 0){
 
-        if(!investments.length){
+            list.innerHTML = `
 
-            container.innerHTML = `
+                <div class="message">
 
-                <div class="empty-state">
-
-                    <div class="empty-icon">
-
-                        <i class="fa-solid fa-chart-line"></i>
-
+                    <div class="message-icon">
+                        <i class="fa-solid fa-folder-open"></i>
                     </div>
 
                     <h3>
-                        No Investments Yet
+                        No investments yet
                     </h3>
 
                     <p>
-                        Your investment plans will appear
-                        here after you start one.
+                        Your investment records will appear here after you start a plan.
                     </p>
 
                 </div>
@@ -1495,302 +723,35 @@ async function loadInvestments(){
         }
 
 
-        /* =================================================
-           DISPLAY
-        ================================================== */
+        list.innerHTML =
+            investments.map(
+                item => createInvestment(item)
+            ).join("");
 
-        investments.forEach(item => {
 
+    }catch(error){
 
-            const now =
-                new Date();
+        console.error(error);
 
 
-            const endDate =
-                new Date(
-                    item.endDate
-                );
+        count.textContent =
+            "0 plans";
 
 
-            const startDate =
-                new Date(
-                    item.startDate
-                );
+        list.innerHTML = `
 
+            <div class="message">
 
-            let status =
-                "Running";
-
-
-            let statusClass =
-                "running";
-
-
-            if(endDate < now){
-
-                status =
-                    "Completed";
-
-                statusClass =
-                    "completed";
-
-            }
-
-
-            const duration =
-                Number(
-                    item.duration
-                ) || 1;
-
-
-            const daysPaid =
-                Number(
-                    item.daysPaid
-                ) || 0;
-
-
-            let progress =
-                (daysPaid / duration) * 100;
-
-
-            progress =
-                Math.min(
-                    100,
-                    Math.max(
-                        0,
-                        progress
-                    )
-                );
-
-
-            container.innerHTML += `
-
-                <article class="investment-item">
-
-
-                    <div class="item-top">
-
-
-                        <div class="plan-left">
-
-
-                            <div class="plan-symbol">
-
-                                <i class="fa-solid fa-chart-line"></i>
-
-                            </div>
-
-
-                            <div class="plan-name">
-
-                                <h3>
-                                    ${
-                                        item.planName ||
-                                        "Investment Plan"
-                                    }
-                                </h3>
-
-                                <p>
-                                    Evergreen Investment
-                                </p>
-
-                            </div>
-
-
-                        </div>
-
-
-                        <span
-                            class="status ${statusClass}"
-                        >
-                            ${status}
-                        </span>
-
-
-                    </div>
-
-
-                    <div class="amount-panel">
-
-                        <div class="amount-label">
-                            Investment Amount
-                        </div>
-
-                        <div class="amount">
-
-                            ₦${Number(
-                                item.amount || 0
-                            ).toLocaleString()}
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="details">
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Daily Profit
-                            </span>
-
-                            <span class="detail-value">
-
-                                ₦${Number(
-                                    item.dailyProfit || 0
-                                ).toLocaleString()}
-
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Return
-                            </span>
-
-                            <span class="detail-value">
-
-                                ₦${Number(
-                                    item.totalReturn || 0
-                                ).toLocaleString()}
-
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Duration
-                            </span>
-
-                            <span class="detail-value">
-
-                                ${duration} Days
-
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="details">
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Days Paid
-                            </span>
-
-                            <span class="detail-value">
-
-                                ${daysPaid}/${duration}
-
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Started
-                            </span>
-
-                            <span class="detail-value">
-
-                                ${startDate.toLocaleDateString()}
-
-                            </span>
-
-                        </div>
-
-
-                        <div class="detail">
-
-                            <span class="detail-label">
-                                Ends
-                            </span>
-
-                            <span class="detail-value">
-
-                                ${endDate.toLocaleDateString()}
-
-                            </span>
-
-                        </div>
-
-
-                    </div>
-
-
-                    <div class="progress-area">
-
-
-                        <div class="progress-head">
-
-                            <span>
-                                Plan Progress
-                            </span>
-
-                            <strong>
-                                ${Math.round(progress)}%
-                            </strong>
-
-                        </div>
-
-
-                        <div class="progress-track">
-
-                            <div
-                                class="progress-bar"
-                                style="width:${progress}%"
-                            ></div>
-
-                        </div>
-
-
-                    </div>
-
-
-                </article>
-
-            `;
-
-        });
-
-
-    }
-
-    catch(error){
-
-        console.error(
-            "Investment Error:",
-            error
-        );
-
-
-        container.innerHTML = `
-
-            <div class="error-state">
-
-                <i class="fa-solid fa-circle-exclamation"></i>
+                <div class="message-icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
 
                 <h3>
-                    Unable to Load Investments
+                    Unable to load
                 </h3>
 
                 <p>
-                    Please refresh the page and try again.
+                    ${error.message || "Something went wrong while loading your investments."}
                 </p>
 
             </div>
@@ -1802,11 +763,185 @@ async function loadInvestments(){
 }
 
 
-loadInvestments();
+/* =========================
+   CREATE INVESTMENT
+========================= */
+
+function createInvestment(item){
+
+    const amount =
+        Number(item.amount) || 0;
+
+
+    const dailyProfit =
+        Number(item.dailyProfit) || 0;
+
+
+    const totalReturn =
+        Number(item.totalReturn) || 0;
+
+
+    const duration =
+        Number(item.duration) || 0;
+
+
+    const daysPaid =
+        Number(item.daysPaid) || 0;
+
+
+    const status =
+        String(
+            item.status ||
+            "RUNNING"
+        ).toUpperCase();
+
+
+    return `
+
+        <article class="investment">
+
+
+            <div class="item-top">
+
+
+                <div class="plan-wrap">
+
+                    <div class="plan-marker"></div>
+
+                    <div>
+
+                        <div class="plan-name">
+                            ${item.planName || "Investment Plan"}
+                        </div>
+
+                        <div class="plan-date">
+                            Started ${formatDate(item.startDate)}
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="status">
+                    ${status}
+                </div>
+
+
+            </div>
+
+
+            <div class="money">
+
+
+                <div class="money-box">
+
+                    <span class="money-label">
+                        Invested
+                    </span>
+
+                    <div class="money-value">
+                        ${money(amount)}
+                    </div>
+
+                </div>
+
+
+                <div class="money-box">
+
+                    <span class="money-label">
+                        Total Return
+                    </span>
+
+                    <div class="money-value return-value">
+                        ${money(totalReturn)}
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="details">
+
+
+                <div class="detail">
+
+                    <span>
+                        Daily return
+                    </span>
+
+                    <span>
+                        ${money(dailyProfit)}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Duration
+                    </span>
+
+                    <span>
+                        ${duration} days
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Days paid
+                    </span>
+
+                    <span>
+                        ${daysPaid} / ${duration}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        Start date
+                    </span>
+
+                    <span>
+                        ${formatDate(item.startDate)}
+                    </span>
+
+                </div>
+
+
+                <div class="detail">
+
+                    <span>
+                        End date
+                    </span>
+
+                    <span>
+                        ${formatDate(item.endDate)}
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </article>
+
+    `;
+
+}
 
 </script>
 
 
 </body>
-
 </html>
