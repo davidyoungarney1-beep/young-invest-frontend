@@ -43,18 +43,18 @@ async function loadBalance() {
 loadBalance();
 
 
-// ================= WITHDRAWAL POPUP =================
+// ================= WITHDRAWAL CONFIRMATION POPUP =================
 
 function showWithdrawalPopup() {
 
     const bankName =
-        document.getElementById("bankName").value;
+        document.getElementById("bankName").value.trim();
 
     const accountNumber =
-        document.getElementById("accountNumber").value;
+        document.getElementById("accountNumber").value.trim();
 
     const accountName =
-        document.getElementById("accountName").value;
+        document.getElementById("accountName").value.trim();
 
     const amount =
         Number(document.getElementById("amount").value);
@@ -166,9 +166,9 @@ function showWithdrawalPopup() {
                     </div>
 
                     <p>
-                        Your withdrawal will be processed shortly
-                        and should arrive within a few minutes.
-                        Please make sure your bank details are correct.
+                        Please confirm that your bank details
+                        are correct before submitting your
+                        withdrawal request.
                     </p>
 
                 </div>
@@ -218,7 +218,7 @@ function showWithdrawalPopup() {
     document.body.appendChild(popup);
 
 
-    // ================= POPUP STYLE =================
+    // ================= CONFIRMATION POPUP STYLE =================
 
     const style = document.createElement("style");
 
@@ -230,7 +230,6 @@ function showWithdrawalPopup() {
         .withdraw-popup-overlay {
 
             position: fixed;
-
             inset: 0;
 
             background:
@@ -240,9 +239,7 @@ function showWithdrawalPopup() {
             -webkit-backdrop-filter: blur(8px);
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             padding: 18px;
@@ -258,7 +255,6 @@ function showWithdrawalPopup() {
         .withdraw-popup {
 
             width: 100%;
-
             max-width: 410px;
 
             background: #ffffff;
@@ -283,7 +279,6 @@ function showWithdrawalPopup() {
         .withdraw-popup-header {
 
             display: flex;
-
             align-items: center;
 
             gap: 13px;
@@ -296,7 +291,6 @@ function showWithdrawalPopup() {
         .withdraw-popup-icon {
 
             width: 52px;
-
             height: 52px;
 
             border-radius: 16px;
@@ -306,9 +300,7 @@ function showWithdrawalPopup() {
             color: #0f6b4d;
 
             display: flex;
-
             align-items: center;
-
             justify-content: center;
 
             font-size: 19px;
@@ -339,7 +331,9 @@ function showWithdrawalPopup() {
 
             margin: 0;
 
-            font-family: "Manrope", sans-serif;
+            font-family:
+                "Manrope",
+                sans-serif;
 
             font-size: 18px;
 
@@ -387,7 +381,9 @@ function showWithdrawalPopup() {
 
             display: block;
 
-            font-family: "Manrope", sans-serif;
+            font-family:
+                "Manrope",
+                sans-serif;
 
             font-size: 26px;
 
@@ -531,7 +527,8 @@ function showWithdrawalPopup() {
             border-radius: 13px;
 
             font-family:
-                "Manrope", sans-serif;
+                "Manrope",
+                sans-serif;
 
             font-size: 11px;
 
@@ -620,13 +617,17 @@ function showWithdrawalPopup() {
 
             from {
                 opacity: 0;
-                transform: scale(.94)
+
+                transform:
+                    scale(.94)
                     translateY(8px);
             }
 
             to {
                 opacity: 1;
-                transform: scale(1)
+
+                transform:
+                    scale(1)
                     translateY(0);
             }
 
@@ -685,7 +686,7 @@ function showWithdrawalPopup() {
 }
 
 
-// ================= SAFETY =================
+// ================= ESCAPE TEXT =================
 
 function escapePopupText(value) {
 
@@ -704,16 +705,16 @@ function escapePopupText(value) {
 async function submitWithdrawal() {
 
     const bankName =
-        document.getElementById("bankName").value;
+        document.getElementById("bankName").value.trim();
 
     const accountNumber =
-        document.getElementById("accountNumber").value;
+        document.getElementById("accountNumber").value.trim();
 
     const accountName =
-        document.getElementById("accountName").value;
+        document.getElementById("accountName").value.trim();
 
     const amount =
-        document.getElementById("amount").value;
+        document.getElementById("amount").value.trim();
 
 
     if (
@@ -740,16 +741,16 @@ async function submitWithdrawal() {
 async function processWithdrawal() {
 
     const bankName =
-        document.getElementById("bankName").value;
+        document.getElementById("bankName").value.trim();
 
     const accountNumber =
-        document.getElementById("accountNumber").value;
+        document.getElementById("accountNumber").value.trim();
 
     const accountName =
-        document.getElementById("accountName").value;
+        document.getElementById("accountName").value.trim();
 
     const amount =
-        document.getElementById("amount").value;
+        document.getElementById("amount").value.trim();
 
 
     try {
@@ -783,13 +784,16 @@ async function processWithdrawal() {
         const data = await response.json();
 
 
-        alert(data.message);
-
-
         if (response.ok) {
 
-            window.location.href =
-                "dashboard.html";
+            showWithdrawalSuccess(amount);
+
+        } else {
+
+            showWithdrawalError(
+                data.message ||
+                "Your withdrawal request could not be submitted."
+            );
 
         }
 
@@ -798,8 +802,789 @@ async function processWithdrawal() {
 
         console.log(error);
 
-        alert("Something went wrong.");
+        showWithdrawalError(
+            "Unable to connect to the server. Please try again."
+        );
 
     }
+
+}
+
+
+// ================= SUCCESS POPUP =================
+
+function showWithdrawalSuccess(amount) {
+
+    const formattedAmount =
+        Number(amount).toLocaleString("en-NG", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+
+    const popup = document.createElement("div");
+
+    popup.id = "withdrawSuccessPopup";
+
+
+    popup.innerHTML = `
+
+        <div class="success-overlay">
+
+            <div class="success-popup">
+
+                <div class="success-icon">
+
+                    <i class="fa-solid fa-check"></i>
+
+                </div>
+
+
+                <span class="success-brand">
+                    EVERGREEN
+                </span>
+
+
+                <h2>
+                    Withdrawal Request Submitted
+                </h2>
+
+
+                <p class="success-subtitle">
+                    Your withdrawal request has been
+                    successfully submitted.
+                </p>
+
+
+                <div class="success-amount">
+
+                    <span>
+                        Requested Amount
+                    </span>
+
+                    <strong>
+                        ₦${formattedAmount}
+                    </strong>
+
+                </div>
+
+
+                <div class="success-message">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    <p>
+                        Your request has been received.
+                        You can monitor your withdrawal
+                        status from your dashboard.
+                    </p>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="success-done"
+                    id="successDone">
+
+                    Done
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </button>
+
+
+                <div class="success-secure">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    Evergreen secure withdrawal
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(popup);
+
+
+    const style = document.createElement("style");
+
+    style.id = "withdrawSuccessStyle";
+
+
+    style.textContent = `
+
+        .success-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 18px;
+
+            background:
+                rgba(3, 28, 19, .68);
+
+            backdrop-filter: blur(9px);
+
+            -webkit-backdrop-filter: blur(9px);
+
+            animation:
+                successFade .22s ease;
+
+        }
+
+
+        .success-popup {
+
+            width: 100%;
+
+            max-width: 400px;
+
+            padding: 29px 23px 22px;
+
+            background: #ffffff;
+
+            border-radius: 28px;
+
+            text-align: center;
+
+            border:
+                1px solid #e1ebe5;
+
+            box-shadow:
+                0 30px 90px
+                rgba(0,0,0,.28);
+
+            animation:
+                successScale .28s ease;
+
+        }
+
+
+        .success-icon {
+
+            width: 68px;
+
+            height: 68px;
+
+            margin: 0 auto 15px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #15966a,
+                    #0f6b4d
+                );
+
+            color: #ffffff;
+
+            font-size: 27px;
+
+            box-shadow:
+                0 12px 28px
+                rgba(15,107,77,.25);
+
+            animation:
+                successIcon .4s ease;
+
+        }
+
+
+        .success-brand {
+
+            display: block;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 8px;
+
+            letter-spacing: 2.5px;
+
+            font-weight: 800;
+
+            color: #15966a;
+
+            margin-bottom: 6px;
+
+        }
+
+
+        .success-popup h2 {
+
+            margin: 0;
+
+            color: #10251d;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 19px;
+
+            line-height: 1.25;
+
+            font-weight: 800;
+
+        }
+
+
+        .success-subtitle {
+
+            margin: 9px auto 18px;
+
+            max-width: 290px;
+
+            color: #74827c;
+
+            font-size: 10.5px;
+
+            line-height: 1.55;
+
+        }
+
+
+        .success-amount {
+
+            padding: 16px;
+
+            border-radius: 17px;
+
+            background: #f0f8f4;
+
+            border:
+                1px solid #dcebe4;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .success-amount span {
+
+            display: block;
+
+            color: #7a8982;
+
+            font-size: 9px;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        .success-amount strong {
+
+            display: block;
+
+            color: #0f6b4d;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 24px;
+
+            font-weight: 800;
+
+        }
+
+
+        .success-message {
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 9px;
+
+            text-align: left;
+
+            padding: 12px;
+
+            border-radius: 13px;
+
+            background: #fafcfb;
+
+            border:
+                1px solid #e5ece8;
+
+            margin-bottom: 17px;
+
+        }
+
+
+        .success-message i {
+
+            color: #15966a;
+
+            font-size: 12px;
+
+            margin-top: 2px;
+
+            flex-shrink: 0;
+
+        }
+
+
+        .success-message p {
+
+            margin: 0;
+
+            color: #68766f;
+
+            font-size: 9.5px;
+
+            line-height: 1.5;
+
+        }
+
+
+        .success-done {
+
+            width: 100%;
+
+            height: 48px;
+
+            border: 0;
+
+            border-radius: 14px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #073b2a,
+                    #0f6b4d
+                );
+
+            color: #ffffff;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            box-shadow:
+                0 9px 22px
+                rgba(15,107,77,.20);
+
+            transition: .2s;
+
+        }
+
+
+        .success-done:active {
+
+            transform: scale(.98);
+
+        }
+
+
+        .success-secure {
+
+            margin-top: 13px;
+
+            color: #9aa6a1;
+
+            font-size: 8px;
+
+        }
+
+
+        .success-secure i {
+
+            color: #15966a;
+
+            margin-right: 4px;
+
+        }
+
+
+        @keyframes successFade {
+
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+
+        }
+
+
+        @keyframes successScale {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.92)
+                    translateY(10px);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1)
+                    translateY(0);
+
+            }
+
+        }
+
+
+        @keyframes successIcon {
+
+            from {
+
+                opacity: 0;
+
+                transform:
+                    scale(.6);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform:
+                    scale(1);
+
+            }
+
+        }
+
+
+        @media(max-width:380px) {
+
+            .success-popup {
+
+                padding:
+                    25px 19px 20px;
+
+                border-radius: 24px;
+
+            }
+
+            .success-popup h2 {
+
+                font-size: 17px;
+
+            }
+
+            .success-amount strong {
+
+                font-size: 22px;
+
+            }
+
+        }
+
+    `;
+
+
+    document.head.appendChild(style);
+
+
+    // ================= DONE =================
+
+    document.getElementById("successDone").onclick =
+        function () {
+
+            popup.remove();
+
+            style.remove();
+
+            window.location.href =
+                "dashboard.html";
+
+        };
+
+}
+
+
+// ================= ERROR POPUP =================
+
+function showWithdrawalError(message) {
+
+    const popup = document.createElement("div");
+
+    popup.id = "withdrawErrorPopup";
+
+
+    popup.innerHTML = `
+
+        <div class="error-overlay">
+
+            <div class="error-popup">
+
+                <div class="error-icon">
+
+                    <i class="fa-solid fa-circle-exclamation"></i>
+
+                </div>
+
+
+                <span class="error-brand">
+                    EVERGREEN
+                </span>
+
+
+                <h2>
+                    Withdrawal Not Submitted
+                </h2>
+
+
+                <p>
+                    ${escapePopupText(message)}
+                </p>
+
+
+                <button
+                    type="button"
+                    id="errorDone">
+
+                    Close
+
+                </button>
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    document.body.appendChild(popup);
+
+
+    const style = document.createElement("style");
+
+    style.id = "withdrawErrorStyle";
+
+
+    style.textContent = `
+
+        .error-overlay {
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 10001;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 18px;
+
+            background:
+                rgba(3,28,19,.68);
+
+            backdrop-filter: blur(8px);
+
+            -webkit-backdrop-filter: blur(8px);
+
+        }
+
+
+        .error-popup {
+
+            width: 100%;
+
+            max-width: 370px;
+
+            background: #ffffff;
+
+            border-radius: 25px;
+
+            padding: 27px 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 30px 80px
+                rgba(0,0,0,.25);
+
+            animation:
+                errorScale .25s ease;
+
+        }
+
+
+        .error-icon {
+
+            width: 62px;
+
+            height: 62px;
+
+            margin: 0 auto 14px;
+
+            border-radius: 50%;
+
+            background: #fff0ef;
+
+            color: #c94b43;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            font-size: 25px;
+
+        }
+
+
+        .error-brand {
+
+            font-size: 8px;
+
+            letter-spacing: 2px;
+
+            font-weight: 800;
+
+            color: #15966a;
+
+        }
+
+
+        .error-popup h2 {
+
+            margin: 7px 0;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 17px;
+
+            color: #10251d;
+
+        }
+
+
+        .error-popup p {
+
+            margin: 0 auto 18px;
+
+            max-width: 290px;
+
+            color: #74827c;
+
+            font-size: 10px;
+
+            line-height: 1.55;
+
+        }
+
+
+        .error-popup button {
+
+            width: 100%;
+
+            height: 46px;
+
+            border: 0;
+
+            border-radius: 13px;
+
+            background: #0f6b4d;
+
+            color: white;
+
+            font-family:
+                "Manrope",
+                sans-serif;
+
+            font-size: 11px;
+
+            font-weight: 800;
+
+            cursor: pointer;
+
+        }
+
+
+        @keyframes errorScale {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(.94);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+    `;
+
+
+    document.head.appendChild(style);
+
+
+    document.getElementById("errorDone").onclick =
+        function () {
+
+            popup.remove();
+
+            style.remove();
+
+        };
 
 }
