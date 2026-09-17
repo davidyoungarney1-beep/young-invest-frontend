@@ -12,7 +12,7 @@
 
 <meta
     name="theme-color"
-    content="#083d2e"
+    content="#073b2a"
 >
 
 <title>
@@ -20,9 +20,7 @@
 </title>
 
 
-<!-- =====================================================
-     GOOGLE FONTS
-===================================================== -->
+<!-- GOOGLE FONTS -->
 
 <link
     rel="preconnect"
@@ -32,6 +30,11 @@
 <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
+>
+
+<link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
     crossorigin
 >
 
@@ -41,9 +44,7 @@
 >
 
 
-<!-- =====================================================
-     FONT AWESOME
-===================================================== -->
+<!-- FONT AWESOME -->
 
 <link
     rel="stylesheet"
@@ -59,31 +60,21 @@
 
 :root{
 
-    --evergreen:#147a58;
+    --forest:#073b2a;
+    --evergreen:#0f6b4d;
+    --green:#15966a;
 
-    --evergreen-dark:#083d2e;
-
-    --green:#20a873;
-
-    --light-green:#e8f7f0;
-
-    --background:#f4f8f6;
-
+    --background:#f6f8f7;
     --white:#ffffff;
 
-    --text:#12251e;
+    --text:#10251d;
+    --muted:#7b8983;
 
-    --muted:#718079;
-
-    --border:#e1ebe6;
-
-    --red:#e74c3c;
+    --border:#e4ebe7;
 
     --orange:#f59e0b;
-
-    --blue:#3b82f6;
-
-    --purple:#7c3aed;
+    --red:#df5145;
+    --blue:#3978d6;
 
 }
 
@@ -93,13 +84,9 @@
 ===================================================== */
 
 *{
-
     margin:0;
-
     padding:0;
-
     box-sizing:border-box;
-
 }
 
 
@@ -121,7 +108,7 @@ body{
 
     min-height:100vh;
 
-    padding-bottom:80px;
+    padding-bottom:85px;
 
 }
 
@@ -133,58 +120,62 @@ body{
 .header{
 
     background:
-        linear-gradient(
-            135deg,
-            #062f24,
-            #083d2e 50%,
-            #147a58
-        );
+        var(--forest);
 
     color:white;
 
     padding:
-        17px 16px 25px;
+        18px 16px 30px;
 
 }
 
 
-.header-top{
+.header-inner{
 
-    max-width:700px;
+    max-width:720px;
 
     margin:auto;
-
-    display:flex;
-
-    align-items:center;
-
-    gap:13px;
 
 }
 
 
 /* =====================================================
-   BACK BUTTON
+   TOP BAR
 ===================================================== */
+
+.topbar{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+}
+
 
 .back-button{
 
-    width:40px;
+    width:38px;
 
-    height:40px;
+    height:38px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.16);
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:white;
+
+    border-radius:10px;
 
     display:flex;
 
     align-items:center;
 
     justify-content:center;
-
-    border-radius:12px;
-
-    background:
-        rgba(255,255,255,.12);
-
-    color:white;
 
     text-decoration:none;
 
@@ -193,127 +184,79 @@ body{
 
 .back-button i{
 
-    font-size:15px;
+    font-size:14px;
 
 }
 
 
 /* =====================================================
-   LOGO
+   HEADER LABEL
 ===================================================== */
 
-.evergreen-logo{
+.header-label{
 
-    width:39px;
+    font-size:9px;
 
-    height:39px;
+    letter-spacing:2.5px;
 
-    position:relative;
+    font-weight:700;
 
-    flex-shrink:0;
-
-}
-
-
-.logo-leaf{
-
-    position:absolute;
-
-    width:17px;
-
-    height:24px;
-
-    background:#20a873;
-
-    border-radius:
-        100% 0 100% 0;
+    color:
+        rgba(255,255,255,.48);
 
 }
 
 
-.logo-leaf.one{
+.header-title{
 
-    left:3px;
-
-    top:1px;
-
-    transform:
-        rotate(-35deg);
+    margin-top:24px;
 
 }
 
 
-.logo-leaf.two{
-
-    right:2px;
-
-    top:1px;
-
-    transform:
-        rotate(35deg)
-        scaleX(-1);
-
-}
-
-
-.logo-leaf.three{
-
-    left:10px;
-
-    top:10px;
-
-    background:#75d6ad;
-
-    transform:
-        rotate(-5deg);
-
-}
-
-
-.logo-trunk{
-
-    position:absolute;
-
-    width:5px;
-
-    height:20px;
-
-    left:17px;
-
-    bottom:0;
-
-    background:#d8b58a;
-
-    border-radius:4px;
-
-}
-
-
-/* =====================================================
-   HEADER TEXT
-===================================================== */
-
-.header-text h1{
+.header-title h1{
 
     font-family:
         "Manrope",
         sans-serif;
 
-    font-size:19px;
+    font-size:27px;
 
     font-weight:800;
+
+    letter-spacing:-.7px;
 
 }
 
 
-.header-text p{
+.header-title p{
+
+    margin-top:5px;
 
     font-size:11px;
 
     color:
-        rgba(255,255,255,.68);
+        rgba(255,255,255,.58);
 
-    margin-top:3px;
+}
+
+
+/* =====================================================
+   HEADER LINE
+===================================================== */
+
+.header-line{
+
+    width:42px;
+
+    height:3px;
+
+    background:
+        var(--green);
+
+    margin-top:18px;
+
+    border-radius:3px;
 
 }
 
@@ -326,41 +269,49 @@ body{
 
     width:100%;
 
-    max-width:700px;
+    max-width:720px;
 
     margin:auto;
 
     padding:
-        0 15px 30px;
+        0 15px 35px;
 
 }
 
 
 /* =====================================================
-   SUMMARY CARD
+   ACTIVITY INTRO
 ===================================================== */
 
-.summary-card{
+.activity-intro{
 
     background:white;
+
+    margin-top:-10px;
+
+    padding:18px 17px;
 
     border:
         1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:14px;
 
-    padding:19px;
+    display:flex;
 
-    margin-top:-8px;
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:15px;
 
     box-shadow:
-        0 10px 30px
-        rgba(8,61,46,.07);
+        0 8px 25px
+        rgba(7,59,42,.05);
 
 }
 
 
-.summary-top{
+.intro-left{
 
     display:flex;
 
@@ -371,13 +322,13 @@ body{
 }
 
 
-.summary-icon{
+/* Different from the old rounded icon */
 
-    width:45px;
+.intro-mark{
 
-    height:45px;
+    width:34px;
 
-    border-radius:14px;
+    height:34px;
 
     display:flex;
 
@@ -385,8 +336,8 @@ body{
 
     justify-content:center;
 
-    background:
-        var(--light-green);
+    border-left:
+        3px solid var(--green);
 
     color:
         var(--evergreen);
@@ -394,14 +345,72 @@ body{
 }
 
 
-.summary-icon i{
+.intro-mark i{
 
-    font-size:18px;
+    font-size:15px;
 
 }
 
 
-.summary-text h2{
+.intro-text h2{
+
+    font-family:
+        "Manrope",
+        sans-serif;
+
+    font-size:13px;
+
+    font-weight:800;
+
+}
+
+
+.intro-text p{
+
+    margin-top:3px;
+
+    color:var(--muted);
+
+    font-size:10px;
+
+}
+
+
+.intro-status{
+
+    font-size:8px;
+
+    font-weight:700;
+
+    color:
+        var(--green);
+
+    letter-spacing:.5px;
+
+    white-space:nowrap;
+
+}
+
+
+/* =====================================================
+   SECTION HEADER
+===================================================== */
+
+.section-head{
+
+    margin:
+        25px 2px 13px;
+
+    display:flex;
+
+    align-items:end;
+
+    justify-content:space-between;
+
+}
+
+
+.section-head h3{
 
     font-family:
         "Manrope",
@@ -414,61 +423,18 @@ body{
 }
 
 
-.summary-text p{
+.section-head span{
 
     color:
         var(--muted);
 
-    font-size:11px;
-
-    margin-top:3px;
+    font-size:9px;
 
 }
 
 
 /* =====================================================
-   SECTION TITLE
-===================================================== */
-
-.section-title{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    margin:
-        22px 2px 11px;
-
-}
-
-
-.section-title h3{
-
-    font-family:
-        "Manrope",
-        sans-serif;
-
-    font-size:14px;
-
-    font-weight:800;
-
-}
-
-
-.section-title span{
-
-    font-size:11px;
-
-    color:
-        var(--muted);
-
-}
-
-
-/* =====================================================
-   TRANSACTIONS
+   TRANSACTION LIST
 ===================================================== */
 
 #transactions{
@@ -477,7 +443,7 @@ body{
 
     flex-direction:column;
 
-    gap:11px;
+    gap:8px;
 
 }
 
@@ -495,15 +461,42 @@ body{
     border:
         1px solid var(--border);
 
-    border-radius:17px;
+    border-radius:12px;
 
-    padding:15px;
+    padding:
+        15px 14px 14px 17px;
 
     box-shadow:
-        0 5px 18px
-        rgba(8,61,46,.035);
+        0 4px 14px
+        rgba(7,59,42,.025);
 
     overflow:hidden;
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
+}
+
+
+/* left transaction indicator */
+
+.transaction::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    top:0;
+
+    bottom:0;
+
+    width:3px;
+
+    background:
+        #dfe8e3;
 
 }
 
@@ -516,17 +509,17 @@ body{
 
     display:flex;
 
-    align-items:center;
+    align-items:flex-start;
 
     justify-content:space-between;
 
-    gap:12px;
+    gap:15px;
 
 }
 
 
 /* =====================================================
-   TYPE
+   TRANSACTION TYPE
 ===================================================== */
 
 .type{
@@ -535,12 +528,14 @@ body{
         "Manrope",
         sans-serif;
 
-    font-size:14px;
+    font-size:13px;
 
     font-weight:800;
 
     color:
         var(--text);
+
+    line-height:1.35;
 
 }
 
@@ -555,18 +550,20 @@ body{
         "Manrope",
         sans-serif;
 
-    font-size:15px;
+    font-size:14px;
 
     font-weight:800;
 
     color:
         var(--evergreen);
 
+    white-space:nowrap;
+
 }
 
 
 /* =====================================================
-   STATUS ROW
+   STATUS
 ===================================================== */
 
 .status{
@@ -575,73 +572,48 @@ body{
 
     align-items:center;
 
-    justify-content:center;
-
-    margin-top:9px;
+    margin-top:8px;
 
     padding:
-        5px 10px;
+        4px 8px;
 
-    border-radius:30px;
+    border-radius:5px;
 
-    font-size:10px;
+    font-size:8px;
 
     font-weight:700;
 
     color:white;
 
+    letter-spacing:.2px;
+
 }
 
 
-/* =====================================================
-   STATUS COLORS
-===================================================== */
+/* STATUS COLORS */
 
 .Pending{
-
-    background:
-        var(--orange);
-
+    background:var(--orange);
 }
-
 
 .Approved{
-
-    background:
-        var(--green);
-
+    background:var(--green);
 }
-
 
 .Rejected{
-
-    background:
-        var(--red);
-
+    background:var(--red);
 }
-
 
 .Active{
-
-    background:
-        var(--blue);
-
+    background:var(--blue);
 }
-
 
 .Completed{
-
-    background:
-        #6b7280;
-
+    background:#69736f;
 }
 
-
 .Credited{
-
-    background:
-        var(--green);
-
+    background:var(--green);
 }
 
 
@@ -657,22 +629,27 @@ body{
 
     gap:6px;
 
-    margin-top:9px;
+    margin-top:10px;
 
-    font-size:11px;
+    padding-top:9px;
+
+    border-top:
+        1px solid #edf1ef;
 
     color:
         var(--muted);
+
+    font-size:9px;
 
 }
 
 
 .date i{
 
-    font-size:10px;
+    font-size:9px;
 
     color:
-        #91a49b;
+        #9ba8a2;
 
 }
 
@@ -688,23 +665,27 @@ body{
     border:
         1px solid var(--border);
 
-    border-radius:20px;
+    border-radius:14px;
 
     padding:
-        45px 20px;
+        52px 22px;
 
     text-align:center;
 
 }
 
 
-.empty-state i{
+.empty-symbol{
 
-    width:58px;
+    width:44px;
 
-    height:58px;
+    height:44px;
 
-    border-radius:18px;
+    margin:
+        0 auto 17px;
+
+    border:
+        1px solid #dbe6e0;
 
     display:flex;
 
@@ -712,16 +693,18 @@ body{
 
     justify-content:center;
 
-    margin:
-        0 auto 15px;
-
-    background:
-        var(--light-green);
-
     color:
         var(--evergreen);
 
-    font-size:22px;
+    background:
+        #f5faf7;
+
+}
+
+
+.empty-symbol i{
+
+    font-size:17px;
 
 }
 
@@ -732,7 +715,7 @@ body{
         "Manrope",
         sans-serif;
 
-    font-size:15px;
+    font-size:14px;
 
     margin-bottom:6px;
 
@@ -741,18 +724,22 @@ body{
 
 .empty-state p{
 
-    font-size:12px;
+    max-width:260px;
+
+    margin:auto;
+
+    font-size:10px;
+
+    line-height:1.6;
 
     color:
         var(--muted);
-
-    line-height:1.6;
 
 }
 
 
 /* =====================================================
-   BOTTOM NAVIGATION
+   BOTTOM NAV
 ===================================================== */
 
 .bottom-nav{
@@ -776,19 +763,22 @@ body{
 
     align-items:center;
 
-    justify-content:
-        space-around;
+    justify-content:space-around;
 
     z-index:1000;
 
     box-shadow:
         0 -5px 20px
-        rgba(8,61,46,.06);
+        rgba(7,59,42,.06);
 
 }
 
 
 .bottom-nav a{
+
+    position:relative;
+
+    min-width:58px;
 
     display:flex;
 
@@ -798,13 +788,13 @@ body{
 
     justify-content:center;
 
-    gap:4px;
+    gap:5px;
 
     text-decoration:none;
 
-    color:#8b9993;
+    color:#929d98;
 
-    font-size:10px;
+    font-size:9px;
 
     font-weight:600;
 
@@ -813,7 +803,7 @@ body{
 
 .bottom-nav a i{
 
-    font-size:17px;
+    font-size:15px;
 
 }
 
@@ -826,10 +816,22 @@ body{
 }
 
 
-.bottom-nav a.active i{
+/* active line instead of rounded icon */
 
-    transform:
-        translateY(-1px);
+.bottom-nav a.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:18px;
+
+    height:2px;
+
+    background:
+        var(--evergreen);
 
 }
 
@@ -849,30 +851,54 @@ body{
     }
 
 
-    .summary-card{
+    .header{
 
-        padding:16px;
+        padding-left:14px;
+
+        padding-right:14px;
+
+    }
+
+
+    .header-title h1{
+
+        font-size:24px;
+
+    }
+
+
+    .activity-intro{
+
+        padding:16px 14px;
+
+    }
+
+
+    .intro-status{
+
+        display:none;
 
     }
 
 
     .transaction{
 
-        padding:14px;
+        padding:
+            14px 12px 13px 15px;
 
     }
 
 
     .type{
 
-        font-size:13px;
+        font-size:12px;
 
     }
 
 
     .amount{
 
-        font-size:14px;
+        font-size:13px;
 
     }
 
@@ -892,41 +918,41 @@ body{
 
 <header class="header">
 
-    <div class="header-top">
+    <div class="header-inner">
 
 
-        <a
-            href="dashboard.html"
-            class="back-button"
-        >
-
-            <i class="fa-solid fa-arrow-left"></i>
-
-        </a>
+        <div class="topbar">
 
 
-        <div class="evergreen-logo">
+            <a
+                href="dashboard.html"
+                class="back-button"
+            >
 
-            <div class="logo-leaf one"></div>
+                <i class="fa-solid fa-arrow-left"></i>
 
-            <div class="logo-leaf two"></div>
+            </a>
 
-            <div class="logo-leaf three"></div>
 
-            <div class="logo-trunk"></div>
+            <span class="header-label">
+                EVERGREEN ACCOUNT
+            </span>
+
 
         </div>
 
 
-        <div class="header-text">
+        <div class="header-title">
 
             <h1>
                 Transactions
             </h1>
 
             <p>
-                Evergreen Investments
+                A complete record of your account activity
             </p>
+
+            <div class="header-line"></div>
 
         </div>
 
@@ -944,31 +970,29 @@ body{
 <main class="container">
 
 
-    <!-- =================================================
-         SUMMARY
-    ================================================== -->
+    <!-- ACTIVITY INTRO -->
 
-    <div class="summary-card">
-
-        <div class="summary-top">
+    <section class="activity-intro">
 
 
-            <div class="summary-icon">
+        <div class="intro-left">
 
-                <i class="fa-solid fa-arrow-right-arrow-left"></i>
+
+            <div class="intro-mark">
+
+                <i class="fa-solid fa-list-check"></i>
 
             </div>
 
 
-            <div class="summary-text">
+            <div class="intro-text">
 
                 <h2>
                     Account Activity
                 </h2>
 
                 <p>
-                    Deposits, withdrawals, investments
-                    and earnings
+                    Your latest financial movements
                 </p>
 
             </div>
@@ -976,31 +1000,33 @@ body{
 
         </div>
 
-    </div>
+
+        <span class="intro-status">
+            LIVE RECORD
+        </span>
+
+
+    </section>
 
 
 
-    <!-- =================================================
-         SECTION TITLE
-    ================================================== -->
+    <!-- SECTION -->
 
-    <div class="section-title">
+    <div class="section-head">
 
         <h3>
-            Recent Transactions
+            Recent Activity
         </h3>
 
         <span>
-            Account history
+            Transaction history
         </span>
 
     </div>
 
 
 
-    <!-- =================================================
-         TRANSACTIONS
-    ================================================== -->
+    <!-- TRANSACTIONS -->
 
     <div id="transactions">
 
@@ -1071,13 +1097,11 @@ body{
 
 
 
-<!-- =====================================================
-     EXISTING TRANSACTION SCRIPT
-===================================================== -->
+<!-- EXISTING TRANSACTION SCRIPT -->
 
 <script src="transaction.js"></script>
 
 
 </body>
 
-    </html>
+</html>
