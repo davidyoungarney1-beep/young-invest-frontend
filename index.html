@@ -36,20 +36,20 @@ rel="stylesheet">
 
 
 <!-- =====================================================
-     FLOATING APP DOWNLOAD
+     FLOATING APP
 ===================================================== -->
 
-<a
-href="https://github.com/davidyoungarney1-beep/young-invest-frontend/releases/download/v1.0.0/CrestWealth.apk"
+<button
+type="button"
 class="app-download"
-download
-aria-label="Download App">
+id="appComingSoon"
+aria-label="App coming soon">
 
-<i class="fa-solid fa-download"></i>
+<i class="fa-solid fa-mobile-screen-button"></i>
 
 <span>App</span>
 
-</a>
+</button>
 
 
 
@@ -180,10 +180,20 @@ id="home">
         </div>
 
 
+        <!-- LARGE EVERGREEN IMAGE -->
+
+        <div class="hero-image">
+
+            <img
+            src="https://www.resourcewise.com/hs-fs/hubfs/images/forest-products/hero/timberland-management.jpg?height=800&name=timberland-management.jpg&width=1900"
+            alt="Evergreen forest">
+
+        </div>
+
+
         <h1>
 
-            A Clearer Way To Manage
-            Your Financial Goals
+            Grow With Evergreen
 
         </h1>
 
@@ -245,11 +255,11 @@ id="home">
 
             <span>
 
-                Account Overview
+                Evergreen Overview
 
             </span>
 
-            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-leaf"></i>
 
         </div>
 
@@ -1351,6 +1361,39 @@ function(){
     });
 
 });
+
+
+
+/* APP COMING SOON */
+
+const appComingSoon =
+document.getElementById("appComingSoon");
+
+if(appComingSoon){
+
+    appComingSoon.addEventListener(
+    "click",
+    function(){
+
+        const text =
+        appComingSoon.querySelector("span");
+
+        text.textContent =
+        "Coming Soon";
+
+        setTimeout(
+        function(){
+
+            text.textContent =
+            "App";
+
+        },
+        2000
+        );
+
+    });
+
+}
 
 </script>
 
